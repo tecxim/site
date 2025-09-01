@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Completo de Finanças Pessoais – Transforme Sua Vida Financeira</title>
+    <meta name="description" content="Descubra técnicas práticas para organizar suas finanças, economizar e investir com segurança. Compre o e-book agora!">
+    <meta name="keywords" content="finanças pessoais, educação financeira, ebook financeiro, investimentos, economia">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Guia Completo de Finanças Pessoais – Transforme Sua Vida Financeira">
+    <meta property="og:description" content="Descubra técnicas práticas para organizar suas finanças, economizar e investir com segurança. Compre o e-book agora!">
+    <meta property="og:image" content="URL_DA_IMAGEM_HERO">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- CSS Embarcado -->
+    <style>
+        /* Fontes */
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Animações */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Efeitos de Scroll */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+        }
+
+        /* Seções */
+        section {
+            padding: 80px 0;
+        }
+
+        #hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        #cta {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .display-4 {
+                font-size: 2.5rem;
+            }
+            .lead {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu de Navegação Fixo -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#hero">
+                <strong>Finanças Pessoais</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#beneficios">Benefícios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#depoimentos">Depoimentos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cta">Comprar</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="py-5 text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Domine Suas Finanças e Alcance a Liberdade!</h1>
+            <p class="lead mb-5">Aprenda técnicas comprovadas para economizar, investir e multiplicar seu dinheiro com segurança.</p>
+            <a href="URL_DO_EBOOK" class="btn btn-primary btn-lg px-4 py-3">Comprar Agora por R$ XX,XX</a>
+        </div>
+    </section>
+
+    <!-- Sobre o E-book -->
+    <section id="sobre" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Sobre o E-book</h2>
+                    <p>Este e-book é um guia completo para quem deseja organizar suas finanças, cortar gastos desnecessários e começar a investir com segurança. Com linguagem clara e exemplos práticos, você aprenderá:</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Como criar um orçamento pessoal eficiente</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Técnicas para economizar sem abrir mão da qualidade de vida</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Os melhores investimentos para iniciantes</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <img src="imagens/capa_financas.jpg" alt="Planejamento Financeiro" class="img-fluid rounded shadow animate-fade-in">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section id="beneficios" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Benefícios do E-book</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 animate-fade-in">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-cash-stack fs-1 mb-3 text-primary"></i>
+                            <h3 class="card-title mb-3">Economize Mais</h3>
+                            <p class="card-text">Aprenda a identificar e cortar gastos desnecessários, aumentando sua capacidade de poupança.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 animate-fade-in">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-graph-up fs-1 mb-3 text-primary"></i>
+                            <h3 class="card-title mb-3">Invista com Segurança</h3>
+                            <p class="card-text">Descubra os melhores investimentos para iniciantes e como diversificar sua carteira.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 animate-fade-in">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-shield-check fs-1 mb-3 text-primary"></i>
+                            <h3 class="card-title mb-3">Proteja Seu Futuro</h3>
+                            <p class="card-text">Saiba como se preparar para imprevistos e garantir estabilidade financeira a longo prazo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Depoimentos</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 animate-fade-in">
+                        <div class="card-body text-center p-4">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Depoimento" class="rounded-circle mb-3" width="80">
+                            <p class="card-text fst-italic">"Este e-book mudou minha relação com o dinheiro. Finalmente consegui organizar minhas finanças e começar a investir!"</p>
+                            <h5 class="card-title mb-0">Ana Carolina</h5>
+                            <p class="text-muted">Empreendedora</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 animate-fade-in">
+                        <div class="card-body text-center p-4">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Depoimento" class="rounded-circle mb-3" width="80">
+                            <p class="card-text fst-italic">"Recomendo para quem quer sair do vermelho e construir patrimônio. Linguagem simples e direta ao ponto."</p>
+                            <h5 class="card-title mb-0">Carlos Eduardo</h5>
+                            <p class="text-muted">Analista de TI</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 animate-fade-in">
+                        <div class="card-body text-center p-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Depoimento" class="rounded-circle mb-3" width="80">
+                            <p class="card-text fst-italic">"Graças a este guia, consegui quitar minhas dívidas e fazer minha primeira aplicação. Vale cada centavo!"</p>
+                            <h5 class="card-title mb-0">Fernanda Oliveira</h5>
+                            <p class="text-muted">Professora</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="cta" class="py-5 text-center">
+        <div class="container">
+            <h2 class="mb-4">Pronto para Transformar Sua Vida Financeira?</h2>
+            <p class="lead mb-5">Não deixe para depois. Comece hoje mesmo a construir um futuro financeiro sólido e seguro.</p>
+            <a href="URL_DO_EBOOK" class="btn btn-light btn-lg px-4 py-3">Comprar Agora e Começar a Mudança!</a>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="py-4">
+        <div class="container text-center">
+            <p class="mb-3">&copy; 2025 Guia de Finanças Pessoais. Todos os direitos reservados.</p>
+            <div class="social-icons">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Animações ao Scroll -->
+    <script>
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.animate-fade-in');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
