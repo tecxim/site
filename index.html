@@ -3,30 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia Completo de Finanças Pessoais – Transforme Sua Vida Financeira em 30 Dias</title>
-    <meta name="description" content="Domine suas finanças de uma vez por todas! Método comprovado para economizar, investir com segurança e conquistar liberdade financeira. Compre agora com desconto especial!">
-    <meta name="keywords" content="finanças pessoais, educação financeira, ebook financeiro, investimentos, economia, independência financeira, como economizar dinheiro">
+    <title>Guia Completo de Finanças Pessoais – Transforme Sua Vida Financeira HOJE!</title>
+    <meta name="description" content="Domine suas finanças com o guia definitivo! Aprenda a economizar, investir e conquistar sua liberdade financeira com técnicas comprovadas. Promoção relâmpago: de R$ 39,90 por apenas R$ 29,90!">
+    <meta name="keywords" content="finanças pessoais, educação financeira, ebook financeiro, investimentos, economia, liberdade financeira, como economizar, como investir">
     <!-- Open Graph -->
-    <meta property="og:title" content="Guia Completo de Finanças Pessoais – Transforme Sua Vida Financeira">
-    <meta property="og:description" content="Domine suas finanças de uma vez por todas! Método comprovado para economizar, investir com segurança e conquistar liberdade financeira.">
+    <meta property="og:title" content="Guia Completo de Finanças Pessoais – Transforme Sua Vida Financeira HOJE!">
+    <meta property="og:description" content="Descubra o segredo para organizar suas finanças, eliminar dívidas e multiplicar seu dinheiro com segurança. Promoção por tempo limitado: de R$ 39,90 por R$ 29,90!">
     <meta property="og:image" content="URL_DA_IMAGEM_HERO">
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <!-- AOS Library for Scroll Animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-   
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --success: #27ae60;
+            --gold: #f1c40f;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        #hero {
+            background: linear-gradient(135deg, rgba(41, 128, 185, 0.85), rgba(39, 174, 96, 0.85)), url('https://mistralaiblackforestprod.blob.core.windows.net/images/blackforest/55d8/6881/-2bf/1-4773-a806-aa8b261caa97/image.jpg?se=2025-09-06T21%3A11%3A33Z&sp=r&sv=2025-07-05&sr=b&sig=%2BVPW3100MAJ494dI1kWjyBzKrjIxIpSkJ7zGD3Ffa6E%3D');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            position: relative;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        #hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        .btn-primary {
+            background: var(--gold);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary:hover {
+            background: #f39c12;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .btn-light {
+            background: white;
+            color: var(--primary);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-light:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .section-padding {
+            padding: 80px 0;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-radius: 10px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .countdown {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+        .countdown .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        .badge-promo {
+            background: #e74c3c;
+            color: white;
+            font-size: 0.8rem;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            padding: 5px 10px;
+            border-radius: 50%;
+        }
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .animate-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .depoimento-card {
+            border-left: 4px solid var(--gold);
+        }
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 50px 0;
+            }
+            #hero {
+                padding: 100px 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Menu de Navegação Fixo -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#hero">
-                <strong><i class="bi bi-graph-up"></i> FinançasPro</strong>
+            <a class="navbar-brand fw-bold" href="#hero">
+                <i class="bi bi-cash-coin me-2"></i>FINANÇAS<span class="text-primary">INTELIGENTES</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -34,170 +162,180 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#beneficios">Vantagens</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#conteudo">Conteúdo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#beneficios">Benefícios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bonus">Bônus Exclusivo</a></li>
                     <li class="nav-item"><a class="nav-link" href="#depoimentos">Depoimentos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#oferta">Oferta</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#faq">Dúvidas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cta">Oferta</a></li>
                 </ul>
-                <a href="#oferta" class="btn btn-primary ms-3 d-none d-lg-block">Comprar Agora</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="py-5">
+    <section id="hero" class="text-center">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 hero-content" data-aos="fade-right">
-                    <span class="badge bg-light text-dark mb-3">LANÇAMENTO EXCLUSIVO</span>
-                    <h1 class="display-4 fw-bold mb-4">Domine Suas Finanças e Conquiste a <span class="text-warning">Liberdade</span> em 2025!</h1>
-                    <p class="lead">Descubra o método passo a passo que já transformou a vida financeira de mais de 5.000 pessoas. Economize, invista com segurança e construa o futuro dos seus sonhos!</p>
-
-                    <div class="d-flex flex-wrap align-items-center mb-4">
-                        <a href="#oferta" class="btn btn-primary btn-lg px-4 py-3 me-3 mb-3">Quero Garantir Meu E-book Agora!</a>
-                        <div class="d-flex align-items-center text-white mb-3">
-                            <i class="bi bi-shield-check me-2 fs-4"></i>
-                            <span>Compra 100% Segura</span>
-                        </div>
-                    </div>
-
-                    <div class="countdown" data-aos="fade-up">
-                        <h5 class="mb-3">Oferta especial termina em:</h5>
-                        <div class="d-flex justify-content-center">
-                            <div class="countdown-item">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="badge-promo animate__animated animate__pulse animate__infinite">PROMOÇÃO RELÂMPAGO</div>
+                    <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">
+                        DOMINE SUAS FINANÇAS E CONQUISTE A <span class="text-warning">LIBERDADE FINANCEIRA</span> EM 30 DIAS!
+                    </h1>
+                    <p class="lead mb-5 animate__animated animate__fadeInUp animate__delay-1s">
+                        Descubra o método <strong>comprovado</strong> para eliminar dívidas, multiplicar sua renda e construir um futuro próspero — mesmo que você não entenda nada de finanças!
+                    </p>
+                    <div class="countdown mb-4 animate__animated animate__fadeInUp animate__delay-1s">
+                        <h5 class="mb-3">OFERTA POR TEMPO LIMITADO:</h5>
+                        <div class="d-flex justify-content-center gap-3">
+                            <div class="text-center">
                                 <div class="countdown-number" id="days">00</div>
-                                <div class="countdown-label">Dias</div>
+                                <small>DIAS</small>
                             </div>
-                            <div class="countdown-item">
+                            <div class="text-center">
                                 <div class="countdown-number" id="hours">00</div>
-                                <div class="countdown-label">Horas</div>
+                                <small>HORAS</small>
                             </div>
-                            <div class="countdown-item">
+                            <div class="text-center">
                                 <div class="countdown-number" id="minutes">00</div>
-                                <div class="countdown-label">Minutos</div>
+                                <small>MINUTOS</small>
                             </div>
-                            <div class="countdown-item">
+                            <div class="text-center">
                                 <div class="countdown-number" id="seconds">00</div>
-                                <div class="countdown-label">Segundos</div>
+                                <small>SEGUNDOS</small>
                             </div>
                         </div>
+                        <div class="mt-3">
+                            <span class="fw-bold h4 text-danger">DE: <s>R$ 39,90</s></span>
+                            <span class="fw-bold h3 ms-3 text-success">POR: R$ 29,90</span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="position-relative">
-                        <span class="promo-badge">70% OFF</span>
-                        <img src="imagens/capa_financas1.png" alt="Capa do E-book Finanças Pessoais" class="img-fluid rounded shadow">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="0">
-                    <div class="stats-number" data-count="5000">0</div>
-                    <div class="stats-label">Pessoas Impactadas</div>
-                </div>
-                <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stats-number" data-count="120">0</div>
-                    <div class="stats-label">Páginas</div>
-                </div>
-                <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stats-number" data-count="15">0</div>
-                    <div class="stats-label">Bônus Exclusivos</div>
-                </div>
-                <div class="col-md-3 col-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stats-number" data-count="7">0</div>
-                    <div class="stats-label">Dias de Garantia</div>
+                    <a href="https://pay.hotmart.com/A101750645D" class="btn btn-primary btn-lg px-4 py-3 animate__animated animate__fadeInUp animate__delay-2s">
+                        <i class="bi bi-lock-fill me-2"></i> QUERO MINHA CÓPIA AGORA!
+                    </a>
+                    <p class="mt-3 small text-muted animate__animated animate__fadeInUp animate__delay-2s">
+                        <i class="bi bi-credit-card me-2"></i> Pagamento 100% seguro via Hotmart
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Sobre o E-book -->
-    <section id="sobre" class="py-5">
+    <section id="sobre" class="section-padding bg-light">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <h2 class="mb-4">Chega de Dificuldades Financeiras! <span class="text-primary">É Hora de Transformar</span> Sua Realidade</h2>
-                    <p>Você já se perguntou como algumas pessoas conseguem prosperar financeiramente enquanto outras lutam constantemente? O segredo não está em ganhar mais, mas em administrar melhor!</p>
-                    <p>Nosso e-book <strong>"Domine Suas Finanças"</strong> é um guia completo com estratégias práticas que vão desde o básico do controle financeiro até investimentos inteligentes. Tudo explicado em linguagem clara e acessível, mesmo para iniciantes absolutos.</p>
-
-                    <ul class="feature-list mt-4">
-                        <li><i class="bi bi-check-circle-fill"></i> Método testado e aprovado por especialistas do mercado financeiro</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Passo a passo para sair das dívidas de uma vez por todas</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Estratégias para economizar sem sacrificar sua qualidade de vida</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Guia de investimentos para iniciantes com segurança</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Planilhas exclusivas para acompanhamento personalizado</li>
-                    </ul>
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <img
+                        src="https://mistralaiblackforestprod.blob.core.windows.net/images/blackforest/1ef7/d576/-a1e/3-4d36-9140-351b93edf9e5/image.jpg?se=2025-09-06T21%3A11%3A33Z&sp=r&sv=2025-07-05&sr=b&sig=JKhfAidwheRu1ZAlMm5DZpZZJKs1jyoKXE49cddnkTA%3D"
+                        alt="Capa do Ebook Guia Completo de Finanças Pessoais"
+                        class="img-fluid rounded shadow-lg animate-fade-in"
+                        data-animate="fadeInLeft">
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <img src="imagens/capa_financas1.png" alt="Planejamento Financeiro" class="img-fluid rounded shadow">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Por Que Este Ebook é <span class="text-primary">Diferente</span>?</h2>
+                    <p class="mb-4 animate-fade-in" data-animate="fadeInRight">
+                        Este não é mais um guia genérico de finanças. É um <strong>plano de ação passo a passo</strong> para transformar sua relação com o dinheiro em apenas 4 semanas.
+                        Com <strong>42 páginas de conteúdo prático</strong>, você vai aprender:
+                    </p>
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start animate-fade-in" data-animate="fadeInRight">
+                                <i class="bi bi-check2-circle text-primary me-3 fs-4"></i>
+                                <div>
+                                    <h6 class="mb-1">Técnica dos 3 Pilares</h6>
+                                    <small>O método infalível para organizar suas finanças em apenas 7 dias.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start animate-fade-in" data-animate="fadeInRight" style="animation-delay: 0.2s;">
+                                <i class="bi bi-graph-up text-primary me-3 fs-4"></i>
+                                <div>
+                                    <h6 class="mb-1">Investimentos para Iniciantes</h6>
+                                    <small>Onde e como investir mesmo com pouco dinheiro (sem correr riscos).</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start animate-fade-in" data-animate="fadeInRight" style="animation-delay: 0.4s;">
+                                <i class="bi bi-piggy-bank text-primary me-3 fs-4"></i>
+                                <div>
+                                    <h6 class="mb-1">Economia Inteligente</h6>
+                                    <small>Como cortar gastos sem abrir mão do que realmente importa.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start animate-fade-in" data-animate="fadeInRight" style="animation-delay: 0.6s;">
+                                <i class="bi bi-shield-check text-primary me-3 fs-4"></i>
+                                <div>
+                                    <h6 class="mb-1">Proteção Financeira</h6>
+                                    <small>Como se blindar contra imprevistos e crises econômicas.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert alert-warning animate-fade-in" data-animate="fadeInUp">
+                        <i class="bi bi-exclamation-triangle me-2"></i>
+                        <strong>ATENÇÃO:</strong> Este ebook <strong>NÃO</strong> ensina "fórmulas mágicas" ou "esquemas de enriquecimento rápido".
+                        Aqui você vai encontrar <strong>estratégias reais</strong> para resultados duradouros.
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Benefícios -->
-    <section id="beneficios" class="py-5 bg-light">
+    <section id="beneficios" class="section-padding">
         <div class="container">
-            <h2 class="text-center mb-5">O Que Você Vai <span class="text-primary">Conquistar</span> com Este Guia</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
-                    <div class="card h-100">
+            <div class="text-center mb-5">
+                <h2>O Que Você Vai <span class="text-primary">Conquistar</span>?</h2>
+                <p class="text-muted">Resultados reais de quem aplicou o método:</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 animate-fade-in" data-animate="fadeInUp">
                         <div class="card-body text-center p-4">
-                            <i class="bi bi-cash-stack card-icon"></i>
-                            <h3 class="card-title mb-3">Economia Inteligente</h3>
-                            <p class="card-text">Aprenda a identificar e eliminar gastos desnecessários, potencializando sua capacidade de poupar sem abrir mão do que realmente importa.</p>
+                            <i class="bi bi-cash-stack fs-1 mb-3 text-primary"></i>
+                            <h4 class="card-title mb-3">Elimine Dívidas</h4>
+                            <p class="card-text">Descubra como quitar cartões, cheques especiais e empréstimos em até 6 meses — mesmo com salário apertado.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card h-100">
+                <div class="col-md-4">
+                    <div class="card h-100 animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.2s;">
                         <div class="card-body text-center p-4">
-                            <i class="bi bi-graph-up card-icon"></i>
-                            <h3 class="card-title mb-3">Investimentos Seguros</h3>
-                            <p class="card-text">Descubra os melhores investimentos para cada perfil e momento de vida, com estratégias para diversificar e multiplicar seu patrimônio.</p>
+                            <i class="bi bi-wallet2 fs-1 mb-3 text-primary"></i>
+                            <h4 class="card-title mb-3">Poupe Sem Sofrer</h4>
+                            <p class="card-text">Técnicas para guardar até 30% do seu salário <strong>sem sentir falta</strong> do dinheiro.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card h-100">
+                <div class="col-md-4">
+                    <div class="card h-100 animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.4s;">
                         <div class="card-body text-center p-4">
-                            <i class="bi bi-shield-check card-icon"></i>
-                            <h3 class="card-title mb-3">Proteção Financeira</h3>
-                            <p class="card-text">Saiba como criar uma reserva de emergência e se proteger contra imprevistos, garantindo estabilidade financeira a longo prazo.</p>
+                            <i class="bi bi-currency-exchange fs-1 mb-3 text-primary"></i>
+                            <h4 class="card-title mb-3">Invista com Confiança</h4>
+                            <p class="card-text">Aprenda a escolher os melhores investimentos para o seu perfil, desde a poupança até a bolsa de valores.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
-                    <div class="card h-100">
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card h-100 animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.6s;">
                         <div class="card-body text-center p-4">
-                            <i class="bi bi-calendar-check card-icon"></i>
-                            <h3 class="card-title mb-3">Planejamento Eficaz</h3>
-                            <p class="card-text">Domine técnicas de planejamento financeiro que realmente funcionam, com metas claras e alcançáveis para cada etapa da sua vida.</p>
+                            <i class="bi bi-house fs-1 mb-3 text-primary"></i>
+                            <h4 class="card-title mb-3">Realize Sonhos</h4>
+                            <p class="card-text">Como planejar e juntar dinheiro para viagens, carro próprio ou a casa dos seus sonhos.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card h-100">
+                <div class="col-md-6">
+                    <div class="card h-100 animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.8s;">
                         <div class="card-body text-center p-4">
-                            <i class="bi bi-lightbulb card-icon"></i>
-                            <h3 class="card-title mb-3">Mentalidade Prospera</h3>
-                            <p class="card-text">Desenvolva a mentalidade das pessoas financeiramente bem-sucedidas e rompa com crenças limitantes sobre dinheiro.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card h-100">
-                        <div class="card-body text-center p-4">
-                            <i class="bi bi-award card-icon"></i>
-                            <h3 class="card-title mb-3">Independência Financeira</h3>
-                            <p class="card-text">Acelere sua jornada rumo à liberdade financeira, com estratégias comprovadas para construir patrimônio consistentemente.</p>
+                            <i class="bi bi-patch-check fs-1 mb-3 text-primary"></i>
+                            <h4 class="card-title mb-3">Liberdade Financeira</h4>
+                            <p class="card-text">O caminho para viver de renda passiva e nunca mais depender de um salário.</p>
                         </div>
                     </div>
                 </div>
@@ -205,252 +343,339 @@
         </div>
     </section>
 
-    <!-- Conteúdo do E-book -->
-    <section id="conteudo" class="py-5">
+    <!-- Bônus Exclusivo -->
+    <section id="bonus" class="section-padding bg-light">
         <div class="container">
-            <h2 class="text-center mb-5">Um Conteúdo <span class="text-primary">Completo</span> e Exclusivo</h2>
-            <div class="row">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="card mb-4">
-                        <div class="card-header bg-primary text-white">
-                            <h4 class="mb-0">Módulo 1: Fundamentos Financeiros</h4>
-                        </div>
-                        <div class="card-body">
-                            <ul class="feature-list">
-                                <li><i class="bi bi-check-circle"></i> Diagnosticando sua situação financeira atual</li>
-                                <li><i class="bi bi-check-circle"></i> Eliminando dívidas de forma estratégica</li>
-                                <li><i class="bi bi-check-circle"></i> Criando um orçamento que realmente funciona</li>
-                                <li><i class="bi bi-check-circle"></i> Definindo metas financeiras alcançáveis</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="card mb-4">
-                        <div class="card-header bg-primary text-white">
-                            <h4 class="mb-0">Módulo 2: Economia Inteligente</h4>
-                        </div>
-                        <div class="card-body">
-                            <ul class="feature-list">
-                                <li><i class="bi bi-check-circle"></i> Identificando e cortando gastos desnecessários</li>
-                                <li><i class="bi bi-check-circle"></i> Métodos de compra consciente e economia no dia a dia</li>
-                                <li><i class="bi bi-check-circle"></i> Como negociar e conseguir melhores preços</li>
-                                <li><i class="bi bi-check-circle"></i> Economizando sem perder qualidade de vida</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="card mb-4">
-                        <div class="card-header bg-primary text-white">
-                            <h4 class="mb-0">Módulo 3: Investimentos para Iniciantes</h4>
-                        </div>
-                        <div class="card-body">
-                            <ul class="feature-list">
-                                <li><i class="bi bi-check-circle"></i> Conhecendo os principais tipos de investimentos</li>
-                                <li><i class="bi bi-check-circle"></i> Como definir seu perfil de investidor</li>
-                                <li><i class="bi bi-check-circle"></i> Montando sua primeira carteira de investimentos</li>
-                                <li><i class="bi bi-check-circle"></i> Estratégias de diversificação e redução de riscos</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="card mb-4">
-                        <div class="card-header bg-primary text-white">
-                            <h4 class="mb-0">Módulo 4: Prosperidade a Longo Prazo</h4>
-                        </div>
-                        <div class="card-body">
-                            <ul class="feature-list">
-                                <li><i class="bi bi-check-circle"></i> Planejamento para aposentadoria e grandes objetivos</li>
-                                <li><i class="bi bi-check-circle"></i> Como proteger seu patrimônio e sua família</li>
-                                <li><i class="bi bi-check-circle"></i> Estratégias para aumentar sua renda continuamente</li>
-                                <li><i class="bi bi-check-circle"></i> Mentalidade e hábitos das pessoas financeiramente bem-sucedidas</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-4" data-aos="fade-up">
-                    <a href="#oferta" class="btn btn-primary btn-lg">Quero Acessar Todo Este Conteúdo!</a>
-                </div>
+            <div class="text-center mb-5">
+                <span class="badge bg-warning text-dark fs-6 px-3 py-2">BÔNUS EXCLUSIVO</span>
+                <h2 class="mt-3">Prompts Avançados <span class="text-primary">Editáveis</span></h2>
+                <p class="text-muted">Nas páginas finais, você recebe <strong>modelos prontos</strong> para:</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Bônus Exclusivos -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5"><span class="text-primary">Bônus Exclusivos</span> para Quem Comprar Hoje</h2>
-
-            <div class="row">
-                <div class="col-md-6 mb-4" data-aos="fade-right">
-                    <div class="bonus-card">
-                        <div class="text-center">
-                            <i class="bi bi-table bonus-icon"></i>
-                            <h4>Planilhas de Controle Financeiro</h4>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 animate-fade-in" data-animate="fadeInUp">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-file-earmark-text fs-1 mb-3 text-primary"></i>
+                            <h4 class="card-title mb-3">Planilhas Personalizáveis</h4>
+                            <p class="card-text">Controle de gastos, orçamento mensal e acompanhamento de investimentos.</p>
                         </div>
-                        <p>Valor: <span class="text-decoration-line-through">R$ 47,00</span></p>
-                        <p>Controle suas finanças com planilhas profissionais prontas para usar, com gráficos e relatórios automáticos.</p>
                     </div>
                 </div>
-
-                <div class="col-md-6 mb-4" data-aos="fade-left">
-                    <div class="bonus-card">
-                        <div class="text-center">
-                            <i class="bi bi-camera-video bonus-icon"></i>
-                            <h4>Vídeo Aulas Exclusivas</h4>
+                <div class="col-md-4">
+                    <div class="card h-100 animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-robot fs-1 mb-3 text-primary"></i>
+                            <h4 class="card-title mb-3">Prompts para IA</h4>
+                            <p class="card-text">Comandos prontos para usar com ChatGPT e criar planos financeiros personalizados.</p>
                         </div>
-                        <p>Valor: <span class="text-decoration-line-through">R$ 97,00</span></p>
-                        <p>Acesso a 5 vídeo aulas detalhadas com exemplos práticos de implementação das estratégias do e-book.</p>
                     </div>
                 </div>
-
-                <div class="col-md-6 mb-4" data-aos="fade-right">
-                    <div class="bonus-card">
-                        <div class="text-center">
-                            <i class="bi bi-journal-check bonus-icon"></i>
-                            <h4>Guia de Investimentos 2025</h4>
+                <div class="col-md-4">
+                    <div class="card h-100 animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-envelope fs-1 mb-3 text-primary"></i>
+                            <h4 class="card-title mb-3">E-mails para Negociação</h4>
+                            <p class="card-text">Modelos para reduzir contas, renegociar dívidas e aumentar sua renda.</p>
                         </div>
-                        <p>Valor: <span class="text-decoration-line-through">R$ 57,00</span></p>
-                        <p>Relatório completo com as melhores oportunidades de investimento para o próximo ano, atualizado mensalmente.</p>
                     </div>
                 </div>
             </div>
-
-            <div class="text-center mt-4" data-aos="fade-up">
-                <h4 class="text-primary">Valor Total dos Bônus: <span class="text-decoration-line-through">R$ 201,00</span></h4>
-                <p>Hoje, todos estes bônus são <strong>GRATUITOS</strong> para você que adquirir o e-book!</p>
+            <div class="alert alert-info mt-5 animate-fade-in" data-animate="fadeInUp">
+                <i class="bi bi-gift me-2"></i>
+                <strong>VALOR DOS BÔNUS: R$ 47,00</strong> — Você recebe <strong>GRÁTIS</strong> hoje!
             </div>
         </div>
     </section>
 
     <!-- Depoimentos -->
-    <section id="depoimentos" class="py-5">
+    <section id="depoimentos" class="section-padding">
         <div class="container">
-            <h2 class="text-center mb-5">O Que Quem Comprou <span class="text-primary">Está Dizendo</span></h2>
-            <div class="row">
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
-                    <div class="card h-100">
-                        <div class="card-body text-center p-4">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Depoimento" class="rounded-circle testimonial-img mb-3">
-                            <div class="text-warning mb-3">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                            </div>
-                            <p class="card-text fst-italic">"Em apenas 3 meses aplicando as estratégias do e-book, consegui quitar todas as minhas dívidas e já estou construindo minha primeira reserva de emergência. Finalmente vejo um futuro financeiro promissor!"</p>
-                            <h5 class="card-title mb-0">Ana Carolina</h5>
-                            <p class="text-muted">Empreendedora</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card h-100">
-                        <div class="card-body text-center p-4">
-                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Depoimento" class="rounded-circle testimonial-img mb-3">
-                            <div class="text-warning mb-3">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                            </div>
-                            <p class="card-text fst-italic">"Sempre tive medo de investir, mas o guia explica tudo de forma tão clara que perdi o receio. Fiz minha primeira aplicação semana passada e estou confiante. Recomendo para quem quer sair do zero!"</p>
-                            <h5 class="card-title mb-0">Carlos Eduardo</h5>
-                            <p class="text-muted">Analista de TI</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card h-100">
-                        <div class="card-body text-center p-4">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Depoimento" class="rounded-circle testimonial-img mb-3">
-                            <div class="text-warning mb-3">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                            </div>
-                            <p class="card-text fst-italic">"As planilhas bônus foram um divisor de águas para mim. Finalmente consigo visualizar para onde está indo meu dinheiro e tomar decisões conscientes. Vale cada centavo investido!"</p>
-                            <h5 class="card-title mb-0">Fernanda Oliveira</h5>
-                            <p class="text-muted">Professora</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center mb-5">
+                <h2>Histórias Reais de <span class="text-primary">Transformação</span></h2>
+                <p class="text-muted">Veja como nosso método já mudou a vida de centenas de pessoas:</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Oferta Especial -->
-    <section id="oferta" class="py-5 bg-primary text-white">
-        <div class="container">
-            <h2 class="text-center mb-4">Oferta <span class="text-warning">Exclusiva</span> por Tempo Limitado</h2>
-            <p class="text-center lead mb-5">Adquira hoje com condições especiais e todos os bônus gratuitos!</p>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="card text-dark">
-                        <div class="card-body p-5">
-                            <div class="text-center mb-4">
-                                <h3>E-book Domine Suas Finanças</h3>
-                                <p class="text-muted">Transforme sua vida financeira de uma vez por todas</p>
-                            </div>
-
-                            <div class="price-comparison text-center">
-                                <h2 class="current-price">Por: R$ <span class="price-small">29,90</span></h2>
-                                <p class="text-success">Aproveite esta condição especial!</p>
-                            </div>
-
-                            <div class="guarantee-badge">
-                                <i class="bi bi-shield-check"></i> Garantia de 7 dias ou seu dinheiro de volta!
-                            </div>
-
-                            <ul class="feature-list">
-                                <li><i class="bi bi-check-circle text-success"></i> E-book completo com 120 páginas</li>
-                                <li><i class="bi bi-check-circle text-success"></i> 4 módulos com estratégias passo a passo</li>
-                                <li><i class="bi bi-check-circle text-success"></i> Planilhas de controle financeiro (Bônus)</li>
-                                <li><i class="bi bi-check-circle text-success"></i> Vídeo aulas exclusivas (Bônus)</li>
-                                <li><i class="bi bi-check-circle text-success"></i> Guia de Investimentos 2025 (Bônus)</li>
-                                <li><i class="bi bi-check-circle text-success"></i> Acesso imediato após a compra</li>
-                                <li><i class="bi bi-check-circle text-success"></i> Suporte por e-mail</li>
-                            </ul>
-
-                            <div class="text-center mt-4">
-                                <a href="https://pay.hotmart.com/A101750645D" class="btn btn-primary btn-lg px-5 py-3">Comprar Agora com Desconto!</a>
-                                <p class="text-muted mt-3"><small>Pagamento seguro via Hotmart</small></p>
-
-                                <div class="mt-3">
-                                    <div class="countdown" data-aos="fade-up">
-                                        <h5 class="mb-3">Oferta especial termina em:</h5>
-                                        <div class="d-flex justify-content-center">
-                                            <div class="countdown-item">
-                                                <div class="countdown-number" id="days2">00</div>
-                                                <div class="countdown-label">Dias</div>
-                                            </div>
-                                            <div class="countdown-item">
-                                                <div class="countdown-number" id="hours2">00</div>
-                                                <div class="countdown-label">Horas</div>
-                                            </div>
-                                            <div class="countdown-item">
-                                                <div class="countdown-number" id="minutes2">00</div>
-                                                <div class="countdown-label">Minutos</div>
-                                            </div>
-                                            <div class="countdown-item">
-                                                <div class="countdown-number" id="seconds2">00</div>
-                                                <div class="countdown-label">Segundos</div>
-                                            </div>
-                                        </div>
-                                    </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 depoimento-card animate-fade-in" data-animate="fadeInUp">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Ana Carolina" class="rounded-circle me-3" width="60">
+                                <div>
+                                    <h5 class="mb-0">Ana Carolina</h5>
+                                    <small class="text-muted">Empreendedora</small>
                                 </div>
                             </div>
+                            <p class="fst-italic">"Em 3 meses, consegui quitar R$ 12 mil em dívidas e ainda juntar R$ 5 mil para minha reserva de emergência. O método dos 3 Pilares foi revolucionário!"</p>
+                            <div class="rating text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 depoimento-card animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Carlos Eduardo" class="rounded-circle me-3" width="60">
+                                <div>
+                                    <h5 class="mb-0">Carlos Eduardo</h5>
+                                    <small class="text-muted">Analista de TI</small>
+                                </div>
+                            </div>
+                            <p class="fst-italic">"Parecia impossível poupar com meu salário, mas hoje tenho R$ 20 mil investidos. O ebook me abriu os olhos para oportunidades que eu não via."</p>
+                            <div class="rating text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 depoimento-card animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Fernanda Oliveira" class="rounded-circle me-3" width="60">
+                                <div>
+                                    <h5 class="mb-0">Fernanda Oliveira</h5>
+                                    <small class="text-muted">Professora</small>
+                                </div>
+                            </div>
+                            <p class="fst-italic">"Graças às técnicas de economia inteligente, consegui guardar dinheiro pela primeira vez na vida. Já fiz minha primeira viagem internacional!"</p>
+                            <div class="rating text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-</body>
 
+    <!-- Garantia -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4626/4626904.png" alt="Garantia" class="img-fluid animate-fade-in" data-animate="fadeInLeft" style="max-width: 300px;">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Garantia <span class="text-primary">Incondicional</span> de 7 Dias</h2>
+                    <p class="animate-fade-in" data-animate="fadeInRight">
+                        Se em até 7 dias você não estiver <strong>100% satisfeito</strong> com o conteúdo, basta nos enviar um e-mail que devolveremos <strong>todo o seu dinheiro</strong> — sem perguntas, sem burocracia.
+                    </p>
+                    <p class="animate-fade-in" data-animate="fadeInRight" style="animation-delay: 0.2s;">
+                        <strong>Risco ZERO</strong> para você! Se o método não funcionar, você não paga nada.
+                    </p>
+                    <div class="alert alert-success animate-fade-in" data-animate="fadeInUp">
+                        <i class="bi bi-shield-check me-2"></i>
+                        <strong>100% seguro</strong> — Pagamento processado pela Hotmart, líder em produtos digitais.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="cta" class="section-padding text-center" style="background: linear-gradient(135deg, rgba(41, 128, 185, 0.1), rgba(39, 174, 96, 0.1));">
+        <div class="container">
+            <h2 class="mb-4">Sua Vida Financeira <span class="text-primary">Nunca Mais</span> Será a Mesma!</h2>
+            <p class="lead mb-5">
+                <strong>Escolha agora:</strong> Continuar no mesmo ciclo de dívidas e preocupações <strong>OU</strong> dar o primeiro passo para a liberdade financeira com um investimento de apenas <strong>R$ 29,90</strong>.
+            </p>
+            <div class="countdown mb-4">
+                <h5 class="mb-3">OFERTA VALIDA POR:</h5>
+                <div class="d-flex justify-content-center gap-3">
+                    <div class="text-center">
+                        <div class="countdown-number" id="days2">00</div>
+                        <small>DIAS</small>
+                    </div>
+                    <div class="text-center">
+                        <div class="countdown-number" id="hours2">00</div>
+                        <small>HORAS</small>
+                    </div>
+                    <div class="text-center">
+                        <div class="countdown-number" id="minutes2">00</div>
+                        <small>MINUTOS</small>
+                    </div>
+                    <div class="text-center">
+                        <div class="countdown-number" id="seconds2">00</div>
+                        <small>SEGUNDOS</small>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <span class="fw-bold h4 text-danger">DE: <s>R$ 39,90</s></span>
+                    <span class="fw-bold h3 ms-3 text-success">POR: R$ 29,90</span>
+                </div>
+            </div>
+            <a href="https://pay.hotmart.com/A101750645D" class="btn btn-primary btn-lg px-5 py-3">
+                <i class="bi bi-rocket-takeoff me-2"></i> QUERO TRANSFORMAR MINHAS FINANÇAS AGORA!
+            </a>
+            <p class="mt-3 small text-muted">
+                <i class="bi bi-credit-card me-2"></i> Pagamento único | Acesso imediato | 100% digital
+            </p>
+            <p class="mt-2 small text-danger fw-bold">
+                <i class="bi bi-exclamation-triangle me-2"></i> ATENÇÃO: Preço promocional válido apenas até o fim da contagem regressiva!
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center mb-5">Perguntas <span class="text-primary">Frequentes</span></h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item animate-fade-in" data-animate="fadeInUp">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Como recebo o ebook após a compra?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Imediatamente após a confirmação do pagamento, você recebe um e-mail com o link para download. Todo o processo é automático e seguro.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.2s;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            Preciso ter conhecimentos avançados em finanças?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Não! O ebook foi criado para <strong>iniciantes absolutos</strong>. Explicamos tudo de forma simples, com exemplos práticos do dia a dia.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.4s;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Posso acessar de qualquer dispositivo?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Sim! O ebook está em formato PDF, compatível com computadores, tablets e smartphones. Você também pode imprimir se preferir.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-4"><i class="bi bi-cash-coin me-2"></i>FINANÇAS<span class="text-primary">INTELIGENTES</span></h5>
+                    <p>Transformando vidas através da educação financeira acessível e prática.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="text-white me-3 fs-5"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3 fs-5"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white me-3 fs-5"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h6 class="mb-3">Links Rápidos</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#sobre" class="text-white-50">Sobre</a></li>
+                        <li class="mb-2"><a href="#beneficios" class="text-white-50">Benefícios</a></li>
+                        <li class="mb-2"><a href="#bonus" class="text-white-50">Bônus</a></li>
+                        <li class="mb-2"><a href="#depoimentos" class="text-white-50">Depoimentos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h6 class="mb-3">Contato</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i> contato@financasinteligentes.com</li>
+                        <li class="mb-2"><i class="bi bi-whatsapp me-2"></i> (XX) XXXXX-XXXX</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="mb-3">Pagamento Seguro</h6>
+                    <img src="https://logodownload.org/wp-content/uploads/2019/10/hotmart-logo-1.png" alt="Hotmart" class="img-fluid" style="max-width: 120px;">
+                </div>
+            </div>
+            <hr class="my-4 bg-white-50">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 Finanças Inteligentes. Todos os direitos reservados.</p>
+                <small class="text-white-50">CN PJ: 00.000.000/0000-00</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Animações ao Scroll -->
+    <script>
+        // Animações ao scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('[data-animate]');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                if (elementPosition < screenPosition) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Contagem regressiva (substitua pela data real da promoção)
+        const countDownDate = new Date("Sep 15, 2025 23:59:59").getTime();
+
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+
+            document.getElementById("days2").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours2").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes2").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds2").innerText = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.querySelectorAll(".countdown-number").forEach(el => {
+                    el.innerText = "00";
+                });
+            }
+        }, 1000);
+
+        // Efeito navbar ao scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
