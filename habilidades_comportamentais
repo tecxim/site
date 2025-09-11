@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habilidades Comportamentais: A Vantagem Essencial no Mercado de Trabalho</title>
+    <meta name="description" content="Domine as habilidades que farão você se destacar no mercado de trabalho! Aprenda comunicação, liderança, inteligência emocional e muito mais. Promoção relâmpago: de R$ 39,90 por apenas R$ 29,90!">
+    <meta name="keywords" content="habilidades comportamentais, soft skills, inteligência emocional, liderança, comunicação, mercado de trabalho, desenvolvimento profissional, carreira, sucesso profissional">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Habilidades Comportamentais: A Vantagem Essencial no Mercado de Trabalho">
+    <meta property="og:description" content="Descubra como dominar as habilidades que farão você se destacar no mercado de trabalho. Promoção por tempo limitado: de R$ 39,90 por R$ 29,90!">
+    <meta property="og:image" content="URL_DA_IMAGEM_HERO">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --success: #27ae60;
+            --gold: #f1c40f;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --elegant: #6c5ce7;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        #hero {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.9)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            position: relative;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        #hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        .btn-primary {
+            background: var(--gold);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary:hover {
+            background: var(--elegant);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .btn-light {
+            background: white;
+            color: var(--primary);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-light:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .section-padding {
+            padding: 80px 0;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-radius: 10px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .countdown {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+        .countdown .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        .badge-promo {
+            background: #e74c3c;
+            color: white;
+            font-size: 0.8rem;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            padding: 5px 10px;
+            border-radius: 50%;
+        }
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .animate-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .depoimento-card {
+            border-left: 4px solid var(--gold);
+        }
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: var(--gold);
+            font-size: 24px;
+        }
+        .highlight-box {
+            border-left: 4px solid var(--elegant);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 50px 0;
+            }
+            #hero {
+                padding: 100px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu de Navegação -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#hero">
+                <i class="bi bi-person-workspace me-2"></i>HABILIDADES <span class="text-primary">COMPORTAMENTAIS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#beneficios">Benefícios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bonus">Bônus</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#depoimentos">Depoimentos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cta">Oferta</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="badge-promo animate__animated animate__pulse animate__infinite">OFERTA EXCLUSIVA</div>
+                    <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">
+                        DOMINE AS <span class="text-warning">HABILIDADES</span> QUE FARÃO VOCÊ SE DESTACAR!
+                    </h1>
+                    <p class="lead mb-5 animate__animated animate__fadeInUp animate__delay-1s">
+                        Descubra o <strong>segredo</strong> das pessoas bem-sucedidas: <strong>habilidades comportamentais</strong> que abrem portas, constroem relacionamentos e impulsionam carreiras. <strong>Sem teoria vazia</strong> — apenas estratégias práticas para resultados reais!
+                    </p>
+                    <div class="countdown mb-4 animate__animated animate__fadeInUp animate__delay-1s">
+                        <h5 class="mb-3">PROMOÇÃO POR TEMPO LIMITADO:</h5>
+                        <div class="d-flex justify-content-center gap-3">
+                            <div class="text-center">
+                                <div class="countdown-number" id="days">00</div>
+                                <small>DIAS</small>
+                            </div>
+                            <div class="text-center">
+                                <div class="countdown-number" id="hours">00</div>
+                                <small>HORAS</small>
+                            </div>
+                            <div class="text-center">
+                                <div class="countdown-number" id="minutes">00</div>
+                                <small>MINUTOS</small>
+                            </div>
+                            <div class="text-center">
+                                <div class="countdown-number" id="seconds">00</div>
+                                <small>SEGUNDOS</small>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <span class="fw-bold h4 text-danger">DE: <s>R$ 39,90</s></span>
+                            <span class="fw-bold h3 ms-3 text-success">POR: R$ 29,90</span>
+                        </div>
+                    </div>
+                    <a href="#cta" class="btn btn-primary btn-lg px-4 py-3 animate__animated animate__fadeInUp animate__delay-2s">
+                        <i class="bi bi-rocket-takeoff me-2"></i> QUERO MINHA VANTAGEM AGORA!
+                    </a>
+                    <p class="mt-3 small text-muted animate__animated animate__fadeInUp animate__delay-2s">
+                        <i class="bi bi-credit-card me-2"></i> Pagamento 100% seguro via Hotmart
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre o Ebook -->
+    <section id="sobre" class="section-padding bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <img
+                        src="https://via.placeholder.com/600x800/2c3e50/ffffff?text=Capa+Habilidades+Comportamentais"
+                        alt="Capa do Ebook Habilidades Comportamentais"
+                        class="img-fluid rounded shadow animate-fade-in"
+                        data-animate="fadeInLeft">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Por Que Este Ebook é <span class="text-primary">Diferente</span>?</h2>
+                    <p class="mb-4 animate-fade-in" data-animate="fadeInRight">
+                        Este não é mais um guia genérico sobre "como se dar bem no trabalho". É um <strong>manual prático</strong> para desenvolver as habilidades que <strong>90% dos profissionais ignoram</strong> — mas que fazem toda a diferença na carreira.
+                    </p>
+                    <p class="mb-4 animate-fade-in" data-animate="fadeInRight">
+                        Com <strong>conteúdo exclusivo</strong>, você vai aprender:
+                    </p>
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start animate-fade-in" data-animate="fadeInRight">
+                                <div class="skill-icon"><i class="bi bi-chat-dots"></i></div>
+                                <div>
+                                    <h6 class="mb-1">Comunicação Persuasiva</h6>
+                                    <small>Técnicas para se expressar com clareza e influenciar pessoas.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start animate-fade-in" data-animate="fadeInRight" style="animation-delay: 0.2s;">
+                                <div class="skill-icon"><i class="bi bi-people"></i></div>
+                                <div>
+                                    <h6 class="mb-1">Trabalho em Equipe</h6>
+                                    <small>Como colaborar de forma eficiente e ser reconhecido.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start animate-fade-in" data-animate="fadeInRight" style="animation-delay: 0.4s;">
+                                <div class="skill-icon"><i class="bi bi-lightbulb"></i></div>
+                                <div>
+                                    <h6 class="mb-1">Inteligência Emocional</h6>
+                                    <small>Gerencie suas emoções e entenda as dos outros.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-start animate-fade-in" data-animate="fadeInRight" style="animation-delay: 0.6s;">
+                                <div class="skill-icon"><i class="bi bi-star"></i></div>
+                                <div>
+                                    <h6 class="mb-1">Liderança Autêntica</h6>
+                                    <small>Como inspirar e guiar pessoas sem autoridade formal.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="highlight-box animate-fade-in" data-animate="fadeInUp">
+                        <p class="mb-0">
+                            <i class="bi bi-info-circle me-2"></i>
+                            <strong>IMPORTANTE:</strong> Este ebook <strong>NÃO</strong> ensina "fórmulas mágicas". Aqui você encontrará <strong>estratégias comprovadas</strong> para desenvolver habilidades que <strong>realmente funcionam</strong> no mundo real.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section id="beneficios" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>O Que Você Vai <span class="text-primary">Conquistar</span>?</h2>
+                <p class="text-muted">Resultados reais de quem aplicou o método:</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 animate-fade-in" data-animate="fadeInUp">
+                        <div class="card-body text-center p-4">
+                            <div class="skill-icon"><i class="bi bi-award"></i></div>
+                            <h4 class="card-title mb-3">Destaque Profissional</h4>
+                            <p class="card-text">Seja lembrado nas promoções e oportunidades.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="card-body text-center p-4">
+                            <div class="skill-icon"><i class="bi bi-handshake"></i></div>
+                            <h4 class="card-title mb-3">Relacionamentos Sólidos</h4>
+                            <p class="card-text">Construa redes de contato poderosas e duradouras.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="card-body text-center p-4">
+                            <div class="skill-icon"><i class="bi bi-graph-up"></i></div>
+                            <h4 class="card-title mb-3">Crescimento na Carreira</h4>
+                            <p class="card-text">Acelere sua trajetória profissional com habilidades valorizadas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card h-100 animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.6s;">
+                        <div class="card-body text-center p-4">
+                            <div class="skill-icon"><i class="bi bi-lightning-charge"></i></div>
+                            <h4 class="card-title mb-3">Resiliência</h4>
+                            <p class="card-text">Enfrente desafios com confiança e superação.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.8s;">
+                        <div class="card-body text-center p-4">
+                            <div class="skill-icon"><i class="bi bi-megaphone"></i></div>
+                            <h4 class="card-title mb-3">Influência</h4>
+                            <p class="card-text">Aprenda a persuadir e liderar sem autoridade formal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bônus -->
+    <section id="bonus" class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge bg-warning text-dark fs-6 px-3 py-2">MATERIAIS EXCLUSIVOS</span>
+                <h2 class="mt-3">Bônus Inclusos no Ebook</h2>
+                <p class="text-muted">Além do conteúdo principal, você recebe <strong>materiais práticos</strong> para aplicar imediatamente:</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 animate-fade-in" data-animate="fadeInUp">
+                        <div class="card-body text-center p-4">
+                            <div class="skill-icon"><i class="bi bi-file-earmark-text"></i></div>
+                            <h4 class="card-title mb-3">Checklists de Habilidades</h4>
+                            <p class="card-text">Listas prontas para avaliar e desenvolver suas competências comportamentais.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="card-body text-center p-4">
+                            <div class="skill-icon"><i class="bi bi-journal"></i></div>
+                            <h4 class="card-title mb-3">Guia de Autoconhecimento</h4>
+                            <p class="card-text">Exercícios para identificar seus pontos fortes e áreas de melhoria.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Histórias Reais de <span class="text-primary">Transformação</span></h2>
+                <p class="text-muted">Veja o que estão dizendo sobre o ebook:</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 depoimento-card animate-fade-in" data-animate="fadeInUp">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Ana Carolina" class="rounded-circle me-3" width="60">
+                                <div>
+                                    <h5 class="mb-0">Ana Carolina</h5>
+                                    <small class="text-muted">Gerente de Projetos</small>
+                                </div>
+                            </div>
+                            <p class="fst-italic">"Este ebook mudou minha forma de me comunicar no trabalho. Consegui uma promoção em menos de 3 meses!"</p>
+                            <div class="rating text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 depoimento-card animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.2s;">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Carlos Eduardo" class="rounded-circle me-3" width="60">
+                                <div>
+                                    <h5 class="mb-0">Carlos Eduardo</h5>
+                                    <small class="text-muted">Analista de TI</small>
+                                </div>
+                            </div>
+                            <p class="fst-italic">"As técnicas de inteligência emocional me ajudaram a lidar com o estresse e melhorar meu relacionamento com a equipe."</p>
+                            <div class="rating text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 depoimento-card animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.4s;">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Fernanda Oliveira" class="rounded-circle me-3" width="60">
+                                <div>
+                                    <h5 class="mb-0">Fernanda Oliveira</h5>
+                                    <small class="text-muted">Empreendedora</small>
+                                </div>
+                            </div>
+                            <p class="fst-italic">"O ebook é prático e direto ao ponto. Aplicando as dicas, melhorei minha liderança e fechei mais negócios."</p>
+                            <div class="rating text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garantia -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4626/4626904.png" alt="Garantia" class="img-fluid animate-fade-in" data-animate="fadeInLeft" style="max-width: 300px;">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Garantia <span class="text-primary">Incondicional</span> de 7 Dias</h2>
+                    <p class="animate-fade-in" data-animate="fadeInRight">
+                        Se em até 7 dias você não estiver <strong>100% satisfeito</strong> com o conteúdo, basta nos enviar um e-mail que devolveremos <strong>todo o seu dinheiro</strong> — sem perguntas, sem burocracia.
+                    </p>
+                    <p class="animate-fade-in" data-animate="fadeInRight" style="animation-delay: 0.2s;">
+                        <strong>Risco ZERO</strong> para você! Se o método não funcionar, você não paga nada.
+                    </p>
+                    <div class="alert alert-success animate-fade-in" data-animate="fadeInUp">
+                        <i class="bi bi-shield-check me-2"></i>
+                        <strong>100% seguro</strong> — Pagamento processado pela Hotmart, líder em produtos digitais.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="cta" class="section-padding text-center" style="background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.9)); color: white;">
+        <div class="container">
+            <h2 class="mb-4 text-white">Sua Carreira <span class="text-warning">Nunca Mais</span> Será a Mesma!</h2>
+            <p class="lead mb-5">
+                <strong>Escolha agora:</strong> Continuar no mesmo lugar <strong>OU</strong> dar o primeiro passo para se destacar no mercado com um investimento de apenas <strong>R$ 29,90</strong>.
+            </p>
+            <div class="countdown mb-4">
+                <h5 class="mb-3 text-white">OFERTA VÁLIDA POR:</h5>
+                <div class="d-flex justify-content-center gap-3">
+                    <div class="text-center">
+                        <div class="countdown-number" id="days2">00</div>
+                        <small>DIAS</small>
+                    </div>
+                    <div class="text-center">
+                        <div class="countdown-number" id="hours2">00</div>
+                        <small>HORAS</small>
+                    </div>
+                    <div class="text-center">
+                        <div class="countdown-number" id="minutes2">00</div>
+                        <small>MINUTOS</small>
+                    </div>
+                    <div class="text-center">
+                        <div class="countdown-number" id="seconds2">00</div>
+                        <small>SEGUNDOS</small>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <span class="fw-bold h4 text-danger">DE: <s>R$ 39,90</s></span>
+                    <span class="fw-bold h3 ms-3 text-success">POR: R$ 29,90</span>
+                </div>
+            </div>
+            <a href="https://pay.hotmart.com/SEU_LINK_AQUI" class="btn btn-light btn-lg px-5 py-3">
+                <i class="bi bi-rocket-takeoff me-2"></i> QUERO TRANSFORMAR MINHA CARREIRA AGORA!
+            </a>
+            <p class="mt-3 small text-white-50">
+                <i class="bi bi-credit-card me-2"></i> Pagamento único | Acesso imediato | 100% digital
+            </p>
+            <p class="mt-2 small text-danger fw-bold">
+                <i class="bi bi-exclamation-triangle me-2"></i> ATENÇÃO: Preço promocional válido apenas até o fim da contagem regressiva!
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center mb-5">Perguntas <span class="text-primary">Frequentes</span></h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item animate-fade-in" data-animate="fadeInUp">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Como recebo o ebook após a compra?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Imediatamente após a confirmação do pagamento, você recebe um e-mail com o link para download. Todo o processo é automático e seguro.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.2s;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            Preciso ter experiência prévia?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Não! O ebook foi criado para <strong>todas as pessoas</strong>, independentemente da área ou nível de experiência. As técnicas são explicadas de forma simples e prática.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item animate-fade-in" data-animate="fadeInUp" style="animation-delay: 0.4s;">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Posso acessar de qualquer dispositivo?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Sim! O ebook está em formato PDF, compatível com computadores, tablets e smartphones. Você também pode imprimir se preferir.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="mb-4"><i class="bi bi-person-workspace me-2"></i>Habilidades <span class="text-primary">Comportamentais</span></h5>
+                    <p>Transformando carreiras através do desenvolvimento de habilidades essenciais para o sucesso profissional.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="text-white me-3 fs-5"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white me-3 fs-5"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white me-3 fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white fs-5"><i class="bi bi-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h6 class="mb-3">Links Rápidos</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#sobre" class="text-white-50">Sobre</a></li>
+                        <li class="mb-2"><a href="#beneficios" class="text-white-50">Benefícios</a></li>
+                        <li class="mb-2"><a href="#bonus" class="text-white-50">Bônus</a></li>
+                        <li class="mb-2"><a href="#depoimentos" class="text-white-50">Depoimentos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h6 class="mb-3">Contato</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i> contato@habilidadescomportamentais.com</li>
+                        <li class="mb-2">Quer um site como este?</li>
+                        <li class="mb-2"><i class="bi bi-whatsapp me-2"></i> (11) 99940-2929</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="mb-3">Pagamento Seguro</h6>
+                    <img src="https://logodownload.org/wp-content/uploads/2019/10/hotmart-logo.png" alt="Hotmart" class="img-fluid" style="max-width: 120px;">
+                </div>
+            </div>
+            <hr class="my-4 bg-white-50">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 Wellington Cardoso. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Animações ao Scroll -->
+    <script>
+        // Animações ao scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('[data-animate]');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                if (elementPosition < screenPosition) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Contagem regressiva (substitua pela data real da promoção)
+        const countDownDate = new Date("Sep 15, 2025 23:59:59").getTime();
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+            document.getElementById("days2").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours2").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes2").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds2").innerText = seconds.toString().padStart(2, '0');
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.querySelectorAll(".countdown-number").forEach(el => {
+                    el.innerText = "00";
+                });
+            }
+        }, 1000);
+
+        // Efeito navbar ao scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
