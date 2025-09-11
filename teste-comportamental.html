@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Comportamental</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .question-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .result-card {
+            background-color: #e9f7fe;
+            border-left: 5px solid #0d6efd;
+            padding: 20px;
+            margin-top: 30px;
+            display: none;
+        }
+        .btn-option {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h1 class="display-6 fw-bold">Teste Comportamental</h1>
+            <p class="lead text-muted">Responda às perguntas a seguir para descobrir seu perfil comportamental.</p>
+        </div>
+
+        <!-- Perguntas -->
+        <div id="questions-container">
+            <!-- Pergunta 1 -->
+            <div class="question-card">
+                <h5>1. Como você reage a mudanças inesperadas no trabalho?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(1, 1)">Me adapto rapidamente e vejo oportunidades.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(1, 2)">Fico um pouco incomodado, mas me ajusto.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(1, 3)">Tenho dificuldade e prefiro rotinas.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 2 -->
+            <div class="question-card">
+                <h5>2. Como você lida com prazos apertados?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(2, 3)">Fico estressado e tenho dificuldade para priorizar.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(2, 2)">Consigo organizar, mas sinto pressão.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(2, 1)">Me motiva e entrego com qualidade.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 3 -->
+            <div class="question-card">
+                <h5>3. Como você se sente trabalhando em equipe?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(3, 1)">Amo colaborar e me sinto energizado.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(3, 2)">Gosto, mas prefiro trabalhar sozinho em algumas tarefas.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(3, 3)">Prefiro trabalhar sozinho para evitar conflitos.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 4 -->
+            <div class="question-card">
+                <h5>4. Como você lida com críticas?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(4, 1)">Agradeço e uso para melhorar.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(4, 2)">Ouço, mas às vezes fico na defensiva.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(4, 3)">Fico magoado e evito quem criticou.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 5 -->
+            <div class="question-card">
+                <h5>5. Como você toma decisões importantes?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(5, 1)">Analiso dados e opino com confiança.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(5, 2)">Consulto outras pessoas antes de decidir.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(5, 3)">Atraso por medo de errar.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 6 -->
+            <div class="question-card">
+                <h5>6. Como você age em situações de conflito?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(6, 1)">Busco resolver de forma calma e objetiva.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(6, 2)">Evito o conflito, mas fico incomodado.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(6, 3)">Fico irritado e reajo emocionalmente.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 7 -->
+            <div class="question-card">
+                <h5>7. Como você se organiza no dia a dia?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(7, 1)">Sou muito organizado e priorizo tarefas.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(7, 2)">Tenho uma rotina, mas às vezes procrastino.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(7, 3)">Sou desorganizado e deixo tudo para última hora.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 8 -->
+            <div class="question-card">
+                <h5>8. Como você se sente em relação a liderança?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(8, 1)">Gosto de liderar e motivar equipes.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(8, 2)">Prefiro seguir, mas dou sugestões quando necessário.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(8, 3)">Evito responsabilidades de liderança.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 9 -->
+            <div class="question-card">
+                <h5>9. Como você lida com feedbacks negativos?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(9, 1)">Aceito e busco melhorar.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(9, 2)">Fico chateado, mas refletto sobre isso.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(9, 3)">Ignoro ou justifico meu comportamento.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 10 -->
+            <div class="question-card">
+                <h5>10. Como você se sente em ambientes novos?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(10, 1)">Me adapto rápido e faço novos contatos.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(10, 2)">Observo antes de me integrar.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(10, 3)">Fico inseguro e demoro a me soltar.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 11 -->
+            <div class="question-card">
+                <h5>11. Como você reage a elogios?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(11, 1)">Agradeço e me sinto motivado.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(11, 2)">Fico feliz, mas minimizo o elogio.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(11, 3)">Desconfio ou me sinto envergonhado.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 12 -->
+            <div class="question-card">
+                <h5>12. Como você lida com tarefas repetitivas?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(12, 1)">Busco formas de otimizar ou automatizar.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(12, 2)">Faço, mas perco o interesse rápido.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(12, 3)">Evito ao máximo.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 13 -->
+            <div class="question-card">
+                <h5>13. Como você se sente em relação a metas?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(13, 1)">Adoro definir e alcançar metas.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(13, 2)">Gosto, mas às vezes perco o foco.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(13, 3)">Evito metas por medo de falhar.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 14 -->
+            <div class="question-card">
+                <h5>14. Como você age em situações de alta pressão?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(14, 1)">Mantenho a calma e foquei na solução.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(14, 2)">Fico ansioso, mas consigo entregar.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(14, 3)">Travo e tenho dificuldade para agir.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 15 -->
+            <div class="question-card">
+                <h5>15. Como você se sente em relação a inovação?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(15, 1)">Adoro inovar e propor novas ideias.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(15, 2)">Apoio inovações, mas prefiro o que já funciona.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(15, 3)">Resisto a mudanças e prefiro o tradicional.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 16 -->
+            <div class="question-card">
+                <h5>16. Como você lida com erros?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(16, 1)">Assumo, aprendo e sigo em frente.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(16, 2)">Fico chateado, mas tento corrigir.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(16, 3)">Me culpo e fico paralisado.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 17 -->
+            <div class="question-card">
+                <h5>17. Como você se sente em relação a regras?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(17, 1)">Respeito, mas questiono se não fazem sentido.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(17, 2)">Sigo as regras, mas às vezes as acho burocráticas.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(17, 3)">Prefiro seguir todas as regras sem questionar.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 18 -->
+            <div class="question-card">
+                <h5>18. Como você se comunica em grupo?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(18, 1)">Sou claro, objetivo e ouço os outros.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(18, 2)">Falo pouco, mas quando falo é relevante.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(18, 3)">Tenho dificuldade para me expressar em grupo.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 19 -->
+            <div class="question-card">
+                <h5>19. Como você lida com elogios públicos?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(19, 1)">Agradeço e me sinto valorizado.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(19, 2)">Fico constrangido, mas agradeço.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(19, 3)">Desvio o elogio ou minimizo.</button>
+                </div>
+            </div>
+
+            <!-- Pergunta 20 -->
+            <div class="question-card">
+                <h5>20. Como você se sente em relação a desafios?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(20, 1)">Me sinto motivado e pronto para superá-los.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(20, 2)">Aceito, mas prefiro desafios previsíveis.</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(20, 3)">Evito desafios por medo de falhar.</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão para calcular resultado -->
+        <div class="text-center mt-4">
+            <button id="calculate-btn" class="btn btn-primary btn-lg" onclick="calculateResult()">
+                Ver Meu Resultado <i class="bi bi-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- Resultado -->
+        <div id="result-card" class="result-card">
+            <h4 class="text-center">Seu Resultado</h4>
+            <div class="text-center my-4">
+                <div id="score-value" class="display-4 fw-bold text-primary"></div>
+                <div id="score-description" class="fs-5 mt-3"></div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-outline-secondary" onclick="resetTest()">
+                    Refazer Teste <i class="bi bi-arrow-clockwise"></i>
+                </button>
+                <a href="guia-autoconhecimento.html" class="btn btn-primary ms-2">
+                    Acessar Guia de Autoconhecimento <i class="bi bi-person"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Lógica do teste -->
+    <script>
+        // Armazena as respostas do usuário
+        let answers = {};
+
+        // Função para selecionar uma resposta
+        function selectAnswer(question, value) {
+            answers[question] = value;
+            // Remove a classe 'btn-primary' de todos os botões da pergunta
+            const allButtons = document.querySelectorAll(`#questions-container div:nth-child(${question}) .btn-option`);
+            allButtons.forEach(btn => {
+                btn.classList.remove('btn-primary');
+                btn.classList.add('btn-outline-primary');
+            });
+            // Adiciona a classe 'btn-primary' ao botão clicado
+            const clickedButton = event.target;
+            clickedButton.classList.remove('btn-outline-primary');
+            clickedButton.classList.add('btn-primary');
+        }
+
+        // Função para calcular o resultado
+        function calculateResult() {
+            let totalScore = 0;
+            let answeredQuestions = 0;
+
+            // Soma as respostas
+            for (const question in answers) {
+                totalScore += answers[question];
+                answeredQuestions++;
+            }
+
+            // Verifica se todas as perguntas foram respondidas
+            if (answeredQuestions < 20) {
+                alert("Por favor, responda a todas as perguntas antes de ver o resultado.");
+                return;
+            }
+
+            // Exibe o resultado
+            const scoreValue = document.getElementById('score-value');
+            const scoreDescription = document.getElementById('score-description');
+            const resultCard = document.getElementById('result-card');
+
+            // Lógica para definir a descrição com base na pontuação
+            let description = "";
+            if (totalScore <= 30) {
+                description = "Você tem um perfil <strong>proativo, resiliente e inovador</strong>. Sua capacidade de adaptação e liderança são diferenciais. Continue assim!";
+            } else if (totalScore <= 45) {
+                description = "Você é <strong>equilibrado e versátil</strong>. Conseguir lidar com desafios e se adaptar a diferentes situações é um ponto forte, mas pode melhorar em alguns aspectos.";
+            } else {
+                description = "Você pode ter <strong>dificuldades com mudanças, pressão e autoconfiança</strong>. Trabalhar sua flexibilidade e segurança pode te ajudar a alcançar novos patamares.";
+            }
+
+            scoreValue.textContent = `${totalScore}/60`;
+            scoreDescription.innerHTML = description;
+            resultCard.style.display = "block";
+
+            // Rola até o resultado
+            resultCard.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Função para reiniciar o teste
+        function resetTest() {
+            answers = {};
+            document.querySelectorAll('.btn-option').forEach(btn => {
+                btn.classList.remove('btn-primary');
+                btn.classList.add('btn-outline-primary');
+            });
+            document.getElementById('result-card').style.display = "none";
+            // Rola para o topo da página
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
