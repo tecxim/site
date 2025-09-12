@@ -36,10 +36,30 @@
         .navbar {
             transition: all 0.3s ease;
             padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
         .navbar.scrolled {
             background: rgba(255, 255, 255, 0.95) !important;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary) !important;
+        }
+        .nav-link {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            color: var(--dark) !important;
+            margin: 0 0.5rem;
+            position: relative;
+        }
+        .nav-link:hover {
+            color: var(--gold) !important;
         }
         #hero {
             background: linear-gradient(135deg, rgba(41, 128, 185, 0.85), rgba(39, 174, 96, 0.85)), url('https://mistralaiblackforestprod.blob.core.windows.net/images/blackforest/55d8/6881/-2bf/1-4773-a806-aa8b261caa97/image.jpg?se=2025-09-06T21%3A11%3A33Z&sp=r&sv=2025-07-05&sr=b&sig=%2BVPW3100MAJ494dI1kWjyBzKrjIxIpSkJ7zGD3Ffa6E%3D');
@@ -146,11 +166,14 @@
             #hero {
                 padding: 100px 0;
             }
+            .navbar-nav {
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Menu de Navegação Fixo -->
+    <!-- Menu de Navegação -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#hero">
