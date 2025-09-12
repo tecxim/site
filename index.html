@@ -61,6 +61,25 @@
         .nav-link:hover {
             color: var(--gold) !important;
         }
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            min-width: 200px;
+            background: white;
+        }
+        .dropdown-item {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            color: var(--dark) !important;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.2s ease;
+        }
+        .dropdown-item:hover {
+            background: rgba(241, 196, 15, 0.1);
+            color: var(--gold) !important;
+        }
         #hero {
             background: linear-gradient(135deg, rgba(41, 128, 185, 0.85), rgba(39, 174, 96, 0.85)), url('https://mistralaiblackforestprod.blob.core.windows.net/images/blackforest/55d8/6881/-2bf/1-4773-a806-aa8b261caa97/image.jpg?se=2025-09-06T21%3A11%3A33Z&sp=r&sv=2025-07-05&sr=b&sig=%2BVPW3100MAJ494dI1kWjyBzKrjIxIpSkJ7zGD3Ffa6E%3D');
             background-size: cover;
@@ -189,6 +208,16 @@
                     <li class="nav-item"><a class="nav-link" href="#bonus">Bônus Exclusivo</a></li>
                     <li class="nav-item"><a class="nav-link" href="#depoimentos">Depoimentos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#cta">Oferta</a></li>
+                    <!-- Dropdown para links externos -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-book me-1"></i> Recursos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="https://" target="_blank"><i class="bi bi-file-earmark-text me-2"></i> Ebook de Prompts</a></li>
+                            <!-- Adicione mais itens aqui conforme necessário -->
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
