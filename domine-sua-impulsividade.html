@@ -172,36 +172,35 @@
             margin-top: 10px;
         }
         .chapter-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.chapter-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
-    line-height: 1.5;
-    font-size: 1.05rem;
-}
-
-.chapter-list li::before {
-    content: "▶";
-    color: var(--secondary);
-    font-weight: bold;
-    flex-shrink: 0;
-    margin-top: 3px;
-}
-
-/* bloco fixo para capítulo */
-.chapter-list li span {
-    font-weight: 600;
-    white-space: nowrap;  /* não deixa "Capítulo 1:" quebrar */
-    margin-right: 5px;
-}
-
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .chapter-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            line-height: 1.5;
+            font-size: 1.05rem;
+        }
+        
+        .chapter-list li::before {
+            content: "▶";
+            color: var(--secondary);
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        
+        /* Mantém "Capítulo 1:" junto sem quebrar */
+        .chapter-list li span {
+            font-weight: 600;
+            white-space: nowrap;
+            margin-right: 5px;
+        }
         @media (max-width: 768px) {
             .hero-section {
                 padding: 80px 0;
@@ -275,12 +274,13 @@
                 <div class="col-lg-10 mx-auto">
                     <h2 class="text-center mb-5">Conheça alguns capítulos do ebook</h2>
                     <ul class="chapter-list">
-                        <li><strong>Capítulo 1:</strong> O Que É Impulsividade e Por Que Ela Nos Controla?</li>
-                        <li><strong>Capítulo 2:</strong> Identificando Seus Gatilhos — O Que Dispara Sua Impulsividade?</li>
-                        <li><strong>Capítulo 3:</strong> Estratégias para Neutralizar Gatilhos — Como Agir com Consciência</li>
-                        <li><strong>Capítulo 4:</strong> Impulsividade e Dinheiro — Como Parar de Gastar sem Pensar e Construir Segurança Financeira</li>
-                        <li><strong>Capítulo 5:</strong> Impulsividade nos Relacionamentos — Como Evitar Conflitos e Construir Conexões Genuínas</li>
+                      <li><span>Capítulo 1:</span> O Que É Impulsividade e Por Que Ela Nos Controla?</li>
+                      <li><span>Capítulo 2:</span> Identificando Seus Gatilhos — O Que Dispara Sua Impulsividade?</li>
+                      <li><span>Capítulo 3:</span> Estratégias para Neutralizar Gatilhos — Como Agir com Consciência</li>
+                      <li><span>Capítulo 4:</span> Impulsividade e Dinheiro — Como Parar de Gastar sem Pensar e Construir Segurança Financeira</li>
+                      <li><span>Capítulo 5:</span> Impulsividade nos Relacionamentos — Como Evitar Conflitos e Construir Conexões Genuínas</li>
                     </ul>
+
                     <p class="text-center mt-4"><strong>E mais 10 capítulos</strong> para você dominar seus impulsos de forma definitiva.</p>
                 </div>
             </div>
