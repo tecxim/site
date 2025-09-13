@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domine o Impulso | Wellington Cardoso</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Playfair Display (elegância) + Open Sans (legibilidade) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --transition: all 0.3s ease;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.7)), url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .btn-custom {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-custom:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .price-old {
+            text-decoration: line-through;
+            color: #7f8c8d;
+            font-size: 1.2rem;
+        }
+        .price-new {
+            color: var(--secondary);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .countdown {
+            background-color: white;
+            color: var(--dark);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin: 20px 0;
+        }
+        .countdown span {
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 0 5px;
+            font-weight: 600;
+        }
+        .bonus {
+            background-color: white;
+            border-left: 5px solid var(--secondary);
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            text-align: center;
+        }
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: block;
+            object-fit: cover;
+        }
+        .testimonial .name {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        .testimonial .role {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        .footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .ebook-cover {
+            max-width: 300px;
+            height: auto;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+        .hotmart-logo {
+            max-width: 120px;
+            height: auto;
+            margin-top: 10px;
+        }
+        .chapter-list {
+            list-style: none;
+            padding: 0;
+        }
+        .chapter-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        .chapter-list li:before {
+            content: "▶";
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 0;
+            }
+            .price-new {
+                font-size: 2rem;
+            }
+            .countdown span {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto hero-content">
+                    <h1 class="display-4 fw-bold mb-4">Domine o Impulso</h1>
+                    <p class="lead mb-4">Aprenda a comprar, viver e decidir com consciência — sem arrependimentos ou dívidas desnecessárias.</p>
+                    <div class="d-flex justify-content-center align-items-center flex-column flex-md-row">
+                        <div class="me-md-4 mb-3 mb-md-0">
+                            <span class="price-old">De R$ 49,90</span>
+                            <span class="price-new ms-2">Por R$ 29,80</span>
+                        </div>
+                        <a href="#comprar" class="btn btn-custom btn-lg">QUERO DOMINAR MEUS IMPULSOS</a>
+                    </div>
+                    <div class="countdown mt-4">
+                        <p class="mb-2">Oferta especial por tempo limitado:</p>
+                        <div id="countdown" class="d-flex justify-content-center flex-wrap">
+                            <span id="days">00</span>
+                            <span id="hours">00</span>
+                            <span id="minutes">00</span>
+                            <span id="seconds">00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre o Ebook -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0 text-center">
+                    <img src="imagens/capa_impulsividade.JPG" alt="Capa do Ebook Domine o Impulso" class="img-fluid ebook-cover">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-4">Por que este ebook vai mudar sua relação com o dinheiro e as escolhas?</h2>
+                    <p class="mb-3">Você já se pegou comprando algo que não precisava, só pelo prazer do momento? Ou adiou decisões importantes por medo ou ansiedade?</p>
+                    <p class="mb-3">Em <strong>Domine o Impulso</strong>, você vai entender os gatilhos por trás dos seus impulsos e aprender técnicas práticas para:</p>
+                    <ul class="list-unstyled mb-4">
+                        <li class="mb-2"><i class="fas fa-check-circle me-2 text-secondary"></i> Comprar com consciência, sem culpa ou dívidas</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2 text-secondary"></i> Tomar decisões alinhadas com seus valores</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2 text-secondary"></i> Viver com mais propósito e menos arrependimentos</li>
+                    </ul>
+                    <p class="mb-4"><strong>15 capítulos e mais de 100 páginas</strong> de conteúdo prático, com leitura agradável e exemplos reais.</p>
+                    <a href="#comprar" class="btn btn-custom">QUERO APRENDER AGORA</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capítulos do Ebook -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <h2 class="text-center mb-5">Conheça alguns capítulos do ebook</h2>
+                    <ul class="chapter-list">
+                        <li><strong>Capítulo 1:</strong> O Que É Impulsividade e Por Que Ela Nos Controla?</li>
+                        <li><strong>Capítulo 2:</strong> Identificando Seus Gatilhos — O Que Dispara Sua Impulsividade?</li>
+                        <li><strong>Capítulo 3:</strong> Estratégias para Neutralizar Gatilhos — Como Agir com Consciência</li>
+                        <li><strong>Capítulo 4:</strong> Impulsividade e Dinheiro — Como Parar de Gastar sem Pensar e Construir Segurança Financeira</li>
+                        <li><strong>Capítulo 5:</strong> Impulsividade nos Relacionamentos — Como Evitar Conflitos e Construir Conexões Genuínas</li>
+                    </ul>
+                    <p class="text-center mt-4"><strong>E mais 10 capítulos</strong> para você dominar seus impulsos de forma definitiva.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garantia -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Garantia de 7 Dias</h2>
+                    <p class="mb-4">Adquira o ebook <strong>sem risco</strong>. Se em até 7 dias você não estiver satisfeito, devolvemos 100% do seu dinheiro.</p>
+                    <p><i class="fas fa-shield-alt fa-3x text-secondary mb-3"></i></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bônus -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Bônus Exclusivo</h2>
+                    <div class="bonus">
+                        <h3 class="mb-3"><i class="fas fa-gift me-2 text-secondary"></i> Teste de Impulsividade</h3>
+                        <p>Ao adquirir o ebook, você ganha <strong>acesso vitalício</strong> à página de teste de impulsividade, onde poderá avaliar seu perfil e acompanhar sua evolução ao longo do tempo.</p>
+                        <p><small>Disponível dentro do ebook.</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-5">O que estão dizendo</h2>
+
+                    <div class="testimonial">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Depoimento">
+                        <p class="fst-italic">"O ebook me ajudou a identificar padrões de consumo que eu nem percebia. Hoje, consigo poupar mais e me sinto muito mais no controle das minhas escolhas."</p>
+                        <p class="name mb-0">Ana Clara</p>
+                        <p class="role">Empreendedora</p>
+                    </div>
+
+                    <div class="testimonial">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Depoimento">
+                        <p class="fst-italic">"As técnicas são simples, mas poderosas. Consegui reduzir minhas compras por impulso em mais de 60% em apenas 2 meses."</p>
+                        <p class="name mb-0">Carlos Eduardo</p>
+                        <p class="role">Analista de TI</p>
+                    </div>
+
+                    <div class="testimonial">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Depoimento">
+                        <p class="fst-italic">"Recomendo para quem quer viver com mais leveza e menos ansiedade. O teste de impulsividade foi um divisor de águas para mim."</p>
+                        <p class="name mb-0">Fernanda Silva</p>
+                        <p class="role">Psicóloga</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-5 bg-light" id="comprar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4">Pronto para transformar sua vida?</h2>
+                    <p class="mb-4">Aproveite a oferta especial e comece hoje mesmo a viver com mais consciência e menos impulsos.</p>
+                    <div class="d-flex justify-content-center align-items-center flex-column flex-md-row">
+                        <div class="me-md-4 mb-3 mb-md-0">
+                            <span class="price-old">De R$ 49,90</span>
+                            <span class="price-new ms-2">Por R$ 29,80</span>
+                        </div>
+                        <a href="#" class="btn btn-custom btn-lg">QUERO MEU EBOOK AGORA</a>
+                    </div>
+                    <p class="mt-3"><small>Venda 100% segura pela <img src="imagens/logo_hotmart.png" alt="Hotmart" class="hotmart-logo"></small></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mx-auto text-center">
+                    <p class="mb-2">© 2025 Wellington Cardoso. Todos os direitos reservados.</p>
+                    <p class="mb-0">Dúvidas? Entre em contato pelo <a href="https://wa.me/5511999402929" target="_blank"><i class="fab fa-whatsapp me-1"></i> (11) 99940-2929</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/5511999402929?text=Olá%20Wellington,%20vi%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20como%20criar%20um%20site%20assim!" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Contagem Regressiva -->
+    <script>
+        // Define a data final (7 dias a partir de hoje)
+        const endDate = new Date();
+        endDate.setDate(endDate.getDate() + 7);
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = endDate - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days < 10 ? '0' + days : days;
+            document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
