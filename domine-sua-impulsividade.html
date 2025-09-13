@@ -172,28 +172,35 @@
             margin-top: 10px;
         }
         .chapter-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .chapter-list li {
-            display: flex;
-            align-items: flex-start; /* garante seta alinhada ao topo do texto */
-            gap: 10px;              /* espaço entre seta e texto */
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-            line-height: 1.5;
-            font-size: 1.05rem;
-        }
-        
-        .chapter-list li:before {
-            content: "▶";
-            color: var(--secondary);
-            font-weight: bold;
-            flex-shrink: 0;  /* seta nunca deforma nem "empurra" o texto */
-            margin-top: 3px; /* ajusta alinhamento vertical */
-        }
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chapter-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    line-height: 1.5;
+    font-size: 1.05rem;
+}
+
+.chapter-list li::before {
+    content: "▶";
+    color: var(--secondary);
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+/* bloco fixo para capítulo */
+.chapter-list li span {
+    font-weight: 600;
+    white-space: nowrap;  /* não deixa "Capítulo 1:" quebrar */
+    margin-right: 5px;
+}
 
         @media (max-width: 768px) {
             .hero-section {
