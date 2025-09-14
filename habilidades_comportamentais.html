@@ -121,6 +121,29 @@
             font-weight: 700;
             color: var(--gold);
         }
+
+          .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        
         .badge-promo {
             background: #e74c3c;
             color: white;
@@ -633,6 +656,8 @@
             <hr class="my-4 bg-white-50">
             <div class="text-center">
                 <p class="mb-0">&copy; 2025 Wellington Cardoso. Todos os direitos reservados.</p>
+                <p class="mb-0">Dúvidas? Entre em contato pelo <a href="https://wa.me/5511999402929" target="_blank"><i class="fab fa-whatsapp me-1"></i> (11) 99940-2929</a></p>
+
             </div>
         </div>
     </footer>
