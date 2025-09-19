@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover how to live a fulfilling youth, focused on purpose, true friendships, and goals that go beyond expectations. A transformative ebook for young people seeking meaning and direction.">
+    <meta name="keywords" content="life purpose, purposeful youth, true friendships, long-term goals, social pressure, emotional balance, personal development, ebook for youth">
+    <title>Purposeful Youth — Ebook for a Meaningful Life</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Poppins (modern and professional) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Animate.css for smooth animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Custom CSS -->
+
+    <style>
+        :root {
+            --primary-color: #4A6FA5;
+            --secondary-color: #166088;
+            --light-color: #F8F9FA;
+            --dark-color: #212529;
+            --transition-speed: 0.4s;
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 180px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+
+        .hero-text h1 {
+            font-weight: 700;
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out;
+            animation-delay: 0.3s;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-custom {
+            background-color: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 15px 40px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all var(--transition-speed) ease;
+            box-shadow: var(--box-shadow);
+            animation: fadeInUp 1s ease-out;
+            animation-delay: 0.6s;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .btn-custom:hover {
+            background-color: var(--light-color);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .countdown-section {
+            background-color: var(--light-color);
+            padding: 70px 0;
+            text-align: center;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .countdown-item {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            min-width: 120px;
+        }
+
+        .countdown-item h3 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .countdown-item p {
+            color: var(--dark-color);
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .benefits-section {
+            padding: 120px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        .benefit-card {
+            background: var(--light-color);
+            border-radius: 15px;
+            padding: 45px 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            height: 100%;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-card i {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+
+        .about-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f6f9ff 0%, #e9f2ff 100%);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-section {
+            padding: 120px 0;
+            background-color: white;
+        }
+
+        .testimonial-card {
+            background: var(--light-color);
+            border-radius: 15px;
+            padding: 45px;
+            margin: 0 auto;
+            max-width: 900px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 6rem;
+            color: var(--primary-color);
+            opacity: 0.1;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+
+        .faq-section {
+            padding: 120px 0;
+            background-color: var(--light-color);
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark-color);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 1s ease-out;
+            animation-delay: 0.3s;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+        }
+
+        .whatsapp-float a {
+            display: block;
+            width: 65px;
+            height: 65px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 65px;
+            font-size: 2.2rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .whatsapp-float a:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .countdown {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .countdown-item {
+                min-width: 100px;
+                padding: 15px 10px;
+            }
+
+            .countdown-item h3 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section (Initial Impact) -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="animate__animated animate__fadeInDown">Youth with Purpose</h1>
+                    <p class="animate__animated animate__fadeInUp">Live a life beyond expectations. Discover how to build a youth focused on <strong>meaning</strong>, <strong>true friendships</strong>, and <strong>goals that matter</strong>—without giving in to the pressure of what "everyone else does."</p>
+                    <a href="https://app.monetizze.com.br/checkout/KZW443018" class="btn btn-custom btn-lg animate__animated animate__fadeInUp">I WANT MY EBOOK FOR R$ 29.90</a>
+                </div>
+                <div class="hero-image animate__animated animate__fadeInRight">
+                    <img src="imagens/capa_juventude.PNG" alt="Ebook Cover: Beyond Dating — Building a Youth with Purpose">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Countdown Section (Urgency) -->
+    <section class="countdown-section">
+        <div class="container">
+            <h2 class="text-center mb-4">Limited-time offer</h2>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <h3 id="days">00</h3>
+                    <p>Days</p>
+                </div>
+                <div class="countdown-item">
+                    <h3 id="hours">00</h3>
+                    <p>Hours</p>
+                </div>
+                <div class="countdown-item">
+                    <h3 id="minutes">00</h3>
+                    <p>Minutes</p>
+                </div>
+                <div class="countdown-item">
+                    <h3 id="seconds">00</h3>
+                    <p>Seconds</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section: Why this ebook? -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-title animate__animated animate__fadeInUp">
+                <h2>Why is this ebook for you?</h2>
+                <p>If you seek clarity, courage, and direction, here’s what you’ll find:</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 animate__animated animate__fadeInUp">
+                    <div class="benefit-card">
+                        <i class="bi bi-lightbulb-fill"></i>
+                        <h3>Clear Purpose</h3>
+                        <p>Define what truly matters to you, without getting lost in others' expectations. Learn how to make decisions aligned with your values and dreams.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="benefit-card">
+                        <i class="bi bi-people-fill"></i>
+                        <h3>Friendships that Add Value</h3>
+                        <p>Learn to cultivate relationships that strengthen, inspire, and support you. True friendships are the foundation of a fulfilling life.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                    <div class="benefit-card">
+                        <i class="bi bi-graph-up"></i>
+                        <h3>Long-Term Goals</h3>
+                        <p>Plan a future based on your values, not imposed standards. Have a clear plan to achieve your goals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section: About the Ebook -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-title animate__animated animate__fadeInUp">
+                <h2>What you will discover</h2>
+                <p>This ebook was created to help you navigate youth with confidence and purpose.</p>
+            </div>
+            <div class="about-content animate__animated animate__fadeInUp">
+                <p>You will learn how to deal with social pressure, set priorities, build meaningful friendships, and plan a future that makes sense <strong>for you</strong>. It’s not about following a script; it’s about <strong>writing your own story</strong>.</p>
+                <p class="mt-4">With clear language and practical examples, this guide will help you:</p>
+                <ul class="mt-3" style="text-align: left; max-width: 600px; margin: 0 auto;">
+                    <li>Understand why postponing dating can be a powerful choice.</li>
+                    <li>Deal with peer and societal pressure in a healthy way.</li>
+                    <li>Cultivate friendships that support and inspire you.</li>
+                    <li>Set long-term goals and create a plan to achieve them.</li>
+                    <li>Balance studies, leisure, and rest without guilt.</li>
+                    <li>Consume content consciously and positively.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="section-title animate__animated animate__fadeInUp">
+                <h2>Transformation Stories</h2>
+                <p>Young people who have already transformed their lives with this ebook:</p>
+            </div>
+            <div class="testimonial-card animate__animated animate__fadeInUp">
+                <p>"Before reading this ebook, I felt lost and pressured to follow what everyone else was doing. Today, I have clarity about my goals and a support network that truly understands me. It was a turning point in my life!"</p>
+                <h4 class="mt-4 text-end">— Ana, 22 years old</h4>
+            </div>
+            <div class="testimonial-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s; margin-top: 30px;">
+                <p>"This ebook helped me see that my youth can be so much more than I imagined. Now, I have clear goals and a direction that makes sense for me. I recommend it to everyone seeking purpose."</p>
+                <h4 class="mt-4 text-end">— Lucas, 19 years old</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monetizze Guarantee Section -->
+    <section class="guarantee-section" style="padding: 80px 0; background-color: #f8f9fa; text-align: center;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h2 style="font-size: 2.2rem; margin-bottom: 20px; color: #2c3e50;">100% Secure and Guaranteed Purchase</h2>
+                    <p style="font-size: 1.1rem; color: #555; margin-bottom: 30px;">
+                        Your purchase is protected by <strong>Monetizze</strong>, the largest digital product sales platform in Latin America.
+                        With over <strong>10 years of history</strong>, Monetizze has processed millions of transactions securely and reliably.
+                    </p>
+                    <p style="font-size: 1.1rem; color: #555; margin-bottom: 30px;">
+                        In addition, you have a <strong>7-day guarantee</strong>. If you don’t like the ebook, just request a full refund.
+                    </p>
+                    <!-- Monetizze Seal Space -->
+                    <div style="margin: 30px 0;">
+                        <img
+                            src="https://via.placeholder.com/200x80?text=Monetizze+Seal"
+                            alt="Monetizze Guarantee Seal"
+                            style="max-width: 200px; height: auto; border-radius: 5px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);"
+                        >
+                    </div>
+                    <p style="font-size: 1rem; color: #777;">
+                        <small>Secure environment certified by Monetizze.</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title animate__animated animate__fadeInUp">
+                <h2>Frequently Asked Questions</h2>
+                <p>Answers to the most common questions:</p>
+            </div>
+            <div class="faq-item animate__animated animate__fadeInUp">
+                <div class="faq-question">How do I receive the ebook after purchase?</div>
+                <p class="mt-3">After payment confirmation, you will receive an email with a link to immediately download the ebook in PDF format.</p>
+            </div>
+            <div class="faq-item animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                <div class="faq-question">What ages is the ebook recommended for?</div>
+                <p class="mt-3">The content is aimed at young people aged 15 and up, but it can be useful for anyone seeking purpose and direction in life.</p>
+            </div>
+            <div class="faq-item animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                <div class="faq-question">Can I share the ebook with friends?</div>
+                <p class="mt-3">The ebook is for personal use. If your friends also want to read it, ask them to purchase their own copy.</p>
+            </div>
+            <div class="faq-item animate__animated animate__fadeInUp" style="animation-delay: 0.9s;">
+                <div class="faq-question">What is the guarantee?</div>
+                <p class="mt-3">We offer a 7-day guarantee. If you don’t like the content, just send us an email and we’ll refund 100% of your money.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Final CTA Section (Call to Action) -->
+    <section class="cta-section" id="download">
+        <div class="container">
+            <h2 class="animate__animated animate__fadeInUp">Ready to live a youth without regrets?</h2>
+            <p class="animate__animated animate__fadeInUp">Download now and start building a life based on <strong>purpose</strong>, <strong>freedom</strong>, and <strong>real meaning</strong>.</p>
+            <a href="https://app.monetizze.com.br/checkout/KZW443018" class="btn btn-custom btn-lg animate__animated animate__fadeInUp">I WANT MY EBOOK FOR R$ 29.90</a>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Wellington Cardoso. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/5511999402929" target="_blank" title="Contact us">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+    </div>
+    <!-- Bootstrap 5 JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Countdown Script -->
+    <script>
+        const countDownDate = new Date();
+        countDownDate.setDate(countDownDate.getDate() + 7);
+        const countdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("countdown").innerHTML = "<h3>Offer ended!</h3>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
+
