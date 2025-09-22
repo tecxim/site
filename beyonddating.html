@@ -8,14 +8,15 @@
     <title>Purposeful Youth — Ebook for a Meaningful Life</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts: Poppins (modern and professional) -->
+    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Animate.css for smooth animations -->
+    <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Custom CSS -->
-
     <style>
         :root {
             --primary-color: #4A6FA5;
@@ -25,14 +26,38 @@
             --transition-speed: 0.4s;
             --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
-
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--dark-color);
             line-height: 1.7;
             overflow-x: hidden;
+            padding-top: 80px; /* Espaço para o menu fixo */
         }
-
+        /* Menu de Navegação */
+        .navbar {
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all var(--transition-speed) ease;
+        }
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            padding: 10px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color var(--transition-speed) ease;
+        }
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        /* Seção Hero */
         .hero-section {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -40,7 +65,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .hero-content {
             display: flex;
             align-items: center;
@@ -48,41 +72,22 @@
             flex-wrap: wrap;
             gap: 50px;
         }
-
-        .hero-text {
-            flex: 1;
-            min-width: 300px;
-            text-align: left;
-        }
-
         .hero-text h1 {
             font-weight: 700;
             font-size: 3.2rem;
             margin-bottom: 25px;
-            animation: fadeInDown 1s ease-out;
         }
-
         .hero-text p {
             font-size: 1.3rem;
             margin-bottom: 40px;
-            animation: fadeInUp 1s ease-out;
-            animation-delay: 0.3s;
         }
-
-        .hero-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-            animation: fadeInRight 1s ease-out;
-        }
-
         .hero-image img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-
+        /* Botões Personalizados */
         .btn-custom {
             background-color: white;
             color: var(--primary-color);
@@ -92,31 +97,26 @@
             border-radius: 50px;
             transition: all var(--transition-speed) ease;
             box-shadow: var(--box-shadow);
-            animation: fadeInUp 1s ease-out;
-            animation-delay: 0.6s;
             margin: 10px;
             display: inline-block;
         }
-
         .btn-custom:hover {
             background-color: var(--light-color);
             transform: translateY(-4px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
-
+        /* Seção de Contagem Regressiva */
         .countdown-section {
             background-color: var(--light-color);
             padding: 70px 0;
             text-align: center;
         }
-
         .countdown {
             display: flex;
             justify-content: center;
             gap: 25px;
             margin-top: 35px;
         }
-
         .countdown-item {
             background: white;
             padding: 25px 20px;
@@ -124,40 +124,51 @@
             box-shadow: var(--box-shadow);
             min-width: 120px;
         }
-
         .countdown-item h3 {
             font-size: 2.8rem;
             color: var(--primary-color);
             margin-bottom: 5px;
         }
-
-        .countdown-item p {
-            color: var(--dark-color);
-            font-size: 1rem;
-            margin-bottom: 0;
+        /* Seção de Outros eBooks */
+        .other-ebooks-section {
+            padding: 80px 0;
+            background-color: white;
+            text-align: center;
         }
-
+        .other-ebooks-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+        }
+        .ebook-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .ebook-item {
+            background: var(--light-color);
+            border-radius: 10px;
+            padding: 30px 20px;
+            box-shadow: var(--box-shadow);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            text-align: center;
+        }
+        .ebook-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+        .ebook-item a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        /* Seção de Benefícios */
         .benefits-section {
             padding: 120px 0;
             background-color: white;
         }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .section-title p {
-            color: var(--secondary-color);
-            font-size: 1.1rem;
-        }
-
         .benefit-card {
             background: var(--light-color);
             border-radius: 15px;
@@ -167,34 +178,20 @@
             transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
             height: 100%;
         }
-
         .benefit-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
         }
-
-        .benefit-card i {
-            font-size: 2.8rem;
-            color: var(--primary-color);
-            margin-bottom: 25px;
-        }
-
+        /* Seção Sobre o Ebook */
         .about-section {
             padding: 120px 0;
             background: linear-gradient(135deg, #f6f9ff 0%, #e9f2ff 100%);
         }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
+        /* Seção de Depoimentos */
         .testimonial-section {
             padding: 120px 0;
             background-color: white;
         }
-
         .testimonial-card {
             background: var(--light-color);
             border-radius: 15px;
@@ -203,24 +200,18 @@
             max-width: 900px;
             box-shadow: var(--box-shadow);
             position: relative;
-            animation: fadeIn 1.5s ease-out;
         }
-
-        .testimonial-card::before {
-            content: '"';
-            font-size: 6rem;
-            color: var(--primary-color);
-            opacity: 0.1;
-            position: absolute;
-            top: 10px;
-            left: 20px;
+        /* Seção de Garantia */
+        .guarantee-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+            text-align: center;
         }
-
+        /* Seção de FAQ */
         .faq-section {
             padding: 120px 0;
             background-color: var(--light-color);
         }
-
         .faq-item {
             background: white;
             border-radius: 10px;
@@ -230,18 +221,11 @@
             cursor: pointer;
             transition: all var(--transition-speed) ease;
         }
-
         .faq-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
-
-        .faq-question {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--dark-color);
-        }
-
+        /* Seção CTA Final */
         .cta-section {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -250,28 +234,21 @@
             position: relative;
             overflow: hidden;
         }
-
-        .cta-section h2 {
-            font-size: 2.8rem;
-            margin-bottom: 25px;
-            animation: fadeInUp 1s ease-out;
+        /* Rodapé */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
         }
-
-        .cta-section p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            animation: fadeInUp 1s ease-out;
-            animation-delay: 0.3s;
-        }
-
+        /* Botão Flutuante do WhatsApp */
         .whatsapp-float {
             position: fixed;
             bottom: 25px;
             right: 25px;
             z-index: 1000;
         }
-
         .whatsapp-float a {
             display: block;
             width: 65px;
@@ -285,24 +262,10 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
             transition: transform var(--transition-speed) ease;
         }
-
         .whatsapp-float a:hover {
             transform: scale(1.1);
         }
-
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
+        /* Animações Personalizadas */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -313,7 +276,6 @@
                 transform: translateY(0);
             }
         }
-
         @keyframes fadeInDown {
             from {
                 opacity: 0;
@@ -324,7 +286,6 @@
                 transform: translateY(0);
             }
         }
-
         @keyframes fadeInRight {
             from {
                 opacity: 0;
@@ -335,44 +296,70 @@
                 transform: translateX(0);
             }
         }
-
+        /* Responsividade */
         @media (max-width: 768px) {
             .hero-content {
                 flex-direction: column;
                 text-align: center;
             }
-
-            .hero-text {
-                text-align: center;
-            }
-
             .hero-text h1 {
                 font-size: 2.5rem;
             }
-
             .hero-text p {
                 font-size: 1.1rem;
             }
-
             .countdown {
                 flex-wrap: wrap;
                 gap: 15px;
             }
-
             .countdown-item {
                 min-width: 100px;
                 padding: 15px 10px;
             }
-
             .countdown-item h3 {
                 font-size: 2rem;
+            }
+            .ebook-list {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section (Initial Impact) -->
-    <section class="hero-section">
+    <!-- Menu de Navegação -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm animate__animated animate__fadeInDown">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-book-half me-2"></i>Purposeful Youth
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#why">Why this ebook?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#discover">What you will discover</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Stories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ebooks">Others eBooks</a>
+                    </li>
+                </ul>
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7KYDHKBHGXVJN" class="btn btn-custom ms-lg-3">Get the eBook</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -386,24 +373,25 @@
             </div>
         </div>
     </section>
-    <!-- Countdown Section (Urgency) -->
+
+    <!-- Countdown Section -->
     <section class="countdown-section">
         <div class="container">
-            <h2 class="text-center mb-4">Limited-time offer</h2>
+            <h2 class="text-center mb-4 animate__animated animate__fadeInUp">Limited-time offer</h2>
             <div class="countdown" id="countdown">
-                <div class="countdown-item">
+                <div class="countdown-item animate__animated animate__fadeInUp">
                     <h3 id="days">00</h3>
                     <p>Days</p>
                 </div>
-                <div class="countdown-item">
+                <div class="countdown-item animate__animated animate__fadeInUp">
                     <h3 id="hours">00</h3>
                     <p>Hours</p>
                 </div>
-                <div class="countdown-item">
+                <div class="countdown-item animate__animated animate__fadeInUp">
                     <h3 id="minutes">00</h3>
                     <p>Minutes</p>
                 </div>
-                <div class="countdown-item">
+                <div class="countdown-item animate__animated animate__fadeInUp">
                     <h3 id="seconds">00</h3>
                     <p>Seconds</p>
                 </div>
@@ -412,26 +400,34 @@
     </section>
 
     <!-- Others eBooks Section -->
-<section class="other-ebooks-section">
-    <div class="container">
-        <h2 class="text-center mb-4">Others eBooks</h2>
-        <div class="ebook-list">
-            <div class="ebook-item">
-                <a href="link_para_ebook1">Ebook 1</a>
+    <section class="other-ebooks-section" id="ebooks">
+        <div class="container">
+            <h2 class="text-center mb-4 animate__animated animate__fadeInUp">Others eBooks</h2>
+            <div class="ebook-list">
+                <div class="ebook-item animate__animated animate__fadeInUp">
+                    <a href="link_para_ebook1">
+                        <i class="bi bi-book mb-3" style="font-size: 2.5rem; color: var(--primary-color);"></i>
+                        <h4>Ebook 1</h4>
+                    </a>
+                </div>
+                <div class="ebook-item animate__animated animate__fadeInUp">
+                    <a href="link_para_ebook2">
+                        <i class="bi bi-book mb-3" style="font-size: 2.5rem; color: var(--primary-color);"></i>
+                        <h4>Ebook 2</h4>
+                    </a>
+                </div>
+                <div class="ebook-item animate__animated animate__fadeInUp">
+                    <a href="link_para_ebook3">
+                        <i class="bi bi-book mb-3" style="font-size: 2.5rem; color: var(--primary-color);"></i>
+                        <h4>Ebook 3</h4>
+                    </a>
+                </div>
             </div>
-            <div class="ebook-item">
-                <a href="link_para_ebook2">Ebook 2</a>
-            </div>
-            <div class="ebook-item">
-                <a href="link_para_ebook3">Ebook 3</a>
-            </div>
-            <!-- Adicione mais eBooks conforme necessário -->
         </div>
-    </div>
-</section>
+    </section>
 
-    <!-- Section: Why this ebook? -->
-    <section class="benefits-section">
+    <!-- Why this ebook? Section -->
+    <section class="benefits-section" id="why">
         <div class="container">
             <div class="section-title animate__animated animate__fadeInUp">
                 <h2>Why is this ebook for you?</h2>
@@ -440,21 +436,21 @@
             <div class="row">
                 <div class="col-md-4 animate__animated animate__fadeInUp">
                     <div class="benefit-card">
-                        <i class="bi bi-lightbulb-fill"></i>
+                        <i class="bi bi-lightbulb-fill mb-4" style="font-size: 2.8rem; color: var(--primary-color);"></i>
                         <h3>Clear Purpose</h3>
                         <p>Define what truly matters to you, without getting lost in others' expectations. Learn how to make decisions aligned with your values and dreams.</p>
                     </div>
                 </div>
                 <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
                     <div class="benefit-card">
-                        <i class="bi bi-people-fill"></i>
+                        <i class="bi bi-people-fill mb-4" style="font-size: 2.8rem; color: var(--primary-color);"></i>
                         <h3>Friendships that Add Value</h3>
                         <p>Learn to cultivate relationships that strengthen, inspire, and support you. True friendships are the foundation of a fulfilling life.</p>
                     </div>
                 </div>
                 <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
                     <div class="benefit-card">
-                        <i class="bi bi-graph-up"></i>
+                        <i class="bi bi-graph-up mb-4" style="font-size: 2.8rem; color: var(--primary-color);"></i>
                         <h3>Long-Term Goals</h3>
                         <p>Plan a future based on your values, not imposed standards. Have a clear plan to achieve your goals.</p>
                     </div>
@@ -462,8 +458,9 @@
             </div>
         </div>
     </section>
-    <!-- Section: About the Ebook -->
-    <section class="about-section">
+
+    <!-- What you will discover Section -->
+    <section class="about-section" id="discover">
         <div class="container">
             <div class="section-title animate__animated animate__fadeInUp">
                 <h2>What you will discover</h2>
@@ -473,18 +470,19 @@
                 <p>You will learn how to deal with social pressure, set priorities, build meaningful friendships, and plan a future that makes sense <strong>for you</strong>. It’s not about following a script; it’s about <strong>writing your own story</strong>.</p>
                 <p class="mt-4">With clear language and practical examples, this guide will help you:</p>
                 <ul class="mt-3" style="text-align: left; max-width: 600px; margin: 0 auto;">
-                    <li>Understand why postponing dating can be a powerful choice.</li>
-                    <li>Deal with peer and societal pressure in a healthy way.</li>
-                    <li>Cultivate friendships that support and inspire you.</li>
-                    <li>Set long-term goals and create a plan to achieve them.</li>
-                    <li>Balance studies, leisure, and rest without guilt.</li>
-                    <li>Consume content consciously and positively.</li>
+                    <li class="animate__animated animate__fadeInUp">Understand why postponing dating can be a powerful choice.</li>
+                    <li class="animate__animated animate__fadeInUp">Deal with peer and societal pressure in a healthy way.</li>
+                    <li class="animate__animated animate__fadeInUp">Cultivate friendships that support and inspire you.</li>
+                    <li class="animate__animated animate__fadeInUp">Set long-term goals and create a plan to achieve them.</li>
+                    <li class="animate__animated animate__fadeInUp">Balance studies, leisure, and rest without guilt.</li>
+                    <li class="animate__animated animate__fadeInUp">Consume content consciously and positively.</li>
                 </ul>
             </div>
         </div>
     </section>
+
     <!-- Testimonials Section -->
-    <section class="testimonial-section">
+    <section class="testimonial-section" id="testimonials">
         <div class="container">
             <div class="section-title animate__animated animate__fadeInUp">
                 <h2>Transformation Stories</h2>
@@ -502,37 +500,34 @@
     </section>
 
     <!-- PayPal Guarantee Section -->
-<section class="guarantee-section" style="padding: 80px 0; background-color: #f8f9fa; text-align: center;">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <h2 style="font-size: 2.2rem; margin-bottom: 20px; color: #2c3e50;">100% Secure and Guaranteed Purchase</h2>
-                <p style="font-size: 1.1rem; color: #555; margin-bottom: 30px;">
-                    Your purchase is protected by <strong>PayPal</strong>, a globally trusted payment platform with millions of secure transactions every day.
-                </p>
-                <p style="font-size: 1.1rem; color: #555; margin-bottom: 30px;">
-                    In addition, you have a <strong>7-day guarantee</strong>. If you don’t like the ebook, just request a full refund via PayPal.
-                </p>
-                <!-- PayPal Seal Space -->
-                <div style="margin: 30px 0; text-align: center;">
-                    <img
-                        src="imagens/paypal.png"
-                        alt="PayPal Guarantee Seal"
-                        style="width: 230px; height: 100px; border-radius: 5px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);"
-                    >
+    <section class="guarantee-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h2 style="font-size: 2.2rem; margin-bottom: 20px; color: #2c3e50;">100% Secure and Guaranteed Purchase</h2>
+                    <p style="font-size: 1.1rem; color: #555; margin-bottom: 30px;">
+                        Your purchase is protected by <strong>PayPal</strong>, a globally trusted payment platform with millions of secure transactions every day.
+                    </p>
+                    <p style="font-size: 1.1rem; color: #555; margin-bottom: 30px;">
+                        In addition, you have a <strong>7-day guarantee</strong>. If you don’t like the ebook, just request a full refund via PayPal.
+                    </p>
+                    <div style="margin: 30px 0; text-align: center;">
+                        <img
+                            src="imagens/paypal.png"
+                            alt="PayPal Guarantee Seal"
+                            style="width: 230px; height: 100px; border-radius: 5px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);"
+                        >
+                    </div>
+                    <p style="font-size: 1rem; color: #777;">
+                        <small>Secure environment certified by PayPal.</small>
+                    </p>
                 </div>
-
-                <p style="font-size: 1rem; color: #777;">
-                    <small>Secure environment certified by PayPal.</small>
-                </p>
             </div>
         </div>
-    </div>
-</section>
-
+    </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section">
+    <section class="faq-section" id="faq">
         <div class="container">
             <div class="section-title animate__animated animate__fadeInUp">
                 <h2>Frequently Asked Questions</h2>
@@ -556,7 +551,8 @@
             </div>
         </div>
     </section>
-    <!-- Final CTA Section (Call to Action) -->
+
+    <!-- Final CTA Section -->
     <section class="cta-section" id="download">
         <div class="container">
             <h2 class="animate__animated animate__fadeInUp">Ready to live a youth without regrets?</h2>
@@ -564,24 +560,36 @@
             <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7KYDHKBHGXVJN" class="btn btn-custom btn-lg animate__animated animate__fadeInUp">I WANT MY EBOOK FOR $9.99</a>
         </div>
     </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2025 Wellington Cardoso. All rights reserved.</p>
         </div>
     </footer>
+
     <!-- Floating WhatsApp Button -->
     <div class="whatsapp-float">
         <a href="https://wa.me/5511999402929" target="_blank" title="Contact us">
             <i class="bi bi-whatsapp"></i>
         </a>
     </div>
+
     <!-- Bootstrap 5 JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Countdown Script -->
     <script>
+        // Efeito de rolagem para o menu
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Contagem regressiva
         const countDownDate = new Date();
         countDownDate.setDate(countDownDate.getDate() + 7);
         const countdown = setInterval(function() {
@@ -603,4 +611,3 @@
     </script>
 </body>
 </html>
-
