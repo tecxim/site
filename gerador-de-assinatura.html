@@ -544,8 +544,11 @@
                 // Atualizar informações pessoais
                 document.getElementById('preview-name').textContent = name;
                 document.getElementById('preview-position').textContent = position;
-                document.getElementById('preview-department').textContent = department;
-                document.getElementById('preview-company').textContent = company;
+                
+                // Juntar departamento e empresa em uma linha só
+                const department = departmentInput.value || 'TI';
+                const company = companyInput.value || 'Luft Solutions';
+                document.getElementById('preview-department').textContent = `${department} | ${company}`;
                 
                 // Atualizar informações de contato
                 document.getElementById('preview-phone').textContent = phone;
