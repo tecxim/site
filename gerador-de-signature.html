@@ -357,7 +357,7 @@
             </div>
 
             <div class="form-group">
-                <label for="website">Website</label>
+               <!-- <label for="website">Website</label>-->
                 <input type="text" id="website" placeholder="www.suaempresa.com">
             </div>
 
@@ -422,8 +422,8 @@
                         <div class="contact-item">
                             <i>✉️</i> <span id="preview-email">joao.silva@empresa.com</span>
                         </div>
-                        <div class="contact-item">
-                            <i>🌐</i> <span id="preview-website">www.empresaxyz.com</span>
+                        <!-- div class="contact-item">-->
+                           < <i>🌐</i> <span id="preview-website">www.empresaxyz.com</span>
                         </div>
                     </div>
 
@@ -462,7 +462,7 @@
             const companyInput = document.getElementById('company');
             const phoneInput = document.getElementById('phone');
             const emailInput = document.getElementById('email');
-            const websiteInput = document.getElementById('website');
+            //const websiteInput = document.getElementById('website');
             const colorInput = document.getElementById('color');
             const colorValue = document.getElementById('color-value');
             const photoUpload = document.getElementById('photoUpload');
@@ -529,7 +529,7 @@
                 // Atualizar informações de contato
                 const phone = phoneInput.value || '(11) 99999-9999';
                 const email = emailInput.value || 'joao.silva@empresa.com';
-                const website = websiteInput.value || 'www.empresaxyz.com';
+                //const website = websiteInput.value || 'www.empresaxyz.com';
 
                 // Atualizar cor
                 const color = colorInput.value;
@@ -550,7 +550,7 @@
                 // Atualizar informações de contato
                 document.getElementById('preview-phone').textContent = phone;
                 document.getElementById('preview-email').textContent = email;
-                document.getElementById('preview-website').textContent = website;
+                //document.getElementById('preview-website').textContent = website;
 
                 // Atualizar cor principal
                 const elementsToColor = document.querySelectorAll('.social-icon');
