@@ -1,7 +1,7 @@
 {
   "name": "Bíblia Quiz",
   "short_name": "Bíblia Quiz",
-  "start_url": "./",
+  "start_url": "/site/bibliaquiz.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#3498db",
