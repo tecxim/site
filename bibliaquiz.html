@@ -218,8 +218,8 @@
 	}
 
     </style>
-</head>
-<body>
+    </head>
+    <body>
     <!-- Página do Quiz -->
     <div class="container" id="quizPage">
         <div class="module" id="moduleInfo">Módulo 1 de 50</div>
@@ -268,8 +268,8 @@
 		
     </div>
 	
-	<!-- Popup de Boas-vindas -->
-<div id="welcomePopup" style="
+<!-- Popup de Boas-vindas -->
+ <div id="welcomePopup" style="
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
@@ -342,7 +342,6 @@ if ('serviceWorker' in navigator) {
 
 <script>
   let deferredPrompt;
-
   // Escuta o evento que indica que o PWA pode ser instalado
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault(); // Impede que o Chrome mostre o banner automático
@@ -379,6 +378,7 @@ if ('serviceWorker' in navigator) {
     });
   });
   </script>
+</script>
 
 </body>
 </html>
