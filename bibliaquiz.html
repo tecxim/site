@@ -323,8 +323,7 @@
     }
   `;
   document.head.appendChild(style);
-</script>	
-	
+
 
 <audio id="correctSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
 <audio id="wrongSound" src="https://actions.google.com/sounds/v1/cartoon/boing.ogg"></audio>
@@ -332,8 +331,7 @@
 <script src="quiz.js" defer></script>
 
 
-<script>
-  let deferredPrompt;
+let deferredPrompt;
 
   // Escuta o evento que indica que o PWA pode ser instalado
   window.addEventListener('beforeinstallprompt', (e) => {
@@ -370,18 +368,16 @@
       });
     });
   });
-</script>
 
 
-<script>
-// Service Worker
+	 // Service Worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
         .then(() => console.log('Service Worker registrado com sucesso.'))
         .catch(err => console.log('Erro ao registrar o Service Worker:', err));
     }
-  </script>
-
+	
+</script>
 
 </body>
 </html>
