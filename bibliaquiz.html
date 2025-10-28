@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bíblia Quiz - Antigo Testamento</title>
+    <title>Bíblia Quiz - Básico - Intermediário</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
 
     <style>
@@ -263,13 +263,71 @@
             <input type="text" id="userName" placeholder="Digite seu nome completo">
         </div>
         <button class="generate-btn" id="generateCertificateBtn">Gerar Certificado</button>
+		
     </div>
+	
+	<!-- Popup de Boas-vindas -->
+<div id="welcomePopup" style="
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+">
+  <div style="
+    background: #fff;
+    color: #333;
+    border-radius: 15px;
+    max-width: 400px;
+    width: 90%;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    animation: fadeInPopup 0.5s ease;
+  ">
+    <h2 style="color:#3c1053;">📖 Bem-vindo ao Bíblia Quiz!</h2>
+    <p style="margin:15px 0; font-size:15px;">
+      Este quiz é uma forma divertida de testar e fortalecer seus conhecimentos bíblicos.<br><br>
+      É <strong>recomendável consultar a Bíblia</strong> para confirmar as respostas.<br><br>
+      Ao final, se você alcançar <strong>70% ou mais</strong> de acertos, poderá <strong>emitir e salvar seu certificado</strong> de conhecimento bíblico-teológico!
+    </p>
+    <button onclick="closePopup()" style="
+      background:#ffea00;
+      color:#000;
+      border:none;
+      padding:10px 20px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:bold;
+      margin-top:10px;
+    ">Começar o Quiz</button>
+  </div>
+</div>
 
-    <audio id="correctSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
-    <audio id="wrongSound" src="https://actions.google.com/sounds/v1/cartoon/boing.ogg"></audio>
-    <audio id="levelUpSound" src="https://actions.google.com/sounds/v1/alarms/bugle_tune.ogg"></audio>
+<script>
+  function closePopup() {
+    document.getElementById('welcomePopup').style.display = 'none';
+  }
 
-	<script src="quiz.js" defer></script>
+  // Animação suave de entrada
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes fadeInPopup {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  `;
+  document.head.appendChild(style);
+</script>	
+	
+
+<audio id="correctSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
+<audio id="wrongSound" src="https://actions.google.com/sounds/v1/cartoon/boing.ogg"></audio>
+<audio id="levelUpSound" src="https://actions.google.com/sounds/v1/alarms/bugle_tune.ogg"></audio>
+<script src="quiz.js" defer></script>
 
 
 
