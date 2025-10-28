@@ -4,270 +4,272 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bíblia Quiz - Básico - Intermediário</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
-	<link rel="manifest" href="manifest.json">	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+    <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1a237e">
-
     <style>
-       
+        /* Estilos para o menu superior */
+        .menu-container {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+        .menu-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .menu {
+            position: relative;
+            display: inline-block;
+        }
+        .menu-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: clamp(0.8em, 3vw, 1em);
+            transition: background 0.3s ease;
+        }
+        .menu-btn:hover {
+            background: rgba(255, 255, 255, 0.35);
+        }
+        .menu-content {
+            display: none;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            padding: 10px;
+            left: 0;
+            top: 100%;
+        }
+        .menu-content a {
+            color: #fff;
+            padding: 8px 0;
+            text-decoration: none;
+            display: block;
+            font-size: clamp(0.7em, 3vw, 0.9em);
+            transition: color 0.3s ease;
+        }
+        .menu-content a:hover {
+            color: #ffea00;
+        }
+        .menu:hover .menu-content {
+            display: block;
+        }
+
         /* Estilos para a página do quiz */
-	body {
-		font-family: 'Poppins', sans-serif;
-		background: linear-gradient(135deg, #3c1053, #ad5389);
-		color: #fff;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		min-height: 100vh;
-		margin: 0;
-		padding: 20px;
-		box-sizing: border-box;
-		overflow-x: hidden;
-	}
-
-	.container {
-		background: rgba(255, 255, 255, 0.1);
-		border-radius: 20px;
-		padding: 25px;
-		width: 95%;
-		max-width: 500px;
-		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-		backdrop-filter: blur(8px);
-		text-align: center;
-		animation: fadeIn 0.6s ease;
-	}
-
-	@keyframes fadeIn {
-		from { opacity: 0; transform: translateY(10px); }
-		to { opacity: 1; transform: translateY(0); }
-	}
-
-	h1 {
-		margin-bottom: 20px;
-		font-size: clamp(1.4em, 4vw, 1.6em);
-		color: #ffea00;
-	}
-
-	.question {
-		font-size: clamp(1em, 3vw, 1.2em);
-		margin-bottom: 15px;
-		min-height: 60px;
-		transition: opacity 0.4s ease;
-	}
-
-	.options {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-	}
-
-	.options button {
-		display: block;
-		background: rgba(255, 255, 255, 0.2);
-		border: none;
-		color: #fff;
-		margin: 0 auto;
-		padding: 12px;
-		width: 100%;
-		border-radius: 12px;
-		font-size: clamp(0.9em, 3vw, 1em);
-		cursor: pointer;
-		transition: all 0.2s ease;
-	}
-
-	.options button:hover {
-		background: rgba(255, 255, 255, 0.35);
-		transform: scale(1.02);
-	}
-
-	.next-btn, .continue-btn, .skip-btn, .finish-btn {
-		margin-top: 20px;
-		padding: 10px 25px;
-		border: none;
-		background: #ffea00;
-		color: #000;
-		font-weight: bold;
-		border-radius: 10px;
-		cursor: pointer;
-		display: none;
-		transition: all 0.3s ease;
-		font-size: clamp(0.8em, 3vw, 1em);
-	}
-
-	.next-btn:hover, .continue-btn:hover, .skip-btn:hover, .finish-btn:hover {
-		background: #fff04d;
-		transform: scale(1.05);
-	}
-
-	.module {
-		font-size: clamp(0.8em, 3vw, 0.9em);
-		opacity: 0.8;
-		margin-bottom: 10px;
-	}
-
-	.skip-btn {
-		display: block !important;
-	}
-
-	/* Estilos para a página do certificado */
-	.certificate-page {
-		display: none;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		min-height: 100vh;
-		background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-		color: #333;
-		padding: 20px;
-		text-align: center;
-		box-sizing: border-box;
-	}
-
-	.certificate-preview {
-		background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
-		color: #333;
-		padding: 20px;
-		border-radius: 10px;
-		margin: 20px auto;
-		width: 95%;
-		max-width: 500px;
-		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-		border: 2px solid #d4af37;
-		position: relative;
-		overflow: hidden;
-		box-sizing: border-box;
-	}
-
-	.certificate-preview::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 15px;
-		background: linear-gradient(90deg, #d4af37, #8b7355, #d4af37);
-	}
-
-	.certificate-preview h3 {
-		color: #8b4513;
-		font-family: 'Times New Roman', serif;
-		font-size: clamp(18px, 5vw, 24px);
-		margin-bottom: 10px;
-		text-align: center;
-		text-transform: uppercase;
-		letter-spacing: 1px;
-	}
-
-	.certificate-preview p {
-		font-family: 'Times New Roman', serif;
-		font-size: clamp(14px, 3vw, 16px);
-		line-height: 1.6;
-		margin-bottom: 15px;
-	}
-
-	.certificate-preview .signature {
-		font-family: 'Brush Script MT', cursive;
-		font-size: clamp(16px, 4vw, 20px);
-		color: #8b4513;
-		text-align: center;
-		margin-top: 20px;
-	}
-
-	.certificate-preview .author {
-		font-weight: bold;
-		font-style: italic;
-		color: #8b4513;
-	}
-
-	.social-share {
-		margin-top: 20px;
-		font-size: clamp(0.8em, 3vw, 0.9em);
-		color: #ffea00;
-	}
-
-	.social-share a {
-		color: #ffea00;
-		text-decoration: none;
-		font-weight: bold;
-	}
-
-	.user-name-input {
-		margin: 20px 0;
-		width: 100%;
-	}
-
-	.user-name-input input {
-		padding: 10px;
-		border-radius: 5px;
-		border: 1px solid #ccc;
-		width: 90%;
-		max-width: 300px;
-		box-sizing: border-box;
-	}
-
-	.generate-btn {
-		background: #ffea00;
-		color: #000;
-		border: none;
-		padding: 10px 20px;
-		border-radius: 5px;
-		cursor: pointer;
-		font-weight: bold;
-		font-size: clamp(0.8em, 3vw, 1em);
-		margin-top: 10px;
-	}
-
-/* ===== MENU SUPERIOR ===== ALTEREI AQUI*/
-    .menu-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: white;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-      z-index: 1000;
-      padding: 12px 20px;
-    }
-
-    .menu-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .menu {
-      position: relative;
-    }
-
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #3c1053, #ad5389);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            width: 95%;
+            max-width: 500px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+            text-align: center;
+            animation: fadeIn 0.6s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: clamp(1.4em, 4vw, 1.6em);
+            color: #ffea00;
+        }
+        .question {
+            font-size: clamp(1em, 3vw, 1.2em);
+            margin-bottom: 15px;
+            min-height: 60px;
+            transition: opacity 0.4s ease;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .options button {
+            display: block;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #fff;
+            margin: 0 auto;
+            padding: 12px;
+            width: 100%;
+            border-radius: 12px;
+            font-size: clamp(0.9em, 3vw, 1em);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .options button:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: scale(1.02);
+        }
+        .next-btn, .continue-btn, .skip-btn, .finish-btn {
+            margin-top: 20px;
+            padding: 10px 25px;
+            border: none;
+            background: #ffea00;
+            color: #000;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease;
+            font-size: clamp(0.8em, 3vw, 1em);
+        }
+        .next-btn:hover, .continue-btn:hover, .skip-btn:hover, .finish-btn:hover {
+            background: #fff04d;
+            transform: scale(1.05);
+        }
+        .module {
+            font-size: clamp(0.8em, 3vw, 0.9em);
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        .skip-btn {
+            display: block !important;
+        }
+        /* Estilos para a página do certificado */
+        .certificate-page {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            color: #333;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .certificate-preview {
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 95%;
+            max-width: 500px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border: 2px solid #d4af37;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .certificate-preview::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(90deg, #d4af37, #8b7355, #d4af37);
+        }
+        .certificate-preview h3 {
+            color: #8b4513;
+            font-family: 'Times New Roman', serif;
+            font-size: clamp(18px, 5vw, 24px);
+            margin-bottom: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .certificate-preview p {
+            font-family: 'Times New Roman', serif;
+            font-size: clamp(14px, 3vw, 16px);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .certificate-preview .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: clamp(16px, 4vw, 20px);
+            color: #8b4513;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .certificate-preview .author {
+            font-weight: bold;
+            font-style: italic;
+            color: #8b4513;
+        }
+        .social-share {
+            margin-top: 20px;
+            font-size: clamp(0.8em, 3vw, 0.9em);
+            color: #ffea00;
+        }
+        .social-share a {
+            color: #ffea00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .user-name-input {
+            margin: 20px 0;
+            width: 100%;
+        }
+        .user-name-input input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 90%;
+            max-width: 300px;
+            box-sizing: border-box;
+        }
+        .generate-btn {
+            background: #ffea00;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: clamp(0.8em, 3vw, 1em);
+            margin-top: 10px;
+        }
     </style>
-    </head>
-    <body>
-
-  <!-- Menu Superior -->
-  <div class="menu-container">
-    <div class="menu-wrapper">
-      <!-- Menu Books and eBooks -->
-      <div class="menu">
-        <div class="menu-btn">Books and eBooks</div>
-        <div class="menu-content">
-          <a href="https://www.amazon.com/dp/B0FW58HKDC" target="_blank">
-            How to Let God Use You (Amazon.com - EN)
-          </a>
-          <a href="https://www.amazon.com.br/dp/B0FVTTBN52" target="_blank">
-            Como Deixar Deus te Usar (Amazon.com.br - PT)
-          </a>
-           <a href="https://www.amazon.com/dp/B0FXLQTW6F" target="_blank">
-            Beyond Dating (Amazon.com - EN)
-          </a>
-          <a href="https://www.amazon.com.br/dp/B0FRPS267Q" target="_blank">
-            Além do Namoro (Amazon.com.br - PT)
-          </a>
-        </div>
-      </div>
-
+</head>
+<body>
+    <!-- Menu Superior -->
+    <div class="menu-container">
+        <div class="menu-wrapper">
+            <!-- Menu Books and eBooks -->
+            <div class="menu">
+                <div class="menu-btn">Books and eBooks</div>
+                <div class="menu-content">
+                    <a href="https://www.amazon.com/dp/B0FW58HKDC" target="_blank">
+                        How to Let God Use You (Amazon.com - EN)
+                    </a>
+                    <a href="https://www.amazon.com.br/dp/B0FVTTBN52" target="_blank">
+                        Como Deixar Deus te Usar (Amazon.com.br - PT)
+                    </a>
+                    <a href="https://www.amazon.com/dp/B0FXLQTW6F" target="_blank">
+                        Beyond Dating (Amazon.com - EN)
+                    </a>
+                    <a href="https://www.amazon.com.br/dp/B0FRPS267Q" target="_blank">
+                        Além do Namoro (Amazon.com.br - PT)
+                    </a>
+                </div>
+            </div>
 		
         <!-- Página do Quiz -->
         <div class="container" id="quizPage">
