@@ -1,1 +1,696 @@
-const _0x2b34e7=_0xdfe0;(function(_0x428240,_0x8348dd){const _0x1e9f2f=_0xdfe0,_0x2978bb=_0x428240();while(!![]){try{const _0x8420c0=parseInt(_0x1e9f2f(0x359))/0x1+-parseInt(_0x1e9f2f(0x1fc))/0x2*(parseInt(_0x1e9f2f(0x316))/0x3)+-parseInt(_0x1e9f2f(0x231))/0x4+-parseInt(_0x1e9f2f(0x19e))/0x5+parseInt(_0x1e9f2f(0x2c6))/0x6*(-parseInt(_0x1e9f2f(0x2b1))/0x7)+-parseInt(_0x1e9f2f(0x292))/0x8*(parseInt(_0x1e9f2f(0x353))/0x9)+parseInt(_0x1e9f2f(0x36d))/0xa*(parseInt(_0x1e9f2f(0x1c5))/0xb);if(_0x8420c0===_0x8348dd)break;else _0x2978bb['push'](_0x2978bb['shift']());}catch(_0x26aa0f){_0x2978bb['push'](_0x2978bb['shift']());}}}(_0x589a,0xd761c));const modules=[{'title':_0x2b34e7(0x427),'questions':[{'q':_0x2b34e7(0x279),'a':[_0x2b34e7(0x2eb),'Noé',_0x2b34e7(0x2ce),_0x2b34e7(0x42b)],'correct':0x2},{'q':'Em\x20quantos\x20dias\x20Deus\x20completou\x20a\x20criação\x20do\x20mundo,\x20conforme\x20Gênesis\x201?','a':[_0x2b34e7(0x377),'8\x20dias','6\x20dias','7\x20dias'],'correct':0x2},{'q':_0x2b34e7(0x161),'a':[_0x2b34e7(0x1e3),_0x2b34e7(0x3ee),'Abel',_0x2b34e7(0x421)],'correct':0x1},{'q':_0x2b34e7(0x265),'a':[_0x2b34e7(0x2e8),'Éden','Jerusalém','Egito'],'correct':0x1},{'q':_0x2b34e7(0x379),'a':[_0x2b34e7(0x28d),_0x2b34e7(0x182),'Mentira','Roubo'],'correct':0x1}]},{'title':_0x2b34e7(0x3ca),'questions':[{'q':_0x2b34e7(0x196),'a':[_0x2b34e7(0x42b),_0x2b34e7(0x1eb),'Abraão',_0x2b34e7(0x2cb)],'correct':0x1},{'q':_0x2b34e7(0x409),'a':['30','40','20','50'],'correct':0x1},{'q':'Quantas\x20pessoas\x20entraram\x20na\x20arca,\x20conforme\x20Gênesis\x207:13?','a':['6','8','12','4'],'correct':0x1},{'q':_0x2b34e7(0x29f),'a':[_0x2b34e7(0x3d9),_0x2b34e7(0x3db),'Fogo',_0x2b34e7(0x378)],'correct':0x1},{'q':_0x2b34e7(0x35f),'a':['1','2','7','4'],'correct':0x2}]},{'title':_0x2b34e7(0x2eb),'questions':[{'q':_0x2b34e7(0x344),'a':[_0x2b34e7(0x42b),'Isaac','Jacó',_0x2b34e7(0x188)],'correct':0x1},{'q':_0x2b34e7(0x296),'a':['Raquel',_0x2b34e7(0x36c),_0x2b34e7(0x34a),_0x2b34e7(0x23e)],'correct':0x1},{'q':_0x2b34e7(0x24a),'a':['Nínive','Ur','Sião','Egito'],'correct':0x1},{'q':_0x2b34e7(0x2ab),'a':['Ismael',_0x2b34e7(0x2cd),_0x2b34e7(0x1a6),_0x2b34e7(0x188)],'correct':0x1},{'q':'O\x20que\x20Deus\x20prometeu\x20a\x20Abraão\x20em\x20Gênesis\x2012:2?','a':[_0x2b34e7(0x3bc),_0x2b34e7(0x27e),'Vitória',_0x2b34e7(0x2c5)],'correct':0x3}]},{'title':_0x2b34e7(0x42b),'questions':[{'q':_0x2b34e7(0x18d),'a':[_0x2b34e7(0x256),_0x2b34e7(0x42b),_0x2b34e7(0x2cb),_0x2b34e7(0x1f8)],'correct':0x1},{'q':_0x2b34e7(0x428),'a':[_0x2b34e7(0x3be),_0x2b34e7(0x190),_0x2b34e7(0x15f),'Monte\x20Sinai'],'correct':0x3},{'q':_0x2b34e7(0x210),'a':[_0x2b34e7(0x29e),'Um\x20cajado','Um\x20anjo',_0x2b34e7(0x1b4)],'correct':0x1},{'q':_0x2b34e7(0x2e2),'a':[_0x2b34e7(0x383),_0x2b34e7(0x30b),'Nabucodonosor',_0x2b34e7(0x270)],'correct':0x1},{'q':_0x2b34e7(0x2c3),'a':[_0x2b34e7(0x26b),'Pão',_0x2b34e7(0x26e),_0x2b34e7(0x2ba)],'correct':0x3}]},{'title':_0x2b34e7(0x256),'questions':[{'q':_0x2b34e7(0x35e),'a':['Calebe',_0x2b34e7(0x256),_0x2b34e7(0x2cb),'Samuel'],'correct':0x1},{'q':_0x2b34e7(0x241),'a':[_0x2b34e7(0x2d8),_0x2b34e7(0x2d9),_0x2b34e7(0x1e5),_0x2b34e7(0x2e8)],'correct':0x1},{'q':_0x2b34e7(0x391),'a':['3','5','6','7'],'correct':0x3},{'q':'Quem\x20era\x20o\x20líder\x20dos\x20espias\x20que\x20entraram\x20em\x20Canaã\x20com\x20Josué,\x20conforme\x20Números\x2013:6?','a':['Davi',_0x2b34e7(0x40d),'Elias',_0x2b34e7(0x229)],'correct':0x1},{'q':_0x2b34e7(0x187),'a':[_0x2b34e7(0x349),_0x2b34e7(0x325),_0x2b34e7(0x208),'Tigre'],'correct':0x1}]},{'title':_0x2b34e7(0x3dc),'questions':[{'q':'Quem\x20matou\x20um\x20leão\x20com\x20as\x20próprias\x20mãos,\x20conforme\x20Juízes\x2014:6?','a':['Gideão',_0x2b34e7(0x3a6),_0x2b34e7(0x185),_0x2b34e7(0x2cb)],'correct':0x1},{'q':_0x2b34e7(0x323),'a':[_0x2b34e7(0x3a6),_0x2b34e7(0x217),_0x2b34e7(0x406),_0x2b34e7(0x2cb)],'correct':0x1},{'q':'Quem\x20era\x20a\x20profetisa\x20e\x20juíza\x20em\x20Israel,\x20conforme\x20Juízes\x204:4?','a':[_0x2b34e7(0x365),'Débora',_0x2b34e7(0x16b),_0x2b34e7(0x34a)],'correct':0x1},{'q':_0x2b34e7(0x1ea),'a':[_0x2b34e7(0x2cb),'Sansão',_0x2b34e7(0x406),'Calebe'],'correct':0x1}]},{'title':'Reis\x20de\x20Israel','questions':[{'q':_0x2b34e7(0x2f6),'a':[_0x2b34e7(0x2e0),'Saul',_0x2b34e7(0x1f8),_0x2b34e7(0x256)],'correct':0x1},{'q':'Quem\x20matou\x20Golias,\x20conforme\x201\x20Samuel\x2017:50?','a':[_0x2b34e7(0x281),_0x2b34e7(0x1f8),_0x2b34e7(0x2cb),_0x2b34e7(0x256)],'correct':0x1},{'q':_0x2b34e7(0x212),'a':[_0x2b34e7(0x1f8),_0x2b34e7(0x2e0),_0x2b34e7(0x2cb),_0x2b34e7(0x256)],'correct':0x1},{'q':_0x2b34e7(0x33a),'a':[_0x2b34e7(0x1f8),_0x2b34e7(0x2e0),_0x2b34e7(0x281),'Josias'],'correct':0x1},{'q':_0x2b34e7(0x416),'a':[_0x2b34e7(0x42b),_0x2b34e7(0x229),_0x2b34e7(0x2cb),'Josué'],'correct':0x1}]},{'title':_0x2b34e7(0x30a),'questions':[{'q':'Quem\x20foi\x20engolido\x20por\x20um\x20grande\x20peixe,\x20conforme\x20Jonas\x201:17?','a':[_0x2b34e7(0x1c9),'Isaías',_0x2b34e7(0x34c),_0x2b34e7(0x2cb)],'correct':0x0},{'q':'Quem\x20desafiou\x20os\x20profetas\x20de\x20Baal\x20no\x20Monte\x20Carmelo,\x20conforme\x201\x20Reis\x2018:20?','a':[_0x2b34e7(0x422),_0x2b34e7(0x2cb),_0x2b34e7(0x30c),'Jeremias'],'correct':0x1},{'q':_0x2b34e7(0x2fa),'a':[_0x2b34e7(0x34f),_0x2b34e7(0x30c),_0x2b34e7(0x34c),_0x2b34e7(0x337)],'correct':0x1},{'q':_0x2b34e7(0x23f),'a':[_0x2b34e7(0x422),'Elias',_0x2b34e7(0x33b),_0x2b34e7(0x34c)],'correct':0x1}]},{'title':_0x2b34e7(0x3d1),'questions':[{'q':_0x2b34e7(0x320),'a':['Moisés',_0x2b34e7(0x159),'Daniel','Ezequiel'],'correct':0x3},{'q':_0x2b34e7(0x374),'a':[_0x2b34e7(0x33b),_0x2b34e7(0x199),_0x2b34e7(0x34c),_0x2b34e7(0x30c)],'correct':0x1},{'q':_0x2b34e7(0x405),'a':['Jeremias',_0x2b34e7(0x33b),_0x2b34e7(0x199),'Moisés'],'correct':0x1},{'q':_0x2b34e7(0x329),'a':['Ciro',_0x2b34e7(0x299),_0x2b34e7(0x41b),_0x2b34e7(0x3d7)],'correct':0x1}]},{'title':_0x2b34e7(0x2b7),'questions':[{'q':_0x2b34e7(0x17b),'a':['Neemias','Zorobabel\x20e\x20Jesua',_0x2b34e7(0x2c7),_0x2b34e7(0x3d0)],'correct':0x1},{'q':_0x2b34e7(0x41d),'a':['Zorobabel',_0x2b34e7(0x392),_0x2b34e7(0x2c7),'Davi'],'correct':0x1},{'q':'Quem\x20salvou\x20os\x20judeus\x20da\x20destruição\x20planejada\x20por\x20Hamã,\x20conforme\x20Ester\x204:14?','a':['Ana','Ester',_0x2b34e7(0x34a),'Débora'],'correct':0x1},{'q':_0x2b34e7(0x251),'a':[_0x2b34e7(0x392),_0x2b34e7(0x37d),_0x2b34e7(0x2c7),_0x2b34e7(0x16b)],'correct':0x1}]},{'title':_0x2b34e7(0x3c8),'questions':[{'q':_0x2b34e7(0x260),'a':['Cantares',_0x2b34e7(0x22a),_0x2b34e7(0x2a2),_0x2b34e7(0x303)],'correct':0x1},{'q':_0x2b34e7(0x2da),'a':[_0x2b34e7(0x1e1),_0x2b34e7(0x2e0),'Davi',_0x2b34e7(0x42b)],'correct':0x2},{'q':'Qual\x20livro\x20diz\x20que\x20\x27tudo\x20tem\x20o\x20seu\x20tempo\x20determinado\x27,\x20conforme\x20Eclesiastes\x203:1?','a':['Jó',_0x2b34e7(0x1d7),_0x2b34e7(0x2a2),_0x2b34e7(0x303)],'correct':0x3},{'q':_0x2b34e7(0x411),'a':[_0x2b34e7(0x303),'Jó',_0x2b34e7(0x2a2),_0x2b34e7(0x22a)],'correct':0x1}]},{'title':'Profetas\x20Menores','questions':[{'q':_0x2b34e7(0x176),'a':[_0x2b34e7(0x337),_0x2b34e7(0x2e4),_0x2b34e7(0x34f),_0x2b34e7(0x28c)],'correct':0x1},{'q':'Qual\x20profeta\x20foi\x20engolido\x20por\x20um\x20peixe,\x20conforme\x20Jonas\x201:17?','a':[_0x2b34e7(0x1c9),_0x2b34e7(0x337),_0x2b34e7(0x1bd),_0x2b34e7(0x3a9)],'correct':0x0},{'q':_0x2b34e7(0x24d),'a':['Jonas','Naum',_0x2b34e7(0x34f),'Habacuque'],'correct':0x1},{'q':'Qual\x20profeta\x20questionou\x20a\x20justiça\x20de\x20Deus,\x20conforme\x20Habacuque\x201:2?','a':[_0x2b34e7(0x34f),_0x2b34e7(0x2e4),_0x2b34e7(0x28c),_0x2b34e7(0x337)],'correct':0x2}]},{'title':_0x2b34e7(0x17f),'questions':[{'q':_0x2b34e7(0x22d),'a':[_0x2b34e7(0x26c),_0x2b34e7(0x385),_0x2b34e7(0x40c),_0x2b34e7(0x195)],'correct':0x1},{'q':_0x2b34e7(0x31e),'a':[_0x2b34e7(0x3c3),_0x2b34e7(0x227),'Tiago','Paulo'],'correct':0x1},{'q':_0x2b34e7(0x32c),'a':['Multiplicar\x20pães',_0x2b34e7(0x26d),_0x2b34e7(0x2a8),_0x2b34e7(0x2f8)],'correct':0x2},{'q':_0x2b34e7(0x330),'a':['10','12','7','15'],'correct':0x1},{'q':_0x2b34e7(0x380),'a':['Fazer\x20boas\x20obras',_0x2b34e7(0x41f),_0x2b34e7(0x171),_0x2b34e7(0x1fb)],'correct':0x1}]},{'title':'Parábolas\x20de\x20Jesus','questions':[{'q':_0x2b34e7(0x331),'a':[_0x2b34e7(0x40b),_0x2b34e7(0x2d6),_0x2b34e7(0x3fd),'As\x20dez\x20virgens'],'correct':0x1},{'q':_0x2b34e7(0x2c4),'a':[_0x2b34e7(0x40b),_0x2b34e7(0x2d6),_0x2b34e7(0x3fd),_0x2b34e7(0x351)],'correct':0x0},{'q':'Qual\x20parábola\x20fala\x20sobre\x20diferentes\x20tipos\x20de\x20solo,\x20conforme\x20Mateus\x2013:3?','a':[_0x2b34e7(0x3fd),'O\x20trigo\x20e\x20o\x20joio',_0x2b34e7(0x351),'Os\x20talentos'],'correct':0x0},{'q':_0x2b34e7(0x3b4),'a':[_0x2b34e7(0x2d6),_0x2b34e7(0x351),_0x2b34e7(0x40b),_0x2b34e7(0x1e0)],'correct':0x1},{'q':_0x2b34e7(0x3e5),'a':[_0x2b34e7(0x37a),_0x2b34e7(0x3cf),'Uma\x20história\x20real\x20com\x20detalhes\x20que\x20não\x20existe\x20numa\x20parábola',_0x2b34e7(0x16f)],'correct':0x2}]},{'title':_0x2b34e7(0x18c),'questions':[{'q':_0x2b34e7(0x15a),'a':['Romanos','Efésios',_0x2b34e7(0x2a1),'Filipenses'],'correct':0x2},{'q':_0x2b34e7(0x36e),'a':[_0x2b34e7(0x156),_0x2b34e7(0x1ef),_0x2b34e7(0x194),_0x2b34e7(0x369)],'correct':0x1},{'q':_0x2b34e7(0x355),'a':[_0x2b34e7(0x20a),_0x2b34e7(0x165),_0x2b34e7(0x2a1),_0x2b34e7(0x264)],'correct':0x1},{'q':'Qual\x20carta\x20foi\x20escrita\x20para\x20um\x20escravo\x20chamado\x20Onésimo,\x20conforme\x20Filemon\x201:10?','a':[_0x2b34e7(0x194),'Filemon','Efésios','Filipenses'],'correct':0x1},{'q':'Qual\x20carta\x20ensina\x20que\x20\x27tudo\x20coopera\x20para\x20o\x20bem\x20daqueles\x20que\x20amam\x20a\x20Deus\x27,\x20conforme\x20Romanos\x208:28?','a':['Gálatas','Romanos',_0x2b34e7(0x1ef),_0x2b34e7(0x156)],'correct':0x1}]},{'title':'Profecias\x20Messianicas','questions':[{'q':_0x2b34e7(0x244),'a':[_0x2b34e7(0x30c),'Jeremias',_0x2b34e7(0x34f),'Ezequiel'],'correct':0x2},{'q':_0x2b34e7(0x1fd),'a':[_0x2b34e7(0x34c),_0x2b34e7(0x30c),'Ezequiel','Daniel'],'correct':0x1},{'q':_0x2b34e7(0x31d),'a':[_0x2b34e7(0x2b9),'Zacarias','Joel','Amós'],'correct':0x1},{'q':_0x2b34e7(0x31b),'a':[_0x2b34e7(0x30c),_0x2b34e7(0x38d),_0x2b34e7(0x34c),_0x2b34e7(0x199)],'correct':0x1}]},{'title':_0x2b34e7(0x1d6),'questions':[{'q':_0x2b34e7(0x275),'a':['616',_0x2b34e7(0x387),_0x2b34e7(0x19b),_0x2b34e7(0x39e)],'correct':0x2},{'q':'Quantos\x20selos\x20são\x20abertos\x20no\x20Apocalipse,\x20conforme\x20Apocalipse\x206:1?','a':['12','3','5','7'],'correct':0x3},{'q':_0x2b34e7(0x419),'a':[_0x2b34e7(0x26c),_0x2b34e7(0x3d8),_0x2b34e7(0x25e),'Sião'],'correct':0x1},{'q':'Quem\x20é\x20o\x20autor\x20do\x20Apocalipse,\x20conforme\x20Apocalipse\x201:1?','a':[_0x2b34e7(0x3c3),_0x2b34e7(0x333),_0x2b34e7(0x3b0),_0x2b34e7(0x3de)],'correct':0x1},{'q':_0x2b34e7(0x30e),'a':['Judas',_0x2b34e7(0x1d6),_0x2b34e7(0x153),_0x2b34e7(0x327)],'correct':0x1}]},{'title':_0x2b34e7(0x414),'questions':[{'q':_0x2b34e7(0x324),'a':['Sacrifícios',_0x2b34e7(0x367),'Fé','Obras'],'correct':0x2},{'q':_0x2b34e7(0x22e),'a':['Amar\x20ao\x20próximo',_0x2b34e7(0x1dc),'Honrar\x20pai\x20e\x20mãe',_0x2b34e7(0x1e7)],'correct':0x3},{'q':'Qual\x20é\x20o\x20dom\x20do\x20Espírito\x20Santo\x20que\x20permite\x20falar\x20em\x20outras\x20línguas,\x20conforme\x20Atos\x202:4?','a':[_0x2b34e7(0x347),'Cura','Línguas','Fé'],'correct':0x2},{'q':'Qual\x20é\x20a\x20esperança\x20do\x20cristão,\x20conforme\x201\x20Tessalonicenses\x204:16?','a':[_0x2b34e7(0x213),_0x2b34e7(0x3bc),_0x2b34e7(0x27e),_0x2b34e7(0x426)],'correct':0x0}]},{'title':_0x2b34e7(0x1d1),'questions':[{'q':_0x2b34e7(0x362),'a':[_0x2b34e7(0x26b),_0x2b34e7(0x2ba),_0x2b34e7(0x2bd),_0x2b34e7(0x261)],'correct':0x3},{'q':_0x2b34e7(0x19c),'a':[_0x2b34e7(0x3d3),'Trombetas',_0x2b34e7(0x2dc),_0x2b34e7(0x3af)],'correct':0x1},{'q':_0x2b34e7(0x3eb),'a':[_0x2b34e7(0x422),'Ressurreição',_0x2b34e7(0x21d),_0x2b34e7(0x2cb)],'correct':0x0},{'q':_0x2b34e7(0x150),'a':['Fome',_0x2b34e7(0x3fe),_0x2b34e7(0x2dc),_0x2b34e7(0x1e8)],'correct':0x1}]},{'title':_0x2b34e7(0x2a6),'questions':[{'q':'Qual\x20mulher\x20foi\x20juíza\x20e\x20profetisa\x20em\x20Israel,\x20conforme\x20Juízes\x204:4?','a':[_0x2b34e7(0x365),_0x2b34e7(0x34a),_0x2b34e7(0x185),_0x2b34e7(0x37d)],'correct':0x2},{'q':_0x2b34e7(0x3ba),'a':[_0x2b34e7(0x288),_0x2b34e7(0x185),_0x2b34e7(0x37d),'Ana'],'correct':0x0},{'q':_0x2b34e7(0x252),'a':[_0x2b34e7(0x3bf),_0x2b34e7(0x1b5),'Joana',_0x2b34e7(0x34b)],'correct':0x0},{'q':_0x2b34e7(0x3a1),'a':[_0x2b34e7(0x288),'Ana',_0x2b34e7(0x185),_0x2b34e7(0x37d)],'correct':0x3}]},{'title':_0x2b34e7(0x14f),'questions':[{'q':_0x2b34e7(0x23d),'a':[_0x2b34e7(0x197),_0x2b34e7(0x2c9),'A\x20presença\x20de\x20Deus',_0x2b34e7(0x17a)],'correct':0x3},{'q':_0x2b34e7(0x31a),'a':[_0x2b34e7(0x371),_0x2b34e7(0x15b),_0x2b34e7(0x266),_0x2b34e7(0x2ff)],'correct':0x1},{'q':_0x2b34e7(0x25c),'a':[_0x2b34e7(0x1ba),'A\x20glória\x20de\x20Deus',_0x2b34e7(0x1e9),_0x2b34e7(0x2f2)],'correct':0x1},{'q':_0x2b34e7(0x3d2),'a':[_0x2b34e7(0x2ca),_0x2b34e7(0x340),_0x2b34e7(0x3df),'Queimar\x20incenso'],'correct':0x0}]},{'title':'Profecias\x20sobre\x20Israel','questions':[{'q':_0x2b34e7(0x3b8),'a':[_0x2b34e7(0x30c),_0x2b34e7(0x34c),'Moisés',_0x2b34e7(0x199)],'correct':0x2},{'q':_0x2b34e7(0x360),'a':[_0x2b34e7(0x30c),_0x2b34e7(0x34c),_0x2b34e7(0x199),_0x2b34e7(0x33b)],'correct':0x2},{'q':'Qual\x20profeta\x20predisse\x20que\x20Israel\x20seria\x20reunido\x20\x27dos\x20quatro\x20cantos\x20da\x20terra\x27,\x20conforme\x20Isaías\x2011:12?','a':[_0x2b34e7(0x34c),_0x2b34e7(0x30c),_0x2b34e7(0x199),_0x2b34e7(0x38d)],'correct':0x1},{'q':_0x2b34e7(0x2b3),'a':['Zacarias','Daniel','Jesus',_0x2b34e7(0x333)],'correct':0x2}]},{'title':_0x2b34e7(0x154),'questions':[{'q':_0x2b34e7(0x3f3),'a':[_0x2b34e7(0x3ff),_0x2b34e7(0x42b),_0x2b34e7(0x1f8),_0x2b34e7(0x256)],'correct':0x0},{'q':'Qual\x20objeto\x20no\x20Tabernáculo\x20é\x20um\x20tipo\x20de\x20Cristo\x20como\x20\x27o\x20pão\x20da\x20vida\x27,\x20conforme\x20João\x206:35?','a':[_0x2b34e7(0x371),_0x2b34e7(0x2ff),'Candeia\x20de\x20ouro','Arca\x20da\x20Aliança'],'correct':0x1},{'q':_0x2b34e7(0x18f),'a':[_0x2b34e7(0x3ca),'Páscoa',_0x2b34e7(0x3c1),_0x2b34e7(0x3a7)],'correct':0x1},{'q':'Qual\x20personagem\x20é\x20um\x20tipo\x20de\x20Cristo\x20como\x20\x27o\x20rei\x20eterno\x27,\x20conforme\x202\x20Samuel\x207:13?','a':[_0x2b34e7(0x2e0),_0x2b34e7(0x1f8),'Josué','Saul'],'correct':0x1}]},{'title':'Parábolas\x20de\x20Jesus\x20(Análise\x20Profunda)','questions':[{'q':_0x2b34e7(0x268),'a':['O\x20bom\x20samaritano','O\x20filho\x20pródigo',_0x2b34e7(0x3cd),_0x2b34e7(0x1e0)],'correct':0x2},{'q':'Qual\x20parábola\x20fala\x20sobre\x20a\x20\x27paciência\x20de\x20Deus\x27,\x20conforme\x20Mateus\x2013:24-30?','a':['As\x20dez\x20virgens',_0x2b34e7(0x2d1),_0x2b34e7(0x3fd),_0x2b34e7(0x1e0)],'correct':0x1},{'q':_0x2b34e7(0x226),'a':[_0x2b34e7(0x1e0),_0x2b34e7(0x40b),_0x2b34e7(0x2d6),_0x2b34e7(0x307)],'correct':0x3},{'q':'Qual\x20parábola\x20fala\x20sobre\x20a\x20\x27misericórdia\x27,\x20conforme\x20Mateus\x2018:23-35?','a':[_0x2b34e7(0x1e0),_0x2b34e7(0x40b),_0x2b34e7(0x224),_0x2b34e7(0x2d6)],'correct':0x2}]},{'title':'Doutrinas\x20da\x20Salvação','questions':[{'q':_0x2b34e7(0x39d),'a':[_0x2b34e7(0x238),'Fé','Leis','Sacrifícios'],'correct':0x1},{'q':_0x2b34e7(0x3fa),'a':[_0x2b34e7(0x3bc),_0x2b34e7(0x16e),_0x2b34e7(0x27e),_0x2b34e7(0x426)],'correct':0x1},{'q':_0x2b34e7(0x1b2),'a':[_0x2b34e7(0x1f3),'Convencer\x20do\x20pecado',_0x2b34e7(0x20e),_0x2b34e7(0x39b)],'correct':0x1},{'q':_0x2b34e7(0x399),'a':[_0x2b34e7(0x423),_0x2b34e7(0x389),_0x2b34e7(0x37c),'Obras\x20da\x20fé'],'correct':0x3}]},{'title':_0x2b34e7(0x3a5),'questions':[{'q':_0x2b34e7(0x254),'a':[_0x2b34e7(0x3f6),_0x2b34e7(0x26d),_0x2b34e7(0x425),_0x2b34e7(0x255)],'correct':0x2},{'q':_0x2b34e7(0x2ec),'a':['Curar\x20leproso','Ressurreição\x20de\x20Lázaro','Multiplicar\x20pães',_0x2b34e7(0x26d)],'correct':0x1},{'q':_0x2b34e7(0x21f),'a':['Curar\x20paralítico',_0x2b34e7(0x21d),_0x2b34e7(0x157),_0x2b34e7(0x26d)],'correct':0x1},{'q':_0x2b34e7(0x3f7),'a':[_0x2b34e7(0x255),_0x2b34e7(0x3f6),'Expulsão\x20da\x20legião',_0x2b34e7(0x26d)],'correct':0x2}]},{'title':_0x2b34e7(0x1bc),'questions':[{'q':_0x2b34e7(0x284),'a':[_0x2b34e7(0x3de),_0x2b34e7(0x327),_0x2b34e7(0x193),'1\x20João'],'correct':0x1},{'q':_0x2b34e7(0x32a),'a':[_0x2b34e7(0x327),_0x2b34e7(0x3de),_0x2b34e7(0x193),_0x2b34e7(0x3b5)],'correct':0x1},{'q':_0x2b34e7(0x3ec),'a':[_0x2b34e7(0x3de),'1\x20Pedro',_0x2b34e7(0x327),'1\x20João'],'correct':0x1},{'q':'Qual\x20carta\x20fala\x20sobre\x20o\x20\x27amor\x20de\x20Deus\x27,\x20conforme\x201\x20João\x204:8?','a':['Tiago',_0x2b34e7(0x327),_0x2b34e7(0x3b5),'1\x20Pedro'],'correct':0x2}]},{'title':_0x2b34e7(0x20f),'questions':[{'q':_0x2b34e7(0x2ae),'a':[_0x2b34e7(0x1c8),_0x2b34e7(0x1cc),_0x2b34e7(0x262),_0x2b34e7(0x35c)],'correct':0x2},{'q':_0x2b34e7(0x306),'a':[_0x2b34e7(0x2ce),'Jesus',_0x2b34e7(0x246),_0x2b34e7(0x372)],'correct':0x2},{'q':_0x2b34e7(0x274),'a':['Deus',_0x2b34e7(0x221),_0x2b34e7(0x2c2),'Espírito\x20Santo'],'correct':0x1},{'q':_0x2b34e7(0x346),'a':[_0x2b34e7(0x181),_0x2b34e7(0x27a),'Templo\x20de\x20Deus',_0x2b34e7(0x381)],'correct':0x1},{'q':_0x2b34e7(0x18a),'a':[_0x2b34e7(0x14d),'Arrastão\x20literal\x20de\x20estrelas\x20celestes',_0x2b34e7(0x1f0),_0x2b34e7(0x21c)],'correct':0x2}]},{'title':_0x2b34e7(0x3ae),'questions':[{'q':_0x2b34e7(0x1a7),'a':['Atenas',_0x2b34e7(0x1c3),_0x2b34e7(0x26c),_0x2b34e7(0x30d)],'correct':0x1},{'q':_0x2b34e7(0x2d3),'a':[_0x2b34e7(0x293),_0x2b34e7(0x247),_0x2b34e7(0x339),_0x2b34e7(0x401)],'correct':0x1},{'q':_0x2b34e7(0x36b),'a':[_0x2b34e7(0x19d),_0x2b34e7(0x34d),_0x2b34e7(0x253),'Zelotes'],'correct':0x2},{'q':'Qual\x20era\x20a\x20formação\x20religiosa\x20de\x20Paulo\x20antes\x20de\x20sua\x20conversão,\x20conforme\x20Atos\x209:1-2?','a':[_0x2b34e7(0x415),'Fariseu','Carpinteiro',_0x2b34e7(0x287)],'correct':0x1}]},{'title':_0x2b34e7(0x203),'questions':[{'q':_0x2b34e7(0x21a),'a':['Buscar\x20riqueza',_0x2b34e7(0x15d),_0x2b34e7(0x2a9),'Viver\x20isolado'],'correct':0x1},{'q':_0x2b34e7(0x33c),'a':[_0x2b34e7(0x263),_0x2b34e7(0x31f),'Perdoar\x20sempre',_0x2b34e7(0x172)],'correct':0x2},{'q':_0x2b34e7(0x1f2),'a':[_0x2b34e7(0x29c),'Priorizar\x20a\x20vontade\x20de\x20Deus',_0x2b34e7(0x2fc),'Viver\x20no\x20prazer'],'correct':0x1},{'q':_0x2b34e7(0x394),'a':[_0x2b34e7(0x3c7),_0x2b34e7(0x393),'Viver\x20isolado',_0x2b34e7(0x1dd)],'correct':0x1}]},{'title':_0x2b34e7(0x388),'questions':[{'q':_0x2b34e7(0x357),'a':[_0x2b34e7(0x3ad),_0x2b34e7(0x404),'Gramatical','Tipologia'],'correct':0x1},{'q':'Qual\x20é\x20o\x20significado\x20do\x20termo\x20\x27exegese\x27?','a':[_0x2b34e7(0x1a3),_0x2b34e7(0x240),_0x2b34e7(0x3c5),'Leitura\x20superficial'],'correct':0x1},{'q':_0x2b34e7(0x3e1),'a':['Romanos','Hebreus',_0x2b34e7(0x2a1),_0x2b34e7(0x1d6)],'correct':0x2},{'q':'Qual\x20é\x20o\x20principal\x20erro\x20da\x20\x27eisegese\x27?','a':['Interpretar\x20pelo\x20contexto',_0x2b34e7(0x1b8),_0x2b34e7(0x341),_0x2b34e7(0x1ee)],'correct':0x1},{'q':'Qual\x20método\x20hermenêutico\x20busca\x20entender\x20o\x20significado\x20original\x20para\x20o\x20autor\x20e\x20os\x20leitores?','a':[_0x2b34e7(0x239),_0x2b34e7(0x2e3),'Método\x20Literal',_0x2b34e7(0x29d)],'correct':0x1}]},{'title':'Escatologia:\x20Fim\x20dos\x20Tempos','questions':[{'q':_0x2b34e7(0x3e8),'a':[_0x2b34e7(0x1a5),'Ressurreição\x20e\x20arrebatamento\x20em\x20Cristo',_0x2b34e7(0x2f5),_0x2b34e7(0x1b9)],'correct':0x1},{'q':'Qual\x20livro\x20descreve\x20a\x20Grande\x20Tribulação,\x20conforme\x20Apocalipse\x207:14?','a':[_0x2b34e7(0x33b),_0x2b34e7(0x1d6),_0x2b34e7(0x199),_0x2b34e7(0x38d)],'correct':0x1},{'q':_0x2b34e7(0x2ed),'a':[_0x2b34e7(0x1a5),_0x2b34e7(0x2f5),_0x2b34e7(0x213),'Grande\x20Tribulação'],'correct':0x1},{'q':_0x2b34e7(0x2f3),'a':[_0x2b34e7(0x420),_0x2b34e7(0x3ea),_0x2b34e7(0x2aa),_0x2b34e7(0x1cf)],'correct':0x1},{'q':_0x2b34e7(0x1ec),'a':['Sheol','Paraíso',_0x2b34e7(0x27b),_0x2b34e7(0x3f2)],'correct':0x2}]},{'title':'Comparação\x20de\x20Versículos','questions':[{'q':_0x2b34e7(0x1a9),'a':[_0x2b34e7(0x2e5),_0x2b34e7(0x3d5),'Hebreus\x2011:1',_0x2b34e7(0x24f)],'correct':0x1},{'q':_0x2b34e7(0x1e2),'a':[_0x2b34e7(0x21b),_0x2b34e7(0x3aa),_0x2b34e7(0x42d),_0x2b34e7(0x300)],'correct':0x1},{'q':'Qual\x20profecia\x20de\x20Miquéias\x205:2\x20é\x20cumprida\x20em\x20Mateus\x202:6?','a':[_0x2b34e7(0x22b),_0x2b34e7(0x1bb),'Nascimento\x20de\x20Jesus\x20em\x20Belém',_0x2b34e7(0x37b)],'correct':0x2},{'q':'Qual\x20passagem\x20do\x20Antigo\x20Testamento\x20é\x20citada\x20em\x20Hebreus\x2010:5-7\x20sobre\x20o\x20sacrifício\x20de\x20Cristo?','a':['Gênesis\x2022:8',_0x2b34e7(0x242),_0x2b34e7(0x1f4),_0x2b34e7(0x2e1)],'correct':0x1},{'q':'\x27O\x20justo\x20viverá\x20pela\x20fé\x27\x20é\x20citado\x20em\x20Romanos\x201:17\x20a\x20partir\x20de\x20qual\x20versículo\x20de\x20Habacuque?','a':[_0x2b34e7(0x2ee),_0x2b34e7(0x236),'Habacuque\x203:17','Habacuque\x203:2'],'correct':0x1}]},{'title':_0x2b34e7(0x311),'questions':[{'q':_0x2b34e7(0x2ef),'a':['Oração\x20de\x20Jabez',_0x2b34e7(0x1de),'Salmo\x2023','Oração\x20de\x20Neemias'],'correct':0x1},{'q':_0x2b34e7(0x259),'a':[_0x2b34e7(0x2e0),_0x2b34e7(0x42b),_0x2b34e7(0x1f8),_0x2b34e7(0x2cb)],'correct':0x1},{'q':_0x2b34e7(0x318),'a':[_0x2b34e7(0x400),_0x2b34e7(0x20b),_0x2b34e7(0x280),'Salmo\x2023'],'correct':0x1},{'q':'Qual\x20é\x20o\x20significado\x20da\x20adoração\x20\x27em\x20espírito\x20e\x20em\x20verdade\x27,\x20conforme\x20João\x204:24?','a':['Adoração\x20com\x20música',_0x2b34e7(0x235),'Adoração\x20em\x20silêncio',_0x2b34e7(0x1d5)],'correct':0x1},{'q':_0x2b34e7(0x35a),'a':[_0x2b34e7(0x3de),_0x2b34e7(0x3b0),'Pedro','João'],'correct':0x1}]},{'title':_0x2b34e7(0x336),'questions':[{'q':'Qual\x20foi\x20a\x20acusação\x20principal\x20que\x20levou\x20Jesus\x20à\x20crucificação?','a':['Roubo\x20no\x20Templo',_0x2b34e7(0x248),_0x2b34e7(0x3f9),_0x2b34e7(0x1c2)],'correct':0x1},{'q':'Quem\x20foi\x20o\x20governador\x20romano\x20que\x20ordenou\x20a\x20crucificação\x20de\x20Jesus?','a':[_0x2b34e7(0x2b8),_0x2b34e7(0x2a3),_0x2b34e7(0x301),_0x2b34e7(0x3a4)],'correct':0x1},{'q':_0x2b34e7(0x3cb),'a':[_0x2b34e7(0x42e),_0x2b34e7(0x2f1),'Chuva\x20de\x20pedras\x20sobre\x20Jerusalém',_0x2b34e7(0x2d2)],'correct':0x2},{'q':'Qual\x20foi\x20o\x20método\x20de\x20execução\x20usado\x20pelos\x20romanos\x20na\x20crucificação\x20de\x20Jesus?','a':[_0x2b34e7(0x1be),_0x2b34e7(0x29a),'Crucificação\x20com\x20pregos\x20nas\x20mãos\x20e\x20pés',_0x2b34e7(0x175)],'correct':0x2},{'q':_0x2b34e7(0x286),'a':['\x27Pai,\x20perdoa-lhes,\x20porque\x20não\x20sabem\x20o\x20que\x20fazem.\x27',_0x2b34e7(0x25a),_0x2b34e7(0x3ef),_0x2b34e7(0x41c)],'correct':0x3}]},{'title':_0x2b34e7(0x42a),'questions':[{'q':_0x2b34e7(0x209),'a':[_0x2b34e7(0x174),_0x2b34e7(0x315),_0x2b34e7(0x28f),'Ossuário\x20de\x20Caifás'],'correct':0x2},{'q':_0x2b34e7(0x26f),'a':[_0x2b34e7(0x3f1),_0x2b34e7(0x2d9),_0x2b34e7(0x25e),_0x2b34e7(0x2a5)],'correct':0x1},{'q':_0x2b34e7(0x386),'a':['Túmulo\x20de\x20Herodes',_0x2b34e7(0x32b),_0x2b34e7(0x366),_0x2b34e7(0x155)],'correct':0x3},{'q':_0x2b34e7(0x3a3),'a':[_0x2b34e7(0x304),_0x2b34e7(0x3e6),_0x2b34e7(0x403),_0x2b34e7(0x2c8)],'correct':0x3},{'q':_0x2b34e7(0x2af),'a':['Tiro',_0x2b34e7(0x3f1),_0x2b34e7(0x25e),_0x2b34e7(0x1f9)],'correct':0x1}]},{'title':_0x2b34e7(0x216),'questions':[{'q':_0x2b34e7(0x2dd),'a':[_0x2b34e7(0x3c1),_0x2b34e7(0x245),_0x2b34e7(0x162),'Reino\x20de\x20Davi'],'correct':0x1},{'q':'Qual\x20é\x20a\x20aliança\x20feita\x20com\x20Abraão\x20em\x20Gênesis\x2012:1-3?','a':[_0x2b34e7(0x2e7),_0x2b34e7(0x1da),_0x2b34e7(0x3e9),_0x2b34e7(0x202)],'correct':0x1},{'q':'Qual\x20é\x20o\x20propósito\x20da\x20Lei\x20Mosaica,\x20conforme\x20Gálatas\x203:24?','a':[_0x2b34e7(0x1a1),_0x2b34e7(0x33f),_0x2b34e7(0x163),'Unificar\x20Israel'],'correct':0x1},{'q':'Qual\x20é\x20o\x20significado\x20teológico\x20do\x20\x27Servo\x20Sofredor\x27\x20em\x20Isaías\x2053?','a':[_0x2b34e7(0x285),'Os\x20profetas','Cristo',_0x2b34e7(0x3c6)],'correct':0x2},{'q':_0x2b34e7(0x230),'a':[_0x2b34e7(0x218),'Adoração\x20e\x20confiança\x20em\x20Deus',_0x2b34e7(0x3c0),_0x2b34e7(0x24c)],'correct':0x1}]},{'title':_0x2b34e7(0x3cc),'questions':[{'q':_0x2b34e7(0x27c),'a':[_0x2b34e7(0x3bd),_0x2b34e7(0x1f5),_0x2b34e7(0x16d),_0x2b34e7(0x2e6)],'correct':0x2},{'q':_0x2b34e7(0x1ae),'a':[_0x2b34e7(0x305),_0x2b34e7(0x2ea),'Milagres\x20e\x20sinais',_0x2b34e7(0x3b2)],'correct':0x1},{'q':'Qual\x20é\x20o\x20propósito\x20da\x20Epístola\x20aos\x20Hebreus?','a':[_0x2b34e7(0x3bd),_0x2b34e7(0x2b0),_0x2b34e7(0x317),'Juízo\x20final'],'correct':0x2},{'q':_0x2b34e7(0x38b),'a':[_0x2b34e7(0x356),_0x2b34e7(0x24e),_0x2b34e7(0x312),_0x2b34e7(0x177)],'correct':0x3},{'q':_0x2b34e7(0x278),'a':[_0x2b34e7(0x2b0),_0x2b34e7(0x302),'Fé\x20e\x20obras',_0x2b34e7(0x2e6)],'correct':0x1}]},{'title':_0x2b34e7(0x1b6),'questions':[{'q':'Qual\x20é\x20o\x20fundamento\x20da\x20ética\x20cristã,\x20conforme\x20Mateus\x2022:37-39?','a':['Buscar\x20riqueza',_0x2b34e7(0x25b),_0x2b34e7(0x269),'Viver\x20em\x20isolamento'],'correct':0x2},{'q':_0x2b34e7(0x2d4),'a':[_0x2b34e7(0x289),_0x2b34e7(0x3ed),_0x2b34e7(0x2fb),_0x2b34e7(0x205)],'correct':0x2},{'q':_0x2b34e7(0x1d4),'a':[_0x2b34e7(0x326),'União\x20temporária',_0x2b34e7(0x3e0),_0x2b34e7(0x16a)],'correct':0x3},{'q':_0x2b34e7(0x313),'a':[_0x2b34e7(0x1f6),'Pecado','Questão\x20cultural','Necessidade\x20em\x20alguns\x20casos'],'correct':0x1}]},{'title':_0x2b34e7(0x1fa),'questions':[{'q':_0x2b34e7(0x350),'a':[_0x2b34e7(0x40e),_0x2b34e7(0x3e4),'Equipar\x20os\x20santos\x20para\x20o\x20serviço',_0x2b34e7(0x170)],'correct':0x2},{'q':'Qual\x20é\x20a\x20qualificação\x20mais\x20importante\x20para\x20um\x20bispo,\x20conforme\x201\x20Timóteo\x203:2?','a':[_0x2b34e7(0x354),_0x2b34e7(0x295),'Rico',_0x2b34e7(0x308)],'correct':0x1},{'q':_0x2b34e7(0x183),'a':[_0x2b34e7(0x382),_0x2b34e7(0x321),_0x2b34e7(0x2d5),_0x2b34e7(0x1bf)],'correct':0x1},{'q':'Qual\x20é\x20a\x20atitude\x20recomendada\x20para\x20o\x20pastor\x20em\x20relação\x20aos\x20conflitos,\x20conforme\x202\x20Timóteo\x202:24-25?','a':['Punir\x20os\x20envolvidos',_0x2b34e7(0x3c4),'Evitar\x20confrontos',_0x2b34e7(0x258)],'correct':0x1}]},{'title':_0x2b34e7(0x314),'questions':[{'q':_0x2b34e7(0x2d7),'a':['Testemunho\x20pessoal','Revelação\x20geral\x20de\x20Deus\x20na\x20criação','Milagres\x20históricos',_0x2b34e7(0x335)],'correct':0x1},{'q':_0x2b34e7(0x429),'a':[_0x2b34e7(0x35b),_0x2b34e7(0x1ab),_0x2b34e7(0x3b6),_0x2b34e7(0x20d)],'correct':0x2},{'q':_0x2b34e7(0x206),'a':[_0x2b34e7(0x2bf),_0x2b34e7(0x3b1),_0x2b34e7(0x290),'Tradições\x20orais'],'correct':0x1},{'q':'Qual\x20é\x20a\x20base\x20da\x20apologética\x20segundo\x201\x20Pedro\x203:15?','a':[_0x2b34e7(0x3f5),_0x2b34e7(0x3ce),_0x2b34e7(0x15e),_0x2b34e7(0x2c0)],'correct':0x1}]},{'title':'Cristianismo\x20x\x20Outras\x20Religiões','questions':[{'q':_0x2b34e7(0x1b0),'a':['Salvação\x20pela\x20fé\x20vs.\x20obras',_0x2b34e7(0x40a),_0x2b34e7(0x192),'Todas\x20as\x20anteriores'],'correct':0x3},{'q':_0x2b34e7(0x3da),'a':[_0x2b34e7(0x33d),_0x2b34e7(0x1a0),'Crença\x20em\x20anjos\x20vs.\x20demônios',_0x2b34e7(0x1a2)],'correct':0x1},{'q':_0x2b34e7(0x3e2),'a':[_0x2b34e7(0x343),'Casta\x20social\x20vs.\x20igualdade',_0x2b34e7(0x29b),_0x2b34e7(0x2c8)],'correct':0x3},{'q':_0x2b34e7(0x211),'a':[_0x2b34e7(0x38a),_0x2b34e7(0x1db),'Salvação\x20pela\x20graça\x20vs.\x20iluminação','Todas\x20as\x20anteriores'],'correct':0x3}]},{'title':_0x2b34e7(0x384),'questions':[{'q':_0x2b34e7(0x3a2),'a':[_0x2b34e7(0x1af),'Buscar\x20vingança',_0x2b34e7(0x23a),_0x2b34e7(0x390)],'correct':0x2},{'q':_0x2b34e7(0x168),'a':[_0x2b34e7(0x33e),_0x2b34e7(0x28a),_0x2b34e7(0x191),'Indiferença'],'correct':0x1},{'q':_0x2b34e7(0x38c),'a':[_0x2b34e7(0x39a),'Orar\x20apenas\x20em\x20cultos',_0x2b34e7(0x309),_0x2b34e7(0x328)],'correct':0x3},{'q':_0x2b34e7(0x2ac),'a':[_0x2b34e7(0x219),'Isolar-se\x20da\x20sociedade','Influenciar\x20positivamente',_0x2b34e7(0x30f)],'correct':0x2}]},{'title':_0x2b34e7(0x1fe),'questions':[{'q':_0x2b34e7(0x338),'a':[_0x2b34e7(0x1b7),_0x2b34e7(0x17c),'Ignorar\x20uma\x20das\x20passagens',_0x2b34e7(0x1c0)],'correct':0x1},{'q':_0x2b34e7(0x2e9),'a':[_0x2b34e7(0x38e),_0x2b34e7(0x186),_0x2b34e7(0x408),_0x2b34e7(0x3ac)],'correct':0x1},{'q':'Como\x20interpretar\x20os\x20\x27difíceis\x20ditos\x20de\x20Jesus\x27\x20(ex:\x20Lucas\x2014:26)?','a':[_0x2b34e7(0x27d),_0x2b34e7(0x1ff),'Desconsiderar\x20o\x20contexto','Atribuir\x20a\x20erros\x20de\x20cópia'],'correct':0x1},{'q':_0x2b34e7(0x273),'a':[_0x2b34e7(0x1a8),_0x2b34e7(0x3f4),_0x2b34e7(0x243),'Erros\x20bíblicos'],'correct':0x1}]},{'title':_0x2b34e7(0x1e6),'questions':[{'q':_0x2b34e7(0x3dd),'a':[_0x2b34e7(0x215),'Fazer\x20discípulos\x20de\x20todas\x20as\x20nações','Conquistar\x20territórios',_0x2b34e7(0x28e)],'correct':0x1},{'q':'Qual\x20é\x20o\x20papel\x20do\x20Espírito\x20Santo\x20na\x20missão,\x20conforme\x20Atos\x201:8?','a':['Promover\x20milagres\x20espetaculares','Capacitar\x20para\x20o\x20testemunho',_0x2b34e7(0x17e),_0x2b34e7(0x413)],'correct':0x1},{'q':_0x2b34e7(0x1c4),'a':['Focar\x20apenas\x20em\x20judeus',_0x2b34e7(0x291),_0x2b34e7(0x214),_0x2b34e7(0x167)],'correct':0x2},{'q':_0x2b34e7(0x34e),'a':['Domínio\x20político',_0x2b34e7(0x22c),_0x2b34e7(0x2b2),_0x2b34e7(0x23b)],'correct':0x2}]},{'title':_0x2b34e7(0x42c),'questions':[{'q':_0x2b34e7(0x2f0),'a':[_0x2b34e7(0x345),_0x2b34e7(0x2b4),'Seguir\x20a\x20lei\x20do\x20país','Deixar\x20a\x20decisão\x20para\x20a\x20família'],'correct':0x0},{'q':_0x2b34e7(0x18e),'a':[_0x2b34e7(0x2bc),_0x2b34e7(0x334),_0x2b34e7(0x222),_0x2b34e7(0x18b)],'correct':0x2},{'q':_0x2b34e7(0x173),'a':['Cautela\x20e\x20respeito\x20pela\x20criação',_0x2b34e7(0x375),_0x2b34e7(0x1b1),'Deixar\x20para\x20o\x20governo\x20decidir'],'correct':0x0},{'q':_0x2b34e7(0x3a0),'a':[_0x2b34e7(0x2bc),_0x2b34e7(0x257),_0x2b34e7(0x352),_0x2b34e7(0x283)],'correct':0x1}]},{'title':_0x2b34e7(0x1ce),'questions':[{'q':'Qual\x20é\x20o\x20significado\x20da\x20adoração\x20\x27em\x20espírito\x20e\x20em\x20verdade\x27\x20(João\x204:24)?','a':['Rituais\x20externos','Adoração\x20genuína\x20e\x20sincera',_0x2b34e7(0x1f7),_0x2b34e7(0x310)],'correct':0x1},{'q':'Qual\x20é\x20o\x20papel\x20da\x20música\x20na\x20adoração,\x20conforme\x20Efésios\x205:19?','a':[_0x2b34e7(0x158),'Obrigação\x20religiosa','Entretenimento',_0x2b34e7(0x3e3)],'correct':0x0},{'q':_0x2b34e7(0x232),'a':[_0x2b34e7(0x3d4),_0x2b34e7(0x424),_0x2b34e7(0x1cb),_0x2b34e7(0x298)],'correct':0x1},{'q':_0x2b34e7(0x19f),'a':[_0x2b34e7(0x407),_0x2b34e7(0x2cc),_0x2b34e7(0x2cf),'Obrigação\x20legalista'],'correct':0x0}]},{'title':_0x2b34e7(0x228),'questions':[{'q':'Qual\x20é\x20a\x20metáfora\x20usada\x20para\x20a\x20igreja\x20em\x20Efésios\x205:25-27?','a':[_0x2b34e7(0x3c2),_0x2b34e7(0x1a4),_0x2b34e7(0x1cd),_0x2b34e7(0x21e)],'correct':0x1},{'q':_0x2b34e7(0x37e),'a':[_0x2b34e7(0x20c),_0x2b34e7(0x2b6),_0x2b34e7(0x36a),_0x2b34e7(0x282)],'correct':0x1},{'q':_0x2b34e7(0x297),'a':[_0x2b34e7(0x25f),_0x2b34e7(0x151),_0x2b34e7(0x1b3),_0x2b34e7(0x364)],'correct':0x1},{'q':'Qual\x20é\x20o\x20papel\x20dos\x20dons\x20espirituais\x20na\x20igreja,\x20conforme\x201\x20Coríntios\x2012:7?','a':['Exibicionismo',_0x2b34e7(0x225),_0x2b34e7(0x25d),_0x2b34e7(0x376)],'correct':0x1}]},{'title':_0x2b34e7(0x184),'questions':[{'q':_0x2b34e7(0x31c),'a':[_0x2b34e7(0x179),_0x2b34e7(0x322),'Porque\x20Ele\x20ofereceu\x20sacrifícios\x20de\x20animais\x20continuamente',_0x2b34e7(0x249)],'correct':0x1},{'q':_0x2b34e7(0x2b5),'a':[_0x2b34e7(0x233),_0x2b34e7(0x342),_0x2b34e7(0x32f),_0x2b34e7(0x3b3)],'correct':0x2},{'q':'Por\x20que\x20Jesus\x20é\x20chamado\x20de\x20Filho\x20de\x20Deus?\x20(Lucas\x201:35;\x20João\x201:14;\x20Mateus\x2016:16)','a':[_0x2b34e7(0x396),_0x2b34e7(0x250),_0x2b34e7(0x418),_0x2b34e7(0x417)],'correct':0x2},{'q':_0x2b34e7(0x1ca),'a':[_0x2b34e7(0x276),_0x2b34e7(0x2f9),_0x2b34e7(0x1ad),_0x2b34e7(0x178)],'correct':0x1},{'q':_0x2b34e7(0x152),'a':[_0x2b34e7(0x166),'Para\x20continuar\x20seu\x20ministério\x20terreno\x20interrompido',_0x2b34e7(0x36f),_0x2b34e7(0x2fd)],'correct':0x2}]},{'title':_0x2b34e7(0x3c9),'questions':[{'q':_0x2b34e7(0x2f4),'a':[_0x2b34e7(0x1c1),_0x2b34e7(0x1ac),_0x2b34e7(0x3b7),_0x2b34e7(0x26a)],'correct':0x1},{'q':_0x2b34e7(0x40f),'a':[_0x2b34e7(0x3fc),_0x2b34e7(0x398),_0x2b34e7(0x361),_0x2b34e7(0x3b9)],'correct':0x2},{'q':_0x2b34e7(0x2a4),'a':[_0x2b34e7(0x363),'Redenção\x20e\x20restauração\x20final',_0x2b34e7(0x32e),_0x2b34e7(0x204)],'correct':0x1},{'q':_0x2b34e7(0x1d9),'a':[_0x2b34e7(0x37f),_0x2b34e7(0x1df),_0x2b34e7(0x24b),'Fé\x20como\x20conhecimento\x20intelectual'],'correct':0x1}]}];let currentModule=0x0,currentQuestion=0x0,wrongAnswersCount=0x0,correctAnswersCount=0x0,totalQuestions=0x0;const questionText=document[_0x2b34e7(0x223)](_0x2b34e7(0x19a)),optionsDiv=document[_0x2b34e7(0x223)](_0x2b34e7(0x348)),nextBtn=document[_0x2b34e7(0x223)](_0x2b34e7(0x201)),continueBtn=document[_0x2b34e7(0x223)](_0x2b34e7(0x15c)),finishBtn=document['getElementById'](_0x2b34e7(0x27f)),moduleInfo=document[_0x2b34e7(0x223)](_0x2b34e7(0x189)),correctSound=document[_0x2b34e7(0x223)](_0x2b34e7(0x2db)),wrongSound=document[_0x2b34e7(0x223)](_0x2b34e7(0x234)),levelUpSound=document[_0x2b34e7(0x223)](_0x2b34e7(0x1d2)),quizPage=document[_0x2b34e7(0x223)](_0x2b34e7(0x32d)),certificatePage=document[_0x2b34e7(0x223)](_0x2b34e7(0x3fb)),userNameInput=document[_0x2b34e7(0x223)](_0x2b34e7(0x397)),generateCertificateBtn=document[_0x2b34e7(0x223)](_0x2b34e7(0x1c6)),certificateName=document[_0x2b34e7(0x223)](_0x2b34e7(0x1d3));modules[_0x2b34e7(0x2bb)](_0x173ccf=>totalQuestions+=_0x173ccf[_0x2b34e7(0x1e4)]['length']);function showQuestion(){const _0x3f76d3=_0x2b34e7,_0xc0a8c2=modules[currentModule];moduleInfo['textContent']='Módulo\x20'+(currentModule+0x1)+'\x20de\x20'+modules[_0x3f76d3(0x41a)]+_0x3f76d3(0x180)+_0xc0a8c2['title'];const _0x5eb140=_0xc0a8c2[_0x3f76d3(0x1e4)][currentQuestion];questionText[_0x3f76d3(0x373)][_0x3f76d3(0x1c7)]=0x0,setTimeout(()=>{const _0x48db0f=_0x3f76d3;questionText['textContent']=_0x5eb140['q'],questionText[_0x48db0f(0x373)][_0x48db0f(0x1c7)]=0x1;},0xc8),optionsDiv[_0x3f76d3(0x169)]='',nextBtn[_0x3f76d3(0x373)][_0x3f76d3(0x2a7)]=_0x3f76d3(0x370),finishBtn[_0x3f76d3(0x373)]['display']=_0x3f76d3(0x370),_0x5eb140['a']['forEach']((_0x10888f,_0x59fe6f)=>{const _0x2f2ab9=_0x3f76d3,_0x2630fb=document[_0x2f2ab9(0x271)]('button');_0x2630fb['textContent']=_0x10888f,_0x2630fb['onclick']=()=>checkAnswer(_0x59fe6f),optionsDiv[_0x2f2ab9(0x2f7)](_0x2630fb);});}function _0xdfe0(_0x33e581,_0x3726b7){const _0x589aa6=_0x589a();return _0xdfe0=function(_0xdfe076,_0x4fedae){_0xdfe076=_0xdfe076-0x14d;let _0x2836c3=_0x589aa6[_0xdfe076];return _0x2836c3;},_0xdfe0(_0x33e581,_0x3726b7);}function _0x589a(){const _0x231935=['Qual\x20livro\x20conta\x20a\x20história\x20de\x20Ester?','Qual\x20mulher\x20ungiu\x20os\x20pés\x20de\x20Jesus\x20com\x20perfume,\x20conforme\x20Lucas\x207:37?','Saduceus','Qual\x20milagre\x20demonstra\x20o\x20poder\x20de\x20Jesus\x20sobre\x20a\x20natureza,\x20conforme\x20Marcos\x204:39?','Curar\x20cego','Josué','Amor\x20ao\x20próximo','Ignorar\x20os\x20conflitos','Qual\x20personagem\x20bíblico\x20é\x20conhecido\x20por\x20sua\x20oração\x20de\x20intercessão\x20por\x20Israel,\x20conforme\x20Êxodo\x2032:11-14?','\x27Hoje\x20estarás\x20comigo\x20no\x20Paraíso.\x27','Guardar\x20os\x20Dez\x20Mandamentos','O\x20que\x20os\x20querubins\x20sobre\x20a\x20Arca\x20representavam,\x20conforme\x20Gênesis\x203:24?','Exclusividade\x20para\x20líderes','Babilônia','Competição\x20entre\x20igrejas','Qual\x20é\x20o\x20livro\x20que\x20contém\x20a\x20frase\x20\x27O\x20Senhor\x20é\x20o\x20meu\x20pastor,\x20nada\x20me\x20faltará\x27,\x20conforme\x20Salmos\x2023:1?','Passagem\x20do\x20Mar\x20Vermelho','Sete\x20igrejas','Guardar\x20rancor','Romanos','Onde\x20Deus\x20colocou\x20Adão\x20e\x20Eva\x20após\x20criá-los,\x20conforme\x20Gênesis\x202:8?','Candeia\x20de\x20ouro','pageSize','Qual\x20parábola\x20ensina\x20sobre\x20a\x20\x27justificação\x20pela\x20fé\x27,\x20conforme\x20Lucas\x2018:9-14?','Amar\x20a\x20Deus\x20e\x20ao\x20próximo','Ignorar\x20a\x20tensão','Codornas','Jerusalém','Andar\x20sobre\x20as\x20águas','Mel','Qual\x20cidade\x20foi\x20descoberta\x20e\x20confirma\x20a\x20narrativa\x20de\x20Josué\x206?','Ciro','createElement','conhecimento\x20da\x20Palavra\x20de\x20Deus,\x20abrangendo\x20temas\x20do\x20Antigo\x20e\x20Novo','Como\x20interpretar\x20profecias\x20não\x20cumpridas\x20(ex:\x20Mateus\x2016:28)?','O\x20que\x20a\x20besta\x20que\x20sobe\x20do\x20mar\x20representa,\x20conforme\x20Apocalipse\x2013:1?','Qual\x20é\x20o\x20número\x20da\x20besta,\x20conforme\x20Apocalipse\x2013:18?','Porque\x20governou\x20Israel\x20durante\x20o\x20primeiro\x20século','flex','Qual\x20é\x20a\x20mensagem\x20central\x20das\x20cartas\x20de\x20João?','Segundo\x20Gênesis\x201:1,\x20quem\x20criou\x20o\x20céu\x20e\x20a\x20terra?','Morada\x20eterna\x20dos\x20salvos','Lago\x20de\x20Fogo','Qual\x20é\x20o\x20tema\x20central\x20da\x20Epístola\x20aos\x20Romanos?','Literalismo\x20radical','Riqueza','finishBtn','Salmo\x20119','Saul','Influenciar\x20a\x20política','Deixar\x20para\x20a\x20consciência\x20individual','Qual\x20carta\x20ensina\x20que\x20Jesus\x20é\x20superior\x20aos\x20anjos,\x20conforme\x20Hebreus\x201:4?','Israel','Qual\x20das\x20seguintes\x20frases\x20NÃO\x20foi\x20dita\x20por\x20Jesus\x20na\x20cruz,\x20segundo\x20os\x20Evangelhos?','Médico','Raabe','Direito\x20do\x20governo','Empatia\x20e\x20apoio\x20mútuo','rgba(255,0,0,0.5)','Habacuque','Inveja','Evangelizar\x20apenas\x20judeus','Inscrição\x20de\x20Tel\x20Dan','Relatos\x20mitológicos','Impor\x20tradições\x20judaicas','8vvsAil','Latim','background','Irrepreensível','Como\x20se\x20chamava\x20a\x20esposa\x20de\x20Abraão,\x20conforme\x20Gênesis\x2017:15?','Qual\x20é\x20a\x20relação\x20entre\x20a\x20igreja\x20local\x20e\x20universal,\x20conforme\x201\x20Coríntios\x201:2?','Inovação\x20constante','Nabucodonosor','Enforcamento','Monoteísmo\x20vs.\x20panteísmo','Buscar\x20riqueza','Método\x20Alegórico','Um\x20vento\x20forte','Qual\x20foi\x20o\x20sinal\x20que\x20Deus\x20deu\x20a\x20Noé\x20após\x20o\x20dilúvio,\x20conforme\x20Gênesis\x209:13?','landscape','Gálatas','Provérbios','Pôncio\x20Pilatos','Qual\x20é\x20a\x20mensagem\x20central\x20da\x20Bíblia,\x20conforme\x20João\x203:16\x20e\x20Apocalipse\x2021:3-4?','Tiro','Mulheres\x20na\x20Bíblia','display','Transformar\x20água\x20em\x20vinho','Adquirir\x20poder','Guerra\x20de\x20Armagedom','Qual\x20filho\x20Abraão\x20quase\x20sacrificou,\x20conforme\x20Gênesis\x2022:2?','Qual\x20é\x20a\x20aplicação\x20de\x20\x27ser\x20sal\x20e\x20luz\x27\x20(Mateus\x205:13-16)\x20no\x20mundo\x20secular?','bloburl','O\x20que\x20os\x20sete\x20candeeiros\x20representam,\x20conforme\x20Apocalipse\x201:20?','Qual\x20cidade\x20foi\x20descoberta\x20e\x20confirma\x20a\x20narrativa\x20de\x20Jonas\x201-4?','Unidade\x20da\x20igreja','5265911QfgPKo','Adoração\x20universal\x20a\x20Deus','Qual\x20profeta\x20anunciou\x20que\x20Jerusalém\x20seria\x20\x27pisada\x20pelos\x20gentios\x27,\x20conforme\x20Lucas\x2021:24?','Permitir\x20em\x20casos\x20terminais','Por\x20que\x20Jesus\x20é\x20chamado\x20de\x20Leão\x20da\x20tribo\x20de\x20Judá?\x20(Apocalipse\x205:5;\x20Gênesis\x2049:9–10)','Manifestar\x20a\x20multiforme\x20sabedoria\x20de\x20Deus','Restauração','Herodes\x20Antipas','Malaquias','Maná','forEach','Proibir\x20totalmente','Peste','center','Documentos\x20gnósticos','Debater\x20com\x20agressividade','rgba(0,255,100,0.5)','Jesus','O\x20que\x20Deus\x20enviou\x20do\x20céu\x20para\x20alimentar\x20o\x20povo,\x20conforme\x20Êxodo\x2016:14?','Qual\x20parábola\x20ensina\x20sobre\x20a\x20importância\x20de\x20ajudar\x20o\x20próximo,\x20conforme\x20Lucas\x2010:30?','Uma\x20grande\x20nação','12HtdNKe','Esdras','Todas\x20as\x20anteriores','O\x20trono\x20de\x20Deus','Oferecer\x20sacrifícios','Elias','Ritual\x20vazio','Isaac','Deus','Festa\x20social','setDrawColor','O\x20trigo\x20e\x20o\x20joio','Um\x20soldado\x20romano\x20declarou:\x20\x27Verdadeiramente\x20este\x20era\x20o\x20Filho\x20de\x20Deus\x27','Qual\x20era\x20o\x20idioma\x20principal\x20de\x20Israel\x20no\x20tempo\x20de\x20Jesus?','Qual\x20é\x20a\x20posição\x20bíblica\x20sobre\x20o\x20aborto,\x20conforme\x20Salmo\x20139:13-16?','Ensino\x20exclusivo','O\x20filho\x20pródigo','Qual\x20é\x20o\x20argumento\x20apologético\x20baseado\x20em\x20Romanos\x201:19-20?','Hebrom','Jericó','Quem\x20escreveu\x20a\x20maioria\x20dos\x20Salmos,\x20conforme\x20título\x20dos\x20Salmos?','correctSound','Terremoto','Qual\x20é\x20o\x20tema\x20central\x20do\x20livro\x20de\x20Gênesis?','rect','italic','Salomão','Isaías\x2053:7','Qual\x20era\x20o\x20nome\x20do\x20faraó\x20que\x20oprimia\x20Israel,\x20conforme\x20Êxodo\x201:8?','Método\x20Histórico-Gramatical','Joel','Romanos\x203:23','Juízo\x20final','Aliança\x20Davídica','Sião','Como\x20interpretar\x20as\x20parábolas\x20de\x20Jesus\x20(ex:\x20Lucas\x2016:1-9)\x20que\x20parecem\x20elogiar\x20a\x20desonestidade?','Reino\x20de\x20Deus\x20e\x20justiça','Abraão','Qual\x20milagre\x20mostra\x20a\x20autoridade\x20de\x20Jesus\x20sobre\x20a\x20morte,\x20conforme\x20João\x2011:43?','Qual\x20é\x20o\x20período\x20de\x20mil\x20anos\x20mencionado\x20em\x20Apocalipse\x2020:4?','Habacuque\x201:5','Qual\x20é\x20a\x20oração\x20modelo\x20ensinada\x20por\x20Jesus,\x20conforme\x20Mateus\x206:9-13?','Qual\x20é\x20a\x20posição\x20bíblica\x20sobre\x20eutanásia,\x20conforme\x20Êxodo\x2020:13?','Terremoto\x20e\x20rasgamento\x20do\x20véu\x20do\x20Templo','Santidade\x20e\x20justiça\x20de\x20Deus','Qual\x20evento\x20marca\x20o\x20início\x20da\x20Grande\x20Tribulação,\x20conforme\x20Daniel\x209:27?','Como\x20integrar\x20a\x20soberania\x20de\x20Deus\x20(Efésios\x201:11)\x20e\x20o\x20livre-arbítrio\x20humano\x20(Deuteronômio\x2030:19)?','Milênio','Quem\x20foi\x20o\x20primeiro\x20rei\x20de\x20Israel,\x20conforme\x201\x20Samuel\x2010:1?','appendChild','Curar\x20um\x20cego','Porque\x20é\x20o\x20descendente\x20prometido\x20de\x20Davi\x20e\x20cumprirá\x20as\x20profecias\x20do\x20reino\x20messiânico','Quem\x20profetizou\x20sobre\x20o\x20nascimento\x20do\x20Messias,\x20conforme\x20Isaías\x207:14?','Vida\x20desde\x20a\x20concepção','Adquirir\x20fama','Para\x20ensinar\x20novos\x20mandamentos','setFillColor','Mesa\x20dos\x20pães','Salmo\x2051:1','Caifás','Amor\x20e\x20obediência','Eclesiastes','Muralhas\x20de\x20Jerusalém','Profecias','O\x20que\x20o\x20dragão\x20simboliza,\x20conforme\x20Apocalipse\x2012:9?','O\x20ladrão\x20à\x20noite','Carismático','Repetir\x20orações\x20decoradas','Profetas','Ramsés','Isaías','Alexandria','Qual\x20é\x20o\x20último\x20livro\x20da\x20Bíblia?','Evitar\x20conflitos','Emocionalismo\x20vazio','Estudos\x20Temáticos:\x20Oração\x20e\x20Adoração','História\x20da\x20igreja','Qual\x20é\x20a\x20posição\x20bíblica\x20sobre\x20a\x20mentira,\x20conforme\x20Colossenses\x203:9?','Apologética\x20Cristã','Papiros\x20do\x20Mar\x20Morto','4296zaNQug','Superioridade\x20de\x20Cristo','Qual\x20salmo\x20é\x20uma\x20oração\x20de\x20arrependimento,\x20conforme\x20Salmo\x2051:1?','textContent','Qual\x20objeto\x20no\x20Tabernáculo\x20continha\x20o\x20maná,\x20conforme\x20Êxodo\x2016:33?','Qual\x20profeta\x20falou\x20sobre\x20a\x20traição\x20do\x20Messias\x20por\x2030\x20moedas\x20de\x20prata,\x20conforme\x20Zacarias\x2011:12?','Por\x20que\x20Jesus\x20é\x20chamado\x20de\x20Sacerdote\x20Eterno?\x20(Hebreus\x207:24–25;\x20Salmos\x20110:4)','Qual\x20profeta\x20profetizou\x20que\x20o\x20Messias\x20entraria\x20em\x20Jerusalém\x20montado\x20em\x20um\x20jumento,\x20conforme\x20Zacarias\x209:9?','Quem\x20batizou\x20Jesus,\x20conforme\x20Mateus\x203:13?','Ignorar\x20ofensas','Quem\x20foi\x20exilado\x20na\x20Babilônia,\x20conforme\x202\x20Reis\x2024:14?','Alimentar\x20e\x20cuidar','Porque\x20Seu\x20sacerdócio\x20nunca\x20termina\x20e\x20é\x20segundo\x20a\x20ordem\x20de\x20Melquisedeque','Quem\x20derrotou\x20os\x20midianitas\x20com\x20apenas\x20300\x20homens,\x20conforme\x20Juízes\x207:7?','Qual\x20é\x20o\x20fundamento\x20da\x20salvação,\x20conforme\x20Efésios\x202:8?','Jordão','União\x20espiritual','Hebreus','Vida\x20de\x20comunhão\x20constante\x20com\x20Deus','Qual\x20rei\x20destruiu\x20Jerusalém,\x20conforme\x202\x20Reis\x2025:8?','Qual\x20carta\x20fala\x20sobre\x20a\x20\x27provação\x20da\x20fé\x27,\x20conforme\x20Tiago\x201:3?','Fortaleza\x20de\x20Masada','Qual\x20foi\x20o\x20primeiro\x20milagre\x20de\x20Jesus,\x20conforme\x20João\x202:11?','quizPage','Autossuficiência\x20humana','Porque\x20veio\x20da\x20tribo\x20de\x20Judá\x20e\x20representa\x20o\x20poder\x20e\x20a\x20vitória\x20de\x20Deus','Quantos\x20discípulos\x20Jesus\x20escolheu,\x20conforme\x20Lucas\x206:13?','Qual\x20parábola\x20fala\x20sobre\x20um\x20filho\x20que\x20gastou\x20sua\x20herança,\x20conforme\x20Lucas\x2015:11?','toLocaleDateString','João','Permitir\x20sem\x20restrições','Profecias\x20cumpridas','Crucificação\x20de\x20Jesus','Amós','Como\x20interpretar\x20passagens\x20aparentemente\x20contraditórias,\x20como\x20Tiago\x202:24\x20e\x20Efésios\x202:8-9?','Grego','Quem\x20foi\x20conhecido\x20por\x20sua\x20sabedoria,\x20conforme\x201\x20Reis\x203:12?','Daniel','Qual\x20é\x20a\x20aplicação\x20de\x20\x27perdoar\x2070\x20vezes\x207\x27,\x20conforme\x20Mateus\x2018:22?','Rituais\x20vs.\x20sacrifícios','Competição','Ser\x20aio\x20para\x20Cristo','Lavar\x20as\x20mãos','Ler\x20em\x20voz\x20alta','Porque\x20era\x20descendente\x20de\x20Davi\x20apenas\x20por\x20parte\x20de\x20mãe','Reencarnação\x20vs.\x20ressurreição','Qual\x20era\x20o\x20nome\x20do\x20filho\x20da\x20promessa,\x20nascido\x20de\x20Sara,\x20conforme\x20Gênesis\x2021:3?','Preservar\x20a\x20vida','O\x20que\x20a\x20Nova\x20Jerusalém\x20simboliza,\x20conforme\x20Apocalipse\x2021:2?','Profecia','options','Nilo','Miriã','Maria\x20Madalena','Jeremias','Fariseus','Qual\x20é\x20o\x20objetivo\x20final\x20da\x20missão,\x20conforme\x20Apocalipse\x207:9?','Miquéias','Qual\x20é\x20o\x20papel\x20do\x20pastor\x20segundo\x20Efésios\x204:11-12?','As\x20dez\x20virgens','Permitir\x20apenas\x20entre\x20cristãos','1944981boHQjS','Intelectual','Qual\x20carta\x20fala\x20sobre\x20o\x20\x27amor\x27\x20como\x20o\x20maior\x20dom,\x20conforme\x201\x20Coríntios\x2013:13?','Ensino\x20sobre\x20o\x20Espírito\x20Santo','Qual\x20princípio\x20hermenêutico\x20ensina\x20que\x20a\x20Bíblia\x20deve\x20ser\x20interpretada\x20pela\x20própria\x20Bíblia?','helvetica','1282311ZAZNfq','Qual\x20personagem\x20do\x20Novo\x20Testamento\x20é\x20conhecido\x20por\x20suas\x20orações\x20e\x20jejuns,\x20conforme\x20Colossenses\x201:9?','Deus\x20não\x20existe','Sete\x20trombetas','pt-BR','Quem\x20sucedeu\x20Moisés\x20como\x20líder\x20de\x20Israel,\x20conforme\x20Josué\x201:1?','Quantos\x20animais\x20puros\x20Noé\x20levou\x20para\x20a\x20arca,\x20conforme\x20Gênesis\x207:2?','Qual\x20profeta\x20falou\x20sobre\x20a\x20restauração\x20de\x20Israel\x20como\x20\x27ossos\x20secos\x27,\x20conforme\x20Ezequiel\x2037:1-14?','Confiar\x20na\x20sabedoria\x20e\x20bondade\x20de\x20Deus','Qual\x20milagre\x20envolveu\x20a\x20divisão\x20das\x20águas\x20do\x20Mar\x20Vermelho,\x20conforme\x20Êxodo\x2014:21?','Religião\x20como\x20sistema\x20moral','Independência\x20total','Ana','Sinagoga\x20de\x20Cafarnaum','Leis','setLineWidth','1\x20Tessalonicenses','Promover\x20eventos\x20sociais','Qual\x20era\x20o\x20grupo\x20religioso\x20que\x20não\x20acreditava\x20na\x20ressurreição,\x20conforme\x20Atos\x2023:8?','Sara','23830vgdvyz','Qual\x20carta\x20ensina\x20sobre\x20a\x20armadura\x20de\x20Deus,\x20conforme\x20Efésios\x206:11?','Para\x20cumprir\x20as\x20promessas\x20de\x20julgar\x20o\x20mundo,\x20restaurar\x20todas\x20as\x20coisas\x20e\x20reinar\x20com\x20justiça','none','Altar\x20de\x20bronze','Espírito\x20Santo','style','Quem\x20teve\x20visões\x20de\x20ossos\x20secos,\x20conforme\x20Ezequiel\x2037:1?','Proibir\x20qualquer\x20intervenção','Hierarquia\x20rígida','5\x20dias','Estrela','Qual\x20foi\x20o\x20primeiro\x20pecado\x20cometido\x20por\x20Adão\x20e\x20Eva,\x20segundo\x20Gênesis\x203?','Uma\x20alegoria','Ressurreição','Sabedoria','Ester','Qual\x20é\x20o\x20propósito\x20da\x20igreja,\x20conforme\x20Efésios\x203:10?','Fé\x20como\x20emoção\x20passageira','Qual\x20é\x20a\x20condição\x20para\x20a\x20vida\x20eterna,\x20conforme\x20João\x2017:3?','Céu\x20literal','Organizar\x20eventos','Herodes','Aplicações\x20Práticas\x20Avançadas','Belém','Qual\x20artefato\x20confirma\x20a\x20existência\x20do\x20rei\x20Herodes?','600','Hermenêutica\x20Bíblica','Conhecimento','Deus\x20pessoal\x20vs.\x20ausência\x20de\x20deus','Qual\x20é\x20o\x20tema\x20central\x20do\x20livro\x20de\x20Apocalipse?','Como\x20aplicar\x20\x27orar\x20sem\x20cessar\x27\x20(1\x20Tessalonicenses\x205:17)\x20na\x20vida\x20diária?','Zacarias','Desconsiderar\x20a\x20parábola','Este\x20certificado\x20reconhece\x20seu\x20empenho\x20no\x20aprofundamento\x20do','Culpar\x20a\x20si\x20mesmo','Quantos\x20dias\x20os\x20israelitas\x20marcharam\x20ao\x20redor\x20de\x20Jericó,\x20conforme\x20Josué\x206:3?','Neemias','Evangelizar','Qual\x20é\x20a\x20aplicação\x20de\x20\x27fazer\x20discípulos\x27,\x20conforme\x20Mateus\x2028:19?','text','Porque\x20foi\x20criado\x20como\x20os\x20anjos','userName','Atribuir\x20ao\x20acaso','Qual\x20é\x20a\x20evidência\x20da\x20salvação,\x20conforme\x20Tiago\x202:17?','Orar\x20apenas\x20em\x20crises','Trazer\x20fama','querySelectorAll','Qual\x20é\x20a\x20base\x20da\x20justificação,\x20conforme\x20Romanos\x203:28?','777','play','Qual\x20é\x20a\x20posição\x20bíblica\x20sobre\x20doação\x20de\x20órgãos,\x20conforme\x201\x20João\x203:16?','Qual\x20mulher\x20foi\x20rainha\x20e\x20salvou\x20seu\x20povo,\x20conforme\x20Ester\x204:14?','Como\x20aplicar\x20\x27tudo\x20coopera\x20para\x20o\x20bem\x27\x20(Romanos\x208:28)\x20em\x20situações\x20de\x20sofrimento?','Qual\x20descoberta\x20arqueológica\x20valida\x20a\x20existência\x20do\x20rei\x20Ezequias?','Félix','Milagres\x20de\x20Jesus\x20(Análise)','Sansão','Reino\x20de\x20Davi','Por\x20favor,\x20digite\x20seu\x20nome\x20completo.','Naum','Salmo\x2022:1','trim','Atribuir\x20erro\x20a\x20Jesus','Contexto\x20Histórico','Contextos\x20Históricos\x20do\x20Novo\x20Testamento','Chuva','Paulo','Testemunhas\x20oculares','Leis\x20e\x20rituais','Porque\x20era\x20caçador\x20e\x20valente\x20em\x20guerra','Qual\x20parábola\x20ensina\x20sobre\x20a\x20vigilância,\x20conforme\x20Mateus\x2025:1?','1\x20João','Deus\x20usa\x20o\x20mal\x20para\x20o\x20bem','Limitar\x20a\x20soberania\x20de\x20Deus','Qual\x20profeta\x20anunciou\x20que\x20Israel\x20seria\x20disperso,\x20conforme\x20Deuteronômio\x2028:64?','Culpar\x20Deus\x20pelo\x20mal','Qual\x20mulher\x20salvou\x20os\x20espias\x20israelitas\x20em\x20Jericó,\x20conforme\x20Josué\x202:1?','\x22Procura\x20apresentar-te\x20a\x20Deus\x20aprovado,\x20como\x20obreiro\x20que\x20não\x20tem\x20de\x20que\x20se\x20envergonhar,','Fama','Fé\x20e\x20obras','Monte\x20Sião','Maria\x20de\x20Betânia','Leis\x20e\x20sacrifícios','Conquista\x20de\x20Canaã','Família\x20de\x20Deus','Pedro','Instruir\x20com\x20mansidão','Crítica\x20literária','Os\x20gentios','Guardar\x20a\x20fé\x20para\x20si','Livros\x20Poéticos','Desafio\x20Final:\x20Perguntas\x20Integradas','Dilúvio','Qual\x20dos\x20seguintes\x20eventos\x20NÃO\x20ocorreu\x20durante\x20a\x20crucificação\x20de\x20Jesus,\x20segundo\x20os\x20Evangelhos?','Teologia\x20do\x20Novo\x20Testamento','O\x20fariseu\x20e\x20o\x20publicano','Dar\x20razão\x20da\x20esperança','Uma\x20visão','Todos','Cativeiro\x20Babilônico','Qual\x20era\x20a\x20função\x20do\x20altar\x20de\x20bronze,\x20conforme\x20Levítico\x201:5?','Fogo','Rigidez\x20litúrgica','1\x20Pedro\x202:24','Testamento,\x20doutrinas,\x20hermenêutica\x20e\x20aplicação\x20prática.','Artaxerxes','Nova\x20Jerusalém','Trovão','Qual\x20é\x20a\x20diferença\x20entre\x20a\x20salvação\x20no\x20Cristianismo\x20e\x20no\x20Judaísmo?','Arco-íris','Juízes','Qual\x20é\x20a\x20base\x20bíblica\x20para\x20a\x20Grande\x20Comissão,\x20conforme\x20Mateus\x2028:19-20?','Tiago','Guardar\x20os\x20pães','União\x20poligâmica','Qual\x20livro\x20do\x20Novo\x20Testamento\x20faz\x20uso\x20explícito\x20de\x20uma\x20alegoria,\x20conforme\x20Gálatas\x204:24?','Qual\x20é\x20a\x20diferença\x20entre\x20o\x20Cristianismo\x20e\x20o\x20Hinduísmo?','Ferramenta\x20de\x20manipulação','Administrar\x20a\x20igreja','A\x20parábola\x20de\x20Lázaro\x20e\x20o\x20rico,\x20conforme\x20Lucas\x2016:19-31,\x20é:','Túnel\x20de\x20Ezequias','demonstrou\x20conhecimento\x20bíblico-teológico\x20ao\x20concluir\x20o\x20Bíblia\x20Quiz,','Qual\x20evento\x20escatológico\x20é\x20descrito\x20em\x201\x20Tessalonicenses\x204:16-17\x20como\x20\x27arrebatamento\x27?','Nova\x20Aliança','Pacto\x20do\x20Anticristo\x20com\x20Israel','Qual\x20milagre\x20envolveu\x20a\x20multiplicação\x20de\x20azeite\x20para\x20uma\x20viúva,\x20conforme\x202\x20Reis\x204:1?','Qual\x20carta\x20ensina\x20sobre\x20a\x20\x27esperança\x20viva\x27,\x20conforme\x201\x20Pedro\x201:3?','Escolha\x20da\x20mãe','Adão','\x27Deus\x20meu,\x20por\x20que\x20me\x20abandonaste?\x27','onclick','Nínive','Purgatório','Qual\x20personagem\x20do\x20Antigo\x20Testamento\x20é\x20um\x20tipo\x20de\x20Cristo\x20como\x20\x27o\x20sacrifício\x20substituto\x27,\x20conforme\x20Gênesis\x2022:8?','Cumprimento\x20parcial\x20ou\x20simbólico','Ignorar\x20perguntas\x20difíceis','Multiplicar\x20pães','Qual\x20milagre\x20demonstra\x20a\x20autoridade\x20de\x20Jesus\x20sobre\x20os\x20demônios,\x20conforme\x20Marcos\x205:13?','times','Incitação\x20à\x20violência\x20contra\x20Roma','Qual\x20é\x20o\x20resultado\x20da\x20justificação,\x20conforme\x20Romanos\x205:1?','certificatePage','Negar\x20a\x20onisciência','O\x20semeador','Parada\x20do\x20sol','Isaque','Salmo\x2091','Hebraico','button','Selo\x20de\x20Ezequias','Analogia\x20da\x20Fé','Quem\x20interpretou\x20os\x20sonhos\x20do\x20rei\x20Nabucodonosor,\x20conforme\x20Daniel\x202:2?','Jefté','Memorial\x20da\x20morte\x20de\x20Cristo','Justificar\x20a\x20desonestidade','Quantos\x20dias\x20e\x20noites\x20choveu\x20durante\x20o\x20dilúvio,\x20segundo\x20Gênesis\x207:12?','Jesus\x20como\x20profeta\x20vs.\x20Deus\x20encarnado','O\x20bom\x20samaritano','Galileia','Calebe','Realizar\x20milagres','Como\x20conciliar\x20a\x20onisciência\x20de\x20Deus\x20(Salmo\x20139:4)\x20e\x20o\x20sofrimento\x20humano\x20(Jó\x201-2)?','normal','Qual\x20livro\x20conta\x20a\x20história\x20de\x20um\x20homem\x20que\x20perdeu\x20tudo,\x20conforme\x20Jó\x201:1?','_blank','Limitar\x20a\x20ação\x20da\x20igreja','Doutrinas\x20Bíblicas','Pescador','Quem\x20ungiu\x20Davi\x20como\x20rei,\x20conforme\x201\x20Samuel\x2016:13?','Porque\x20foi\x20adotado\x20por\x20Deus\x20após\x20o\x20batismo','Porque\x20Ele\x20tem\x20a\x20mesma\x20natureza\x20divina\x20do\x20Pai\x20e\x20foi\x20gerado\x20por\x20Deus','Qual\x20é\x20a\x20cidade\x20santa\x20que\x20desce\x20do\x20céu,\x20conforme\x20Apocalipse\x2021:2?','length','Dario','\x27O\x20meu\x20reino\x20não\x20é\x20deste\x20mundo.\x27','Quem\x20reconstruiu\x20os\x20muros\x20de\x20Jerusalém,\x20conforme\x20Neemias\x202:17?','CERTIFICADO\x20DE\x20CONHECIMENTO\x20BÍBLICO-TEOLÓGICO','Conhecimento\x20relacional\x20com\x20Deus\x20e\x20Cristo','Conversão\x20de\x20Israel','Eva','Eliseu','Fé\x20sem\x20obras','Ordem\x20e\x20edificação','Acalmar\x20a\x20tempestade','Poder','Criação','Onde\x20Deus\x20entregou\x20os\x20Dez\x20Mandamentos\x20a\x20Moisés,\x20conforme\x20Êxodo\x2019:20?','Qual\x20é\x20a\x20resposta\x20apologética\x20para\x20o\x20problema\x20do\x20mal,\x20conforme\x20Gênesis\x2050:20?','Arqueologia\x20Bíblica','Moisés','Ética\x20e\x20Bioética\x20Cristã','Salmo\x20119:1','Escuridão\x20sobre\x20a\x20terra\x20por\x20três\x20horas','Queda\x20de\x20anjos\x20que\x20seguiram\x20um\x20querubim\x20rebelde','alcançando\x2070%\x20ou\x20mais\x20de\x20acertos\x20no\x20questionário,','Simbolismo\x20no\x20Tabernáculo','Qual\x20milagre\x20envolveu\x20a\x20parada\x20do\x20sol,\x20conforme\x20Josué\x2010:13?','Unidade\x20na\x20diversidade','Por\x20que\x20Jesus\x20terá\x20de\x20voltar\x20à\x20terra?\x20(Atos\x201:11;\x20Apocalipse\x2019:11–16;\x20Mateus\x2025:31–34)','3\x20João','Tipologia\x20de\x20Cristo\x20no\x20Antigo\x20Testamento','Palácio\x20de\x20Herodes\x20em\x20Cesaréia','Filipenses','Ressurreição\x20da\x20filha\x20de\x20Jairo','Expressão\x20de\x20gratidão\x20e\x20louvor','Todos\x20os\x20anteriores','Qual\x20carta\x20de\x20Paulo\x20fala\x20sobre\x20o\x20\x27fruto\x20do\x20Espírito\x27,\x20conforme\x20Gálatas\x205:22?','Arca\x20da\x20Aliança','continueBtn','Servir\x20aos\x20outros','Usar\x20filosofia\x20grega','Monte\x20das\x20Oliveiras','setFontSize','Qual\x20foi\x20o\x20primeiro\x20homem\x20criado\x20por\x20Deus,\x20segundo\x20Gênesis\x202:7?','Êxodo\x20do\x20Egito','Salvar\x20o\x20povo','Certificamos\x20que\x20','1\x20Coríntios','Para\x20reconstruir\x20o\x20templo\x20em\x20Jerusalém','Evitar\x20culturas\x20locais','Qual\x20é\x20a\x20aplicação\x20prática\x20de\x20\x27levar\x20a\x20carga\x20uns\x20dos\x20outros\x27\x20(Gálatas\x206:2)?','innerHTML','União\x20entre\x20homem\x20e\x20mulher','Rute','bold','Justificação\x20pela\x20fé','Paz\x20com\x20Deus','Uma\x20metáfora','Escrever\x20livros\x20teológicos','Seguir\x20todos\x20os\x20mandamentos','Vingar-se','Qual\x20é\x20a\x20posição\x20bíblica\x20sobre\x20manipulação\x20genética,\x20conforme\x20Salmo\x20139:13?','Pedra\x20de\x20Moab','Afogamento','Qual\x20profeta\x20falou\x20sobre\x20o\x20\x27dia\x20do\x20Senhor\x27\x20como\x20um\x20dia\x20de\x20trevas,\x20conforme\x20Joel\x202:31?','Revelação\x20do\x20cordeito\x20glorificado\x20e\x20sua\x20vitória\x20final','Porque\x20foi\x20coroado\x20rei\x20pelos\x20fariseus','Porque\x20foi\x20escolhido\x20por\x20Arão\x20como\x20sumo\x20sacerdote','O\x20sacrifício\x20de\x20Cristo','Quem\x20liderou\x20a\x20reconstrução\x20do\x20templo,\x20conforme\x20Esdras\x203:2?','Fé\x20e\x20obras\x20como\x20complementares','Autor\x20e\x20Criador\x20do\x20Bíblia\x20Quiz','Substituir\x20a\x20pregação','Vida\x20de\x20Jesus','\x20—\x20','Reino\x20de\x20Satanás','Desobediência','Qual\x20é\x20a\x20responsabilidade\x20do\x20pastor\x20em\x20relação\x20às\x20ovelhas,\x20conforme\x20João\x2021:15-17?','Verdades\x20Profundas','Débora','Foco\x20na\x20lição\x20principal:\x20sabedoria','Qual\x20rio\x20os\x20israelitas\x20atravessaram\x20para\x20entrar\x20na\x20Terra\x20Prometida,\x20conforme\x20Josué\x203:17?','José','moduleInfo','Em\x20Apocalipse\x2012:4,\x20a\x20terça\x20parte\x20das\x20estrelas\x20arrastada\x20pela\x20cauda\x20do\x20dragão\x20se\x20refere\x20a:','Deixar\x20para\x20a\x20ciência\x20decidir','Cartas\x20de\x20Paulo','Quem\x20Deus\x20usou\x20para\x20libertar\x20o\x20povo\x20de\x20Israel\x20do\x20Egito,\x20conforme\x20Êxodo\x203:10?','Qual\x20é\x20a\x20posição\x20bíblica\x20sobre\x20fertilização\x20in\x20vitro,\x20conforme\x20Gênesis\x201:28?','Qual\x20evento\x20é\x20um\x20tipo\x20de\x20Cristo\x20como\x20\x27o\x20libertador\x27,\x20conforme\x20Êxodo\x2012:11?','Monte\x20Carmelo','Isolamento','Trindade\x20vs.\x20Unicidade\x20de\x20Alá','1\x20Pedro','Colossenses','Nazaré','Quem\x20Deus\x20escolheu\x20para\x20construir\x20a\x20arca,\x20conforme\x20Gênesis\x206:14?','A\x20lei\x20de\x20Moisés','2\x20Timóteo\x202:15','Ezequiel','questionText','666','Qual\x20milagre\x20envolveu\x20a\x20queda\x20das\x20muralhas\x20de\x20Jericó,\x20conforme\x20Josué\x206:20?','Essenos','3874220KwBBRn','Qual\x20é\x20o\x20papel\x20da\x20Ceia\x20do\x20Senhor\x20na\x20adoração,\x20conforme\x201\x20Coríntios\x2011:26?','Fé\x20em\x20Cristo\x20vs.\x20obediência\x20à\x20Lei','Estabelecer\x20um\x20reino','Tradição\x20oral\x20vs.\x20escrita','Aplicação\x20do\x20texto','Noiva\x20de\x20Cristo','Juízo\x20Final','Jacó','Qual\x20era\x20a\x20capital\x20do\x20Império\x20Romano\x20no\x20tempo\x20de\x20Jesus?','Descartar\x20a\x20profecia','Qual\x20versículo\x20do\x20Novo\x20Testamento\x20faz\x20referência\x20direta\x20a\x20Isaías\x2053:5\x20sobre\x20o\x20sacrifício\x20de\x20Cristo?','Parabéns\x20por\x20concluir\x20o\x20quiz!\x20Você\x20acertou\x20','O\x20mal\x20não\x20existe','Deus\x20soberano\x20e\x20homem\x20responsável','Porque\x20foi\x20um\x20líder\x20político\x20em\x20Jerusalém','Qual\x20é\x20a\x20mensagem\x20central\x20do\x20Sermão\x20do\x20Monte,\x20conforme\x20Mateus\x205-7?','Negar\x20a\x20dor','Qual\x20é\x20a\x20diferença\x20fundamental\x20entre\x20o\x20Cristianismo\x20e\x20o\x20Islamismo?','Liberdade\x20total','Qual\x20é\x20o\x20papel\x20do\x20Espírito\x20Santo\x20na\x20salvação,\x20conforme\x20João\x2016:8?','Submissão\x20a\x20uma\x20denominação','O\x20Sol','Marta','Ética\x20Cristã','Escolher\x20a\x20que\x20mais\x20agrada','Impor\x20significado\x20ao\x20texto','Segunda\x20vinda\x20de\x20Cristo','Proteção\x20de\x20Israel','Entrada\x20triunfal\x20em\x20Jerusalém','Cartas\x20Gerais','Obadias','Decapitação','Julgar\x20e\x20disciplinar','Considerar\x20erro\x20de\x20tradução','Negar\x20o\x20livre-arbítrio','Negação\x20do\x20pagamento\x20de\x20impostos','Roma','Qual\x20é\x20o\x20modelo\x20missionário\x20de\x20Paulo,\x20conforme\x201\x20Coríntios\x209:19-23?','16346wDsSFP','generateCertificateBtn','opacity','Sete\x20anjos','Jonas','Por\x20que\x20Jesus\x20será\x20o\x20Rei\x20de\x20Israel?\x20(2\x20Samuel\x207:12–16;\x20Lucas\x201:32–33;\x20Jeremias\x2023:5)','Espontaneidade\x20total','Sete\x20selos','Templo\x20do\x20Espírito\x20Santo','Teologia\x20da\x20Adoração','Ressurreição\x20dos\x20mortos','setFont','Milagres\x20no\x20Antigo\x20Testamento','levelUpSound','certificateName','Qual\x20é\x20a\x20posição\x20bíblica\x20sobre\x20o\x20casamento,\x20conforme\x20Gênesis\x202:24?','Adoração\x20com\x20sacrifícios','Apocalipse','Cantares','getWidth','Como\x20viver\x20a\x20fé\x20cristã\x20de\x20maneira\x20prática,\x20conforme\x20Tiago\x202:17?','Aliança\x20Abraâmica','Céu\x20vs.\x20nirvana','Guardar\x20o\x20sábado','Buscar\x20poder','Pai\x20Nosso','Fé\x20que\x20se\x20expressa\x20em\x20obras','Os\x20talentos','Asafe','Qual\x20salmo\x20é\x20citado\x20por\x20Jesus\x20na\x20cruz,\x20conforme\x20Mateus\x2027:46?','Caim','questions','Betel','Teologia\x20da\x20Missão','Amar\x20a\x20Deus','Chuva\x20de\x20fogo','Anjos\x20da\x20guarda','Qual\x20juiz\x20fez\x20voto\x20com\x20seu\x20cabelo,\x20conforme\x20Juízes\x2016:17?','Noé','Qual\x20será\x20o\x20destino\x20final\x20dos\x20ímpios,\x20conforme\x20Apocalipse\x2020:15?','setTextColor','Usar\x20dicionários','Efésios','Arrastão\x20de\x20anjos\x20subordinados\x20ao\x20Diabo','correct','Qual\x20é\x20a\x20aplicação\x20de\x20\x27buscar\x20primeiro\x20o\x20Reino\x20de\x20Deus\x27,\x20conforme\x20Mateus\x206:33?','Dar\x20riquezas','Êxodo\x2012:13','Amor\x20e\x20unidade','Ferramenta\x20para\x20o\x20bem','Tradicionalismo\x20rígido','Davi','Sodoma','Teologia\x20Pastoral','Ser\x20batizado','836xDnpLD','Qual\x20profeta\x20falou\x20que\x20o\x20Messias\x20seria\x20\x27desprezado\x20e\x20rejeitado\x27,\x20conforme\x20Isaías\x2053:3?','Desafios\x20Hermenêuticos','Prioridade\x20absoluta\x20a\x20Deus','value','nextBtn','Aliança\x20Mosaica','Aplicações\x20Práticas\x20das\x20Escrituras','Condenação\x20eterna','Questão\x20cultural','Qual\x20é\x20a\x20evidência\x20histórica\x20mais\x20forte\x20para\x20a\x20ressurreição\x20de\x20Cristo,\x20conforme\x201\x20Coríntios\x2015:3-8?','block','Eufrates','Qual\x20descoberta\x20arqueológica\x20confirma\x20a\x20existência\x20do\x20rei\x20Davi?','2\x20Coríntios','Salmo\x2051','Acumular\x20riqueza','O\x20mal\x20é\x20uma\x20ilusão','Curar\x20doenças','Apocalipse\x20(Simbolismo)','O\x20que\x20Moisés\x20usou\x20para\x20abrir\x20o\x20Mar\x20de\x20Juncos,\x20conforme\x20Êxodo\x2014:21?','Qual\x20é\x20a\x20diferença\x20entre\x20o\x20Cristianismo\x20e\x20o\x20Budismo?','Quem\x20construiu\x20o\x20Templo\x20de\x20Jerusalém,\x20conforme\x201\x20Reis\x206:1?','Arrebatamento','Tornar-se\x20tudo\x20para\x20todos','Impor\x20a\x20cultura\x20ocidental','Teologia\x20do\x20Antigo\x20Testamento','Gideão','Profecias\x20messiânicas','Adotar\x20valores\x20mundanos','Qual\x20é\x20a\x20aplicação\x20prática\x20de\x20\x27amar\x20ao\x20próximo\x27,\x20conforme\x20Mateus\x2022:39?','Salmo\x2023:1','Rebelião\x20no\x20céu\x20no\x20princípio\x20dos\x20tempos','Multiplicação\x20de\x20pães','Corpo\x20de\x20Cristo','Qual\x20milagre\x20revela\x20a\x20compaixão\x20de\x20Jesus,\x20conforme\x20Marcos\x208:1-9?','line','Anticristo','Respeito\x20pela\x20vida\x20desde\x20a\x20concepção','getElementById','O\x20credor\x20incompassivo','Edificação\x20do\x20corpo\x20de\x20Cristo','Qual\x20parábola\x20ensina\x20sobre\x20a\x20\x27importância\x20da\x20vigilância\x27,\x20conforme\x20Mateus\x2024:42-44?','João\x20Batista','Teologia\x20da\x20Igreja','Samuel','Salmos','Ascensão','Conversão\x20forçada','Onde\x20Jesus\x20nasceu,\x20conforme\x20Mateus\x202:1?','Qual\x20é\x20o\x20maior\x20mandamento,\x20conforme\x20Mateus\x2022:37?','internal','Qual\x20é\x20o\x20tema\x20central\x20dos\x20Salmos?','3388680kMSgrz','Qual\x20é\x20o\x20equilíbrio\x20entre\x20forma\x20e\x20conteúdo\x20na\x20adoração,\x20conforme\x201\x20Coríntios\x2014:26?','Porque\x20pregava\x20na\x20região\x20de\x20Judá','wrongSound','Adoração\x20sincera\x20e\x20genuína','Habacuque\x202:4','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Incentivamos\x20você\x20a\x20pesquisar\x20as\x20respostas\x20corretas\x20na\x20Bíblia\x20ou\x20na\x20internet\x20e\x20tentar\x20novamente!</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Que\x20Deus\x20abençoe\x20seus\x20estudos!</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','Obras','Método\x20Devocional','Confiar\x20na\x20soberania\x20de\x20Deus','Unificação\x20religiosa','output','O\x20que\x20o\x20propiciatório\x20no\x20Tabernáculo\x20simbolizava,\x20conforme\x20Hebreus\x209:5?','Rebeca','Quem\x20foi\x20levado\x20ao\x20céu\x20em\x20um\x20redemoinho,\x20conforme\x202\x20Reis\x202:11?','Interpretação\x20do\x20texto','Qual\x20cidade\x20caiu\x20após\x20os\x20israelitas\x20marcharem\x20ao\x20redor\x20dela\x20por\x207\x20dias,\x20conforme\x20Josué\x206:20?','Salmo\x2040:6-8','Adiar\x20para\x20o\x20futuro\x20distante','Qual\x20profeta\x20anunciou\x20que\x20o\x20Messias\x20nasceria\x20em\x20Belém,\x20conforme\x20Miquéias\x205:2?','Criação\x20e\x20Queda','Satanás','Aramaico','Blasfêmia\x20e\x20reivindicação\x20de\x20ser\x20o\x20Messias\x20e\x20Rei\x20dos\x20Judeus','Porque\x20serviu\x20apenas\x20no\x20templo\x20terreno','De\x20qual\x20cidade\x20Deus\x20chamou\x20Abraão,\x20conforme\x20Gênesis\x2012:1?','Fé\x20como\x20tradição\x20familiar','História\x20de\x20Israel','Qual\x20profeta\x20profetizou\x20contra\x20Nínive,\x20conforme\x20Naum\x201:1?','Profecias\x20sobre\x20Israel','João\x203:16','Porque\x20era\x20um\x20profeta\x20obediente'];_0x589a=function(){return _0x231935;};return _0x589a();}function checkAnswer(_0x1a4824){const _0x18c9a5=_0x2b34e7,_0x31c2bf=modules[currentModule]['questions'][currentQuestion];_0x1a4824===_0x31c2bf[_0x18c9a5(0x1f1)]?(optionsDiv[_0x18c9a5(0x39c)](_0x18c9a5(0x402))[_0x1a4824][_0x18c9a5(0x373)][_0x18c9a5(0x294)]='rgba(0,255,100,0.5)',correctSound[_0x18c9a5(0x39f)](),correctAnswersCount++):(optionsDiv['querySelectorAll'](_0x18c9a5(0x402))[_0x1a4824][_0x18c9a5(0x373)][_0x18c9a5(0x294)]=_0x18c9a5(0x28b),optionsDiv['querySelectorAll'](_0x18c9a5(0x402))[_0x31c2bf[_0x18c9a5(0x1f1)]][_0x18c9a5(0x373)][_0x18c9a5(0x294)]=_0x18c9a5(0x2c1),wrongSound['play'](),wrongAnswersCount++),nextBtn[_0x18c9a5(0x373)][_0x18c9a5(0x2a7)]=_0x18c9a5(0x207);}nextBtn['onclick']=()=>{const _0x1f8cd6=_0x2b34e7;currentQuestion++;const _0x7fe6a0=modules[currentModule];currentQuestion>=_0x7fe6a0['questions'][_0x1f8cd6(0x41a)]?(currentModule++,currentQuestion=0x0,currentModule<modules[_0x1f8cd6(0x41a)]?showQuestion():finishQuiz()):showQuestion();};function finishQuiz(){const _0x45ac22=_0x2b34e7,_0x1f854a=Math['round'](correctAnswersCount/totalQuestions*0x64);_0x1f854a>=0x1?(quizPage['style'][_0x45ac22(0x2a7)]=_0x45ac22(0x370),certificatePage['style'][_0x45ac22(0x2a7)]=_0x45ac22(0x277)):(questionText[_0x45ac22(0x319)]=_0x45ac22(0x1aa)+correctAnswersCount+'\x20de\x20'+totalQuestions+'\x20perguntas\x20('+_0x1f854a+'%).',optionsDiv[_0x45ac22(0x169)]=_0x45ac22(0x237),continueBtn[_0x45ac22(0x373)][_0x45ac22(0x2a7)]=_0x45ac22(0x207));}continueBtn['onclick']=()=>{const _0x4ce563=_0x2b34e7;currentModule=0x0,currentQuestion=0x0,wrongAnswersCount=0x0,correctAnswersCount=0x0,showQuestion(),continueBtn['style'][_0x4ce563(0x2a7)]=_0x4ce563(0x370);},generateCertificateBtn[_0x2b34e7(0x3f0)]=()=>{const _0x4c493b=_0x2b34e7,_0x3e355f=userNameInput[_0x4c493b(0x200)][_0x4c493b(0x3ab)]();if(!_0x3e355f){alert(_0x4c493b(0x3a8));return;}certificateName[_0x4c493b(0x319)]=_0x3e355f,generatePDF();};function generatePDF(){const _0xc57d50=_0x2b34e7,_0x18b01c=certificateName['textContent'],{jsPDF:_0x35111d}=window['jspdf'],_0x32f186=new _0x35111d({'orientation':_0xc57d50(0x2a0),'unit':'mm','format':'a4'}),_0x397b38=_0x32f186[_0xc57d50(0x22f)]['pageSize'][_0xc57d50(0x1d8)](),_0x4a6f5d=_0x32f186['internal'][_0xc57d50(0x267)]['getHeight'](),_0x1f9b05=0xf,_0x3e5480=0x7,_0x2f14e4=0x16,_0x48730f=0xe,_0x29477a=0x12,_0x27b920=[0xd4,0xaf,0x37],_0x35364b=[0x8b,0x45,0x13];_0x32f186[_0xc57d50(0x2d0)](..._0x27b920),_0x32f186[_0xc57d50(0x368)](1.5),_0x32f186[_0xc57d50(0x2de)](_0x1f9b05,_0x1f9b05,_0x397b38-0x2*_0x1f9b05,_0x4a6f5d-0x2*_0x1f9b05),_0x32f186[_0xc57d50(0x2fe)](..._0x27b920),_0x32f186[_0xc57d50(0x2de)](_0x1f9b05,_0x1f9b05,_0x397b38-0x2*_0x1f9b05,0xa,'F'),_0x32f186['setFont'](_0xc57d50(0x358),_0xc57d50(0x16c)),_0x32f186[_0xc57d50(0x160)](_0x2f14e4),_0x32f186[_0xc57d50(0x1ed)](..._0x35364b),_0x32f186['text'](_0xc57d50(0x41e),_0x397b38/0x2,0x28,{'align':_0xc57d50(0x2be)}),_0x32f186[_0xc57d50(0x2d0)](..._0x27b920),_0x32f186[_0xc57d50(0x220)](_0x397b38/0x2-0x28,0x2d,_0x397b38/0x2+0x28,0x2d),_0x32f186[_0xc57d50(0x1d0)](_0xc57d50(0x3f8),_0xc57d50(0x410)),_0x32f186[_0xc57d50(0x160)](_0x48730f),_0x32f186[_0xc57d50(0x1ed)](0x32,0x32,0x32);const _0x1bb380=[_0xc57d50(0x164)+_0x18b01c,_0xc57d50(0x3e7),_0xc57d50(0x14e),'evidenciando\x20dedicação\x20ao\x20estudo\x20das\x20Escrituras\x20Sagradas\x20e\x20doutrinas\x20cristãs.','',_0xc57d50(0x38f),_0xc57d50(0x272),_0xc57d50(0x3d6)];_0x1bb380['forEach']((_0x150829,_0x2ad44c)=>{const _0x355070=_0xc57d50;_0x32f186['text'](_0x150829,_0x397b38/0x2,0x3c+_0x2ad44c*_0x3e5480,{'align':_0x355070(0x2be)});});const _0x3f9d02=0x78;_0x32f186['setFont']('helvetica',_0xc57d50(0x2df)),_0x32f186[_0xc57d50(0x160)](_0x29477a),_0x32f186[_0xc57d50(0x1ed)](..._0x35364b),_0x32f186[_0xc57d50(0x395)]('Evangelista\x20Wellington\x20A.R\x20Cardoso',_0x397b38/0x2,_0x3f9d02,{'align':_0xc57d50(0x2be)}),_0x32f186['setFontSize'](_0x48730f-0x2),_0x32f186[_0xc57d50(0x395)](_0xc57d50(0x17d),_0x397b38/0x2,_0x3f9d02+0x8,{'align':'center'}),_0x32f186[_0xc57d50(0x1d0)](_0xc57d50(0x3f8),_0xc57d50(0x2df)),_0x32f186[_0xc57d50(0x160)](_0x48730f-0x2),_0x32f186['setTextColor'](0x64,0x64,0x64),_0x32f186[_0xc57d50(0x395)](_0xc57d50(0x3bb),_0x397b38/0x2,0x8c,{'align':'center'}),_0x32f186[_0xc57d50(0x395)]('que\x20maneja\x20bem\x20a\x20palavra\x20da\x20verdade.\x22',_0x397b38/0x2,0x93,{'align':_0xc57d50(0x2be)}),_0x32f186[_0xc57d50(0x395)](_0xc57d50(0x198),_0x397b38/0x2,0x9a,{'align':_0xc57d50(0x2be)}),_0x32f186[_0xc57d50(0x160)](_0x48730f-0x4),_0x32f186[_0xc57d50(0x1ed)](0x96,0x96,0x96),_0x32f186['text']('Certificado\x20gerado\x20em\x20'+new Date()[_0xc57d50(0x332)](_0xc57d50(0x35d)),_0x397b38/0x2,_0x4a6f5d-0x14,{'align':_0xc57d50(0x2be)});const _0x1b58d8=_0x32f186[_0xc57d50(0x23c)](_0xc57d50(0x2ad));window['open'](_0x1b58d8,_0xc57d50(0x412));}showQuestion();
+const modules = [
+    // Módulos 1-10: Básico
+
+      {
+        title: "Criação",
+        questions: [
+            { q: "Segundo Gênesis 1:1, quem criou o céu e a terra?", a: ["Abraão", "Noé", "Deus", "Moisés"], correct: 2 },
+            { q: "Em quantos dias Deus completou a criação do mundo, conforme Gênesis 1?", a: ["5 dias", "8 dias", "6 dias", "7 dias"], correct: 2 },
+            { q: "Qual foi o primeiro homem criado por Deus, segundo Gênesis 2:7?", a: ["Caim", "Adão", "Abel", "Eva"], correct: 1 },
+            { q: "Onde Deus colocou Adão e Eva após criá-los, conforme Gênesis 2:8?", a: ["Sião", "Éden", "Jerusalém", "Egito"], correct: 1 },
+            { q: "Qual foi o primeiro pecado cometido por Adão e Eva, segundo Gênesis 3?", a: ["Inveja", "Desobediência", "Mentira", "Roubo"], correct: 1 }
+        ]
+    },
+    {
+        title: "Dilúvio",
+        questions: [
+            { q: "Quem Deus escolheu para construir a arca, conforme Gênesis 6:14?", a: ["Moisés", "Noé", "Abraão", "Elias"], correct: 1 },
+            { q: "Quantos dias e noites choveu durante o dilúvio, segundo Gênesis 7:12?", a: ["30", "40", "20", "50"], correct: 1 },
+            { q: "Quantas pessoas entraram na arca, conforme Gênesis 7:13?", a: ["6", "8", "12", "4"], correct: 1 },
+            { q: "Qual foi o sinal que Deus deu a Noé após o dilúvio, conforme Gênesis 9:13?", a: ["Trovão", "Arco-íris", "Fogo", "Estrela"], correct: 1 },
+            { q: "Quantos animais puros Noé levou para a arca, conforme Gênesis 7:2?", a: ["1", "2", "7", "4"], correct: 2 }
+        ]
+    },
+    {
+        title: "Abraão",
+        questions: [
+            { q: "Qual era o nome do filho da promessa, nascido de Sara, conforme Gênesis 21:3?", a: ["Moisés", "Isaac", "Jacó", "José"], correct: 1 },
+            { q: "Como se chamava a esposa de Abraão, conforme Gênesis 17:15?", a: ["Raquel", "Sara", "Miriã", "Rebeca"], correct: 1 },
+            { q: "De qual cidade Deus chamou Abraão, conforme Gênesis 12:1?", a: ["Nínive", "Ur", "Sião", "Egito"], correct: 1 },
+            { q: "Qual filho Abraão quase sacrificou, conforme Gênesis 22:2?", a: ["Ismael", "Isaac", "Jacó", "José"], correct: 1 },
+            { q: "O que Deus prometeu a Abraão em Gênesis 12:2?", a: ["Fama", "Riqueza", "Vitória", "Uma grande nação"], correct: 3 }
+        ]
+    },
+    {
+        title: "Moisés",
+        questions: [
+            { q: "Quem Deus usou para libertar o povo de Israel do Egito, conforme Êxodo 3:10?", a: ["Josué", "Moisés", "Elias", "Davi"], correct: 1 },
+            { q: "Onde Deus entregou os Dez Mandamentos a Moisés, conforme Êxodo 19:20?", a: ["Monte Sião", "Monte Carmelo", "Monte das Oliveiras", "Monte Sinai"], correct: 3 },
+            { q: "O que Moisés usou para abrir o Mar de Juncos, conforme Êxodo 14:21?", a: ["Um vento forte", "Um cajado", "Um anjo", "O Sol"], correct: 1 },
+            { q: "Qual era o nome do faraó que oprimia Israel, conforme Êxodo 1:8?", a: ["Herodes", "Ramsés", "Nabucodonosor", "Ciro"], correct: 1 },
+            { q: "O que Deus enviou do céu para alimentar o povo, conforme Êxodo 16:14?", a: ["Codornas", "Pão", "Mel", "Maná"], correct: 3 }
+        ]
+    },
+    {
+        title: "Josué",
+        questions: [
+            { q: "Quem sucedeu Moisés como líder de Israel, conforme Josué 1:1?", a: ["Calebe", "Josué", "Elias", "Samuel"], correct: 1 },
+            { q: "Qual cidade caiu após os israelitas marcharem ao redor dela por 7 dias, conforme Josué 6:20?", a: ["Hebrom", "Jericó", "Betel", "Sião"], correct: 1 },
+            { q: "Quantos dias os israelitas marcharam ao redor de Jericó, conforme Josué 6:3?", a: ["3", "5", "6", "7"], correct: 3 },
+            { q: "Quem era o líder dos espias que entraram em Canaã com Josué, conforme Números 13:6?", a: ["Davi", "Calebe", "Elias", "Samuel"], correct: 1 },
+            { q: "Qual rio os israelitas atravessaram para entrar na Terra Prometida, conforme Josué 3:17?", a: ["Nilo", "Jordão", "Eufrates", "Tigre"], correct: 1 }
+        ]
+    },
+    {
+        title: "Juízes",
+        questions: [
+            { q: "Quem matou um leão com as próprias mãos, conforme Juízes 14:6?", a: ["Gideão", "Sansão", "Débora", "Elias"], correct: 1 },
+            { q: "Quem derrotou os midianitas com apenas 300 homens, conforme Juízes 7:7?", a: ["Sansão", "Gideão", "Jefté", "Elias"], correct: 1 },
+            { q: "Quem era a profetisa e juíza em Israel, conforme Juízes 4:4?", a: ["Ana", "Débora", "Rute", "Miriã"], correct: 1 },
+            { q: "Qual juiz fez voto com seu cabelo, conforme Juízes 16:17?", a: ["Elias", "Sansão", "Jefté", "Calebe"], correct: 1 }
+        ]
+    },
+    {
+        title: "Reis de Israel",
+        questions: [
+            { q: "Quem foi o primeiro rei de Israel, conforme 1 Samuel 10:1?", a: ["Salomão", "Saul", "Davi", "Josué"], correct: 1 },
+            { q: "Quem matou Golias, conforme 1 Samuel 17:50?", a: ["Saul", "Davi", "Elias", "Josué"], correct: 1 },
+            { q: "Quem construiu o Templo de Jerusalém, conforme 1 Reis 6:1?", a: ["Davi", "Salomão", "Elias", "Josué"], correct: 1 },
+            { q: "Quem foi conhecido por sua sabedoria, conforme 1 Reis 3:12?", a: ["Davi", "Salomão", "Saul", "Josias"], correct: 1 },
+            { q: "Quem ungiu Davi como rei, conforme 1 Samuel 16:13?", a: ["Moisés", "Samuel", "Elias", "Josué"], correct: 1 }
+        ]
+    },
+    {
+        title: "Profetas",
+        questions: [
+            { q: "Quem foi engolido por um grande peixe, conforme Jonas 1:17?", a: ["Jonas", "Isaías", "Jeremias", "Elias"], correct: 0 },
+            { q: "Quem desafiou os profetas de Baal no Monte Carmelo, conforme 1 Reis 18:20?", a: ["Eliseu", "Elias", "Isaías", "Jeremias"], correct: 1 },
+            { q: "Quem profetizou sobre o nascimento do Messias, conforme Isaías 7:14?", a: ["Miquéias", "Isaías", "Jeremias", "Amós"], correct: 1 },
+            { q: "Quem foi levado ao céu em um redemoinho, conforme 2 Reis 2:11?", a: ["Eliseu", "Elias", "Daniel", "Jeremias"], correct: 1 }
+        ]
+    },
+    {
+        title: "Cativeiro Babilônico",
+        questions: [
+            { q: "Quem foi exilado na Babilônia, conforme 2 Reis 24:14?", a: ["Moisés", "Todos os anteriores", "Daniel", "Ezequiel"], correct: 3 },
+            { q: "Quem teve visões de ossos secos, conforme Ezequiel 37:1?", a: ["Daniel", "Ezequiel", "Jeremias", "Isaías"], correct: 1 },
+            { q: "Quem interpretou os sonhos do rei Nabucodonosor, conforme Daniel 2:2?", a: ["Jeremias", "Daniel", "Ezequiel", "Moisés"], correct: 1 },
+            { q: "Qual rei destruiu Jerusalém, conforme 2 Reis 25:8?", a: ["Ciro", "Nabucodonosor", "Dario", "Artaxerxes"], correct: 1 }
+        ]
+    },
+    {
+        title: "Restauração",
+        questions: [
+            { q: "Quem liderou a reconstrução do templo, conforme Esdras 3:2?", a: ["Neemias", "Zorobabel e Jesua", "Esdras", "Todos"], correct: 1 },
+            { q: "Quem reconstruiu os muros de Jerusalém, conforme Neemias 2:17?", a: ["Zorobabel", "Neemias", "Esdras", "Davi"], correct: 1 },
+            { q: "Quem salvou os judeus da destruição planejada por Hamã, conforme Ester 4:14?", a: ["Ana", "Ester", "Miriã", "Débora"], correct: 1 },
+            { q: "Qual livro conta a história de Ester?", a: ["Neemias", "Ester", "Esdras", "Rute"], correct: 1 }
+        ]
+    },
+    {
+        title: "Livros Poéticos",
+        questions: [
+            { q: "Qual é o livro que contém a frase 'O Senhor é o meu pastor, nada me faltará', conforme Salmos 23:1?", a: ["Cantares", "Salmos", "Provérbios", "Eclesiastes"], correct: 1 },
+            { q: "Quem escreveu a maioria dos Salmos, conforme título dos Salmos?", a: ["Asafe", "Salomão", "Davi", "Moisés"], correct: 2 },
+            { q: "Qual livro diz que 'tudo tem o seu tempo determinado', conforme Eclesiastes 3:1?", a: ["Jó", "Cantares", "Provérbios", "Eclesiastes"], correct: 3 },
+            { q: "Qual livro conta a história de um homem que perdeu tudo, conforme Jó 1:1?", a: ["Eclesiastes", "Jó", "Provérbios", "Salmos"], correct: 1 }
+        ]
+    },
+    {
+        title: "Profetas Menores",
+        questions: [
+            { q: "Qual profeta falou sobre o 'dia do Senhor' como um dia de trevas, conforme Joel 2:31?", a: ["Amós", "Joel", "Miquéias", "Habacuque"], correct: 1 },
+            { q: "Qual profeta foi engolido por um peixe, conforme Jonas 1:17?", a: ["Jonas", "Amós", "Obadias", "Naum"], correct: 0 },
+            { q: "Qual profeta profetizou contra Nínive, conforme Naum 1:1?", a: ["Jonas", "Naum", "Miquéias", "Habacuque"], correct: 1 },
+            { q: "Qual profeta questionou a justiça de Deus, conforme Habacuque 1:2?", a: ["Miquéias", "Joel", "Habacuque", "Amós"], correct: 2 }
+        ]
+    },
+    {
+    title: "Vida de Jesus",
+    questions: [
+        { q: "Onde Jesus nasceu, conforme Mateus 2:1?", a: ["Jerusalém", "Belém", "Galileia", "Nazaré"], correct: 1 },
+        { q: "Quem batizou Jesus, conforme Mateus 3:13?", a: ["Pedro", "João Batista", "Tiago", "Paulo"], correct: 1 },
+        { q: "Qual foi o primeiro milagre de Jesus, conforme João 2:11?", a: ["Multiplicar pães", "Andar sobre as águas", "Transformar água em vinho", "Curar um cego"], correct: 2 },
+        { q: "Quantos discípulos Jesus escolheu, conforme Lucas 6:13?", a: ["10", "12", "7", "15"], correct: 1 },
+        { q: "Qual é a condição para a vida eterna, conforme João 17:3?", a: ["Fazer boas obras", "Conhecimento relacional com Deus e Cristo", "Seguir todos os mandamentos", "Ser batizado"], correct: 1 }
+    ]
+  },
+
+    {
+        title: "Parábolas de Jesus",
+        questions: [
+            { q: "Qual parábola fala sobre um filho que gastou sua herança, conforme Lucas 15:11?", a: ["O bom samaritano", "O filho pródigo", "O semeador", "As dez virgens"], correct: 1 },
+            { q: "Qual parábola ensina sobre a importância de ajudar o próximo, conforme Lucas 10:30?", a: ["O bom samaritano", "O filho pródigo", "O semeador", "As dez virgens"], correct: 0 },
+            { q: "Qual parábola fala sobre diferentes tipos de solo, conforme Mateus 13:3?", a: ["O semeador", "O trigo e o joio", "As dez virgens", "Os talentos"], correct: 0 },
+            { q: "Qual parábola ensina sobre a vigilância, conforme Mateus 25:1?", a: ["O filho pródigo", "As dez virgens", "O bom samaritano", "Os talentos"], correct: 1 },
+			{ q: "A parábola de Lázaro e o rico, conforme Lucas 16:19-31, é:", a: ["Uma alegoria", "Uma visão", "Uma história real com detalhes que não existe numa parábola", "Uma metáfora"], correct: 2 }
+        ]
+    },
+    {
+        title: "Cartas de Paulo",
+        questions: [
+            { q: "Qual carta de Paulo fala sobre o 'fruto do Espírito', conforme Gálatas 5:22?", a: ["Romanos", "Efésios", "Gálatas", "Filipenses"], correct: 2 },
+            { q: "Qual carta ensina sobre a armadura de Deus, conforme Efésios 6:11?", a: ["Filipenses", "Efésios", "Colossenses", "1 Tessalonicenses"], correct: 1 },
+            { q: "Qual carta fala sobre o 'amor' como o maior dom, conforme 1 Coríntios 13:13?", a: ["2 Coríntios", "1 Coríntios", "Gálatas", "Romanos"], correct: 1 },
+            { q: "Qual carta foi escrita para um escravo chamado Onésimo, conforme Filemon 1:10?", a: ["Colossenses", "Filemon", "Efésios", "Filipenses"], correct: 1 },
+            { q: "Qual carta ensina que 'tudo coopera para o bem daqueles que amam a Deus', conforme Romanos 8:28?", a: ["Gálatas", "Romanos", "Efésios", "Filipenses"], correct: 1 }
+        ]
+    },
+    {
+        title: "Profecias Messianicas",
+        questions: [
+            { q: "Qual profeta anunciou que o Messias nasceria em Belém, conforme Miquéias 5:2?", a: ["Isaías", "Jeremias", "Miquéias", "Ezequiel"], correct: 2 },
+            { q: "Qual profeta falou que o Messias seria 'desprezado e rejeitado', conforme Isaías 53:3?", a: ["Jeremias", "Isaías", "Ezequiel", "Daniel"], correct: 1 },
+            { q: "Qual profeta profetizou que o Messias entraria em Jerusalém montado em um jumento, conforme Zacarias 9:9?", a: ["Malaquias", "Zacarias", "Joel", "Amós"], correct: 1 },
+            { q: "Qual profeta falou sobre a traição do Messias por 30 moedas de prata, conforme Zacarias 11:12?", a: ["Isaías", "Zacarias", "Jeremias", "Ezequiel"], correct: 1 }
+        ]
+    },
+    {
+        title: "Apocalipse",
+        questions: [
+            { q: "Qual é o número da besta, conforme Apocalipse 13:18?", a: ["616", "600", "666", "777"], correct: 2 },
+            { q: "Quantos selos são abertos no Apocalipse, conforme Apocalipse 6:1?", a: ["12", "3", "5", "7"], correct: 3 },
+            { q: "Qual é a cidade santa que desce do céu, conforme Apocalipse 21:2?", a: ["Jerusalém", "Nova Jerusalém", "Babilônia", "Sião"], correct: 1 },
+            { q: "Quem é o autor do Apocalipse, conforme Apocalipse 1:1?", a: ["Pedro", "João", "Paulo", "Tiago"], correct: 1 },
+            { q: "Qual é o último livro da Bíblia?", a: ["Judas", "Apocalipse", "3 João", "Hebreus"], correct: 1 }
+        ]
+    },
+    {
+        title: "Doutrinas Bíblicas",
+        questions: [
+            { q: "Qual é o fundamento da salvação, conforme Efésios 2:8?", a: ["Sacrifícios", "Leis", "Fé", "Obras"], correct: 2 },
+            { q: "Qual é o maior mandamento, conforme Mateus 22:37?", a: ["Amar ao próximo", "Guardar o sábado", "Honrar pai e mãe", "Amar a Deus"], correct: 3 },
+            { q: "Qual é o dom do Espírito Santo que permite falar em outras línguas, conforme Atos 2:4?", a: ["Profecia", "Cura", "Línguas", "Fé"], correct: 2 },
+            { q: "Qual é a esperança do cristão, conforme 1 Tessalonicenses 4:16?", a: ["Arrebatamento", "Fama", "Riqueza", "Poder"], correct: 0 }
+        ]
+    },
+    {
+        title: "Milagres no Antigo Testamento",
+        questions: [
+            { q: "Qual milagre envolveu a divisão das águas do Mar Vermelho, conforme Êxodo 14:21?", a: ["Codornas", "Maná", "Peste", "Passagem do Mar Vermelho"], correct: 3 },
+            { q: "Qual milagre envolveu a queda das muralhas de Jericó, conforme Josué 6:20?", a: ["Fogo", "Trombetas", "Terremoto", "Chuva"], correct: 1 },
+            { q: "Qual milagre envolveu a multiplicação de azeite para uma viúva, conforme 2 Reis 4:1?", a: ["Eliseu", "Ressurreição", "Multiplicação de pães", "Elias"], correct: 0 },
+            { q: "Qual milagre envolveu a parada do sol, conforme Josué 10:13?", a: ["Fome", "Parada do sol", "Terremoto", "Chuva de fogo"], correct: 1 }
+        ]
+    },
+    {
+        title: "Mulheres na Bíblia",
+        questions: [
+            { q: "Qual mulher foi juíza e profetisa em Israel, conforme Juízes 4:4?", a: ["Ana", "Miriã", "Débora", "Ester"], correct: 2 },
+            { q: "Qual mulher salvou os espias israelitas em Jericó, conforme Josué 2:1?", a: ["Raabe", "Débora", "Ester", "Ana"], correct: 0 },
+            { q: "Qual mulher ungiu os pés de Jesus com perfume, conforme Lucas 7:37?", a: ["Maria de Betânia", "Marta", "Joana", "Maria Madalena"], correct: 0 },
+            { q: "Qual mulher foi rainha e salvou seu povo, conforme Ester 4:14?", a: ["Raabe", "Ana", "Débora", "Ester"], correct: 3 }
+        ]
+    },
+    {
+        title: "Simbolismo no Tabernáculo",
+        questions: [
+            { q: "O que o propiciatório no Tabernáculo simbolizava, conforme Hebreus 9:5?", a: ["A lei de Moisés", "O trono de Deus", "A presença de Deus", "O sacrifício de Cristo"], correct: 3 },
+            { q: "Qual objeto no Tabernáculo continha o maná, conforme Êxodo 16:33?", a: ["Altar de bronze", "Arca da Aliança", "Candeia de ouro", "Mesa dos pães"], correct: 1 },
+            { q: "O que os querubins sobre a Arca representavam, conforme Gênesis 3:24?", a: ["Proteção de Israel", "A glória de Deus", "Anjos da guarda", "Santidade e justiça de Deus"], correct: 1 },
+            { q: "Qual era a função do altar de bronze, conforme Levítico 1:5?", a: ["Oferecer sacrifícios", "Lavar as mãos", "Guardar os pães", "Queimar incenso"], correct: 0 }
+        ]
+    },
+    {
+        title: "Profecias sobre Israel",
+        questions: [
+            { q: "Qual profeta anunciou que Israel seria disperso, conforme Deuteronômio 28:64?", a: ["Isaías", "Jeremias", "Moisés", "Ezequiel"], correct: 2 },
+            { q: "Qual profeta falou sobre a restauração de Israel como 'ossos secos', conforme Ezequiel 37:1-14?", a: ["Isaías", "Jeremias", "Ezequiel", "Daniel"], correct: 2 },
+            { q: "Qual profeta predisse que Israel seria reunido 'dos quatro cantos da terra', conforme Isaías 11:12?", a: ["Jeremias", "Isaías", "Ezequiel", "Zacarias"], correct: 1 },
+            { q: "Qual profeta anunciou que Jerusalém seria 'pisada pelos gentios', conforme Lucas 21:24?", a: ["Zacarias", "Daniel", "Jesus", "João"], correct: 2 }
+        ]
+    },
+    {
+        title: "Tipologia de Cristo no Antigo Testamento",
+        questions: [
+            { q: "Qual personagem do Antigo Testamento é um tipo de Cristo como 'o sacrifício substituto', conforme Gênesis 22:8?", a: ["Isaque", "Moisés", "Davi", "Josué"], correct: 0 },
+            { q: "Qual objeto no Tabernáculo é um tipo de Cristo como 'o pão da vida', conforme João 6:35?", a: ["Altar de bronze", "Mesa dos pães", "Candeia de ouro", "Arca da Aliança"], correct: 1 },
+            { q: "Qual evento é um tipo de Cristo como 'o libertador', conforme Êxodo 12:11?", a: ["Dilúvio", "Páscoa", "Conquista de Canaã", "Reino de Davi"], correct: 1 },
+            { q: "Qual personagem é um tipo de Cristo como 'o rei eterno', conforme 2 Samuel 7:13?", a: ["Salomão", "Davi", "Josué", "Saul"], correct: 1 }
+        ]
+    },
+    {
+        title: "Parábolas de Jesus (Análise Profunda)",
+        questions: [
+            { q: "Qual parábola ensina sobre a 'justificação pela fé', conforme Lucas 18:9-14?", a: ["O bom samaritano", "O filho pródigo", "O fariseu e o publicano", "Os talentos"], correct: 2 },
+            { q: "Qual parábola fala sobre a 'paciência de Deus', conforme Mateus 13:24-30?", a: ["As dez virgens", "O trigo e o joio", "O semeador", "Os talentos"], correct: 1 },
+            { q: "Qual parábola ensina sobre a 'importância da vigilância', conforme Mateus 24:42-44?", a: ["Os talentos", "O bom samaritano", "O filho pródigo", "O ladrão à noite"], correct: 3 },
+            { q: "Qual parábola fala sobre a 'misericórdia', conforme Mateus 18:23-35?", a: ["Os talentos", "O bom samaritano", "O credor incompassivo", "O filho pródigo"], correct: 2 }
+        ]
+    },
+    {
+        title: "Doutrinas da Salvação",
+        questions: [
+            { q: "Qual é a base da justificação, conforme Romanos 3:28?", a: ["Obras", "Fé", "Leis", "Sacrifícios"], correct: 1 },
+            { q: "Qual é o resultado da justificação, conforme Romanos 5:1?", a: ["Fama", "Paz com Deus", "Riqueza", "Poder"], correct: 1 },
+            { q: "Qual é o papel do Espírito Santo na salvação, conforme João 16:8?", a: ["Dar riquezas", "Convencer do pecado", "Curar doenças", "Trazer fama"], correct: 1 },
+            { q: "Qual é a evidência da salvação, conforme Tiago 2:17?", a: ["Fé sem obras", "Conhecimento", "Sabedoria", "Obras da fé"], correct: 3 }
+        ]
+    },
+    {
+        title: "Milagres de Jesus (Análise)",
+        questions: [
+            { q: "Qual milagre demonstra o poder de Jesus sobre a natureza, conforme Marcos 4:39?", a: ["Multiplicar pães", "Andar sobre as águas", "Acalmar a tempestade", "Curar cego"], correct: 2 },
+            { q: "Qual milagre mostra a autoridade de Jesus sobre a morte, conforme João 11:43?", a: ["Curar leproso", "Ressurreição de Lázaro", "Multiplicar pães", "Andar sobre as águas"], correct: 1 },
+            { q: "Qual milagre revela a compaixão de Jesus, conforme Marcos 8:1-9?", a: ["Curar paralítico", "Multiplicação de pães", "Ressurreição da filha de Jairo", "Andar sobre as águas"], correct: 1 },
+            { q: "Qual milagre demonstra a autoridade de Jesus sobre os demônios, conforme Marcos 5:13?", a: ["Curar cego", "Multiplicar pães", "Expulsão da legião", "Andar sobre as águas"], correct: 2 }
+        ]
+    },
+    {
+        title: "Cartas Gerais",
+        questions: [
+            { q: "Qual carta ensina que Jesus é superior aos anjos, conforme Hebreus 1:4?", a: ["Tiago", "Hebreus", "1 Pedro", "1 João"], correct: 1 },
+            { q: "Qual carta fala sobre a 'provação da fé', conforme Tiago 1:3?", a: ["Hebreus", "Tiago", "1 Pedro", "1 João"], correct: 1 },
+            { q: "Qual carta ensina sobre a 'esperança viva', conforme 1 Pedro 1:3?", a: ["Tiago", "1 Pedro", "Hebreus", "1 João"], correct: 1 },
+            { q: "Qual carta fala sobre o 'amor de Deus', conforme 1 João 4:8?", a: ["Tiago", "Hebreus", "1 João", "1 Pedro"], correct: 2 }
+        ]
+    },
+    {
+        title: "Apocalipse (Simbolismo)",
+        questions: [
+            { q: "O que os sete candeeiros representam, conforme Apocalipse 1:20?", a: ["Sete anjos", "Sete selos", "Sete igrejas", "Sete trombetas"], correct: 2 },
+            { q: "O que o dragão simboliza, conforme Apocalipse 12:9?", a: ["Deus", "Jesus", "Satanás", "Espírito Santo"], correct: 2 },
+            { q: "O que a besta que sobe do mar representa, conforme Apocalipse 13:1?", a: ["Deus", "Anticristo", "Jesus", "Espírito Santo"], correct: 1 },
+            { q: "O que a Nova Jerusalém simboliza, conforme Apocalipse 21:2?", a: ["Reino de Satanás", "Morada eterna dos salvos", "Templo de Deus", "Céu literal"], correct: 1 },
+          { q: "Em Apocalipse 12:4, a terça parte das estrelas arrastada pela cauda do dragão se refere a:", a: ["Queda de anjos que seguiram um querubim rebelde", "Arrastão literal de estrelas celestes", "Arrastão de anjos subordinados ao Diabo", "Rebelião no céu no princípio dos tempos"], correct: 2 }
+      ]
+   },
+    {
+        title: "Contextos Históricos do Novo Testamento",
+        questions: [
+            { q: "Qual era a capital do Império Romano no tempo de Jesus?", a: ["Atenas", "Roma", "Jerusalém", "Alexandria"], correct: 1 },
+            { q: "Qual era o idioma principal de Israel no tempo de Jesus?", a: ["Latim", "Aramaico", "Grego", "Hebraico"], correct: 1 },
+            { q: "Qual era o grupo religioso que não acreditava na ressurreição, conforme Atos 23:8?", a: ["Essenos", "Fariseus", "Saduceus", "Zelotes"], correct: 2 },
+            { q: "Qual era a formação religiosa de Paulo antes de sua conversão, conforme Atos 9:1-2?", a: ["Pescador", "Fariseu", "Carpinteiro", "Médico"], correct: 1 }
+        ]
+    },
+    {
+        title: "Aplicações Práticas das Escrituras",
+        questions: [
+            { q: "Qual é a aplicação prática de 'amar ao próximo', conforme Mateus 22:39?", a: ["Buscar riqueza", "Servir aos outros", "Adquirir poder", "Viver isolado"], correct: 1 },
+            { q: "Qual é a aplicação de 'perdoar 70 vezes 7', conforme Mateus 18:22?", a: ["Guardar rancor", "Ignorar ofensas", "Perdoar sempre", "Vingar-se"], correct: 2 },
+            { q: "Qual é a aplicação de 'buscar primeiro o Reino de Deus', conforme Mateus 6:33?", a: ["Buscar riqueza", "Priorizar a vontade de Deus", "Adquirir fama", "Viver no prazer"], correct: 1 },
+            { q: "Qual é a aplicação de 'fazer discípulos', conforme Mateus 28:19?", a: ["Guardar a fé para si", "Evangelizar", "Viver isolado", "Buscar poder"], correct: 1 }
+        ]
+    },
+    {
+        title: "Hermenêutica Bíblica",
+        questions: [
+            { q: "Qual princípio hermenêutico ensina que a Bíblia deve ser interpretada pela própria Bíblia?", a: ["Contexto Histórico", "Analogia da Fé", "Gramatical", "Tipologia"], correct: 1 },
+            { q: "Qual é o significado do termo 'exegese'?", a: ["Aplicação do texto", "Interpretação do texto", "Crítica literária", "Leitura superficial"], correct: 1 },
+            { q: "Qual livro do Novo Testamento faz uso explícito de uma alegoria, conforme Gálatas 4:24?", a: ["Romanos", "Hebreus", "Gálatas", "Apocalipse"], correct: 2 },
+            { q: "Qual é o principal erro da 'eisegese'?", a: ["Interpretar pelo contexto", "Impor significado ao texto", "Ler em voz alta", "Usar dicionários"], correct: 1 },
+            { q: "Qual método hermenêutico busca entender o significado original para o autor e os leitores?", a: ["Método Devocional", "Método Histórico-Gramatical", "Método Literal", "Método Alegórico"], correct: 1 }
+        ]
+    },
+    {
+        title: "Escatologia: Fim dos Tempos",
+        questions: [
+            { q: "Qual evento escatológico é descrito em 1 Tessalonicenses 4:16-17 como 'arrebatamento'?", a: ["Juízo Final", "Ressurreição e arrebatamento em Cristo", "Milênio", "Segunda vinda de Cristo"], correct: 1 },
+            { q: "Qual livro descreve a Grande Tribulação, conforme Apocalipse 7:14?", a: ["Daniel", "Apocalipse", "Ezequiel", "Zacarias"], correct: 1 },
+            { q: "Qual é o período de mil anos mencionado em Apocalipse 20:4?", a: ["Juízo Final", "Milênio", "Arrebatamento", "Grande Tribulação"], correct: 1 },
+            { q: "Qual evento marca o início da Grande Tribulação, conforme Daniel 9:27?", a: ["Conversão de Israel", "Pacto do Anticristo com Israel", "Guerra de Armagedom", "Ressurreição dos mortos"], correct: 1 },
+            { q: "Qual será o destino final dos ímpios, conforme Apocalipse 20:15?", a: ["Sheol", "Paraíso", "Lago de Fogo", "Purgatório"], correct: 2 }
+        ]
+    },
+    {
+        title: "Comparação de Versículos",
+        questions: [
+            { q: "Qual versículo do Novo Testamento faz referência direta a Isaías 53:5 sobre o sacrifício de Cristo?", a: ["Romanos 3:23", "1 Pedro 2:24", "Hebreus 11:1", "João 3:16"], correct: 1 },
+            { q: "Qual salmo é citado por Jesus na cruz, conforme Mateus 27:46?", a: ["Salmo 23:1", "Salmo 22:1", "Salmo 119:1", "Salmo 51:1"], correct: 1 },
+            { q: "Qual profecia de Miquéias 5:2 é cumprida em Mateus 2:6?", a: ["Ascensão", "Entrada triunfal em Jerusalém", "Nascimento de Jesus em Belém", "Ressurreição"], correct: 2 },
+            { q: "Qual passagem do Antigo Testamento é citada em Hebreus 10:5-7 sobre o sacrifício de Cristo?", a: ["Gênesis 22:8", "Salmo 40:6-8", "Êxodo 12:13", "Isaías 53:7"], correct: 1 },
+            { q: "'O justo viverá pela fé' é citado em Romanos 1:17 a partir de qual versículo de Habacuque?", a: ["Habacuque 1:5", "Habacuque 2:4", "Habacuque 3:17", "Habacuque 3:2"], correct: 1 }
+        ]
+    },
+    {
+        title: "Estudos Temáticos: Oração e Adoração",
+        questions: [
+            { q: "Qual é a oração modelo ensinada por Jesus, conforme Mateus 6:9-13?", a: ["Oração de Jabez", "Pai Nosso", "Salmo 23", "Oração de Neemias"], correct: 1 },
+            { q: "Qual personagem bíblico é conhecido por sua oração de intercessão por Israel, conforme Êxodo 32:11-14?", a: ["Salomão", "Moisés", "Davi", "Elias"], correct: 1 },
+            { q: "Qual salmo é uma oração de arrependimento, conforme Salmo 51:1?", a: ["Salmo 91", "Salmo 51", "Salmo 119", "Salmo 23"], correct: 1 },
+            { q: "Qual é o significado da adoração 'em espírito e em verdade', conforme João 4:24?", a: ["Adoração com música", "Adoração sincera e genuína", "Adoração em silêncio", "Adoração com sacrifícios"], correct: 1 },
+            { q: "Qual personagem do Novo Testamento é conhecido por suas orações e jejuns, conforme Colossenses 1:9?", a: ["Tiago", "Paulo", "Pedro", "João"], correct: 1 }
+        ]
+    },
+		
+	
+		{
+			title: "Crucificação de Jesus",
+			questions: [
+				{ q: "Qual foi a acusação principal que levou Jesus à crucificação?", a: ["Roubo no Templo", "Blasfêmia e reivindicação de ser o Messias e Rei dos Judeus", "Incitação à violência contra Roma", "Negação do pagamento de impostos"], correct: 1 },
+				{ q: "Quem foi o governador romano que ordenou a crucificação de Jesus?", a: ["Herodes Antipas", "Pôncio Pilatos", "Caifás", "Félix"], correct: 1 },
+				{ q: "Qual dos seguintes eventos NÃO ocorreu durante a crucificação de Jesus, segundo os Evangelhos?", a: ["Escuridão sobre a terra por três horas", "Terremoto e rasgamento do véu do Templo", "Chuva de pedras sobre Jerusalém", "Um soldado romano declarou: 'Verdadeiramente este era o Filho de Deus'"], correct: 2 },
+				{ q: "Qual foi o método de execução usado pelos romanos na crucificação de Jesus?", a: ["Decapitação", "Enforcamento", "Crucificação com pregos nas mãos e pés", "Afogamento"], correct: 2 },
+				{ q: "Qual das seguintes frases NÃO foi dita por Jesus na cruz, segundo os Evangelhos?", a: ["'Pai, perdoa-lhes, porque não sabem o que fazem.'", "'Hoje estarás comigo no Paraíso.'", "'Deus meu, por que me abandonaste?'", "'O meu reino não é deste mundo.'"], correct: 3 }
+			]
+		},
+	
+		
+    {
+        title: "Arqueologia Bíblica",
+        questions: [
+            { q: "Qual descoberta arqueológica confirma a existência do rei Davi?", a: ["Pedra de Moab", "Papiros do Mar Morto", "Inscrição de Tel Dan", "Ossuário de Caifás"], correct: 2 },
+            { q: "Qual cidade foi descoberta e confirma a narrativa de Josué 6?", a: ["Nínive", "Jericó", "Babilônia", "Tiro"], correct: 1 },
+            { q: "Qual artefato confirma a existência do rei Herodes?", a: ["Túmulo de Herodes", "Fortaleza de Masada", "Sinagoga de Cafarnaum", "Palácio de Herodes em Cesaréia"], correct: 3 },
+            { q: "Qual descoberta arqueológica valida a existência do rei Ezequias?", a: ["Muralhas de Jerusalém", "Túnel de Ezequias", "Selo de Ezequias", "Todas as anteriores"], correct: 3 },
+            { q: "Qual cidade foi descoberta e confirma a narrativa de Jonas 1-4?", a: ["Tiro", "Nínive", "Babilônia", "Sodoma"], correct: 1 }
+        ]
+    },
+    {
+        title: "Teologia do Antigo Testamento",
+        questions: [
+            { q: "Qual é o tema central do livro de Gênesis?", a: ["Conquista de Canaã", "Criação e Queda", "Êxodo do Egito", "Reino de Davi"], correct: 1 },
+            { q: "Qual é a aliança feita com Abraão em Gênesis 12:1-3?", a: ["Aliança Davídica", "Aliança Abraâmica", "Nova Aliança", "Aliança Mosaica"], correct: 1 },
+            { q: "Qual é o propósito da Lei Mosaica, conforme Gálatas 3:24?", a: ["Estabelecer um reino", "Ser aio para Cristo", "Salvar o povo", "Unificar Israel"], correct: 1 },
+            { q: "Qual é o significado teológico do 'Servo Sofredor' em Isaías 53?", a: ["Israel", "Os profetas", "Cristo", "Os gentios"], correct: 2 },
+            { q: "Qual é o tema central dos Salmos?", a: ["Profecias messiânicas", "Adoração e confiança em Deus", "Leis e sacrifícios", "História de Israel"], correct: 1 }
+        ]
+    },
+    {
+        title: "Teologia do Novo Testamento",
+        questions: [
+            { q: "Qual é o tema central da Epístola aos Romanos?", a: ["Fé e obras", "Amor e unidade", "Justificação pela fé", "Juízo final"], correct: 2 },
+            { q: "Qual é a mensagem central do Sermão do Monte, conforme Mateus 5-7?", a: ["Profecias", "Reino de Deus e justiça", "Milagres e sinais", "Leis e rituais"], correct: 1 },
+            { q: "Qual é o propósito da Epístola aos Hebreus?", a: ["Fé e obras", "Unidade da igreja", "Superioridade de Cristo", "Juízo final"], correct: 2 },
+            { q: "Qual é o tema central do livro de Apocalipse?", a: ["Ensino sobre o Espírito Santo", "Profecias sobre Israel", "História da igreja", "Revelação do cordeito glorificado e sua vitória final"], correct: 3 },
+            { q: "Qual é a mensagem central das cartas de João?", a: ["Unidade da igreja", "Amor e obediência", "Fé e obras", "Juízo final"], correct: 1 }
+        ]
+    },
+    {
+        title: "Ética Cristã",
+        questions: [
+            { q: "Qual é o fundamento da ética cristã, conforme Mateus 22:37-39?", a: ["Buscar riqueza", "Guardar os Dez Mandamentos", "Amar a Deus e ao próximo", "Viver em isolamento"], correct: 2 },
+            { q: "Qual é a posição bíblica sobre o aborto, conforme Salmo 139:13-16?", a: ["Direito do governo", "Escolha da mãe", "Vida desde a concepção", "Questão cultural"], correct: 2 },
+            { q: "Qual é a posição bíblica sobre o casamento, conforme Gênesis 2:24?", a: ["União espiritual", "União temporária", "União poligâmica", "União entre homem e mulher"], correct: 3 },
+            { q: "Qual é a posição bíblica sobre a mentira, conforme Colossenses 3:9?", a: ["Ferramenta para o bem", "Pecado", "Questão cultural", "Necessidade em alguns casos"], correct: 1 }
+        ]
+    },
+    {
+        title: "Teologia Pastoral",
+        questions: [
+            { q: "Qual é o papel do pastor segundo Efésios 4:11-12?", a: ["Realizar milagres", "Administrar a igreja", "Equipar os santos para o serviço", "Escrever livros teológicos"], correct: 2 },
+            { q: "Qual é a qualificação mais importante para um bispo, conforme 1 Timóteo 3:2?", a: ["Intelectual", "Irrepreensível", "Rico", "Carismático"], correct: 1 },
+            { q: "Qual é a responsabilidade do pastor em relação às ovelhas, conforme João 21:15-17?", a: ["Organizar eventos", "Alimentar e cuidar", "Ensino exclusivo", "Julgar e disciplinar"], correct: 1 },
+            { q: "Qual é a atitude recomendada para o pastor em relação aos conflitos, conforme 2 Timóteo 2:24-25?", a: ["Punir os envolvidos", "Instruir com mansidão", "Evitar confrontos", "Ignorar os conflitos"], correct: 1 }
+        ]
+    },
+    {
+        title: "Apologética Cristã",
+        questions: [
+            { q: "Qual é o argumento apologético baseado em Romanos 1:19-20?", a: ["Testemunho pessoal", "Revelação geral de Deus na criação", "Milagres históricos", "Profecias cumpridas"], correct: 1 },
+            { q: "Qual é a resposta apologética para o problema do mal, conforme Gênesis 50:20?", a: ["Deus não existe", "O mal não existe", "Deus usa o mal para o bem", "O mal é uma ilusão"], correct: 2 },
+            { q: "Qual é a evidência histórica mais forte para a ressurreição de Cristo, conforme 1 Coríntios 15:3-8?", a: ["Documentos gnósticos", "Testemunhas oculares", "Relatos mitológicos", "Tradições orais"], correct: 1 },
+            { q: "Qual é a base da apologética segundo 1 Pedro 3:15?", a: ["Ignorar perguntas difíceis", "Dar razão da esperança", "Usar filosofia grega", "Debater com agressividade"], correct: 1 }
+        ]
+    },
+    {
+        title: "Cristianismo x Outras Religiões",
+        questions: [
+            { q: "Qual é a diferença fundamental entre o Cristianismo e o Islamismo?", a: ["Salvação pela fé vs. obras", "Jesus como profeta vs. Deus encarnado", "Trindade vs. Unicidade de Alá", "Todas as anteriores"], correct: 3 },
+            { q: "Qual é a diferença entre a salvação no Cristianismo e no Judaísmo?", a: ["Rituais vs. sacrifícios", "Fé em Cristo vs. obediência à Lei", "Crença em anjos vs. demônios", "Tradição oral vs. escrita"], correct: 1 },
+            { q: "Qual é a diferença entre o Cristianismo e o Hinduísmo?", a: ["Reencarnação vs. ressurreição", "Casta social vs. igualdade", "Monoteísmo vs. panteísmo", "Todas as anteriores"], correct: 3 },
+            { q: "Qual é a diferença entre o Cristianismo e o Budismo?", a: ["Deus pessoal vs. ausência de deus", "Céu vs. nirvana", "Salvação pela graça vs. iluminação", "Todas as anteriores"], correct: 3 }
+        ]
+    },
+    {
+        title: "Aplicações Práticas Avançadas",
+        questions: [
+            { q: "Como aplicar 'tudo coopera para o bem' (Romanos 8:28) em situações de sofrimento?", a: ["Negar a dor", "Buscar vingança", "Confiar na soberania de Deus", "Culpar a si mesmo"], correct: 2 },
+            { q: "Qual é a aplicação prática de 'levar a carga uns dos outros' (Gálatas 6:2)?", a: ["Competição", "Empatia e apoio mútuo", "Isolamento", "Indiferença"], correct: 1 },
+            { q: "Como aplicar 'orar sem cessar' (1 Tessalonicenses 5:17) na vida diária?", a: ["Orar apenas em crises", "Orar apenas em cultos", "Repetir orações decoradas", "Vida de comunhão constante com Deus"], correct: 3 },
+            { q: "Qual é a aplicação de 'ser sal e luz' (Mateus 5:13-16) no mundo secular?", a: ["Adotar valores mundanos", "Isolar-se da sociedade", "Influenciar positivamente", "Evitar conflitos"], correct: 2 }
+        ]
+    },
+    {
+        title: "Desafios Hermenêuticos",
+        questions: [
+            { q: "Como interpretar passagens aparentemente contraditórias, como Tiago 2:24 e Efésios 2:8-9?", a: ["Escolher a que mais agrada", "Fé e obras como complementares", "Ignorar uma das passagens", "Considerar erro de tradução"], correct: 1 },
+            { q: "Como interpretar as parábolas de Jesus (ex: Lucas 16:1-9) que parecem elogiar a desonestidade?", a: ["Desconsiderar a parábola", "Foco na lição principal: sabedoria", "Justificar a desonestidade", "Atribuir erro a Jesus"], correct: 1 },
+            { q: "Como interpretar os 'difíceis ditos de Jesus' (ex: Lucas 14:26)?", a: ["Literalismo radical", "Prioridade absoluta a Deus", "Desconsiderar o contexto", "Atribuir a erros de cópia"], correct: 1 },
+            { q: "Como interpretar profecias não cumpridas (ex: Mateus 16:28)?", a: ["Descartar a profecia", "Cumprimento parcial ou simbólico", "Adiar para o futuro distante", "Erros bíblicos"], correct: 1 }
+        ]
+    },
+    {
+        title: "Teologia da Missão",
+        questions: [
+            { q: "Qual é a base bíblica para a Grande Comissão, conforme Mateus 28:19-20?", a: ["Impor a cultura ocidental", "Fazer discípulos de todas as nações", "Conquistar territórios", "Evangelizar apenas judeus"], correct: 1 },
+            { q: "Qual é o papel do Espírito Santo na missão, conforme Atos 1:8?", a: ["Promover milagres espetaculares", "Capacitar para o testemunho", "Substituir a pregação", "Limitar a ação da igreja"], correct: 1 },
+            { q: "Qual é o modelo missionário de Paulo, conforme 1 Coríntios 9:19-23?", a: ["Focar apenas em judeus", "Impor tradições judaicas", "Tornar-se tudo para todos", "Evitar culturas locais"], correct: 2 },
+            { q: "Qual é o objetivo final da missão, conforme Apocalipse 7:9?", a: ["Domínio político", "Conversão forçada", "Adoração universal a Deus", "Unificação religiosa"], correct: 2 }
+        ]
+    },
+    {
+        title: "Ética e Bioética Cristã",
+        questions: [
+            { q: "Qual é a posição bíblica sobre eutanásia, conforme Êxodo 20:13?", a: ["Preservar a vida", "Permitir em casos terminais", "Seguir a lei do país", "Deixar a decisão para a família"], correct: 0 },
+            { q: "Qual é a posição bíblica sobre fertilização in vitro, conforme Gênesis 1:28?", a: ["Proibir totalmente", "Permitir sem restrições", "Respeito pela vida desde a concepção", "Deixar para a ciência decidir"], correct: 2 },
+            { q: "Qual é a posição bíblica sobre manipulação genética, conforme Salmo 139:13?", a: ["Cautela e respeito pela criação", "Proibir qualquer intervenção", "Liberdade total", "Deixar para o governo decidir"], correct: 0 },
+            { q: "Qual é a posição bíblica sobre doação de órgãos, conforme 1 João 3:16?", a: ["Proibir totalmente", "Amor ao próximo", "Permitir apenas entre cristãos", "Deixar para a consciência individual"], correct: 1 }
+        ]
+    },
+    {
+        title: "Teologia da Adoração",
+        questions: [
+            { q: "Qual é o significado da adoração 'em espírito e em verdade' (João 4:24)?", a: ["Rituais externos", "Adoração genuína e sincera", "Tradicionalismo rígido", "Emocionalismo vazio"], correct: 1 },
+            { q: "Qual é o papel da música na adoração, conforme Efésios 5:19?", a: ["Expressão de gratidão e louvor", "Obrigação religiosa", "Entretenimento", "Ferramenta de manipulação"], correct: 0 },
+            { q: "Qual é o equilíbrio entre forma e conteúdo na adoração, conforme 1 Coríntios 14:26?", a: ["Rigidez litúrgica", "Ordem e edificação", "Espontaneidade total", "Inovação constante"], correct: 1 },
+            { q: "Qual é o papel da Ceia do Senhor na adoração, conforme 1 Coríntios 11:26?", a: ["Memorial da morte de Cristo", "Ritual vazio", "Festa social", "Obrigação legalista"], correct: 0 }
+        ]
+    },
+    {
+        title: "Teologia da Igreja",
+        questions: [
+            { q: "Qual é a metáfora usada para a igreja em Efésios 5:25-27?", a: ["Família de Deus", "Noiva de Cristo", "Templo do Espírito Santo", "Corpo de Cristo"], correct: 1 },
+            { q: "Qual é o propósito da igreja, conforme Efésios 3:10?", a: ["Acumular riqueza", "Manifestar a multiforme sabedoria de Deus", "Promover eventos sociais", "Influenciar a política"], correct: 1 },
+            { q: "Qual é a relação entre a igreja local e universal, conforme 1 Coríntios 1:2?", a: ["Competição entre igrejas", "Unidade na diversidade", "Submissão a uma denominação", "Independência total"], correct: 1 },
+            { q: "Qual é o papel dos dons espirituais na igreja, conforme 1 Coríntios 12:7?", a: ["Exibicionismo", "Edificação do corpo de Cristo", "Exclusividade para líderes", "Hierarquia rígida"], correct: 1 }
+        ]
+    },
+	
+	
+	{
+    title: "Verdades Profundas",
+    questions: [
+        { q: "Por que Jesus é chamado de Sacerdote Eterno? (Hebreus 7:24–25; Salmos 110:4)", a: ["Porque foi escolhido por Arão como sumo sacerdote", "Porque Seu sacerdócio nunca termina e é segundo a ordem de Melquisedeque", "Porque Ele ofereceu sacrifícios de animais continuamente", "Porque serviu apenas no templo terreno"], correct: 1 },
+        { q: "Por que Jesus é chamado de Leão da tribo de Judá? (Apocalipse 5:5; Gênesis 49:9–10)", a: ["Porque pregava na região de Judá", "Porque era descendente de Davi apenas por parte de mãe", "Porque veio da tribo de Judá e representa o poder e a vitória de Deus", "Porque era caçador e valente em guerra"], correct: 2 },
+        { q: "Por que Jesus é chamado de Filho de Deus? (Lucas 1:35; João 1:14; Mateus 16:16)", a: ["Porque foi criado como os anjos", "Porque era um profeta obediente", "Porque Ele tem a mesma natureza divina do Pai e foi gerado por Deus", "Porque foi adotado por Deus após o batismo"], correct: 2 },
+        { q: "Por que Jesus será o Rei de Israel? (2 Samuel 7:12–16; Lucas 1:32–33; Jeremias 23:5)", a: ["Porque governou Israel durante o primeiro século", "Porque é o descendente prometido de Davi e cumprirá as profecias do reino messiânico", "Porque foi um líder político em Jerusalém", "Porque foi coroado rei pelos fariseus"], correct: 1 },
+        { q: "Por que Jesus terá de voltar à terra? (Atos 1:11; Apocalipse 19:11–16; Mateus 25:31–34)", a: ["Para reconstruir o templo em Jerusalém", "Para continuar seu ministério terreno interrompido", "Para cumprir as promessas de julgar o mundo, restaurar todas as coisas e reinar com justiça", "Para ensinar novos mandamentos"], correct: 2 }
+    ]
+   },
+
+
+   
+	
+    {
+        title: "Desafio Final: Perguntas Integradas",
+        questions: [
+            { q: "Como integrar a soberania de Deus (Efésios 1:11) e o livre-arbítrio humano (Deuteronômio 30:19)?", a: ["Negar o livre-arbítrio", "Deus soberano e homem responsável", "Limitar a soberania de Deus", "Ignorar a tensão"], correct: 1 },
+            { q: "Como conciliar a onisciência de Deus (Salmo 139:4) e o sofrimento humano (Jó 1-2)?", a: ["Negar a onisciência", "Atribuir ao acaso", "Confiar na sabedoria e bondade de Deus", "Culpar Deus pelo mal"], correct: 2 },
+            { q: "Qual é a mensagem central da Bíblia, conforme João 3:16 e Apocalipse 21:3-4?", a: ["Religião como sistema moral", "Redenção e restauração final", "Autossuficiência humana", "Condenação eterna"], correct: 1 },
+            { q: "Como viver a fé cristã de maneira prática, conforme Tiago 2:17?", a: ["Fé como emoção passageira", "Fé que se expressa em obras", "Fé como tradição familiar", "Fé como conhecimento intelectual"], correct: 1 }
+        ]
+    }
+];
+
+
+        // Variáveis globais
+        let currentModule = 0;
+        let currentQuestion = 0;
+        let wrongAnswersCount = 0;
+        let correctAnswersCount = 0;
+        let totalQuestions = 0;
+
+        // Elementos DOM
+        const questionText = document.getElementById("questionText");
+        const optionsDiv = document.getElementById("options");
+        const nextBtn = document.getElementById("nextBtn");
+        const continueBtn = document.getElementById("continueBtn");
+        const finishBtn = document.getElementById("finishBtn");
+        const moduleInfo = document.getElementById("moduleInfo");
+        const correctSound = document.getElementById("correctSound");
+        const wrongSound = document.getElementById("wrongSound");
+        const levelUpSound = document.getElementById("levelUpSound");
+        const quizPage = document.getElementById("quizPage");
+        const certificatePage = document.getElementById("certificatePage");
+        const userNameInput = document.getElementById("userName");
+        const generateCertificateBtn = document.getElementById("generateCertificateBtn");
+        const certificateName = document.getElementById("certificateName");
+
+        // Conta o total de perguntas
+        modules.forEach(mod => totalQuestions += mod.questions.length);
+
+        // Função para exibir perguntas
+        function showQuestion() {
+            const mod = modules[currentModule];
+            moduleInfo.textContent = `Módulo ${currentModule + 1} de ${modules.length} — ${mod.title}`;
+            const q = mod.questions[currentQuestion];
+            questionText.style.opacity = 0;
+            setTimeout(() => {
+                questionText.textContent = q.q;
+                questionText.style.opacity = 1;
+            }, 200);
+            optionsDiv.innerHTML = "";
+            nextBtn.style.display = "none";
+            finishBtn.style.display = "none";
+            q.a.forEach((opt, index) => {
+                const btn = document.createElement("button");
+                btn.textContent = opt;
+                btn.onclick = () => checkAnswer(index);
+                optionsDiv.appendChild(btn);
+            });
+        }
+
+        // Função para verificar resposta
+        function checkAnswer(selected) {
+            const q = modules[currentModule].questions[currentQuestion];
+            if (selected === q.correct) {
+                optionsDiv.querySelectorAll("button")[selected].style.background = "rgba(0,255,100,0.5)";
+                correctSound.play();
+                correctAnswersCount++;
+            } else {
+                optionsDiv.querySelectorAll("button")[selected].style.background = "rgba(255,0,0,0.5)";
+                optionsDiv.querySelectorAll("button")[q.correct].style.background = "rgba(0,255,100,0.5)";
+                wrongSound.play();
+                wrongAnswersCount++;
+            }
+            nextBtn.style.display = "block";
+        }
+
+        // Próxima pergunta ou módulo
+        nextBtn.onclick = () => {
+            currentQuestion++;
+            const mod = modules[currentModule];
+            if (currentQuestion >= mod.questions.length) {
+                currentModule++;
+                currentQuestion = 0;
+                if (currentModule < modules.length) {
+                    showQuestion();
+                } else {
+                    finishQuiz();
+                }
+            } else {
+                showQuestion();
+            }
+        };
+
+        // Finaliza o quiz
+        function finishQuiz() {
+            const score = Math.round((correctAnswersCount / totalQuestions) * 100);
+            if (score >= 1) {
+                quizPage.style.display = "none";
+                certificatePage.style.display = "flex";
+            } else {
+                questionText.textContent = `Parabéns por concluir o quiz! Você acertou ${correctAnswersCount} de ${totalQuestions} perguntas (${score}%).`;
+                optionsDiv.innerHTML = `
+                    <p>Incentivamos você a pesquisar as respostas corretas na Bíblia ou na internet e tentar novamente!</p>
+                    <p>Que Deus abençoe seus estudos!</p>
+                `;
+                continueBtn.style.display = "block";
+            }
+        }
+
+        // Reinicia o quiz
+        continueBtn.onclick = () => {
+            currentModule = 0;
+            currentQuestion = 0;
+            wrongAnswersCount = 0;
+            correctAnswersCount = 0;
+            showQuestion();
+            continueBtn.style.display = "none";
+        };
+
+       
+        // Gera o certificado
+        generateCertificateBtn.onclick = () => {
+            const userName = userNameInput.value.trim();
+            if (!userName) {
+                alert("Por favor, digite seu nome completo.");
+                return;
+            }
+            certificateName.textContent = userName;
+            generatePDF();
+        };
+
+       // Função para gerar PDF do certificado
+    function generatePDF() {
+    const userName = certificateName.textContent;
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({
+        orientation: 'landscape',
+        unit: 'mm',
+        format: 'a4'
+    });
+
+    // Configurações de estilo e conteúdo do PDF
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    const margin = 15;
+    const lineHeight = 7;
+    const titleFontSize = 22;
+    const textFontSize = 14;
+    const signatureFontSize = 18;
+    const goldColor = [212, 175, 55];
+    const brownColor = [139, 69, 19];
+
+    // Desenha a borda dourada
+    doc.setDrawColor(...goldColor);
+    doc.setLineWidth(1.5);
+    doc.rect(margin, margin, pageWidth - 2 * margin, pageHeight - 2 * margin);
+
+    // Cabeçalho dourado
+    doc.setFillColor(...goldColor);
+    doc.rect(margin, margin, pageWidth - 2 * margin, 10, 'F');
+
+    // Título principal
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(titleFontSize);
+    doc.setTextColor(...brownColor);
+    doc.text("CERTIFICADO DE CONHECIMENTO BÍBLICO-TEOLÓGICO", pageWidth / 2, 40, { align: "center" });
+
+    // Linha decorativa
+    doc.setDrawColor(...goldColor);
+    doc.line(pageWidth / 2 - 40, 45, pageWidth / 2 + 40, 45);
+
+    // Texto principal
+    doc.setFont("times", "normal");
+    doc.setFontSize(textFontSize);
+    doc.setTextColor(50, 50, 50);
+    const textLines = [
+        `Certificamos que ${userName}`,
+        `demonstrou conhecimento bíblico-teológico ao concluir o Bíblia Quiz,`,
+        `alcançando 70% ou mais de acertos no questionário,`,
+        `evidenciando dedicação ao estudo das Escrituras Sagradas e doutrinas cristãs.`,
+        ``,
+        `Este certificado reconhece seu empenho no aprofundamento do`,
+        `conhecimento da Palavra de Deus, abrangendo temas do Antigo e Novo`,
+        `Testamento, doutrinas, hermenêutica e aplicação prática.`
+    ];
+    textLines.forEach((line, i) => {
+        doc.text(line, pageWidth / 2, 60 + i * lineHeight, { align: "center" });
+    });
+
+    // Assinatura (ajustada)
+    const assinaturaY = 120; // linha base da assinatura
+
+    doc.setFont("helvetica", "italic");
+    doc.setFontSize(signatureFontSize);
+    doc.setTextColor(...brownColor);
+    doc.text("Evangelista Wellington A.R Cardoso", pageWidth / 2, assinaturaY, { align: "center" });
+
+    // Subtítulo da assinatura com espaçamento extra
+    doc.setFontSize(textFontSize - 2);
+    doc.text("Autor e Criador do Bíblia Quiz", pageWidth / 2, assinaturaY + 8, { align: "center" });
+
+    // Versículo bíblico
+    doc.setFont("times", "italic");
+    doc.setFontSize(textFontSize - 2);
+    doc.setTextColor(100, 100, 100);
+    doc.text(`"Procura apresentar-te a Deus aprovado, como obreiro que não tem de que se envergonhar,`, pageWidth / 2, 140, { align: "center" });
+    doc.text(`que maneja bem a palavra da verdade."`, pageWidth / 2, 147, { align: "center" });
+    doc.text(`2 Timóteo 2:15`, pageWidth / 2, 154, { align: "center" });
+
+    // Data
+    doc.setFontSize(textFontSize - 4);
+    doc.setTextColor(150, 150, 150);
+    doc.text(`Certificado gerado em ${new Date().toLocaleDateString('pt-BR')}`, pageWidth / 2, pageHeight - 20, { align: "center" });
+
+    // Abre o PDF em uma nova aba
+    const pdfData = doc.output('bloburl');
+    window.open(pdfData, '_blank');
+    }
+
+
+  // Inicia o quiz
+  showQuestion();
