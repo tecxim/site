@@ -1,18 +1,18 @@
 {
-  "name": "Biblia Quiz",
-  "short_name": "Bible Reader",
-  "start_url": "./",
+  "name": "Bíblia Quiz",
+  "short_name": "QuizBiblia",
+  "start_url": "quiz.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#3498db",
+  "theme_color": "#1a237e",
   "icons": [
     {
-      "src": "imagens/bible-icon.png",
+      "src": "imagens/icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "imagens/bible-icon.png",
+      "src": "imagens/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
