@@ -1,9 +1,9 @@
 const CACHE_NAME = "quiz-biblico-v1";
 const FILES_TO_CACHE = [
-  "/quiz.html",
+  "/bibliaquiz.html",
   "/manifest.json",
-  "/imagens/icon-192.png",
-  "/imagens/icon-512.png"
+  "/imagens/bible-icon-192.png",
+  "/imagens/bible-icon-512.png"
 ];
 
 self.addEventListener("install", e => {
