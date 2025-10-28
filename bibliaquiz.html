@@ -330,8 +330,18 @@
 <audio id="levelUpSound" src="https://actions.google.com/sounds/v1/alarms/bugle_tune.ogg"></audio>
 <script src="quiz.js" defer></script>
 
+  
+ // Service Worker
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+    .then(() => console.log('Service Worker registrado com sucesso.'))
+    .catch(err => console.log('Erro ao registrar o Service Worker:', err));
+    }
+	
+</script>
 
-let deferredPrompt;
+<script>
+  let deferredPrompt;
 
   // Escuta o evento que indica que o PWA pode ser instalado
   window.addEventListener('beforeinstallprompt', (e) => {
@@ -368,16 +378,7 @@ let deferredPrompt;
       });
     });
   });
-
-
-	 // Service Worker
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then(() => console.log('Service Worker registrado com sucesso.'))
-        .catch(err => console.log('Erro ao registrar o Service Worker:', err));
-    }
-	
-</script>
+  </script>
 
 </body>
 </html>
