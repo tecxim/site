@@ -220,167 +220,162 @@
     </style>
     </head>
     <body>
-    <!-- Página do Quiz -->
-    <div class="container" id="quizPage">
-        <div class="module" id="moduleInfo">Módulo 1 de 50</div>
-        <h1>Bíblia Quiz</h1>
-		<h4>É recomendável consultar a bíblia</h4>
-        <div class="question" id="questionText"></div>
-        <div class="options" id="options"></div>
-        <button class="next-btn" id="nextBtn">Próxima</button>
-        <button class="continue-btn" id="continueBtn">Continuar</button>
-        <button class="finish-btn" id="finishBtn">Finalizar Quiz</button>
+        <!-- Página do Quiz -->
+        <div class="container" id="quizPage">
+            <div class="module" id="moduleInfo">Módulo 1 de 50</div>
+            <h1>Bíblia Quiz</h1>
+            <h4>É recomendável consultar a bíblia</h4>
+            <div class="question" id="questionText"></div>
+            <div class="options" id="options"></div>
+            <button class="next-btn" id="nextBtn">Próxima</button>
+            <button class="continue-btn" id="continueBtn">Continuar</button>
+            <button class="finish-btn" id="finishBtn">Finalizar Quiz</button>
         </div>
 
-    <!-- Página do Certificado -->
-    <div class="certificate-page" id="certificatePage">
-        <h1 style="color: #8b4513;">Parabéns! Você concluiu o Bíblia Quiz.</h1>
-        <div class="certificate-preview" id="certificatePreview">
-            <div style="text-align: center; margin-bottom: 20px;">
-                <img src="imagens/quiz.png" alt="Logo Bíblia Quiz" 
-                style="border: 2px solid #d4af37; border-radius: 50%; width: 120px; height: 120px;">
-
+        <!-- Página do Certificado -->
+        <div class="certificate-page" id="certificatePage">
+            <h1 style="color: #8b4513;">Parabéns! Você concluiu o Bíblia Quiz.</h1>
+            <div class="certificate-preview" id="certificatePreview">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <img src="imagens/quiz.png" alt="Logo Bíblia Quiz" style="border: 2px solid #d4af37; border-radius: 50%; width: 120px; height: 120px;">
+                </div>
+                <h3>Certificado de Conhecimento Bíblico-Teológico</h3>
+                <p style="text-align: center; font-size: 18px;">
+                    Certificamos que <strong><span id="certificateName" style="color: #8b4513;">[Nome]</span></strong><br>
+                    demonstrou <strong>conhecimento bíblico-teológico</strong> ao concluir o <strong>Bíblia Quiz</strong>,<br>
+                    alcançando <strong>70% ou mais de acertos</strong> no questionário,<br>
+                    evidenciando dedicação ao estudo das Escrituras Sagradas e doutrinas cristãs.
+                </p>
+                <p style="text-align: center; font-size: 14px;">
+                    Este certificado reconhece seu empenho no aprofundamento do conhecimento da Palavra de Deus,<br>
+                    abrangendo temas do Antigo e Novo Testamento, doutrinas, hermenêutica e aplicação prática.
+                </p>
+                <div class="signature"><br><br>
+                    <p><strong>Evangelista Wellington A.R Cardoso</strong></p>
+                    <p style="font-size: 14px; margin-top: -10px;">Autor e Criador do Bíblia Quiz</p>
+                </div>
+                <p style="font-size: 12px; text-align: center; margin-top: 10px;">
+                    <em>"Procura apresentar-te a Deus aprovado, como obreiro que não tem de que se envergonhar, que maneja bem a palavra da verdade."</em><br>
+                    <strong>2 Timóteo 2:15</strong>
+                </p>
             </div>
-            <h3>Certificado de Conhecimento Bíblico-Teológico</h3>
-            <p style="text-align: center; font-size: 18px;">
-                Certificamos que <strong><span id="certificateName" style="color: #8b4513;">[Nome]</span></strong><br>
-                demonstrou <strong>conhecimento bíblico-teológico</strong> ao concluir o <strong>Bíblia Quiz</strong>,<br>
-                alcançando <strong>70% ou mais de acertos</strong> no questionário,<br>
-                evidenciando dedicação ao estudo das Escrituras Sagradas e doutrinas cristãs.
-            </p>
-            <p style="text-align: center; font-size: 14px;">
-                Este certificado reconhece seu empenho no aprofundamento do conhecimento da Palavra de Deus,<br>
-                abrangendo temas do Antigo e Novo Testamento, doutrinas, hermenêutica e aplicação prática.
-            </p>
-            <div class="signature"><br><br>
-                <p><strong>Evangelista Wellington A.R Cardoso</strong></p>
-                <p style="font-size: 14px; margin-top: -10px;">Autor e Criador do Bíblia Quiz</p>
+            <div class="user-name-input">
+                <input type="text" id="userName" placeholder="Digite seu nome completo">
             </div>
-            <p style="font-size: 12px; text-align: center; margin-top: 10px;">
-                <em>"Procura apresentar-te a Deus aprovado, como obreiro que não tem de que se envergonhar, que maneja bem a palavra da verdade."</em><br>
-                <strong>2 Timóteo 2:15</strong>
-            </p>
+            <button class="generate-btn" id="generateCertificateBtn">Gerar Certificado</button>
         </div>
-        <div class="user-name-input">
-            <input type="text" id="userName" placeholder="Digite seu nome completo">
+
+        <!-- Popup de Boas-vindas -->
+        <div id="welcomePopup" style="
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        ">
+            <div style="
+                background: #fff;
+                color: #333;
+                border-radius: 15px;
+                max-width: 400px;
+                width: 90%;
+                padding: 25px;
+                text-align: center;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+                animation: fadeInPopup 0.5s ease;
+            ">
+                <h2 style="color:#3c1053;">📖 Bem-vindo ao Bíblia Quiz!</h2>
+                <p style="margin:15px 0; font-size:15px;">
+                    Este quiz é uma forma divertida de testar e fortalecer seus conhecimentos bíblicos.<br><br>
+                    É <strong>recomendável consultar a Bíblia</strong> para confirmar as respostas.<br><br>
+                    Ao final, se você alcançar <strong>70% ou mais</strong> de acertos, poderá <strong>emitir e salvar seu certificado</strong> de conhecimento bíblico-teológico!
+                </p>
+                <button onclick="closePopup()" style="
+                    background:#ffea00;
+                    color:#000;
+                    border:none;
+                    padding:10px 20px;
+                    border-radius:8px;
+                    cursor:pointer;
+                    font-weight:bold;
+                    margin-top:10px;
+                ">Começar o Quiz</button>
+            </div>
         </div>
-        <button class="generate-btn" id="generateCertificateBtn">Gerar Certificado</button>
-		
-    </div>
-	
-<!-- Popup de Boas-vindas -->
- <div id="welcomePopup" style="
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-">
-  <div style="
-    background: #fff;
-    color: #333;
-    border-radius: 15px;
-    max-width: 400px;
-    width: 90%;
-    padding: 25px;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    animation: fadeInPopup 0.5s ease;
-  ">
-    <h2 style="color:#3c1053;">📖 Bem-vindo ao Bíblia Quiz!</h2>
-    <p style="margin:15px 0; font-size:15px;">
-      Este quiz é uma forma divertida de testar e fortalecer seus conhecimentos bíblicos.<br><br>
-      É <strong>recomendável consultar a Bíblia</strong> para confirmar as respostas.<br><br>
-      Ao final, se você alcançar <strong>70% ou mais</strong> de acertos, poderá <strong>emitir e salvar seu certificado</strong> de conhecimento bíblico-teológico!
-    </p>
-    <button onclick="closePopup()" style="
-      background:#ffea00;
-      color:#000;
-      border:none;
-      padding:10px 20px;
-      border-radius:8px;
-      cursor:pointer;
-      font-weight:bold;
-      margin-top:10px;
-    ">Começar o Quiz</button>
-  </div>
-</div>
 
-<script>
-  function closePopup() {
-    document.getElementById('welcomePopup').style.display = 'none';
-  }
+        <!-- Áudios -->
+        <audio id="correctSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
+        <audio id="wrongSound" src="https://actions.google.com/sounds/v1/cartoon/boing.ogg"></audio>
+        <audio id="levelUpSound" src="https://actions.google.com/sounds/v1/alarms/bugle_tune.ogg"></audio>
 
-  // Animação suave de entrada
-  const style = document.createElement('style');
-  style.innerHTML = `
-    @keyframes fadeInPopup {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-  `;
-  document.head.appendChild(style);
-	
-	<audio id="correctSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
-	<audio id="wrongSound" src="https://actions.google.com/sounds/v1/cartoon/boing.ogg"></audio>
-	<audio id="levelUpSound" src="https://actions.google.com/sounds/v1/alarms/bugle_tune.ogg"></audio>
-	<script src="quiz.js" defer></script>
+        <!-- Scripts -->
+        <script>
+            function closePopup() {
+                document.getElementById('welcomePopup').style.display = 'none';
+            }
 
-    </script>
+            // Animação suave de entrada
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes fadeInPopup {
+                    from { opacity: 0; transform: scale(0.9); }
+                    to { opacity: 1; transform: scale(1); }
+                }
+            `;
+            document.head.appendChild(style);
+        </script>
 
-//-----------------------------------------
+        <script>
+            // Service Worker
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('sw.js')
+                    .then(() => console.log('Service Worker registrado com sucesso.'))
+                    .catch(err => console.log('Erro ao registrar o Service Worker:', err));
+            }
+        </script>
 
-<script>
- // Service Worker
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js')
-    .then(() => console.log('Service Worker registrado com sucesso.'))
-    .catch(err => console.log('Erro ao registrar o Service Worker:', err));
-    }
-	
-</script>
+        <script>
+            let deferredPrompt;
+            // Escuta o evento que indica que o PWA pode ser instalado
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault(); // Impede que o Chrome mostre o banner automático
+                deferredPrompt = e; // Armazena o evento para usar depois
 
-<script>
-  let deferredPrompt;
-  // Escuta o evento que indica que o PWA pode ser instalado
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault(); // Impede que o Chrome mostre o banner automático
-    deferredPrompt = e; // Armazena o evento para usar depois
+                // Cria um botão de instalação
+                const installButton = document.createElement('button');
+                installButton.textContent = 'Instalar App';
+                installButton.style.position = 'fixed';
+                installButton.style.top = '10px';
+                installButton.style.right = '10px';
+                installButton.style.padding = '10px 15px';
+                installButton.style.backgroundColor = '#1a237e';
+                installButton.style.color = 'white';
+                installButton.style.border = 'none';
+                installButton.style.borderRadius = '5px';
+                installButton.style.cursor = 'pointer';
+                installButton.style.zIndex = '1000';
 
-    // Cria um botão de instalação
-    const installButton = document.createElement('button');
-    installButton.textContent = 'Instalar App';
-    installButton.style.position = 'fixed';
-    installButton.style.top = '10px'; // Posiciona no topo
-    installButton.style.right = '10px';
-    installButton.style.padding = '10px 15px';
-    installButton.style.backgroundColor = '#1a237e';
-    installButton.style.color = 'white';
-    installButton.style.border = 'none';
-    installButton.style.borderRadius = '5px';
-    installButton.style.cursor = 'pointer';
-    installButton.style.zIndex = '1000'; // Garante que fique acima de outros elementos
+                // Adiciona o botão ao corpo da página
+                document.body.appendChild(installButton);
 
-    // Adiciona o botão ao corpo da página
-    document.body.appendChild(installButton);
+                // Função para instalar o PWA quando o botão for clicado
+                installButton.addEventListener('click', () => {
+                    deferredPrompt.prompt(); // Mostra o prompt de instalação
+                    deferredPrompt.userChoice.then((choiceResult) => {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('Usuário aceitou a instalação');
+                        } else {
+                            console.log('Usuário recusou a instalação');
+                        }
+                        deferredPrompt = null; // Limpa o evento armazenado
+                    });
+                });
+            });
+        </script>
 
-    // Função para instalar o PWA quando o botão for clicado
-    installButton.addEventListener('click', () => {
-      deferredPrompt.prompt(); // Mostra o prompt de instalação
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('Usuário aceitou a instalação');
-        } else {
-          console.log('Usuário recusou a instalação');
-        }
-        deferredPrompt = null; // Limpa o evento armazenado
-      });
-    });
-  });
-  </script>
-
-</body>
+        <script src="quiz.js" defer></script>
+    </body>
 </html>
