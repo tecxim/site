@@ -332,13 +332,18 @@
 <script src="quiz.js" defer></script>
 
 
-	<script>
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js')
-    .then(reg => console.log('✅ Service Worker registrado:', reg))
-    .catch(err => console.log('❌ Erro ao registrar o Service Worker:', err));
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => {
+        console.log('✅ Service Worker registrado:', reg);
+        reg.update(); // Atualiza o Service Worker
+      })
+      .catch(err => console.log('❌ Erro ao registrar o Service Worker:', err));
+  });
 }
-</script>
+
+
 
 
 
