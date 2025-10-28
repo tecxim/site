@@ -1,0 +1,20 @@
+{
+  "name": "Biblia Quiz",
+  "short_name": "Bible Reader",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3498db",
+  "icons": [
+    {
+      "src": "bible-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "bible-icon_1.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
