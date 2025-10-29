@@ -437,6 +437,107 @@
             });
         </script>
 
-        <script src="quiz.js" defer></script>
-    </body>
+    <script src="quiz.js" defer></script>
+
+
+  <script>
+  (function() {
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzqwy44OE7peeKb0-_EgJ_F1FV03qB6g3hg0DxkU5IaAxvRfHINrZdCZTOFuB7DmdeD2g/exec";
+
+  // Função para pegar o IP
+  async function getIP() {
+    try {
+      const response = await fetch('https://api.ipify.org?format=json');
+      const data = await response.json();
+      return data.ip;
+    } catch (error) {
+      console.error("Erro ao pegar IP:", error);
+      return "N/A";
+    }
+  }
+
+  // Função para pegar a localização (latitude/longitude)
+  function getLocation() {
+    return new Promise((resolve) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            resolve({
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude
+            });
+          },
+          (error) => {
+            console.error("Erro ao pegar localização:", error);
+            resolve(null);
+          }
+        );
+      } else {
+        console.error("Geolocalização não é suportada.");
+        resolve(null);
+      }
+    });
+  }
+
+  // Função para pegar cidade/estado/país a partir das coordenadas
+  async function getLocationDetails(latitude, longitude) {
+    try {
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+      );
+      const data = await response.json();
+      return {
+        city: data.address.city || data.address.town || data.address.village || "Desconhecido",
+        state: data.address.state || "Desconhecido",
+        country: data.address.country || "Desconhecido"
+      };
+    } catch (error) {
+      console.error("Erro ao pegar detalhes da localização:", error);
+      return { city: "N/A", state: "N/A", country: "N/A" };
+    }
+  }
+
+  // Função para enviar todos os dados
+  async function sendData() {
+    const ip = await getIP();
+    const location = await getLocation();
+
+    let city = "N/A";
+    let state = "N/A";
+    let country = "N/A";
+
+    if (location) {
+      const details = await getLocationDetails(location.latitude, location.longitude);
+      city = details.city;
+      state = details.state;
+      country = details.country;
+    }
+
+    const dados = {
+      page: window.location.href,
+      referrer: document.referrer || "Direto",
+      userAgent: navigator.userAgent,
+      ip: ip,
+      latitude: location ? location.latitude : "N/A",
+      longitude: location ? location.longitude : "N/A",
+      city: city,
+      state: state,
+      country: country
+    };
+
+    fetch(WEB_APP_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(dados)
+    })
+    .then(() => console.log("Dados enviados com sucesso!"))
+    .catch(error => console.error("Erro ao enviar dados:", error));
+  }
+
+  sendData();
+})();
+</script>
+	
+</body>
 </html>
