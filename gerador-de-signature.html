@@ -320,6 +320,11 @@
             <div class="form-group">
                 <label for="email">E-mail</label>
                 <input type="email" id="email" placeholder="seu.email@exemplo.com">
+            <div class="form-group">
+                <label for="website">Site da Empresa</label>
+                <input type="text" id="website" placeholder="Ex: www.luft.com.br" value="www.luft.com.br">
+            </div>
+
             </div>
             <h2>Personalização</h2>
             <div class="form-group">
@@ -388,8 +393,11 @@
                         </div>
                         <div class="contact-item">
                             <i>✉️</i> <span id="preview-email">joao.silva@empresa.com</span>
+                            <i>🌐</i> <span id="preview-website">www.luft.com.br</span>
+
                         </div>
                     </div>
+                    
                     <div class="social-links" id="social-links-preview">
                         <a href="#" class="social-icon">in</a>
                         <a href="#" class="social-icon">t</a>
@@ -516,6 +524,9 @@
                 const company = companyInput.value || 'Luft Solutions';
                 const address = addressInput.value || 'Prologis Castelo 46 - Rod. Pres. Castello Branco, Araçariguama - SP, 18147-000';
 
+                const website = document.getElementById('website').value || 'www.luft.com.br';
+                document.getElementById('preview-website').textContent = website;
+                
                 // Atualizar informações de contato
                 const phone = phoneInput.value || '(11) 99999-9999';
                 const email = emailInput.value || 'joao.silva@empresa.com';
