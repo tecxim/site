@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo Bíblico: Mulheres Pastoras ou Não?</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a237e">
+    <style>
+        /* Estilos para o menu superior */
+        .menu-container {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+        .menu-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .menu {
+            position: relative;
+            display: inline-block;
+        }
+        .menu-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: clamp(0.8em, 3vw, 1em);
+            transition: background 0.3s ease;
+        }
+        .menu-btn:hover {
+            background: rgba(255, 255, 255, 0.35);
+        }
+        .menu-content {
+            display: none;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            padding: 10px;
+            left: 0;
+            top: 100%;
+        }
+        .menu-content a {
+            color: #fff;
+            padding: 8px 0;
+            text-decoration: none;
+            display: block;
+            font-size: clamp(0.7em, 3vw, 0.9em);
+            transition: color 0.3s ease;
+        }
+        .menu-content a:hover {
+            color: #ffea00;
+        }
+        .menu:hover .menu-content {
+            display: block;
+        }
+        /* Estilos para a página do estudo */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #3c1053, #ad5389);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            width: 95%;
+            max-width: 500px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+            text-align: center;
+            animation: fadeIn 0.6s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: clamp(1.4em, 4vw, 1.6em);
+            color: #ffea00;
+        }
+        .question {
+            font-size: clamp(1em, 3vw, 1.2em);
+            margin-bottom: 15px;
+            min-height: 60px;
+            transition: opacity 0.4s ease;
+            font-weight: bold;
+        }
+        .answer {
+            text-align: left;
+            font-size: clamp(0.9em, 3vw, 1em);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .verse {
+            font-style: italic;
+            color: #ffea00;
+            margin: 5px 0;
+        }
+        .next-btn {
+            margin-top: 20px;
+            padding: 10px 25px;
+            border: none;
+            background: #ffea00;
+            color: #000;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            transition: all 0.3s ease;
+            font-size: clamp(0.8em, 3vw, 1em);
+        }
+        .next-btn:hover {
+            background: #fff04d;
+            transform: scale(1.05);
+        }
+        .module {
+            font-size: clamp(0.8em, 3vw, 0.9em);
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        /* Popup de Boas-vindas */
+        #welcomePopup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        #welcomePopup div {
+            background: #fff;
+            color: #333;
+            border-radius: 15px;
+            max-width: 400px;
+            width: 90%;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            animation: fadeInPopup 0.5s ease;
+        }
+        @keyframes fadeInPopup {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu Superior -->
+    <div class="menu-container">
+        <div class="menu-wrapper">
+            <div class="menu">
+                <div class="menu-btn">Books and eBooks</div>
+                <div class="menu-content">
+                    <a href="https://www.amazon.com/dp/B0FW58HKDC" target="_blank">
+                        How to Let God Use You (Amazon.com - EN)
+                    </a>
+                    <a href="https://www.amazon.com.br/dp/B0FVTTBN52" target="_blank">
+                        Como Deixar Deus te Usar (Amazon.com.br - PT)
+                    </a>
+                    <a href="https://www.amazon.com/dp/B0FXLQTW6F" target="_blank">
+                        Beyond Dating (Amazon.com - EN)
+                    </a>
+                    <a href="https://www.amazon.com.br/dp/B0FRPS267Q" target="_blank">
+                        Além do Namoro (Amazon.com.br - PT)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página do Estudo -->
+    <div class="container" id="studyPage">
+        <div class="module" id="moduleInfo">Tópico 1 de 6</div>
+        <h1>Mulheres: Pastoras ou Não?</h1>
+        <div class="question" id="questionText"></div>
+        <div class="answer" id="answerText"></div>
+        <button class="next-btn" id="nextBtn">Próximo Tópico</button>
+    </div>
+
+    <!-- Popup de Boas-vindas -->
+    <div id="welcomePopup">
+        <div>
+            <h2 style="color:#3c1053;">📖 Bem-vindo ao Estudo Bíblico!</h2>
+            <p style="margin:15px 0; font-size:15px;">
+                Este estudo abordará o tema "Mulheres: Pastoras ou Não?" com base nas Escrituras.<br><br>
+                A cada tela, você verá uma pergunta ou afirmação, seguida de uma resposta argumentativa com versos bíblicos.<br><br>
+                Reflita e avance para o próximo tópico!
+            </p>
+            <button onclick="closePopup()" style="
+                background:#ffea00;
+                color:#000;
+                border:none;
+                padding:10px 20px;
+                border-radius:8px;
+                cursor:pointer;
+                font-weight:bold;
+                margin-top:10px;
+            ">Iniciar Estudo</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        function closePopup() {
+            document.getElementById('welcomePopup').style.display = 'none';
+            loadStudyTopic(0);
+        }
+
+        const studyTopics = [
+            {
+                question: "A capacidade divina faz distinção de gênero?",
+                answer: `
+                    <p>Quando Paulo afirma que "nossa capacidade vem de Deus" (2 Coríntios 3:5), ele não está se referindo a um grupo específico, mas à igreja como um todo — homens e mulheres.</p>
+                    <p class="verse">"Não que sejamos capazes, por nós mesmos, de pensar alguma coisa como vinda de nós mesmos; pelo contrário, nossa capacidade vem de Deus." (2 Coríntios 3:5)</p>
+                    <p>A história bíblica e a realidade atual confirmam que Deus capacita mulheres para o ministério pastoral, para ensinar, liderar e operar milagres.</p>
+                    <p><strong>Exemplos:</strong> Débora (Juízes 4-5), Hulda (2 Reis 22:14-20) e Priscila (Atos 18:26).</p>
+                `
+            },
+            {
+                question: "Qual o contexto de 1 Timóteo 2:12?",
+                answer: `
+                    <p>Paulo escreve: "Não permito que a mulher ensine ou domine o homem" (1 Timóteo 2:12). É fundamental entender o contexto: em Éfeso, algumas mulheres, recém-convertidas e sem instrução formal, poderiam estar interrompendo os cultos.</p>
+                    <p class="verse">"Tudo, porém, seja feito com decência e ordem." (1 Coríntios 14:40)</p>
+                    <p>Paulo não está proibindo o ministério feminino, mas pedindo que tudo seja feito com ordem. Ele reconheceu e apoiou o ministério de mulheres como Febe (diaconisa) e Junia (apóstola).</p>
+                `
+            },
+            {
+                question: "Mulheres maduras e capacitadas: um contraste com a negligência masculina?",
+                answer: `
+                    <p>A Bíblia e a história mostram que Deus usa quem está disponível, independentemente de gênero. Enquanto alguns homens se omitem, mulheres têm se destacado no ministério.</p>
+                    <p class="verse">"Porque não há diferença entre judeu e grego; pois o mesmo Senhor é Senhor de todos e abençoa ricamente todos os que o invocam." (Romanos 10:12)</p>
+                    <p>Uma mulher que cria filhos, administra um lar e opera milagres já provou sua capacidade de liderança e amor sacrificial.</p>
+                `
+            },
+            {
+                question: "A graça de Deus conhece limites humanos?",
+                answer: `
+                    <p>Jesus quebrou barreiras culturais ao dialogar com a samaritana (João 4), defender a mulher adúltera (João 8) e ser ungido por Maria (João 12).</p>
+                    <p class="verse">"Mas, vindo a plenitude do tempo, Deus enviou seu Filho, nascido de mulher, nascido sob a lei." (Gálatas 4:4)</p>
+                    <p>Se Deus está usando mulheres no ministério pastoral hoje, não é por falta de homens, mas porque Ele escolhe quem quer.</p>
+                `
+            },
+            {
+                question: "Junia: uma apóstola reconhecida pela história?",
+                answer: `
+                    <p>Romanos 16:7 diz: "Saúdem Andrônico e Júnia, meus parentes e companheiros de prisão. Eles são notáveis entre os apóstolos e se tornaram cristãos antes de mim."</p>
+                    <p class="verse">"Saúdem Andrônico e Júnia, meus parentes e companheiros de prisão. Eles são notáveis entre os apóstolos e se tornaram cristãos antes de mim." (Romanos 16:7)</p>
+                    <p>O nome "Junia" é feminino e não há base histórica para a versão masculina "Junias". Estudiosos como Linda Belleville confirmam que Junia era uma apóstola.</p>
+                `
+            },
+            {
+                question: "Conclusão: O que a Bíblia realmente ensina?",
+                answer: `
+                    <p>O ministério pastoral feminino não é uma questão de permissão humana, mas de reconhecimento do que Deus já está fazendo.</p>
+                    <p class="verse">"Quem pode resistir à sua vontade?" (Romanos 9:19)</p>
+                    <p>Se mulheres são capacitadas, maduras e usadas pelo Espírito para realizar obras poderosas, a igreja deve apoiar, não resistir.</p>
+                `
+            }
+        ];
+
+        let currentTopic = 0;
+
+        function loadStudyTopic(index) {
+            const topic = studyTopics[index];
+            document.getElementById('moduleInfo').textContent = `Tópico ${index + 1} de ${studyTopics.length}`;
+            document.getElementById('questionText').innerHTML = topic.question;
+            document.getElementById('answerText').innerHTML = topic.answer;
+            currentTopic = index;
+            if (index === studyTopics.length - 1) {
+                document.getElementById('nextBtn').textContent = 'Finalizar Estudo';
+            }
+        }
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            if (currentTopic < studyTopics.length - 1) {
+                loadStudyTopic(currentTopic + 1);
+            } else {
+                alert("Estudo concluído! Que Deus abençoe sua reflexão.");
+            }
+        });
+    </script>
+</body>
+</html>
