@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teleprompter com Câmera e Gravação</title>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scaleX(-1); /* espelha imagem como espelho */
+      z-index: 0;
+      display: none; /* começa escondida */
+    }
+
+    #teleprompter {
+      position: absolute;
+      top: 10%;
+      width: 100%;
+      text-align: center;
+      font-size: 2em;
+      line-height: 1.5em;
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 2px 2px 4px black;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    #controles {
+      position: fixed;
+      bottom: 10px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      z-index: 2;
+    }
+
+    button {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: rgba(255,255,255,0.4);
+    }
+
+    textarea {
+      width: 90%;
+      height: 120px;
+      display: block;
+      margin: 15px auto;
+      border-radius: 10px;
+      border: none;
+      padding: 10px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <video id="camera" autoplay playsinline></video>
+
+  <div id="teleprompter"></div>
+
+  <textarea id="roteiro" placeholder="Digite seu texto aqui..."></textarea>
+
+  <div id="controles">
+    <button id="iniciar">▶️ Iniciar</button>
+    <button id="pausar">⏸️ Pausar</button>
+    <button id="maisVel">⏩ + Velocidade</button>
+    <button id="menosVel">⏪ - Velocidade</button>
+    <button id="parar">🟥 Parar/Salvar</button>
+  </div>
+
+  <script>
+    const video = document.getElementById('camera');
+    const teleprompter = document.getElementById('teleprompter');
+    const roteiro = document.getElementById('roteiro');
+
+    let velocidade = 1;
+    let pos = window.innerHeight;
+    let rodando = false;
+    let animacao;
+    let gravador;
+    let chunks = [];
+
+    // Ativa câmera frontal e inicia gravação
+    async function iniciarCamera() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: "user" },
+          audio: true
+        });
+
+        video.srcObject = stream;
+        video.muted = true; // ✅ silencia o retorno (sem eco), mas continua gravando o áudio
+        video.style.display = "block";
+
+        gravador = new MediaRecorder(stream);
+
+        gravador.ondataavailable = e => chunks.push(e.data);
+        gravador.onstop = () => {
+          const blob = new Blob(chunks, { type: "video/webm" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "teleprompter-video.webm";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          chunks = [];
+          alert("🎥 Vídeo salvo com sucesso!");
+        };
+
+        gravador.start();
+
+      } catch (err) {
+        alert("Erro ao acessar câmera: " + err.message);
+      }
+    }
+
+    // Inicia teleprompter
+    async function iniciarTeleprompter() {
+      if (roteiro.value.trim() === "") {
+        alert("Digite um texto antes de iniciar!");
+        return;
+      }
+
+      teleprompter.innerText = roteiro.value;
+      roteiro.style.display = "none";
+
+      await iniciarCamera();
+      rodando = true;
+      pos = window.innerHeight;
+
+      rolarTexto();
+    }
+
+    function rolarTexto() {
+      if (!rodando) return;
+      teleprompter.style.top = pos + "px";
+      pos -= velocidade;
+
+      if (pos + teleprompter.offsetHeight > 0) {
+        animacao = requestAnimationFrame(rolarTexto);
+      }
+    }
+
+    function pausarTeleprompter() {
+      rodando = false;
+      cancelAnimationFrame(animacao);
+    }
+
+    function pararGravacao() {
+      rodando = false;
+      cancelAnimationFrame(animacao);
+
+      if (gravador && gravador.state !== "inactive") {
+        gravador.stop();
+      }
+
+      // Encerra vídeo e reexibe o campo de texto
+      const tracks = video.srcObject ? video.srcObject.getTracks() : [];
+      tracks.forEach(track => track.stop());
+
+      video.style.display = "none";
+      roteiro.style.display = "block";
+    }
+
+    document.getElementById('iniciar').onclick = iniciarTeleprompter;
+    document.getElementById('pausar').onclick = pausarTeleprompter;
+    document.getElementById('maisVel').onclick = () => velocidade += 0.5;
+    document.getElementById('menosVel').onclick = () => {
+      if (velocidade > 0.5) velocidade -= 0.5;
+    };
+    document.getElementById('parar').onclick = pararGravacao;
+  </script>
+
+</body>
+</html>
