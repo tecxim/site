@@ -19,13 +19,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transform: scaleX(-1); /* mantém o espelhamento da câmera frontal */
+      transform: scaleX(-1);
       z-index: 0;
       display: none;
     }
     #teleprompter {
       position: absolute;
-      bottom: 40%; /* começa um pouco acima do meio da tela */
+      bottom: 70%; /* Começa mais próximo ao topo */
       width: 100%;
       text-align: center;
       font-size: 2em;
@@ -34,7 +34,7 @@
       text-shadow: 2px 2px 4px black;
       z-index: 1;
       pointer-events: none;
-      /* 🔹 Removido o espelhamento do texto */
+      transform: scaleX(-1); /* Espelha o texto */
     }
     #controles {
       position: fixed;
@@ -60,15 +60,13 @@
     }
     textarea {
       width: 90%;
-      min-height: 120px; /* Altura mínima */
-      height: auto; /* Altura automática */
+      height: 120px;
       display: block;
       margin: 15px auto;
       border-radius: 10px;
       border: none;
       padding: 10px;
       font-size: 1em;
-      resize: vertical; /* Permite redimensionar verticalmente */
     }
   </style>
 </head>
@@ -87,8 +85,8 @@
     const video = document.getElementById('camera');
     const teleprompter = document.getElementById('teleprompter');
     const roteiro = document.getElementById('roteiro');
-    let velocidade = 0.5; // 🔹 velocidade inicial reduzida um pouco
-    let pos = window.innerHeight * 0.4; // 🔹 começa um pouco acima do meio
+    let velocidade = 0.7; // Velocidade inicial reduzida
+    let pos = -teleprompter.offsetHeight;
     let rodando = false;
     let animacao;
     let gravador;
@@ -130,14 +128,14 @@
       roteiro.style.display = "none";
       await iniciarCamera();
       rodando = true;
-      pos = window.innerHeight * 0.4;
+      pos = window.innerHeight * 0.7; // Posiciona o texto mais próximo ao topo
       rolarTexto();
     }
     function rolarTexto() {
       if (!rodando) return;
-      pos += velocidade;
+      pos -= velocidade; // Move o texto para baixo (ajustado para a nova posição)
       teleprompter.style.bottom = pos + "px";
-      if (pos < window.innerHeight * 2) {
+      if (pos > 0) {
         animacao = requestAnimationFrame(rolarTexto);
       }
     }
