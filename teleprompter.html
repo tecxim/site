@@ -19,13 +19,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transform: scaleX(-1);
+      transform: scaleX(-1); /* Espelhamento da câmera frontal */
       z-index: 0;
       display: none;
     }
     #teleprompter {
       position: absolute;
-      bottom: 70%; /* Começa mais próximo ao topo */
+      bottom: 100%; /* Começa acima da tela */
       width: 100%;
       text-align: center;
       font-size: 2em;
@@ -34,7 +34,7 @@
       text-shadow: 2px 2px 4px black;
       z-index: 1;
       pointer-events: none;
-      transform: scaleX(-1); /* Espelha o texto */
+      /* Sem espelhamento do texto */
     }
     #controles {
       position: fixed;
@@ -60,13 +60,15 @@
     }
     textarea {
       width: 90%;
-      height: 120px;
+      min-height: 120px;
+      height: auto;
       display: block;
       margin: 15px auto;
       border-radius: 10px;
       border: none;
       padding: 10px;
       font-size: 1em;
+      resize: vertical;
     }
   </style>
 </head>
@@ -85,12 +87,13 @@
     const video = document.getElementById('camera');
     const teleprompter = document.getElementById('teleprompter');
     const roteiro = document.getElementById('roteiro');
-    let velocidade = 0.7; // Velocidade inicial reduzida
-    let pos = -teleprompter.offsetHeight;
+    let velocidade = 0.4;
+    let pos = window.innerHeight; /* Começa acima da tela */
     let rodando = false;
     let animacao;
     let gravador;
     let chunks = [];
+
     async function iniciarCamera() {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
@@ -119,6 +122,7 @@
         alert("Erro ao acessar câmera: " + err.message);
       }
     }
+
     async function iniciarTeleprompter() {
       if (roteiro.value.trim() === "") {
         alert("Digite um texto antes de iniciar!");
@@ -128,21 +132,24 @@
       roteiro.style.display = "none";
       await iniciarCamera();
       rodando = true;
-      pos = window.innerHeight * 0.7; // Posiciona o texto mais próximo ao topo
+      pos = window.innerHeight; /* Começa acima da tela */
       rolarTexto();
     }
+
     function rolarTexto() {
       if (!rodando) return;
-      pos -= velocidade; // Move o texto para baixo (ajustado para a nova posição)
+      pos -= velocidade; /* Rolagem para cima */
       teleprompter.style.bottom = pos + "px";
-      if (pos > 0) {
+      if (pos > -teleprompter.offsetHeight) { /* Para quando o texto sair da tela */
         animacao = requestAnimationFrame(rolarTexto);
       }
     }
+
     function pausarTeleprompter() {
       rodando = false;
       cancelAnimationFrame(animacao);
     }
+
     function pararGravacao() {
       rodando = false;
       cancelAnimationFrame(animacao);
@@ -153,7 +160,9 @@
       tracks.forEach(track => track.stop());
       video.style.display = "none";
       roteiro.style.display = "block";
+      teleprompter.style.bottom = "100%"; /* Reseta a posição */
     }
+
     document.getElementById('iniciar').onclick = iniciarTeleprompter;
     document.getElementById('pausar').onclick = pausarTeleprompter;
     document.getElementById('maisVel').onclick = () => velocidade += 0.5;
