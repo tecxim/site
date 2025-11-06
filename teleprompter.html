@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teleprompter Profissional com Câmera e Gravação</title>
+  <title>Teleprompter com Câmera e Gravação</title>
   <style>
     body {
       margin: 0;
@@ -24,11 +24,9 @@
       display: none;
     }
     #teleprompter {
-      position: fixed;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60%;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
       text-align: center;
       font-size: 2em;
       line-height: 1.5em;
@@ -37,7 +35,7 @@
       z-index: 1;
       pointer-events: none;
       white-space: pre-wrap;
-      overflow: hidden;
+      transform: translateY(100%); /* começa fora da tela (em baixo) */
     }
     #controles {
       position: fixed;
@@ -73,23 +71,12 @@
       font-size: 1em;
       resize: vertical;
     }
-    #status {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background: rgba(0,0,0,0.7);
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 0.8em;
-      z-index: 3;
-    }
   </style>
 </head>
 <body>
   <video id="camera" autoplay playsinline></video>
   <div id="teleprompter"></div>
-  <div id="status">Parado</div>
-  <textarea id="roteiro" placeholder="Digite ou cole seu texto aqui..."></textarea>
+  <textarea id="roteiro" placeholder="Digite seu texto aqui..."></textarea>
   <div id="controles">
     <button id="iniciar">▶️ Iniciar</button>
     <button id="pausar">⏸️ Pausar</button>
@@ -101,19 +88,12 @@
     const video = document.getElementById('camera');
     const teleprompter = document.getElementById('teleprompter');
     const roteiro = document.getElementById('roteiro');
-    const status = document.getElementById('status');
-    let velocidade = 0.5;
+    let velocidade = 0.3;
     let pos = 0;
     let rodando = false;
     let animacao;
     let gravador;
     let chunks = [];
-
-    // Inicializar o teleprompter com o texto fora da tela
-    function inicializarTeleprompter() {
-      pos = -teleprompter.offsetHeight;
-      teleprompter.style.transform = `translateY(${pos}px) translateX(-50%)`;
-    }
 
     async function iniciarCamera() {
       try {
@@ -153,40 +133,28 @@
       roteiro.style.display = "none";
       await iniciarCamera();
       rodando = true;
-      status.textContent = `Rodando - Velocidade: ${velocidade}`;
-      inicializarTeleprompter();
+      pos = window.innerHeight; // começa fora da tela
+      teleprompter.style.transform = `translateY(${pos}px)`;
       rolarTexto();
     }
 
     function rolarTexto() {
       if (!rodando) return;
-      
-      pos += velocidade;
-      teleprompter.style.transform = `translateY(${pos}px) translateX(-50%)`;
-      
-      // Verificar se o texto já saiu completamente da tela
-      if (pos > window.innerHeight) {
-        pararGravacao();
-        return;
+      pos -= velocidade;
+      teleprompter.style.transform = `translateY(${pos}px)`;
+      // Continua rolando até todo o texto sair da tela
+      if (pos > -teleprompter.scrollHeight) {
+        animacao = requestAnimationFrame(rolarTexto);
       }
-      
-      animacao = requestAnimationFrame(rolarTexto);
     }
 
     function pausarTeleprompter() {
-      rodando = !rodando;
-      if (rodando) {
-        status.textContent = `Rodando - Velocidade: ${velocidade}`;
-        rolarTexto();
-      } else {
-        status.textContent = "Pausado";
-        cancelAnimationFrame(animacao);
-      }
+      rodando = false;
+      cancelAnimationFrame(animacao);
     }
 
     function pararGravacao() {
       rodando = false;
-      status.textContent = "Parado";
       cancelAnimationFrame(animacao);
       if (gravador && gravador.state !== "inactive") {
         gravador.stop();
@@ -195,31 +163,16 @@
       tracks.forEach(track => track.stop());
       video.style.display = "none";
       roteiro.style.display = "block";
-      inicializarTeleprompter();
-    }
-
-    function atualizarVelocidade() {
-      if (rodando) {
-        status.textContent = `Rodando - Velocidade: ${velocidade}`;
-      }
+      teleprompter.style.transform = "translateY(100%)";
     }
 
     document.getElementById('iniciar').onclick = iniciarTeleprompter;
     document.getElementById('pausar').onclick = pausarTeleprompter;
-    document.getElementById('maisVel').onclick = () => {
-      velocidade += 0.1;
-      atualizarVelocidade();
-    };
+    document.getElementById('maisVel').onclick = () => velocidade += 0.5;
     document.getElementById('menosVel').onclick = () => {
-      if (velocidade > 0.1) {
-        velocidade -= 0.1;
-        atualizarVelocidade();
-      }
+      if (velocidade > 0.4) velocidade -= 0.5;
     };
     document.getElementById('parar').onclick = pararGravacao;
-
-    // Inicializar o teleprompter quando a página carregar
-    window.addEventListener('load', inicializarTeleprompter);
   </script>
 </body>
 </html>
