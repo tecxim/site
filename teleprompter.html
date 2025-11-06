@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teleprompter Profissional</title>
-     <style>
+    <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background: #121212;
             color: #fff;
@@ -20,7 +20,7 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .container {
             display: flex;
             flex-direction: column;
@@ -29,21 +29,20 @@
             margin: 0 auto;
             position: relative;
         }
-        
+
         .header {
             padding: 15px;
             text-align: center;
             background: #1e1e1e;
             border-bottom: 1px solid #333;
             z-index: 10;
-            flex-shrink: 0;
         }
-        
+
         .header h1 {
             font-size: 1.5rem;
             font-weight: 600;
         }
-        
+
         .prompter-container {
             flex: 1;
             position: relative;
@@ -53,22 +52,22 @@
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
-        
+
         .prompter-mask {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, 
-                rgba(0,0,0,0.8) 0%, 
-                rgba(0,0,0,0) 20%, 
-                rgba(0,0,0,0) 80%, 
+            background: linear-gradient(to bottom,
+                rgba(0,0,0,0.8) 0%,
+                rgba(0,0,0,0) 20%,
+                rgba(0,0,0,0) 80%,
                 rgba(0,0,0,0.8) 100%);
             pointer-events: none;
             z-index: 2;
         }
-        
+
         .prompter-text {
             position: absolute;
             width: 100%;
@@ -80,40 +79,82 @@
             white-space: pre-wrap;
             transition: transform 0.1s linear;
         }
-        
+
         .controls {
             padding: 15px 10px;
             background: #1e1e1e;
             border-top: 1px solid #333;
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 10;
-            flex-shrink: 0;
-        }
-        
-        .speed-section {
-            display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
-            width: 100%;
+            gap: 10px;
+            z-index: 10;
         }
-        
+
+        .btn {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-width: 100px;
+            min-height: 45px;
+        }
+
+        .btn-primary {
+            background: #4a6cf7;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #333;
+            color: white;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-success {
+            background: #2ecc71;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         .speed-control {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
+            margin: 0 10px;
             background: #2d2d2d;
-            padding: 12px 20px;
-            border-radius: 10px;
-            max-width: 300px;
-            width: 100%;
-            justify-content: center;
+            padding: 8px 12px;
+            border-radius: 8px;
         }
-        
+
         .speed-btn {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -123,79 +164,16 @@
             border: none;
             cursor: pointer;
             font-weight: bold;
-            font-size: 1.5rem;
-            flex-shrink: 0;
+            font-size: 1.2rem;
         }
-        
+
         .speed-display {
-            min-width: 70px;
+            min-width: 60px;
             text-align: center;
             font-weight: 600;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-        }
-        
-        .buttons-section {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            padding: 16px 20px;
-            border: none;
-            border-radius: 10px;
             font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            min-width: 120px;
-            min-height: 60px;
-            flex: 1;
-            max-width: 200px;
         }
-        
-        .btn-primary {
-            background: #4a6cf7;
-            color: white;
-        }
-        
-        .btn-secondary {
-            background: #333;
-            color: white;
-        }
-        
-        .btn-danger {
-            background: #e74c3c;
-            color: white;
-        }
-        
-        .btn-success {
-            background: #2ecc71;
-            color: white;
-        }
-        
-        .btn:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-        
-        .btn:active {
-            transform: translateY(0);
-        }
-        
-        .btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
+
         .modal {
             display: none;
             position: fixed;
@@ -208,33 +186,33 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .modal-content {
             background: #1e1e1e;
-            padding: 25px;
+            padding: 20px;
             border-radius: 10px;
             max-width: 90%;
             width: 400px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
-        
+
         .modal h2 {
             margin-bottom: 15px;
             color: #4a6cf7;
         }
-        
+
         .modal p {
             margin-bottom: 20px;
             line-height: 1.5;
         }
-        
+
         .modal-buttons {
             display: flex;
             justify-content: center;
             gap: 10px;
         }
-        
+
         textarea {
             width: 100%;
             height: 200px;
@@ -242,96 +220,12 @@
             color: white;
             border: 1px solid #444;
             border-radius: 6px;
-            padding: 15px;
+            padding: 12px;
             font-size: 1rem;
             resize: vertical;
             margin-bottom: 15px;
         }
-        
-        @media (max-width: 768px) {
-            .prompter-text {
-                font-size: 1.5rem;
-            }
-            
-            .btn {
-                padding: 14px 16px;
-                font-size: 1rem;
-                min-width: 110px;
-                min-height: 55px;
-            }
-            
-            .controls {
-                padding: 12px 8px;
-                gap: 12px;
-            }
-            
-            .speed-control {
-                padding: 10px 15px;
-            }
-            
-            .speed-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
-            
-            .speed-display {
-                font-size: 1.1rem;
-                min-width: 60px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .prompter-text {
-                font-size: 1.3rem;
-                padding: 15px;
-            }
-            
-            .btn {
-                padding: 12px 14px;
-                font-size: 0.95rem;
-                min-width: 100px;
-                min-height: 50px;
-                gap: 6px;
-            }
-            
-            .buttons-section {
-                gap: 8px;
-            }
-            
-            .speed-control {
-                gap: 12px;
-                padding: 8px 12px;
-            }
-            
-            .speed-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-            
-            .speed-display {
-                font-size: 1rem;
-                min-width: 50px;
-            }
-            
-            .header h1 {
-                font-size: 1.3rem;
-            }
-        }
-        
-        @media (max-width: 360px) {
-            .buttons-section {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                max-width: 100%;
-                width: 100%;
-            }
-        }
-        
+
         .recording-indicator {
             display: none;
             position: absolute;
@@ -339,18 +233,59 @@
             right: 10px;
             background: #e74c3c;
             color: white;
-            padding: 8px 15px;
+            padding: 6px 12px;
             border-radius: 6px;
             font-size: 0.9rem;
             font-weight: bold;
             z-index: 5;
             animation: blink 1s infinite;
         }
-        
+
         @keyframes blink {
             0% { opacity: 1; }
             50% { opacity: 0.5; }
             100% { opacity: 1; }
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .prompter-text {
+                font-size: 1.4rem;
+            }
+            .btn {
+                padding: 10px 14px;
+                font-size: 0.9rem;
+                min-width: 90px;
+                min-height: 40px;
+            }
+            .speed-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .prompter-text {
+                font-size: 1.2rem;
+            }
+            .btn {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+                min-width: 80px;
+                min-height: 35px;
+            }
+            .speed-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -359,46 +294,43 @@
         <div class="header">
             <h1>Teleprompter Profissional</h1>
         </div>
-        
+
         <div class="prompter-container">
             <div class="recording-indicator" id="recordingIndicator">GRAVANDO</div>
             <div class="prompter-mask"></div>
             <div class="prompter-text" id="prompterText">
                 Bem-vindo ao Teleprompter Profissional!
-                
                 Digite ou cole seu texto na área abaixo e clique em "Iniciar" para começar.
-                
                 Use os botões de velocidade para controlar a rolagem do texto.
-                
                 Clique em "Pausar" para parar temporariamente a rolagem.
-                
                 Use "Gravar" para iniciar a gravação e "Parar" para finalizar e baixar o vídeo.
             </div>
         </div>
-        
+
         <div class="controls">
             <div class="speed-control">
                 <button class="speed-btn" id="speedDown">-</button>
                 <div class="speed-display" id="speedDisplay">1x</div>
                 <button class="speed-btn" id="speedUp">+</button>
             </div>
-            
+
             <div class="button-group">
+                <button class="btn btn-primary" id="editTextBtn">
+                    <span>✏️</span> Editar Texto
+                </button>
                 <button class="btn btn-secondary" id="pauseBtn">
                     <span>⏸️</span> Pausar
                 </button>
-                
                 <button class="btn btn-success" id="recordBtn">
                     <span>🔴</span> Gravar
                 </button>
-                
                 <button class="btn btn-danger" id="stopBtn" disabled>
                     <span>⏹️</span> Parar
                 </button>
             </div>
         </div>
     </div>
-    
+
     <!-- Modal para inserir texto -->
     <div class="modal" id="textModal">
         <div class="modal-content">
@@ -410,7 +342,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Modal de confirmação -->
     <div class="modal" id="confirmModal">
         <div class="modal-content">
@@ -422,7 +354,7 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Elementos DOM
@@ -434,63 +366,53 @@
             const pauseBtn = document.getElementById('pauseBtn');
             const recordBtn = document.getElementById('recordBtn');
             const stopBtn = document.getElementById('stopBtn');
+            const editTextBtn = document.getElementById('editTextBtn');
             const recordingIndicator = document.getElementById('recordingIndicator');
-            
+
             // Modais
             const textModal = document.getElementById('textModal');
             const confirmModal = document.getElementById('confirmModal');
             const confirmTitle = document.getElementById('confirmTitle');
             const confirmMessage = document.getElementById('confirmMessage');
-            
+
             // Variáveis de controle
             let scrollPosition = 0;
-            let scrollSpeed = 1; // 1x por padrão
+            let scrollSpeed = 1;
             let isPaused = false;
             let isRecording = false;
             let animationId = null;
             let mediaRecorder = null;
             let recordedChunks = [];
-            
+
             // Velocidades disponíveis
             const speeds = [0.5, 0.75, 1, 1.5, 2, 2.5, 3];
-            let currentSpeedIndex = 2; // Índice para velocidade 1x
-            
+            let currentSpeedIndex = 2;
+
             // Inicialização
             function init() {
-                // Mostrar modal para inserir texto
-                showTextModal();
-                
-                // Configurar eventos
                 setupEventListeners();
+                startScrolling();
             }
-            
+
             function setupEventListeners() {
-                // Botões de velocidade
                 speedDownBtn.addEventListener('click', decreaseSpeed);
                 speedUpBtn.addEventListener('click', increaseSpeed);
-                
-                // Botão de pausa
                 pauseBtn.addEventListener('click', togglePause);
-                
-                // Botões de gravação
                 recordBtn.addEventListener('click', startRecording);
                 stopBtn.addEventListener('click', stopRecording);
-                
-                // Modais
+                editTextBtn.addEventListener('click', showTextModal);
                 document.getElementById('confirmTextBtn').addEventListener('click', confirmText);
                 document.getElementById('cancelTextBtn').addEventListener('click', cancelText);
                 document.getElementById('cancelConfirmBtn').addEventListener('click', hideConfirmModal);
                 document.getElementById('okConfirmBtn').addEventListener('click', handleConfirmAction);
-                
-                // Permitir edição do texto ao tocar duas vezes
                 prompterText.addEventListener('dblclick', showTextModal);
             }
-            
+
             function showTextModal() {
                 textInput.value = prompterText.textContent;
                 textModal.style.display = 'flex';
             }
-            
+
             function confirmText() {
                 const newText = textInput.value.trim();
                 if (newText) {
@@ -498,90 +420,77 @@
                     resetScroll();
                 }
                 textModal.style.display = 'none';
-                startScrolling();
             }
-            
+
             function cancelText() {
                 textModal.style.display = 'none';
-                // Se não há texto, manter o texto padrão
-                if (!prompterText.textContent.trim()) {
-                    prompterText.textContent = "Bem-vindo ao Teleprompter Profissional!\n\nDigite ou cole seu texto na área abaixo e clique em \"Iniciar\" para começar.\n\nUse os botões de velocidade para controlar a rolagem do texto.\n\nClique em \"Pausar\" para parar temporariamente a rolagem.\n\nUse \"Gravar\" para iniciar a gravação e \"Parar\" para finalizar e baixar o vídeo.";
-                }
-                startScrolling();
             }
-            
+
             function startScrolling() {
                 if (animationId) {
                     cancelAnimationFrame(animationId);
                 }
-                
+
                 function scroll() {
                     if (!isPaused) {
                         scrollPosition += scrollSpeed;
                         prompterText.style.transform = `translateY(-${scrollPosition}px)`;
-                        
-                        // Verificar se chegou ao final do texto
+
                         const containerHeight = document.querySelector('.prompter-container').offsetHeight;
                         const textHeight = prompterText.offsetHeight;
-                        
+
                         if (scrollPosition > textHeight + containerHeight) {
-                            // Reiniciar do início quando chegar ao final
                             resetScroll();
                         }
                     }
-                    
                     animationId = requestAnimationFrame(scroll);
                 }
-                
                 animationId = requestAnimationFrame(scroll);
             }
-            
+
             function resetScroll() {
                 scrollPosition = -document.querySelector('.prompter-container').offsetHeight;
                 prompterText.style.transform = `translateY(-${scrollPosition}px)`;
             }
-            
+
             function decreaseSpeed() {
                 if (currentSpeedIndex > 0) {
                     currentSpeedIndex--;
                     updateSpeed();
                 }
             }
-            
+
             function increaseSpeed() {
                 if (currentSpeedIndex < speeds.length - 1) {
                     currentSpeedIndex++;
                     updateSpeed();
                 }
             }
-            
+
             function updateSpeed() {
                 scrollSpeed = speeds[currentSpeedIndex];
                 speedDisplay.textContent = `${scrollSpeed}x`;
             }
-            
+
             function togglePause() {
                 isPaused = !isPaused;
                 pauseBtn.innerHTML = isPaused ? '<span>▶️</span> Continuar' : '<span>⏸️</span> Pausar';
             }
-            
+
             function startRecording() {
                 showConfirmModal(
                     "Iniciar Gravação",
                     "Deseja iniciar a gravação? O vídeo será salvo automaticamente quando você parar.",
                     () => {
-                        // Simulação de gravação (em um ambiente real, usaria MediaRecorder API)
                         isRecording = true;
                         recordBtn.disabled = true;
                         stopBtn.disabled = false;
                         recordingIndicator.style.display = 'block';
-                        
-                        // Em um ambiente real, aqui iniciaria a gravação de vídeo
                         console.log("Gravação iniciada");
                     }
                 );
             }
-            
+
             function stopRecording() {
                 if (isRecording) {
                     showConfirmModal(
@@ -592,51 +501,42 @@
                             recordBtn.disabled = false;
                             stopBtn.disabled = true;
                             recordingIndicator.style.display = 'none';
-                            
-                            // Simulação de download (em um ambiente real, baixaria o vídeo gravado)
                             simulateDownload();
                         }
                     );
                 }
             }
-            
+
             function simulateDownload() {
-                // Em um ambiente real, aqui baixaria o vídeo gravado
-                // Esta é uma simulação que cria um arquivo de exemplo
-                
+                // Simulação de download de vídeo MP4
                 const element = document.createElement('a');
-                const file = new Blob(['Este é um arquivo de exemplo. Em um teleprompter real, aqui estaria o vídeo gravado.'], {type: 'text/plain'});
+                const file = new Blob(['Este é um arquivo de exemplo. Em um teleprompter real, aqui estaria o vídeo gravado em MP4.'], {type: 'video/mp4'});
                 element.href = URL.createObjectURL(file);
                 element.download = `teleprompter-${new Date().toISOString().slice(0, 19).replace(/:/g, '-')}.mp4`;
                 document.body.appendChild(element);
                 element.click();
                 document.body.removeChild(element);
-                
-                // Mostrar mensagem de confirmação
                 alert("Download do vídeo iniciado! Verifique sua pasta de downloads.");
             }
-            
+
             function showConfirmModal(title, message, callback) {
                 confirmTitle.textContent = title;
                 confirmMessage.textContent = message;
                 confirmModal.style.display = 'flex';
-                
-                // Armazenar o callback para ser executado quando confirmado
                 window.confirmCallback = callback;
             }
-            
+
             function hideConfirmModal() {
                 confirmModal.style.display = 'none';
             }
-            
+
             function handleConfirmAction() {
                 hideConfirmModal();
                 if (window.confirmCallback) {
                     window.confirmCallback();
                 }
             }
-            
-            // Inicializar o teleprompter
+
             init();
         });
     </script>
