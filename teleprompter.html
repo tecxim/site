@@ -24,9 +24,11 @@
       display: none;
     }
     #teleprompter {
-      position: absolute;
+      position: fixed;
       bottom: 0;
-      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%; /* Coluna de texto mais estreita */
       text-align: center;
       font-size: 2em;
       line-height: 1.5em;
@@ -35,7 +37,7 @@
       z-index: 1;
       pointer-events: none;
       white-space: pre-wrap;
-      transform: translateY(60%); /* Começa um pouco acima do meio */
+      transform: translateY(0) translateX(-50%);
     }
     #controles {
       position: fixed;
@@ -89,7 +91,7 @@
     const teleprompter = document.getElementById('teleprompter');
     const roteiro = document.getElementById('roteiro');
     let velocidade = 0.5;
-    let pos = 0;
+    let pos = window.innerHeight; /* Começa de baixo para cima */
     let rodando = false;
     let animacao;
     let gravador;
@@ -133,15 +135,14 @@
       roteiro.style.display = "none";
       await iniciarCamera();
       rodando = true;
-      pos = 0;
-      teleprompter.style.transform = `translateY(60%)`;
+      pos = window.innerHeight;
       rolarTexto();
     }
 
     function rolarTexto() {
       if (!rodando) return;
       pos -= velocidade;
-      teleprompter.style.transform = `translateY(${pos}px)`;
+      teleprompter.style.transform = `translateY(${pos}px) translateX(-50%)`;
       if (pos > -teleprompter.scrollHeight) {
         animacao = requestAnimationFrame(rolarTexto);
       }
@@ -162,7 +163,7 @@
       tracks.forEach(track => track.stop());
       video.style.display = "none";
       roteiro.style.display = "block";
-      teleprompter.style.transform = "translateY(60%)";
+      teleprompter.style.transform = "translateY(0) translateX(-50%)";
     }
 
     document.getElementById('iniciar').onclick = iniciarTeleprompter;
