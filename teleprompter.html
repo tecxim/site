@@ -37,6 +37,7 @@
       z-index: 1;
       pointer-events: none;
       white-space: pre-wrap;
+      overflow: hidden;
     }
     #controles {
       position: fixed;
@@ -90,7 +91,7 @@
     const teleprompter = document.getElementById('teleprompter');
     const roteiro = document.getElementById('roteiro');
     let velocidade = 0.5;
-    let pos = 0;
+    let pos = window.innerHeight;
     let rodando = false;
     let animacao;
     let gravador;
@@ -134,7 +135,7 @@
       roteiro.style.display = "none";
       await iniciarCamera();
       rodando = true;
-      pos = window.innerHeight; // Começa no rodapé
+      pos = window.innerHeight;
       teleprompter.style.transform = `translateY(0) translateX(-50%)`;
       rolarTexto();
     }
