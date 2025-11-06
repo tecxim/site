@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teleprompter Profissional</title>
-    <style>
+     <style>
         * {
             margin: 0;
             padding: 0;
@@ -36,6 +36,7 @@
             background: #1e1e1e;
             border-bottom: 1px solid #333;
             z-index: 10;
+            flex-shrink: 0;
         }
         
         .header h1 {
@@ -81,30 +82,83 @@
         }
         
         .controls {
-            padding: 20px 15px;
+            padding: 15px 10px;
             background: #1e1e1e;
             border-top: 1px solid #333;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
             gap: 15px;
             z-index: 10;
+            flex-shrink: 0;
+        }
+        
+        .speed-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .speed-control {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #2d2d2d;
+            padding: 12px 20px;
+            border-radius: 10px;
+            max-width: 300px;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .speed-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #444;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .speed-display {
+            min-width: 70px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        
+        .buttons-section {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            flex-wrap: wrap;
         }
         
         .btn {
-            padding: 18px 25px;
+            padding: 16px 20px;
             border: none;
             border-radius: 10px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             min-width: 120px;
             min-height: 60px;
+            flex: 1;
+            max-width: 200px;
         }
         
         .btn-primary {
@@ -140,38 +194,6 @@
             opacity: 0.5;
             cursor: not-allowed;
             transform: none;
-        }
-        
-        .speed-control {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin: 0 15px;
-            background: #2d2d2d;
-            padding: 10px 15px;
-            border-radius: 10px;
-        }
-        
-        .speed-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #444;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-        
-        .speed-display {
-            min-width: 70px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 1.3rem;
         }
         
         .modal {
@@ -232,31 +254,19 @@
             }
             
             .btn {
-                padding: 16px 20px;
-                font-size: 1.1rem;
+                padding: 14px 16px;
+                font-size: 1rem;
                 min-width: 110px;
                 min-height: 55px;
             }
             
             .controls {
-                padding: 15px 10px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .prompter-text {
-                font-size: 1.3rem;
-            }
-            
-            .btn {
-                padding: 14px 18px;
-                font-size: 1rem;
-                min-width: 100px;
-                min-height: 50px;
+                padding: 12px 8px;
+                gap: 12px;
             }
             
             .speed-control {
-                margin: 5px 0;
+                padding: 10px 15px;
             }
             
             .speed-btn {
@@ -267,6 +277,58 @@
             
             .speed-display {
                 font-size: 1.1rem;
+                min-width: 60px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .prompter-text {
+                font-size: 1.3rem;
+                padding: 15px;
+            }
+            
+            .btn {
+                padding: 12px 14px;
+                font-size: 0.95rem;
+                min-width: 100px;
+                min-height: 50px;
+                gap: 6px;
+            }
+            
+            .buttons-section {
+                gap: 8px;
+            }
+            
+            .speed-control {
+                gap: 12px;
+                padding: 8px 12px;
+            }
+            
+            .speed-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .speed-display {
+                font-size: 1rem;
+                min-width: 50px;
+            }
+            
+            .header h1 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .buttons-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                max-width: 100%;
+                width: 100%;
             }
         }
         
@@ -289,13 +351,6 @@
             0% { opacity: 1; }
             50% { opacity: 0.5; }
             100% { opacity: 1; }
-        }
-        
-        .button-group {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
         }
     </style>
 </head>
