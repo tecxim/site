@@ -25,7 +25,7 @@
     }
     #teleprompter {
       position: absolute;
-      bottom: 0;
+      top: 0; /* ← muda de bottom para top */
       width: 100%;
       text-align: center;
       font-size: 2em;
@@ -35,7 +35,7 @@
       z-index: 1;
       pointer-events: none;
       white-space: pre-wrap;
-      transform: translateY(100%); /* começa fora da tela (em baixo) */
+      transform: translateY(-100%); /* começa fora da tela (em cima) */
     }
     #controles {
       position: fixed;
@@ -133,17 +133,16 @@
       roteiro.style.display = "none";
       await iniciarCamera();
       rodando = true;
-      pos = window.innerHeight; // começa fora da tela
+      pos = -teleprompter.scrollHeight; // começa fora da tela (em cima)
       teleprompter.style.transform = `translateY(${pos}px)`;
       rolarTexto();
     }
 
     function rolarTexto() {
       if (!rodando) return;
-      pos -= velocidade;
+      pos += velocidade; // agora desce
       teleprompter.style.transform = `translateY(${pos}px)`;
-      // Continua rolando até todo o texto sair da tela
-      if (pos > -teleprompter.scrollHeight) {
+      if (pos < window.innerHeight) {
         animacao = requestAnimationFrame(rolarTexto);
       }
     }
@@ -163,7 +162,7 @@
       tracks.forEach(track => track.stop());
       video.style.display = "none";
       roteiro.style.display = "block";
-      teleprompter.style.transform = "translateY(100%)";
+      teleprompter.style.transform = "translateY(-100%)";
     }
 
     document.getElementById('iniciar').onclick = iniciarTeleprompter;
