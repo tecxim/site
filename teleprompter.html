@@ -134,8 +134,8 @@
       roteiro.style.display = "none";
       await iniciarCamera();
       rodando = true;
-      pos = window.innerHeight;
-      teleprompter.style.transform = `translateY(${pos}px) translateX(-50%)`;
+      pos = window.innerHeight; // Começa no rodapé
+      teleprompter.style.transform = `translateY(0) translateX(-50%)`;
       rolarTexto();
     }
 
