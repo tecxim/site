@@ -19,13 +19,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transform: scaleX(-1); /* Espelhamento da câmera frontal */
+      transform: scaleX(-1);
       z-index: 0;
       display: none;
     }
     #teleprompter {
       position: absolute;
-      bottom: 100%; /* Começa acima da tela */
+      bottom: 0;
       width: 100%;
       text-align: center;
       font-size: 2em;
@@ -34,7 +34,8 @@
       text-shadow: 2px 2px 4px black;
       z-index: 1;
       pointer-events: none;
-      /* Sem espelhamento do texto */
+      white-space: pre-wrap;
+      transform: translateY(60%); /* Começa um pouco acima do meio */
     }
     #controles {
       position: fixed;
@@ -87,8 +88,8 @@
     const video = document.getElementById('camera');
     const teleprompter = document.getElementById('teleprompter');
     const roteiro = document.getElementById('roteiro');
-    let velocidade = 0.4;
-    let pos = window.innerHeight; /* Começa acima da tela */
+    let velocidade = 0.5;
+    let pos = 0;
     let rodando = false;
     let animacao;
     let gravador;
@@ -132,15 +133,16 @@
       roteiro.style.display = "none";
       await iniciarCamera();
       rodando = true;
-      pos = window.innerHeight; /* Começa acima da tela */
+      pos = 0;
+      teleprompter.style.transform = `translateY(60%)`;
       rolarTexto();
     }
 
     function rolarTexto() {
       if (!rodando) return;
-      pos -= velocidade; /* Rolagem para cima */
-      teleprompter.style.bottom = pos + "px";
-      if (pos > -teleprompter.offsetHeight) { /* Para quando o texto sair da tela */
+      pos -= velocidade;
+      teleprompter.style.transform = `translateY(${pos}px)`;
+      if (pos > -teleprompter.scrollHeight) {
         animacao = requestAnimationFrame(rolarTexto);
       }
     }
@@ -160,7 +162,7 @@
       tracks.forEach(track => track.stop());
       video.style.display = "none";
       roteiro.style.display = "block";
-      teleprompter.style.bottom = "100%"; /* Reseta a posição */
+      teleprompter.style.transform = "translateY(60%)";
     }
 
     document.getElementById('iniciar').onclick = iniciarTeleprompter;
