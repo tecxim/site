@@ -37,8 +37,12 @@
             <h1 class="display-6 fw-bold">Teste de Impulsividade</h1>
             <p class="lead text-muted">Responda às perguntas a seguir para avaliar seu nível de impulsividade.</p>
         </div>
+
         <!-- Perguntas -->
         <div id="questions-container">
+            <!-- Perguntas originais 1–10 -->
+            <!-- (mantidas sem alteração) -->
+
             <!-- Pergunta 1 -->
             <div class="question-card">
                 <h5>1. Com que frequência você age sem pensar nas consequências?</h5>
@@ -129,13 +133,61 @@
                     <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(10, 3)">Ignoro ou questiono as regras frequentemente</button>
                 </div>
             </div>
+
+            <!-- Novas perguntas 11–15 -->
+            <div class="question-card">
+                <h5>11. Quando algo dá errado, você costuma agir por impulso para resolver?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(11, 1)">Penso antes de agir</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(11, 2)">Às vezes ajo rapidamente</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(11, 3)">Reajo imediatamente sem pensar</button>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <h5>12. Você tem dificuldade em controlar emoções fortes, como raiva ou euforia?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(12, 1)">Raramente</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(12, 2)">Às vezes</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(12, 3)">Frequentemente</button>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <h5>13. Com que frequência você inicia algo novo antes de terminar o que começou?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(13, 1)">Raramente</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(13, 2)">Às vezes</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(13, 3)">Frequentemente</button>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <h5>14. Quando está entediado, você busca rapidamente algo para se distrair?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(14, 1)">Não, espero ou continuo a atividade</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(14, 2)">Às vezes busco distrações</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(14, 3)">Sempre procuro algo novo imediatamente</button>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <h5>15. Você costuma se arriscar em situações novas sem avaliar o perigo?</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(15, 1)">Quase nunca</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(15, 2)">Às vezes</button>
+                    <button class="btn btn-outline-primary btn-option" onclick="selectAnswer(15, 3)">Frequentemente</button>
+                </div>
+            </div>
         </div>
+
         <!-- Botão para calcular resultado -->
         <div class="text-center mt-4">
             <button id="calculate-btn" class="btn btn-primary btn-lg" onclick="calculateResult()">
                 Ver Meu Resultado <i class="bi bi-arrow-right"></i>
             </button>
         </div>
+
         <!-- Resultado -->
         <div id="result-card" class="result-card">
             <h4 class="text-center">Seu Resultado</h4>
@@ -150,60 +202,59 @@
             </div>
         </div>
     </div>
+
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <!-- Lógica do teste -->
     <script>
-        // Armazena as respostas do usuário
         let answers = {};
-        // Função para selecionar uma resposta
+
         function selectAnswer(question, value) {
             answers[question] = value;
-            // Remove a classe 'btn-primary' de todos os botões da pergunta
-            const allButtons = document.querySelectorAll(`#questions-container div:nth-child(${question}) .btn-option`);
+            const allButtons = document.querySelectorAll(`#questions-container .question-card:nth-of-type(${question}) .btn-option`);
             allButtons.forEach(btn => {
                 btn.classList.remove('btn-primary');
                 btn.classList.add('btn-outline-primary');
             });
-            // Adiciona a classe 'btn-primary' ao botão clicado
             const clickedButton = event.target;
             clickedButton.classList.remove('btn-outline-primary');
             clickedButton.classList.add('btn-primary');
         }
-        // Função para calcular o resultado
+
         function calculateResult() {
             let totalScore = 0;
             let answeredQuestions = 0;
-            // Soma as respostas
+
             for (const question in answers) {
                 totalScore += answers[question];
                 answeredQuestions++;
             }
-            // Verifica se todas as perguntas foram respondidas
-            if (answeredQuestions < 10) {
+
+            if (answeredQuestions < 15) {
                 alert("Por favor, responda a todas as perguntas antes de ver o resultado.");
                 return;
             }
-            // Exibe o resultado
+
             const scoreValue = document.getElementById('score-value');
             const scoreDescription = document.getElementById('score-description');
             const resultCard = document.getElementById('result-card');
-            // Lógica para definir a descrição com base na pontuação
+
             let description = "";
-            if (totalScore <= 15) {
-                description = "Você tem um <strong>baixo nível de impulsividade</strong>. Sua capacidade de refletir antes de agir e seguir planos é um ponto forte. Continue assim!";
-            } else if (totalScore <= 22) {
-                description = "Você apresenta um <strong>nível moderado de impulsividade</strong>. Em algumas situações, age sem pensar, mas consegue se controlar na maioria das vezes. Trabalhar a paciência e o planejamento pode ser útil.";
+            if (totalScore <= 22) {
+                description = "Você tem um <strong>baixo nível de impulsividade</strong>. Sua capacidade de refletir antes de agir é um ponto forte.";
+            } else if (totalScore <= 33) {
+                description = "Você apresenta um <strong>nível moderado de impulsividade</strong>. Em algumas situações, age por impulso, mas costuma se controlar.";
             } else {
-                description = "Você tem um <strong>alto nível de impulsividade</strong>. Age frequentemente sem pensar nas consequências, o que pode gerar arrependimentos ou conflitos. Praticar a pausa antes de agir e buscar técnicas de autocontrole pode ajudar.";
+                description = "Você tem um <strong>alto nível de impulsividade</strong>. Age frequentemente sem pensar nas consequências. Trabalhar o autocontrole pode ajudar.";
             }
-            scoreValue.textContent = `${totalScore}/30`;
+
+            scoreValue.textContent = `${totalScore}/45`;
             scoreDescription.innerHTML = description;
             resultCard.style.display = "block";
-            // Rola até o resultado
             resultCard.scrollIntoView({ behavior: 'smooth' });
         }
-        // Função para reiniciar o teste
+
         function resetTest() {
             answers = {};
             document.querySelectorAll('.btn-option').forEach(btn => {
@@ -211,7 +262,6 @@
                 btn.classList.add('btn-outline-primary');
             });
             document.getElementById('result-card').style.display = "none";
-            // Rola para o topo da página
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
