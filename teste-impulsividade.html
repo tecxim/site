@@ -208,62 +208,80 @@
 
     <!-- Lógica do teste -->
     <script>
-        let answers = {};
+    let answers = {};
 
-        function selectAnswer(question, value) {
-            answers[question] = value;
-            const allButtons = document.querySelectorAll(`#questions-container .question-card:nth-of-type(${question}) .btn-option`);
-            allButtons.forEach(btn => {
-                btn.classList.remove('btn-primary');
-                btn.classList.add('btn-outline-primary');
-            });
-            const clickedButton = event.target;
-            clickedButton.classList.remove('btn-outline-primary');
-            clickedButton.classList.add('btn-primary');
+    function selectAnswer(question, value) {
+        answers[question] = value;
+        const allButtons = document.querySelectorAll(`#questions-container .question-card:nth-of-type(${question}) .btn-option`);
+        allButtons.forEach(btn => {
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-outline-primary');
+        });
+        const clickedButton = event.target;
+        clickedButton.classList.remove('btn-outline-primary');
+        clickedButton.classList.add('btn-primary');
+    }
+
+    function calculateResult() {
+        let totalScore = 0;
+        let answeredQuestions = 0;
+
+        for (const question in answers) {
+            totalScore += answers[question];
+            answeredQuestions++;
         }
 
-        function calculateResult() {
-            let totalScore = 0;
-            let answeredQuestions = 0;
-
-            for (const question in answers) {
-                totalScore += answers[question];
-                answeredQuestions++;
-            }
-
-            if (answeredQuestions < 15) {
-                alert("Por favor, responda a todas as perguntas antes de ver o resultado.");
-                return;
-            }
-
-            const scoreValue = document.getElementById('score-value');
-            const scoreDescription = document.getElementById('score-description');
-            const resultCard = document.getElementById('result-card');
-
-            let description = "";
-            if (totalScore <= 22) {
-                description = "Você tem um <strong>baixo nível de impulsividade</strong>. Sua capacidade de refletir antes de agir é um ponto forte.";
-            } else if (totalScore <= 33) {
-                description = "Você apresenta um <strong>nível moderado de impulsividade</strong>. Em algumas situações, age por impulso, mas costuma se controlar.";
-            } else {
-                description = "Você tem um <strong>alto nível de impulsividade</strong>. Age frequentemente sem pensar nas consequências. Trabalhar o autocontrole pode ajudar.";
-            }
-
-            scoreValue.textContent = `${totalScore}/45`;
-            scoreDescription.innerHTML = description;
-            resultCard.style.display = "block";
-            resultCard.scrollIntoView({ behavior: 'smooth' });
+        if (answeredQuestions < 15) {
+            alert("Por favor, responda a todas as perguntas antes de ver o resultado.");
+            return;
         }
 
-        function resetTest() {
-            answers = {};
-            document.querySelectorAll('.btn-option').forEach(btn => {
-                btn.classList.remove('btn-primary');
-                btn.classList.add('btn-outline-primary');
-            });
-            document.getElementById('result-card').style.display = "none";
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        const scoreValue = document.getElementById('score-value');
+        const scoreDescription = document.getElementById('score-description');
+        const resultCard = document.getElementById('result-card');
+
+        let description = "";
+
+        if (totalScore <= 22) {
+            description = `
+                Você tem um <strong>baixo nível de impulsividade</strong>.<br><br>
+                🌿 <em>Sugestão:</em> Continue usando sua calma e reflexão como aliados. 
+                Às vezes, ser mais espontâneo também pode trazer novas experiências, 
+                desde que com equilíbrio. Experimente pequenas ações fora da rotina para manter o dinamismo.
+            `;
+        } else if (totalScore <= 33) {
+            description = `
+                Você apresenta um <strong>nível moderado de impulsividade</strong>.<br><br>
+                ⚖️ <em>Sugestão:</em> Procure observar seus gatilhos — momentos em que a pressa ou emoção 
+                o fazem agir rapidamente. Praticar respiração profunda ou contar até 5 antes de decidir 
+                pode ajudar. Planejar pequenas metas também reduz reações por impulso.
+            `;
+        } else {
+            description = `
+                Você tem um <strong>alto nível de impulsividade</strong>.<br><br>
+                🔥 <em>Sugestão:</em> Experimente técnicas de autocontrole, como meditação, pausas conscientes 
+                e escrever antes de agir. Evite decisões imediatas em momentos de raiva ou empolgação. 
+                Se for algo recorrente e difícil de controlar, conversar com um psicólogo pode trazer 
+                ótimos resultados práticos e personalizados.
+            `;
         }
-    </script>
+
+        scoreValue.textContent = `${totalScore}/45`;
+        scoreDescription.innerHTML = description;
+        resultCard.style.display = "block";
+        resultCard.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetTest() {
+        answers = {};
+        document.querySelectorAll('.btn-option').forEach(btn => {
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-outline-primary');
+        });
+        document.getElementById('result-card').style.display = "none";
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
 </body>
 </html>
