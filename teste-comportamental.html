@@ -270,76 +270,87 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Lógica do teste -->
-    <script>
-        // Armazena as respostas do usuário
-        let answers = {};
+    <!-- Lógica do teste comportamental aprimorada -->
+<script>
+    let answers = {};
 
-        // Função para selecionar uma resposta
-        function selectAnswer(question, value) {
-            answers[question] = value;
-            // Remove a classe 'btn-primary' de todos os botões da pergunta
-            const allButtons = document.querySelectorAll(`#questions-container div:nth-child(${question}) .btn-option`);
-            allButtons.forEach(btn => {
-                btn.classList.remove('btn-primary');
-                btn.classList.add('btn-outline-primary');
-            });
-            // Adiciona a classe 'btn-primary' ao botão clicado
-            const clickedButton = event.target;
-            clickedButton.classList.remove('btn-outline-primary');
-            clickedButton.classList.add('btn-primary');
+    function selectAnswer(question, value) {
+        answers[question] = value;
+        const allButtons = document.querySelectorAll(`#questions-container div:nth-child(${question}) .btn-option`);
+        allButtons.forEach(btn => {
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-outline-primary');
+        });
+        const clickedButton = event.target;
+        clickedButton.classList.remove('btn-outline-primary');
+        clickedButton.classList.add('btn-primary');
+    }
+
+    function calculateResult() {
+        let totalScore = 0;
+        let answeredQuestions = 0;
+
+        for (const question in answers) {
+            totalScore += answers[question];
+            answeredQuestions++;
         }
 
-        // Função para calcular o resultado
-        function calculateResult() {
-            let totalScore = 0;
-            let answeredQuestions = 0;
-
-            // Soma as respostas
-            for (const question in answers) {
-                totalScore += answers[question];
-                answeredQuestions++;
-            }
-
-            // Verifica se todas as perguntas foram respondidas
-            if (answeredQuestions < 20) {
-                alert("Por favor, responda a todas as perguntas antes de ver o resultado.");
-                return;
-            }
-
-            // Exibe o resultado
-            const scoreValue = document.getElementById('score-value');
-            const scoreDescription = document.getElementById('score-description');
-            const resultCard = document.getElementById('result-card');
-
-            // Lógica para definir a descrição com base na pontuação
-            let description = "";
-            if (totalScore <= 30) {
-                description = "Você tem um perfil <strong>proativo, resiliente e inovador</strong>. Sua capacidade de adaptação e liderança são diferenciais. Continue assim!";
-            } else if (totalScore <= 45) {
-                description = "Você é <strong>equilibrado e versátil</strong>. Conseguir lidar com desafios e se adaptar a diferentes situações é um ponto forte, mas pode melhorar em alguns aspectos.";
-            } else {
-                description = "Você pode ter <strong>dificuldades com mudanças, pressão e autoconfiança</strong>. Trabalhar sua flexibilidade e segurança pode te ajudar a alcançar novos patamares.";
-            }
-
-            scoreValue.textContent = `${totalScore}/60`;
-            scoreDescription.innerHTML = description;
-            resultCard.style.display = "block";
-
-            // Rola até o resultado
-            resultCard.scrollIntoView({ behavior: 'smooth' });
+        if (answeredQuestions < 20) {
+            alert("Por favor, responda a todas as perguntas antes de ver o resultado.");
+            return;
         }
 
-        // Função para reiniciar o teste
-        function resetTest() {
-            answers = {};
-            document.querySelectorAll('.btn-option').forEach(btn => {
-                btn.classList.remove('btn-primary');
-                btn.classList.add('btn-outline-primary');
-            });
-            document.getElementById('result-card').style.display = "none";
-            // Rola para o topo da página
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        const scoreValue = document.getElementById('score-value');
+        const scoreDescription = document.getElementById('score-description');
+        const resultCard = document.getElementById('result-card');
+
+        let description = "";
+
+        if (totalScore <= 30) {
+            description = `
+                Você tem um perfil <strong>proativo, resiliente e inovador</strong>.<br><br>
+                🌱 <em>Sugestões de aprimoramento:</em><br>
+                - Continue cultivando sua criatividade, mas lembre-se de equilibrar ação e planejamento.<br>
+                - Ouça diferentes opiniões antes de decidir — isso reforça sua liderança.<br>
+                - Reserve momentos de descanso para não sobrecarregar sua energia produtiva.<br><br>
+                Seu comportamento inspira outros e tende a gerar bons resultados a longo prazo!
+            `;
+        } else if (totalScore <= 45) {
+            description = `
+                Você é <strong>equilibrado e versátil</strong> — consegue se adaptar a contextos diversos e manter a calma sob pressão.<br><br>
+                ⚖️ <em>Sugestões de aprimoramento:</em><br>
+                - Trabalhe o foco: defina metas curtas para não dispersar entre muitas tarefas.<br>
+                - Pratique feedbacks construtivos — isso aumenta seu impacto positivo nas relações.<br>
+                - Explore novas formas de aprendizado para estimular o crescimento contínuo.<br><br>
+                Pequenos ajustes podem transformar sua versatilidade em excelência comportamental.
+            `;
+        } else {
+            description = `
+                Você pode apresentar <strong>dificuldades com mudanças, pressão e autoconfiança</strong>, mas isso pode ser aprimorado com autoconhecimento e prática.<br><br>
+                🔥 <em>Sugestões de aprimoramento:</em><br>
+                - Trabalhe a autoconfiança reconhecendo suas conquistas recentes — anote vitórias pequenas.<br>
+                - Use desafios como oportunidades de aprendizado, e não de ameaça.<br>
+                - Experimente técnicas de relaxamento (respiração, caminhada, pausa mental) antes de decisões difíceis.<br><br>
+                Com constância, você vai perceber mais controle emocional e clareza nas ações.
+            `;
         }
-    </script>
+
+        scoreValue.textContent = `${totalScore}/60`;
+        scoreDescription.innerHTML = description;
+        resultCard.style.display = "block";
+        resultCard.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetTest() {
+        answers = {};
+        document.querySelectorAll('.btn-option').forEach(btn => {
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-outline-primary');
+        });
+        document.getElementById('result-card').style.display = "none";
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
 </body>
 </html>
