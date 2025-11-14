@@ -32,6 +32,14 @@
     </style>
 </head>
 <body>
+
+<script>
+// Protege esta página
+if (localStorage.getItem("token_acesso") !== "VALIDO") {
+    window.location.href = "login.html";
+}
+</script>
+
     <div class="container py-5">
         <div class="text-center mb-5">
             <h1 class="display-6 fw-bold">Teste de Impulsividade</h1>
