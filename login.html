@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+</head>
+<body>
+
+<h2>Acesso Restrito</h2>
+
+<input id="user" placeholder="Usuário">
+<input id="pass" type="password" placeholder="Senha">
+<button onclick="login()">Entrar</button>
+
+<script>
+function login() {
+    const user = document.getElementById('user').value;
+    const pass = document.getElementById('pass').value;
+
+    // Altere esta senha
+    const correctUser = "revenda";
+    const correctPass = "12345";
+
+    if (user === correctUser && pass === correctPass) {
+        // Grava token no navegador
+        localStorage.setItem("token_acesso", "VALIDO");
+
+        // Redireciona para painel
+        window.location.href = "painel.html";
+    } else {
+        alert("Usuário ou senha incorretos.");
+    }
+}
+</script>
+
+</body>
+</html>
