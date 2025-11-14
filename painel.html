@@ -355,11 +355,15 @@
         </div>
     </div>
 
-    <script>
-        // Proteção do painel
-        if (localStorage.getItem("token_acesso") !== "TOKEN_VALIDO") {
-            window.location.href = "login.html";
-        }
+     // Proteção do painel - VERIFICAÇÃO CORRIGIDA
+      if (!localStorage.getItem("token_acesso")) {
+          window.location.href = "login.html";
+      }
+
+     function logout() {
+        localStorage.removeItem("token_acesso");
+         window.location.href = "login.html";
+      }
 
         // Filtro de categorias
         document.querySelectorAll('.category-btn').forEach(button => {
