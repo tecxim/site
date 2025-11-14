@@ -456,6 +456,14 @@
     </style>
 </head>
 <body>
+
+<script>
+// Protege esta página
+if (localStorage.getItem("token_acesso") !== "VALIDO") {
+    window.location.href = "login.html";
+}
+</script>
+
     <div class="container">
         <header>
             <h1>Gerador de Currículo Profissional</h1>
