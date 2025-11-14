@@ -1,43 +1,395 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-<title>Painel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Membros</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: var(--dark-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 12px 24px;
+            background-color: white;
+            border: 2px solid var(--secondary-color);
+            border-radius: 30px;
+            color: var(--secondary-color);
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .resource-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .card-description {
+            color: #666;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .card-link {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .card-link:hover {
+            background-color: var(--primary-color);
+        }
+
+        .logout-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .logout-btn {
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>Área de Membros</h1>
+            <p class="subtitle">Acesse todos os nossos recursos exclusivos</p>
+        </header>
 
-<h2>Área de Membros</h2>
+        <div class="categories">
+            <button class="category-btn active" data-category="all">Todos</button>
+            <button class="category-btn" data-category="sites">Sites</button>
+            <button class="category-btn" data-category="biblia">Apps da Bíblia</button>
+            <button class="category-btn" data-category="jogos">Jogos</button>
+        </div>
 
-<ul>
-    <li><a href="https://tecxim.github.io/site/bibliaquiz.html" target="_blank">Quiz Bíblico</a></li>
-    <li><a href="https://tecxim.github.io/site/gerador-de-signature.html" target="_blank">Gerador de Assinatura</a></li>
-    <li><a href="https://tecxim.github.io/site/gerador_de_curriculo.html" target="_blank">Gerador de Currículo</a></li>
-    <li><a href="https://tecxim.github.io/site/guia-autoconhecimento.html" target="_blank">Guia de Autoconhecimento</a></li>
-    <li><a href="https://tecxim.github.io/site/teste-comportamental.html" target="_blank">Teste Comportamental</a></li>
-    <li><a href="https://tecxim.github.io/site/teste-impulsividade.html" target="_blank">Teste de Impulsividade</a></li>
-    
-    <li><a href="https://tecxim.github.io/teste_game/campo-minado.html" target="_blank">Campo Minado</a></li>
-    <li><a href="https://tecxim.github.io/teste_game/fuja-dos-meteoros.html" target="_blank">Fuja dos Meteoros</a></li>
-    <li><a href="https://tecxim.github.io/teste_game/jogo-da-velha.html" target="_blank">Jogo da Velha</a></li>
-    <li><a href="https://tecxim.github.io/teste_game/memorix.html" target="_blank">Memorix</a></li>
-    <li><a href="https://tecxim.github.io/teste_game/pula-bailarina.html" target="_blank">Pula Bailarina</a></li>
-    <li><a href="https://tecxim.github.io/teste_game/tubo-logico.html" target="_blank">Tubo Lógico</a></li>
-</ul>
+        <div class="resources-grid">
+            <!-- Apps da Bíblia -->
+            <div class="resource-card" data-category="biblia">
+                <div class="card-header">
+                    <span class="card-icon">📖</span>
+                    <h3>Quiz Bíblico</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Quiz Bíblico</h4>
+                    <p class="card-description">Teste seus conhecimentos bíblicos com perguntas desafiadoras sobre as escrituras sagradas.</p>
+                    <a href="https://tecxim.github.io/site/bibliaquiz.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
 
+            <!-- Sites -->
+            <div class="resource-card" data-category="sites">
+                <div class="card-header">
+                    <span class="card-icon">📧</span>
+                    <h3>Gerador de Assinatura</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Gerador de Assinatura</h4>
+                    <p class="card-description">Crie assinaturas profissionais para e-mails de forma rápida e personalizada.</p>
+                    <a href="https://tecxim.github.io/site/gerador-de-signature.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
 
+            <div class="resource-card" data-category="sites">
+                <div class="card-header">
+                    <span class="card-icon">📄</span>
+                    <h3>Gerador de Currículo</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Gerador de Currículo</h4>
+                    <p class="card-description">Crie currículos profissionais e atraentes para suas oportunidades de emprego.</p>
+                    <a href="https://tecxim.github.io/site/gerador_de_curriculo.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
 
-<button onclick="logout()">Sair</button>
+            <div class="resource-card" data-category="sites">
+                <div class="card-header">
+                    <span class="card-icon">🧠</span>
+                    <h3>Guia de Autoconhecimento</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Guia de Autoconhecimento</h4>
+                    <p class="card-description">Explore técnicas e exercícios para desenvolver seu autoconhecimento e crescimento pessoal.</p>
+                    <a href="https://tecxim.github.io/site/guia-autoconhecimento.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
 
-<script>
-// Proteção do painel
-if (localStorage.getItem("token_acesso") !== "TOKEN_VALIDO") {
-    window.location.href = "login.html";
-}
+            <div class="resource-card" data-category="sites">
+                <div class="card-header">
+                    <span class="card-icon">📊</span>
+                    <h3>Teste Comportamental</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Teste Comportamental</h4>
+                    <p class="card-description">Descubra mais sobre seu perfil comportamental e como ele influencia suas decisões.</p>
+                    <a href="https://tecxim.github.io/site/teste-comportamental.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
 
-function logout() {
-    localStorage.removeItem("token_acesso");
-    window.location.href = "login.html";
-}
-</script>
+            <div class="resource-card" data-category="sites">
+                <div class="card-header">
+                    <span class="card-icon">⚡</span>
+                    <h3>Teste de Impulsividade</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Teste de Impulsividade</h4>
+                    <p class="card-description">Avalie seu nível de impulsividade e obtenha insights para melhorar seu autocontrole.</p>
+                    <a href="https://tecxim.github.io/site/teste-impulsividade.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
 
+            <!-- Jogos -->
+            <div class="resource-card" data-category="jogos">
+                <div class="card-header">
+                    <span class="card-icon">💣</span>
+                    <h3>Campo Minado</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Campo Minado</h4>
+                    <p class="card-description">O clássico jogo de estratégia onde você deve evitar as minas escondidas no tabuleiro.</p>
+                    <a href="https://tecxim.github.io/teste_game/campo-minado.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="jogos">
+                <div class="card-header">
+                    <span class="card-icon">🌠</span>
+                    <h3>Fuja dos Meteoros</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Fuja dos Meteoros</h4>
+                    <p class="card-description">Desvie dos meteoros caindo do céu neste emocionante jogo de agilidade e reflexos.</p>
+                    <a href="https://tecxim.github.io/teste_game/fuja-dos-meteoros.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="jogos">
+                <div class="card-header">
+                    <span class="card-icon">⭕</span>
+                    <h3>Jogo da Velha</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Jogo da Velha</h4>
+                    <p class="card-description">O tradicional jogo da velha para desafiar seus amigos ou testar suas habilidades contra a máquina.</p>
+                    <a href="https://tecxim.github.io/teste_game/jogo-da-velha.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="jogos">
+                <div class="card-header">
+                    <span class="card-icon">🧩</span>
+                    <h3>Memorix</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Memorix</h4>
+                    <p class="card-description">Exercite sua memória neste jogo de combinação de cartas com diferentes níveis de dificuldade.</p>
+                    <a href="https://tecxim.github.io/teste_game/memorix.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="jogos">
+                <div class="card-header">
+                    <span class="card-icon">💃</span>
+                    <h3>Pula Bailarina</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Pula Bailarina</h4>
+                    <p class="card-description">Ajude a bailarina a pular obstáculos neste jogo divertido e desafiador.</p>
+                    <a href="https://tecxim.github.io/teste_game/pula-bailarina.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="jogos">
+                <div class="card-header">
+                    <span class="card-icon">🧠</span>
+                    <h3>Tubo Lógico</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Tubo Lógico</h4>
+                    <p class="card-description">Desafie seu raciocínio lógico neste jogo de conexões e padrões.</p>
+                    <a href="https://tecxim.github.io/teste_game/tubo-logico.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="logout-section">
+            <button class="logout-btn" onclick="logout()">Sair</button>
+        </div>
+    </div>
+
+    <script>
+        // Proteção do painel
+        if (localStorage.getItem("token_acesso") !== "TOKEN_VALIDO") {
+            window.location.href = "login.html";
+        }
+
+        // Filtro de categorias
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove a classe active de todos os botões
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Adiciona a classe active ao botão clicado
+                button.classList.add('active');
+                
+                // Obtém a categoria selecionada
+                const category = button.getAttribute('data-category');
+                
+                // Filtra os cards
+                document.querySelectorAll('.resource-card').forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        function logout() {
+            localStorage.removeItem("token_acesso");
+            window.location.href = "login.html";
+        }
+    </script>
 </body>
 </html>
