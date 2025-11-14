@@ -1,36 +1,191 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-<title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Restrito | Sistema</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .login-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .logo {
+            margin-bottom: 30px;
+        }
+        
+        .logo h1 {
+            color: #2575fc;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .logo p {
+            color: #777;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 500;
+            font-size: 22px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #2575fc;
+            box-shadow: 0 0 0 2px rgba(37, 117, 252, 0.2);
+        }
+        
+        button {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 20px;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(37, 117, 252, 0.3);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .footer {
+            margin-top: 25px;
+            color: #777;
+            font-size: 13px;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            margin-top: 15px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="login-container">
+        <div class="logo">
+            <h1>Sistema</h1>
+            <p>Acesso Restrito</p>
+        </div>
+        
+        <h2>Faça seu login</h2>
+        
+        <div class="input-group">
+            <label for="user">Usuário</label>
+            <input type="text" id="user" placeholder="Digite seu usuário">
+        </div>
+        
+        <div class="input-group">
+            <label for="pass">Senha</label>
+            <input type="password" id="pass" placeholder="Digite sua senha">
+        </div>
+        
+        <button onclick="login()">Entrar</button>
+        
+        <div id="error-message" class="error-message">
+            Usuário ou senha incorretos.
+        </div>
+        
+        <div class="footer">
+            &copy; 2023 Sistema. Todos os direitos reservados.
+        </div>
+    </div>
 
-<h2>Acesso Restrito</h2>
+    <script>
+        function login() {
+            const user = document.getElementById('user').value;
+            const pass = document.getElementById('pass').value;
+            const errorMessage = document.getElementById('error-message');
 
-<input id="user" placeholder="Usuário">
-<input id="pass" type="password" placeholder="Senha">
-<button onclick="login()">Entrar</button>
+            // Altere esta senha
+            const correctUser = "revenda";
+            const correctPass = "12345";
 
-<script>
-function login() {
-    const user = document.getElementById('user').value;
-    const pass = document.getElementById('pass').value;
+            if (user === correctUser && pass === correctPass) {
+                // Esconde mensagem de erro se estiver visível
+                errorMessage.style.display = 'none';
+                
+                // Grava token no navegador
+                localStorage.setItem("token_acesso", "VALIDO");
 
-    // Altere esta senha
-    const correctUser = "revenda";
-    const correctPass = "12345";
-
-    if (user === correctUser && pass === correctPass) {
-        // Grava token no navegador
-        localStorage.setItem("token_acesso", "VALIDO");
-
-        // Redireciona para painel
-        window.location.href = "painel.html";
-    } else {
-        alert("Usuário ou senha incorretos.");
-    }
-}
-</script>
-
+                // Redireciona para painel
+                window.location.href = "painel.html";
+            } else {
+                // Exibe mensagem de erro
+                errorMessage.style.display = 'block';
+            }
+        }
+        
+        // Permite login ao pressionar Enter
+        document.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                login();
+            }
+        });
+    </script>
 </body>
 </html>
