@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Painel</title>
+</head>
+<body>
+
+<h2>Área de Membros</h2>
+
+<ul>
+    <li><a href="bibliaquiz.html">Quiz Bíblico</a></li>
+    <li><a href="gerador_de_curriculo.html">Gerador de Currículo</a></li>
+    <li><a href="tubo-logico.html">Tubo Lógico</a></li>
+    <li><a href="campo-minado.html">Campo Minado</a></li>
+    <li><a href="pula-bailarina.html">Pula Bailarina</a></li>
+    <!-- adicione todos -->
+</ul>
+
+<button onclick="logout()">Sair</button>
+
+<script>
+// Proteção do painel
+if (localStorage.getItem("token_acesso") !== "VALIDO") {
+    window.location.href = "login.html";
+}
+
+function logout() {
+    localStorage.removeItem("token_acesso");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
