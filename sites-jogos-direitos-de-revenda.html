@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pacote de Sites e Jogos Leves</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #0d1117;
+        color: white;
+        text-align: center;
+    }
+
+    header {
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .price {
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: #00ff88;
+        margin: 10px 0;
+    }
+
+    .tag {
+        background: #222;
+        padding: 8px 15px;
+        border-radius: 8px;
+        display: inline-block;
+        margin: 5px;
+        border: 1px solid #333;
+    }
+
+    .video-container {
+        margin: 40px auto;
+        max-width: 800px;
+        width: 90%;
+        aspect-ratio: 16 / 9;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 2px solid #00ff88;
+    }
+
+    iframe, video {
+        width: 100%;
+        height: 100%;
+    }
+
+    button {
+        padding: 15px 30px;
+        background: #00ff88;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        background: #00cc66;
+    }
+
+    footer {
+        margin-top: 40px;
+        padding: 20px;
+        font-size: 0.9rem;
+        color: #bbb;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Pacote de Sites e Jogos Leves</h1>
+    <p class="price">Apenas R$ 19,90</p>
+    <div class="tag">Acesso Vitalício</div>
+    <div class="tag">Direito de Revenda Incluso</div>
+</header>
+
+<!-- ÁREA DO VÍDEO -->
+<div class="video-container">
+    <!-- Substitua o link do YouTube abaixo pelo seu vídeo -->
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+</div>
+
+<button onclick="comprar()">Quero Adquirir Agora</button>
+
+<script>
+function comprar() {
+    alert("Você pode colocar aqui o link da sua página de pagamento.");
+    // Exemplo:
+    // window.location.href = "https://seu-link-de-pagamento.com";
+}
+</script>
+
+<footer>
+    © 2025 - Seu Nome / Sua Marca — Todos os direitos reservados.
+</footer>
+
+</body>
+</html>
