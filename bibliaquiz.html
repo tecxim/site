@@ -249,6 +249,14 @@
     </style>
 </head>
 <body>
+
+<script>
+// Protege esta página
+if (localStorage.getItem("token_acesso") !== "VALIDO") {
+    window.location.href = "login.html";
+}
+</script>
+
     <!-- Menu Superior -->
     <div class="menu-container">
         <div class="menu-wrapper">
