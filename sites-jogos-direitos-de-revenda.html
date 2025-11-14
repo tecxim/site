@@ -4,7 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pacote de Sites e Jogos Leves</title>
+
+<!-- Evita tradução automática -->
+<meta name="google" content="notranslate">
+
 <style>
+    * {
+        user-select: none; /* Bloqueia seleção de texto */
+    }
+
     body {
         margin: 0;
         font-family: Arial, Helvetica, sans-serif;
@@ -85,10 +93,10 @@
     <div class="tag">Direito de Revenda Incluso</div>
 </header>
 
-<!-- ÁREA DO VÍDEO -->
+<!-- VIDEO -->
 <div class="video-container">
-    <!-- Substitua o link do YouTube abaixo pelo seu vídeo -->
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+    <!-- Substitua o link abaixo pelo seu vídeo -->
+    <iframe src="https://www.youtube.com/embed/3P6EHVKl6ORJWJOX"
         frameborder="0"
         allowfullscreen>
     </iframe>
@@ -96,17 +104,37 @@
 
 <button onclick="comprar()">Quero Adquirir Agora</button>
 
+<footer>
+    © 2025 - Seu Nome / Sua Marca — Todos os direitos reservados.
+</footer>
+
+<!-- PROTEÇÕES -->
 <script>
+// Bloqueia clique direito
+document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+});
+
+// Bloqueia teclas como F12, Ctrl+U, Ctrl+S, Ctrl+Shift+I etc.
+document.onkeydown = function(e) {
+    if (
+        e.keyCode === 123 || // F12
+        (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
+        (e.ctrlKey && e.shiftKey && e.keyCode === 74) || // Ctrl+Shift+J
+        (e.ctrlKey && e.keyCode === 85) || // Ctrl+U
+        (e.ctrlKey && e.keyCode === 83) // Ctrl+S
+    ) {
+        e.preventDefault();
+        return false;
+    }
+};
+
 function comprar() {
-    alert("Você pode colocar aqui o link da sua página de pagamento.");
+    alert("Coloque aqui o link da sua página de pagamento.");
     // Exemplo:
     // window.location.href = "https://seu-link-de-pagamento.com";
 }
 </script>
-
-<footer>
-    © 2025 - Seu Nome / Sua Marca — Todos os direitos reservados.
-</footer>
 
 </body>
 </html>
