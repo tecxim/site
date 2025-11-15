@@ -152,24 +152,18 @@
             // Usando fetch para POST
             fetch(SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(dados)
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro na requisição');
-                }
-                return response.json();
-            })
+            .then(response => response.json())
             .then(data => {
                 if (data.status === 'ok') {
                     showMessage('Usuário cadastrado com sucesso!', 'success');
                     document.getElementById('cadastroForm').reset();
                 } else {
-                    showMessage(data.message || 'Erro ao cadastrar usuário', 'error');
+                    showMessage(data.message, 'error');
                 }
             })
             .catch(error => {
