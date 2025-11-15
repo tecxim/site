@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <base target="_top">
     <title>Cadastro de Usuário</title>
     <style>
         body {
@@ -111,90 +110,156 @@
     </div>
 
     <script>
+        // URL do seu Google Apps Script Web App
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRx925wphYtaWfZKtSy0ySYvovXQ77A-Pz5gpXoYj0Fpql0wJWOLr7Zs1WEWnqYEyQ1g/exec';
+
         document.getElementById('cadastroForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const usuario = document.getElementById('usuario').value;
-    const senha = document.getElementById('senha').value;
-    const confirmarSenha = document.getElementById('confirmarSenha').value;
-    const submitBtn = document.getElementById('submitBtn');
-    const messageElement = document.getElementById('message');
-    
-    // Validações básicas
-    if (usuario.length < 3) {
-        showMessage('Usuário deve ter pelo menos 3 caracteres', 'error');
-        return;
-    }
-    
-    if (senha.length < 4) {
-        showMessage('Senha deve ter pelo menos 4 caracteres', 'error');
-        return;
-    }
-    
-    if (senha !== confirmarSenha) {
-        showMessage('Senhas não coincidem', 'error');
-        return;
-    }
-    
-    // Desabilitar botão e mostrar loading
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Cadastrando...';
-    showMessage('Cadastrando usuário...', 'loading');
-    
-    // Fazer requisição para o Google Apps Script
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyRx925wphYtaWfZKtSy0ySYvovXQ77A-Pz5gpXoYj0Fpql0wJWOLr7Zs1WEWnqYEyQ1g/exec'; // VERIFIQUE ESTA URL!
-    
-    const dados = {
-        acao: 'cadastrar',
-        usuario: usuario,
-        senha: senha
-    };
-    
-    // Adicione logs para debug
-    console.log('Enviando para:', scriptURL);
-    console.log('Dados:', dados);
-    
-    fetch(scriptURL, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(dados)
-    })
-    .then(response => {
-        console.log('Status:', response.status);
-        console.log('Headers:', response.headers);
+            e.preventDefault();
+            
+            const usuario = document.getElementById('usuario').value;
+            const senha = document.getElementById('senha').value;
+            const confirmarSenha = document.getElementById('confirmarSenha').value;
+            const submitBtn = document.getElementById('submitBtn');
+            const messageElement = document.getElementById('message');
+            
+            // Validações básicas
+            if (usuario.length < 3) {
+                showMessage('Usuário deve ter pelo menos 3 caracteres', 'error');
+                return;
+            }
+            
+            if (senha.length < 4) {
+                showMessage('Senha deve ter pelo menos 4 caracteres', 'error');
+                return;
+            }
+            
+            if (senha !== confirmarSenha) {
+                showMessage('Senhas não coincidem', 'error');
+                return;
+            }
+            
+            // Desabilitar botão e mostrar loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Cadastrando...';
+            showMessage('Cadastrando usuário...', 'loading');
+            
+            // Dados para envio
+            const dados = {
+                acao: 'cadastrar',
+                usuario: usuario,
+                senha: senha
+            };
+            
+            // Método 1: Usando fetch com tratamento de CORS
+            fazerRequisicaoComJSONP(dados)
+                .then(data => {
+                    console.log('Resposta recebida:', data);
+                    if (data.status === 'ok') {
+                        showMessage('Usuário cadastrado com sucesso!', 'success');
+                        document.getElementById('cadastroForm').reset();
+                    } else {
+                        showMessage(data.message || 'Erro ao cadastrar usuário', 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro completo:', error);
+                    showMessage('Erro de conexão. Tente novamente.', 'error');
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Cadastrar';
+                });
+        });
         
-        // Verifica se a resposta é JSON
-        const contentType = response.headers.get('content-type');
-        if (contentType && contentType.includes('application/json')) {
-            return response.json();
-        } else {
-            // Se não for JSON, leia como texto para debug
-            return response.text().then(text => {
-                console.log('Resposta não-JSON:', text);
-                throw new Error('Resposta não é JSON: ' + text.substring(0, 100));
+        // Método JSONP para contornar CORS
+        function fazerRequisicaoComJSONP(dados) {
+            return new Promise((resolve, reject) => {
+                // Cria um callback único
+                const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+                
+                // Cria um script element
+                const script = document.createElement('script');
+                
+                // Constrói a URL com callback
+                const url = SCRIPT_URL + '?callback=' + callbackName + '&dados=' + encodeURIComponent(JSON.stringify(dados));
+                script.src = url;
+                
+                // Define a função de callback global
+                window[callbackName] = function(data) {
+                    delete window[callbackName];
+                    document.body.removeChild(script);
+                    resolve(data);
+                };
+                
+                // Adiciona handler de erro
+                script.onerror = function() {
+                    delete window[callbackName];
+                    document.body.removeChild(script);
+                    reject(new Error('JSONP request failed'));
+                };
+                
+                document.body.appendChild(script);
             });
         }
-    })
-    .then(data => {
-        console.log('Resposta JSON:', data);
-        if (data.status === 'ok') {
-            showMessage('Usuário cadastrado com sucesso!', 'success');
-            document.getElementById('cadastroForm').reset();
-        } else {
-            showMessage(data.message || 'Erro ao cadastrar usuário', 'error');
+        
+        // Método alternativo usando form submission (fallback)
+        function fazerRequisicaoComForm(dados) {
+            return new Promise((resolve) => {
+                // Cria um form temporário
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = SCRIPT_URL;
+                form.style.display = 'none';
+                
+                // Adiciona os dados como inputs hidden
+                for (const key in dados) {
+                    const input = document.createElement('input');
+                    input.name = key;
+                    input.value = dados[key];
+                    form.appendChild(input);
+                }
+                
+                // Adiciona ao body e submete
+                document.body.appendChild(form);
+                
+                // Em uma aplicação real, você precisaria de um redirecionamento
+                // ou outra forma de capturar a resposta
+                form.submit();
+                
+                // Remove o form após um tempo
+                setTimeout(() => {
+                    document.body.removeChild(form);
+                    resolve({status: 'submitted'}); // Resposta simulada
+                }, 1000);
+            });
         }
-    })
-    .catch(error => {
-        console.error('Erro completo:', error);
-        showMessage('Erro de conexão: ' + error.message, 'error');
-    })
-    .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Cadastrar';
-    });
-});
+        
+        function showMessage(text, type) {
+            const messageElement = document.getElementById('message');
+            messageElement.textContent = text;
+            messageElement.className = 'message ' + type;
+            messageElement.style.display = 'block';
+            
+            // Auto-esconder mensagens de sucesso após 5 segundos
+            if (type === 'success') {
+                setTimeout(() => {
+                    messageElement.style.display = 'none';
+                }, 5000);
+            }
+        }
+        
+        // Validação em tempo real das senhas
+        document.getElementById('confirmarSenha').addEventListener('input', function() {
+            const senha = document.getElementById('senha').value;
+            const confirmarSenha = this.value;
+            const messageElement = document.getElementById('message');
+            
+            if (confirmarSenha && senha !== confirmarSenha) {
+                showMessage('Senhas não coincidem', 'error');
+            } else if (confirmarSenha && senha === confirmarSenha) {
+                messageElement.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
