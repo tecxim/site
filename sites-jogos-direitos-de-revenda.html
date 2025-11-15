@@ -76,6 +76,22 @@
         background: #00cc66;
     }
 
+   .strikethrough {
+    position: relative;
+    display: inline-block;
+}
+
+.strikethrough::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: red;
+    transform: translateY(-50%);
+}
+
     footer {
         margin-top: 40px;
         padding: 20px;
@@ -88,10 +104,11 @@
 
 <header>
     <h1>Pacote de Sites e Jogos Leves</h1>
-    <p class="price">De R$ 167,00 por Apenas R$ 79,90</p>
+    <p class="price">De <span class="strikethrough">R$ 167,00</span> por Apenas R$ 79,90</p>
     <div class="tag">Acesso Vitalício</div>
     <div class="tag">Direito de Revenda Incluso</div>
 </header>
+
 
 <!-- VIDEO -->
 <div class="video-container">
