@@ -114,62 +114,54 @@
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRx925wphYtaWfZKtSy0ySYvovXQ77A-Pz5gpXoYj0Fpql0wJWOLr7Zs1WEWnqYEyQ1g/exec';
 
         document.getElementById('cadastroForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const usuario = document.getElementById('usuario').value;
-            const senha = document.getElementById('senha').value;
-            const confirmarSenha = document.getElementById('confirmarSenha').value;
-            const submitBtn = document.getElementById('submitBtn');
-            const messageElement = document.getElementById('message');
-            
-            // Validações básicas
-            if (usuario.length < 3) {
-                showMessage('Usuário deve ter pelo menos 3 caracteres', 'error');
-                return;
+    e.preventDefault();
+    const usuario = document.getElementById('usuario').value;
+    const senha = document.getElementById('senha').value;
+    const confirmarSenha = document.getElementById('confirmarSenha').value;
+    const submitBtn = document.getElementById('submitBtn');
+    const messageElement = document.getElementById('message');
+
+    // Validações básicas
+    if (usuario.length < 3) {
+        showMessage('Usuário deve ter pelo menos 3 caracteres', 'error');
+        return;
+    }
+    if (senha.length < 4) {
+        showMessage('Senha deve ter pelo menos 4 caracteres', 'error');
+        return;
+    }
+    if (senha !== confirmarSenha) {
+        showMessage('Senhas não coincidem', 'error');
+        return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Cadastrando...';
+    showMessage('Cadastrando usuário...', 'loading');
+
+    const dados = {
+        acao: 'cadastrar',
+        usuario: usuario,
+        senha: senha
+    };
+
+    fazerRequisicao(dados)
+        .then(data => {
+            if (data.status === 'ok') {
+                showMessage('Usuário cadastrado com sucesso!', 'success');
+                document.getElementById('cadastroForm').reset();
+            } else {
+                showMessage(data.message || 'Erro ao cadastrar usuário', 'error');
             }
-            
-            if (senha.length < 4) {
-                showMessage('Senha deve ter pelo menos 4 caracteres', 'error');
-                return;
-            }
-            
-            if (senha !== confirmarSenha) {
-                showMessage('Senhas não coincidem', 'error');
-                return;
-            }
-            
-            // Desabilitar botão e mostrar loading
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Cadastrando...';
-            showMessage('Cadastrando usuário...', 'loading');
-            
-            // Dados para envio
-            const dados = {
-                acao: 'cadastrar',
-                usuario: usuario,
-                senha: senha
-            };
-            
-            // Método 1: Usando fetch com tratamento de CORS
-            fazerRequisicaoComJSONP(dados)
-                .then(data => {
-                    console.log('Resposta recebida:', data);
-                    if (data.status === 'ok') {
-                        showMessage('Usuário cadastrado com sucesso!', 'success');
-                        document.getElementById('cadastroForm').reset();
-                    } else {
-                        showMessage(data.message || 'Erro ao cadastrar usuário', 'error');
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro completo:', error);
-                    showMessage('Erro de conexão. Tente novamente.', 'error');
-                })
-                .finally(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Cadastrar';
-                });
+        })
+        .catch(error => {
+            showMessage('Erro de conexão. Tente novamente.', 'error');
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Cadastrar';
         });
+});
         
         // Método JSONP para contornar CORS
         function fazerRequisicaoComJSONP(dados) {
