@@ -86,152 +86,109 @@
 <body>
     <div class="container">
         <h1>Cadastro de Usuário</h1>
-        
+
         <form id="cadastroForm">
             <div class="form-group">
                 <label for="usuario">Usuário:</label>
                 <input type="text" id="usuario" name="usuario" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="senha">Senha:</label>
                 <input type="password" id="senha" name="senha" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="confirmarSenha">Confirmar Senha:</label>
                 <input type="password" id="confirmarSenha" name="confirmarSenha" required>
             </div>
-            
+
             <button type="submit" class="btn" id="submitBtn">Cadastrar</button>
         </form>
-        
+
         <div id="message" class="message"></div>
     </div>
-
     <script>
         // URL do seu Google Apps Script Web App
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRx925wphYtaWfZKtSy0ySYvovXQ77A-Pz5gpXoYj0Fpql0wJWOLr7Zs1WEWnqYEyQ1g/exec';
 
         document.getElementById('cadastroForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const usuario = document.getElementById('usuario').value;
-    const senha = document.getElementById('senha').value;
-    const confirmarSenha = document.getElementById('confirmarSenha').value;
-    const submitBtn = document.getElementById('submitBtn');
-    const messageElement = document.getElementById('message');
+            e.preventDefault();
 
-    // Validações básicas
-    if (usuario.length < 3) {
-        showMessage('Usuário deve ter pelo menos 3 caracteres', 'error');
-        return;
-    }
-    if (senha.length < 4) {
-        showMessage('Senha deve ter pelo menos 4 caracteres', 'error');
-        return;
-    }
-    if (senha !== confirmarSenha) {
-        showMessage('Senhas não coincidem', 'error');
-        return;
-    }
+            const usuario = document.getElementById('usuario').value;
+            const senha = document.getElementById('senha').value;
+            const confirmarSenha = document.getElementById('confirmarSenha').value;
+            const submitBtn = document.getElementById('submitBtn');
+            const messageElement = document.getElementById('message');
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Cadastrando...';
-    showMessage('Cadastrando usuário...', 'loading');
-
-    const dados = {
-        acao: 'cadastrar',
-        usuario: usuario,
-        senha: senha
-    };
-
-    fazerRequisicao(dados)
-        .then(data => {
-            if (data.status === 'ok') {
-                showMessage('Usuário cadastrado com sucesso!', 'success');
-                document.getElementById('cadastroForm').reset();
-            } else {
-                showMessage(data.message || 'Erro ao cadastrar usuário', 'error');
+            // Validações básicas
+            if (usuario.length < 3) {
+                showMessage('Usuário deve ter pelo menos 3 caracteres', 'error');
+                return;
             }
-        })
-        .catch(error => {
-            showMessage('Erro de conexão. Tente novamente.', 'error');
-        })
-        .finally(() => {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Cadastrar';
-        });
-});
-        
-        // Método JSONP para contornar CORS
-        function fazerRequisicaoComJSONP(dados) {
-            return new Promise((resolve, reject) => {
-                // Cria um callback único
-                const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
-                
-                // Cria um script element
-                const script = document.createElement('script');
-                
-                // Constrói a URL com callback
-                const url = SCRIPT_URL + '?callback=' + callbackName + '&dados=' + encodeURIComponent(JSON.stringify(dados));
-                script.src = url;
-                
-                // Define a função de callback global
-                window[callbackName] = function(data) {
-                    delete window[callbackName];
-                    document.body.removeChild(script);
-                    resolve(data);
-                };
-                
-                // Adiciona handler de erro
-                script.onerror = function() {
-                    delete window[callbackName];
-                    document.body.removeChild(script);
-                    reject(new Error('JSONP request failed'));
-                };
-                
-                document.body.appendChild(script);
-            });
-        }
-        
-        // Método alternativo usando form submission (fallback)
-        function fazerRequisicaoComForm(dados) {
-            return new Promise((resolve) => {
-                // Cria um form temporário
-                const form = document.createElement('form');
-                form.method = 'POST';
-                form.action = SCRIPT_URL;
-                form.style.display = 'none';
-                
-                // Adiciona os dados como inputs hidden
-                for (const key in dados) {
-                    const input = document.createElement('input');
-                    input.name = key;
-                    input.value = dados[key];
-                    form.appendChild(input);
+
+            if (senha.length < 4) {
+                showMessage('Senha deve ter pelo menos 4 caracteres', 'error');
+                return;
+            }
+
+            if (senha !== confirmarSenha) {
+                showMessage('Senhas não coincidem', 'error');
+                return;
+            }
+
+            // Desabilitar botão e mostrar loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Cadastrando...';
+            showMessage('Cadastrando usuário...', 'loading');
+
+            // Dados para envio
+            const dados = {
+                acao: 'cadastrar',
+                usuario: usuario,
+                senha: senha
+            };
+
+            // Usando fetch para POST
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Evita erros de CORS
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dados)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro na requisição');
                 }
-                
-                // Adiciona ao body e submete
-                document.body.appendChild(form);
-                
-                // Em uma aplicação real, você precisaria de um redirecionamento
-                // ou outra forma de capturar a resposta
-                form.submit();
-                
-                // Remove o form após um tempo
-                setTimeout(() => {
-                    document.body.removeChild(form);
-                    resolve({status: 'submitted'}); // Resposta simulada
-                }, 1000);
+                return response.json();
+            })
+            .then(data => {
+                console.log('Resposta recebida:', data);
+                if (data.status === 'ok') {
+                    showMessage('Usuário cadastrado com sucesso!', 'success');
+                    document.getElementById('cadastroForm').reset();
+                } else {
+                    showMessage(data.message || 'Erro ao cadastrar usuário', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Erro completo:', error);
+                showMessage('Erro de conexão. Tente novamente.', 'error');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Cadastrar';
             });
-        }
-        
+        });
+
         function showMessage(text, type) {
             const messageElement = document.getElementById('message');
             messageElement.textContent = text;
             messageElement.className = 'message ' + type;
             messageElement.style.display = 'block';
-            
+
             // Auto-esconder mensagens de sucesso após 5 segundos
             if (type === 'success') {
                 setTimeout(() => {
@@ -239,13 +196,13 @@
                 }, 5000);
             }
         }
-        
+
         // Validação em tempo real das senhas
         document.getElementById('confirmarSenha').addEventListener('input', function() {
             const senha = document.getElementById('senha').value;
             const confirmarSenha = this.value;
             const messageElement = document.getElementById('message');
-            
+
             if (confirmarSenha && senha !== confirmarSenha) {
                 showMessage('Senhas não coincidem', 'error');
             } else if (confirmarSenha && senha === confirmarSenha) {
