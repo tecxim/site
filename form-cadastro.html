@@ -112,95 +112,89 @@
 
     <script>
         document.getElementById('cadastroForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const usuario = document.getElementById('usuario').value;
-            const senha = document.getElementById('senha').value;
-            const confirmarSenha = document.getElementById('confirmarSenha').value;
-            const submitBtn = document.getElementById('submitBtn');
-            const messageElement = document.getElementById('message');
-            
-            // Validações básicas
-            if (usuario.length < 3) {
-                showMessage('Usuário deve ter pelo menos 3 caracteres', 'error');
-                return;
-            }
-            
-            if (senha.length < 4) {
-                showMessage('Senha deve ter pelo menos 4 caracteres', 'error');
-                return;
-            }
-            
-            if (senha !== confirmarSenha) {
-                showMessage('Senhas não coincidem', 'error');
-                return;
-            }
-            
-            // Desabilitar botão e mostrar loading
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Cadastrando...';
-            showMessage('Cadastrando usuário...', 'loading');
-            
-            // Fazer requisição para o Google Apps Script
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbyRx925wphYtaWfZKtSy0ySYvovXQ77A-Pz5gpXoYj0Fpql0wJWOLr7Zs1WEWnqYEyQ1g/exec';
-            
-            const dados = {
-                acao: 'cadastrar',
-                usuario: usuario,
-                senha: senha
-            };
-            
-            fetch(scriptURL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(dados)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'ok') {
-                    showMessage('Usuário cadastrado com sucesso!', 'success');
-                    document.getElementById('cadastroForm').reset();
-                } else {
-                    showMessage(data.message || 'Erro ao cadastrar usuário', 'error');
-                }
-            })
-            .catch(error => {
-                showMessage('Erro de conexão: ' + error, 'error');
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Cadastrar';
+    e.preventDefault();
+    
+    const usuario = document.getElementById('usuario').value;
+    const senha = document.getElementById('senha').value;
+    const confirmarSenha = document.getElementById('confirmarSenha').value;
+    const submitBtn = document.getElementById('submitBtn');
+    const messageElement = document.getElementById('message');
+    
+    // Validações básicas
+    if (usuario.length < 3) {
+        showMessage('Usuário deve ter pelo menos 3 caracteres', 'error');
+        return;
+    }
+    
+    if (senha.length < 4) {
+        showMessage('Senha deve ter pelo menos 4 caracteres', 'error');
+        return;
+    }
+    
+    if (senha !== confirmarSenha) {
+        showMessage('Senhas não coincidem', 'error');
+        return;
+    }
+    
+    // Desabilitar botão e mostrar loading
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Cadastrando...';
+    showMessage('Cadastrando usuário...', 'loading');
+    
+    // Fazer requisição para o Google Apps Script
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyRx925wphYtaWfZKtSy0ySYvovXQ77A-Pz5gpXoYj0Fpql0wJWOLr7Zs1WEWnqYEyQ1g/exec'; // VERIFIQUE ESTA URL!
+    
+    const dados = {
+        acao: 'cadastrar',
+        usuario: usuario,
+        senha: senha
+    };
+    
+    // Adicione logs para debug
+    console.log('Enviando para:', scriptURL);
+    console.log('Dados:', dados);
+    
+    fetch(scriptURL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dados)
+    })
+    .then(response => {
+        console.log('Status:', response.status);
+        console.log('Headers:', response.headers);
+        
+        // Verifica se a resposta é JSON
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+            return response.json();
+        } else {
+            // Se não for JSON, leia como texto para debug
+            return response.text().then(text => {
+                console.log('Resposta não-JSON:', text);
+                throw new Error('Resposta não é JSON: ' + text.substring(0, 100));
             });
-        });
-        
-        function showMessage(text, type) {
-            const messageElement = document.getElementById('message');
-            messageElement.textContent = text;
-            messageElement.className = 'message ' + type;
-            messageElement.style.display = 'block';
-            
-            // Auto-esconder mensagens de sucesso após 5 segundos
-            if (type === 'success') {
-                setTimeout(() => {
-                    messageElement.style.display = 'none';
-                }, 5000);
-            }
         }
-        
-        // Validação em tempo real das senhas
-        document.getElementById('confirmarSenha').addEventListener('input', function() {
-            const senha = document.getElementById('senha').value;
-            const confirmarSenha = this.value;
-            const messageElement = document.getElementById('message');
-            
-            if (confirmarSenha && senha !== confirmarSenha) {
-                showMessage('Senhas não coincidem', 'error');
-            } else if (confirmarSenha && senha === confirmarSenha) {
-                messageElement.style.display = 'none';
-            }
-        });
+    })
+    .then(data => {
+        console.log('Resposta JSON:', data);
+        if (data.status === 'ok') {
+            showMessage('Usuário cadastrado com sucesso!', 'success');
+            document.getElementById('cadastroForm').reset();
+        } else {
+            showMessage(data.message || 'Erro ao cadastrar usuário', 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Erro completo:', error);
+        showMessage('Erro de conexão: ' + error.message, 'error');
+    })
+    .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Cadastrar';
+    });
+});
     </script>
 </body>
 </html>
