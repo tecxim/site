@@ -55,10 +55,6 @@
         .btn:hover {
             background-color: #45a049;
         }
-        .btn:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
         .message {
             padding: 10px;
             border-radius: 5px;
@@ -69,132 +65,127 @@
         .success {
             background-color: #d4edda;
             color: #155724;
-            border: 1px solid #c3e6cb;
         }
         .error {
             background-color: #f8d7da;
             color: #721c24;
-            border: 1px solid #f5c6cb;
         }
         .loading {
             background-color: #d1ecf1;
             color: #0c5460;
-            border: 1px solid #bee5eb;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <h1>Cadastro de Usuário</h1>
+
         <form id="cadastroForm">
             <div class="form-group">
                 <label for="usuario">E-mail:</label>
-                <input type="email" id="usuario" name="usuario" required>
+                <input type="email" id="usuario" required>
             </div>
+
             <div class="form-group">
                 <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" required>
+                <input type="password" id="senha" required>
             </div>
+
             <div class="form-group">
                 <label for="confirmarSenha">Confirmar Senha:</label>
-                <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+                <input type="password" id="confirmarSenha" required>
             </div>
-            <button type="submit" class="btn" id="submitBtn">Cadastrar</button>
+
+            <button class="btn" type="submit" id="submitBtn">Cadastrar</button>
         </form>
+
         <div id="message" class="message"></div>
     </div>
-    <script>
-        // URL do seu Google Apps Script Web App
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz3HvAo4gO4SB5j5LkzFOsShyfI8dnyzQtwQo0dkuO5K2ccPHvO9o-8MgftE6evfhIicA/exec';
 
-        document.getElementById('cadastroForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const usuario = document.getElementById('usuario').value;
-            const senha = document.getElementById('senha').value;
-            const confirmarSenha = document.getElementById('confirmarSenha').value;
-            const submitBtn = document.getElementById('submitBtn');
-            const messageElement = document.getElementById('message');
+<script>
+/* -----------------------------------------------------
+      CONFIGURAR AQUI → SUA URL E SUA API KEY
+----------------------------------------------------- */
+const SUPABASE_URL = "https://sgbfinyrriruvkrxgany.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNnYmZpbnlycmlydXZrcnhnYW55Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzMDA3MTgsImV4cCI6MjA3ODg3NjcxOH0.qIkO9pxqqxJ-s54nT-F-jJKsRpqJPayrk5l-yTFYFaM";
 
-            // Validações básicas
-            if (!isValidEmail(usuario)) {
-                showMessage('Por favor, insira um e-mail válido.', 'error');
-                return;
-            }
-            if (senha.length < 4) {
-                showMessage('Senha deve ter pelo menos 4 caracteres', 'error');
-                return;
-            }
-            if (senha !== confirmarSenha) {
-                showMessage('Senhas não coincidem', 'error');
-                return;
-            }
+const SUPABASE_TABLE = "usuarios"; // mesma tabela que criamos no SQL
 
-            // Desabilitar botão e mostrar loading
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Cadastrando...';
-            showMessage('Cadastrando usuário...', 'loading');
+/* ----------------------------------------------------- */
 
-            // Dados para envio
-            const dados = {
-                acao: 'cadastrar',
-                usuario: usuario,
-                senha: senha
-            };
+async function cadastrarUsuario(email, senha) {
+    const payload = {
+        usuario: email,
+        senha: senha,
+        ativo: true
+    };
 
-            // Usando fetch para POST com JSON
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors', // Contorna o CORS, mas não permite ler a resposta
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(dados)
-            })
-            .then(() => {
-                // Se não houver erro de rede, assume sucesso
-                showMessage('Usuário cadastrado com sucesso!', 'success');
-                document.getElementById('cadastroForm').reset();
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                showMessage('Erro de conexão. Tente novamente.', 'error');
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Cadastrar';
-            });
-        });
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/${SUPABASE_TABLE}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "apikey": SUPABASE_KEY,
+            "Authorization": "Bearer " + SUPABASE_KEY,
+            "Prefer": "return=representation"
+        },
+        body: JSON.stringify(payload)
+    });
 
-        function isValidEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
+    return res;
+}
+
+document.getElementById('cadastroForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("usuario").value.trim();
+    const senha = document.getElementById("senha").value.trim();
+    const confirmarSenha = document.getElementById("confirmarSenha").value.trim();
+
+    if (!isValidEmail(email)) {
+        return showMessage("Digite um e-mail válido!", "error");
+    }
+    if (senha.length < 4) {
+        return showMessage("Senha deve ter no mínimo 4 caracteres", "error");
+    }
+    if (senha !== confirmarSenha) {
+        return showMessage("As senhas não coincidem", "error");
+    }
+
+    showMessage("Cadastrando usuário...", "loading");
+
+    const btn = document.getElementById("submitBtn");
+    btn.disabled = true;
+
+    try {
+        const res = await cadastrarUsuario(email, senha);
+
+        if (res.status === 201) {
+            showMessage("Usuário cadastrado com sucesso!", "success");
+            document.getElementById("cadastroForm").reset();
+        } else {
+            const err = await res.json();
+            showMessage("Erro: " + (err.message ?? "Falha ao cadastrar"), "error");
         }
 
-        function showMessage(text, type) {
-            const messageElement = document.getElementById('message');
-            messageElement.textContent = text;
-            messageElement.className = 'message ' + type;
-            messageElement.style.display = 'block';
+    } catch (error) {
+        showMessage("Erro de conexão", "error");
+    }
 
-            // Auto-esconder mensagens de sucesso após 5 segundos
-            if (type === 'success') {
-                setTimeout(() => {
-                    messageElement.style.display = 'none';
-                }, 5000);
-            }
-        }
+    btn.disabled = false;
+});
 
-        // Validação em tempo real das senhas
-        document.getElementById('confirmarSenha').addEventListener('input', function() {
-            const senha = document.getElementById('senha').value;
-            const confirmarSenha = this.value;
-            const messageElement = document.getElementById('message');
-            if (confirmarSenha && senha !== confirmarSenha) {
-                showMessage('Senhas não coincidem', 'error');
-            } else if (confirmarSenha && senha === confirmarSenha) {
-                messageElement.style.display = 'none';
-            }
-        });
-    </script>
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function showMessage(text, type) {
+    const el = document.getElementById("message");
+    el.textContent = text;
+    el.className = "message " + type;
+    el.style.display = "block";
+}
+</script>
+
 </body>
 </html>
