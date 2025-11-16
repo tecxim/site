@@ -143,7 +143,7 @@
         </div>
     </div>
     <script>
-        const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbz3HvAo4gO4SB5j5LkzFOsShyfI8dnyzQtwQo0dkuO5K2ccPHvO9o-8MgftE6evfhIicA/exec";
+     const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbz3HvAo4gO4SB5j5LkzFOsShyfI8dnyzQtwQo0dkuO5K2ccPHvO9o-8MgftE6evfhIicA/exec";
 
         // Validação de e-mail
         function isValidEmail(email) {
@@ -151,79 +151,75 @@
             return re.test(email);
         }
 
-        async function login() {
-    const user = document.getElementById('user').value.trim();
-    const pass = document.getElementById('pass').value.trim();
-    const errorMessage = document.getElementById('error-message');
-    const buttonText = document.getElementById('button-text');
-    const spinner = document.getElementById('spinner');
-
-    // Validação de campos vazios
-    if (!user || !pass) {
-        errorMessage.textContent = "Preencha usuário e senha.";
-        errorMessage.style.display = 'block';
-        return;
-    }
-
-    // Validação de e-mail
-    if (!isValidEmail(user)) {
-        errorMessage.textContent = "Digite um e-mail válido.";
-        errorMessage.style.display = 'block';
-        return;
-    }
-
-    // Exibe o spinner e esconde o texto do botão
-    buttonText.style.display = 'none';
-    spinner.style.display = 'inline-block';
-
-    try {
-        const res = await fetch(WEBAPP_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ acao: "login", usuario: user, senha: pass })
-        });
-
-        // Log da resposta bruta (para depuração)
-        const rawText = await res.text();
-        console.log("Resposta bruta do servidor:", rawText);
-
-        // Tenta parsear como JSON apenas se a resposta for OK
-        if (!res.ok) {
-            throw new Error(`Erro na requisição: ${res.status} ${res.statusText}`);
+       async function login() {
+            const user = document.getElementById('user').value.trim();
+            const pass = document.getElementById('pass').value.trim();
+            const errorMessage = document.getElementById('error-message');
+            const buttonText = document.getElementById('button-text');
+            const spinner = document.getElementById('spinner');
+        
+            // Validação de campos vazios
+            if (!user || !pass) {
+                errorMessage.textContent = "Preencha usuário e senha.";
+                errorMessage.style.display = 'block';
+                return;
+            }
+        
+            // Validação de e-mail
+            if (!isValidEmail(user)) {
+                errorMessage.textContent = "Digite um e-mail válido.";
+                errorMessage.style.display = 'block';
+                return;
+            }
+        
+            // Exibe o spinner e esconde o texto do botão
+            buttonText.style.display = 'none';
+            spinner.style.display = 'inline-block';
+        
+            try {
+                const res = await fetch(WEBAPP_URL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ acao: "login", usuario: user, senha: pass })
+                });
+        
+                const rawText = await res.text();
+                console.log("Resposta bruta do servidor:", rawText);
+        
+                if (!res.ok) {
+                    throw new Error(`Erro na requisição: ${res.status} ${res.statusText}`);
+                }
+        
+                if (!rawText.trim().startsWith("{")) {
+                    throw new Error("Resposta do servidor não é um JSON válido.");
+                }
+        
+                const data = JSON.parse(rawText);
+        
+                if (data.status === "ok") {
+                    // Login bem-sucedido
+                    errorMessage.style.display = 'none';
+                    localStorage.setItem("token_acesso", data.token);
+                    window.location.href = "painel.html";
+                } else {
+                    // Login falhou
+                    errorMessage.textContent = data.message || "Usuário ou senha incorretos.";
+                    errorMessage.style.display = 'block';
+                }
+            } catch (err) {
+                errorMessage.textContent = err.message.includes("JSON")
+                    ? "Resposta inválida do servidor. Tente novamente."
+                    : "Erro de conexão. Verifique sua internet ou tente novamente.";
+                errorMessage.style.display = 'block';
+                console.error("Erro no login:", err);
+            } finally {
+                // Restaura o texto do botão e esconde o spinner
+                buttonText.style.display = 'inline-block';
+                spinner.style.display = 'none';
+            }
         }
-
-        // Se a resposta não for JSON, lança um erro
-        if (!rawText.trim().startsWith("{")) {
-            throw new Error("Resposta do servidor não é um JSON válido.");
-        }
-
-        const data = JSON.parse(rawText);
-
-        if (data.status === "ok") {
-            // Login bem-sucedido
-            errorMessage.style.display = 'none';
-            localStorage.setItem("token_acesso", data.token);
-            window.location.href = "painel.html";
-        } else {
-            // Login falhou
-            errorMessage.textContent = data.message || "Usuário ou senha incorretos.";
-            errorMessage.style.display = 'block';
-        }
-    } catch (err) {
-        // Mensagem de erro mais detalhada
-        errorMessage.textContent = err.message.includes("JSON")
-            ? "Resposta inválida do servidor. Tente novamente."
-            : "Erro de conexão. Verifique sua internet ou tente novamente.";
-        errorMessage.style.display = 'block';
-        console.error("Erro no login:", err);
-    } finally {
-        // Restaura o texto do botão e esconde o spinner
-        buttonText.style.display = 'inline-block';
-        spinner.style.display = 'none';
-    }
-}
 
 
         // Permite login ao pressionar Enter
