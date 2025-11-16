@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acesso Restrito | Sistema</title>
     <style>
-        /* MESMO CSS QUE VOCÊ JÁ TEM */
         * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); display:flex; justify-content:center; align-items:center; min-height:100vh; padding:20px; }
         .login-container { background-color:white; border-radius:12px; box-shadow:0 15px 35px rgba(0,0,0,0.2); width:100%; max-width:420px; padding:40px 30px; text-align:center; }
@@ -31,30 +30,29 @@
             <h1>Acesso ao Painel</h1>
             <p>Acesso Restrito</p>
         </div>
-        
+
         <h2>Faça seu login</h2>
-        
+
         <div class="input-group">
             <label for="user">Usuário</label>
             <input type="text" id="user" placeholder="Digite seu usuário">
         </div>
-        
+
         <div class="input-group">
             <label for="pass">Senha</label>
             <input type="password" id="pass" placeholder="Digite sua senha">
         </div>
-        
+
         <button onclick="login()">Entrar</button>
-        
+
         <div id="error-message" class="error-message">
             Usuário ou senha incorretos.
         </div>
-        
+
         <div class="footer">
             &copy; 2025 Wellington A. R. Cardoso. Todos os direitos reservados.
         </div>
     </div>
-
     <script>
         const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbyRx925wphYtaWfZKtSy0ySYvovXQ77A-Pz5gpXoYj0Fpql0wJWOLr7Zs1WEWnqYEyQ1g/exec"; // substitua pela URL do seu Apps Script
 
@@ -63,7 +61,7 @@
             const pass = document.getElementById('pass').value.trim();
             const errorMessage = document.getElementById('error-message');
 
-            if(!user || !pass){
+            if(!user || !pass) {
                 errorMessage.textContent = "Preencha usuário e senha.";
                 errorMessage.style.display = 'block';
                 return;
@@ -72,18 +70,26 @@
             try {
                 const res = await fetch(WEBAPP_URL, {
                     method: "POST",
-                    body: JSON.stringify({ usuario: user, senha: pass })
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ acao: "login", usuario: user, senha: pass })
                 });
+
+                if (!res.ok) {
+                    throw new Error(`Erro na requisição: ${res.status} ${res.statusText}`);
+                }
+
                 const data = await res.json();
 
                 if(data.status === "ok") {
                     // Login ok
                     errorMessage.style.display = 'none';
-                    localStorage.setItem("token_acesso", data.token); // token retornado pelo Apps Script
+                    localStorage.setItem("token_acesso", data.token);
                     window.location.href = "painel.html";
                 } else {
                     // Login errado
-                    errorMessage.textContent = "Usuário ou senha incorretos.";
+                    errorMessage.textContent = data.message || "Usuário ou senha incorretos.";
                     errorMessage.style.display = 'block';
                 }
             } catch(err) {
