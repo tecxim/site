@@ -85,73 +85,89 @@
 </head>
 <body>
     <div class="container">
-        <h1>Login</h1>
-        <form id="loginForm">
+        <h1>Cadastro de Usuário</h1>
+        <form id="cadastroForm">
             <div class="form-group">
-                <label for="loginUsuario">E-mail:</label>
-                <input type="email" id="loginUsuario" name="usuario" required>
+                <label for="usuario">E-mail:</label>
+                <input type="email" id="usuario" name="usuario" required>
             </div>
             <div class="form-group">
-                <label for="loginSenha">Senha:</label>
-                <input type="password" id="loginSenha" name="senha" required>
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
             </div>
-            <button type="button" class="btn" id="loginBtn" onclick="fazerLogin()">Entrar</button>
+            <div class="form-group">
+                <label for="confirmarSenha">Confirmar Senha:</label>
+                <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+            </div>
+            <button type="submit" class="btn" id="submitBtn">Cadastrar</button>
         </form>
         <div id="message" class="message"></div>
     </div>
-
     <script>
+        // URL do seu Google Apps Script Web App
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyRx925wphYtaWfZKtSy0ySYvovXQ77A-Pz5gpXoYj0Fpql0wJWOLr7Zs1WEWnqYEyQ1g/exec';
 
-        function fazerLogin() {
-            const usuario = document.getElementById('loginUsuario').value;
-            const senha = document.getElementById('loginSenha').value;
-            const submitBtn = document.getElementById('loginBtn');
+        document.getElementById('cadastroForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const usuario = document.getElementById('usuario').value;
+            const senha = document.getElementById('senha').value;
+            const confirmarSenha = document.getElementById('confirmarSenha').value;
+            const submitBtn = document.getElementById('submitBtn');
             const messageElement = document.getElementById('message');
 
-            if (!usuario || !senha) {
-                showMessage('Usuário e senha são obrigatórios.', 'error');
+            // Validações básicas
+            if (!isValidEmail(usuario)) {
+                showMessage('Por favor, insira um e-mail válido.', 'error');
+                return;
+            }
+            if (senha.length < 4) {
+                showMessage('Senha deve ter pelo menos 4 caracteres', 'error');
+                return;
+            }
+            if (senha !== confirmarSenha) {
+                showMessage('Senhas não coincidem', 'error');
                 return;
             }
 
+            // Desabilitar botão e mostrar loading
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Validando...';
-            showMessage('Validando usuário...', 'loading');
+            submitBtn.textContent = 'Cadastrando...';
+            showMessage('Cadastrando usuário...', 'loading');
 
+            // Dados para envio
             const dados = {
-                acao: 'login',
+                acao: 'cadastrar',
                 usuario: usuario,
                 senha: senha
             };
 
+            // Usando fetch para POST com JSON
             fetch(SCRIPT_URL, {
                 method: 'POST',
+                mode: 'no-cors', // Contorna o CORS, mas não permite ler a resposta
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(dados)
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro na resposta do servidor.');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.status === "ok") {
-                    showMessage('Login realizado com sucesso!', 'success');
-                    // Redirecionar ou fazer algo após login bem-sucedido
-                } else {
-                    showMessage(data.message || 'Erro no login. Tente novamente.', 'error');
-                }
+            .then(() => {
+                // Se não houver erro de rede, assume sucesso
+                showMessage('Usuário cadastrado com sucesso!', 'success');
+                document.getElementById('cadastroForm').reset();
             })
             .catch(error => {
-                showMessage('Erro de conexão. Verifique sua internet ou tente novamente.', 'error');
+                console.error('Erro:', error);
+                showMessage('Erro de conexão. Tente novamente.', 'error');
             })
             .finally(() => {
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Entrar';
+                submitBtn.textContent = 'Cadastrar';
             });
+        });
+
+        function isValidEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
         }
 
         function showMessage(text, type) {
@@ -159,12 +175,26 @@
             messageElement.textContent = text;
             messageElement.className = 'message ' + type;
             messageElement.style.display = 'block';
+
+            // Auto-esconder mensagens de sucesso após 5 segundos
             if (type === 'success') {
                 setTimeout(() => {
                     messageElement.style.display = 'none';
                 }, 5000);
             }
         }
+
+        // Validação em tempo real das senhas
+        document.getElementById('confirmarSenha').addEventListener('input', function() {
+            const senha = document.getElementById('senha').value;
+            const confirmarSenha = this.value;
+            const messageElement = document.getElementById('message');
+            if (confirmarSenha && senha !== confirmarSenha) {
+                showMessage('Senhas não coincidem', 'error');
+            } else if (confirmarSenha && senha === confirmarSenha) {
+                messageElement.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
