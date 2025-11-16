@@ -141,27 +141,19 @@
                 senha: senha
             };
 
-            // Usando fetch para POST
-            fetch(SCRIPT_URL + '?usuario=' + encodeURIComponent(usuario) + '&senha=' + encodeURIComponent(senha), {
-                method: 'GET',
+            // Usando fetch para POST com JSON
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Contorna o CORS, mas não permite ler a resposta
                 headers: {
                     'Content-Type': 'application/json',
-                }
+                },
+                body: JSON.stringify(dados)
             })
-            .then(response => response.text())
-            .then(text => {
-                try {
-                    const data = JSON.parse(text);
-                    if (data.status === 'ok') {
-                        showMessage('Usuário cadastrado com sucesso!', 'success');
-                        document.getElementById('cadastroForm').reset();
-                    } else {
-                        showMessage(data.message, 'error');
-                    }
-                } catch (e) {
-                    // Se não conseguir parsear como JSON, assume erro
-                    showMessage('Erro ao processar a resposta. Tente novamente.', 'error');
-                }
+            .then(() => {
+                // Se não houver erro de rede, assume sucesso
+                showMessage('Usuário cadastrado com sucesso!', 'success');
+                document.getElementById('cadastroForm').reset();
             })
             .catch(error => {
                 console.error('Erro:', error);
