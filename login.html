@@ -131,12 +131,14 @@
      const SUPABASE_URL = "https://sgbfinyrriruvkrxgany.supabase.co";
      const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNnYmZpbnlycmlydXZrcnhnYW55Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzMDA3MTgsImV4cCI6MjA3ODg3NjcxOH0.qIkO9pxqqxJ-s54nT-F-jJKsRpqJPayrk5l-yTFYFaM";
 
+    <script>
+    const SUPABASE_URL = "ase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUIiwicm9sZSI6ImFub24iLCJpYXQiO3NjcxOH0.qIkO9pxqqxJ-s54nT-F-jJKsRpqJPayrk5l-yTFYFaM";
 
     const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     
     function isValidEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
     
     async function login() {
@@ -145,25 +147,22 @@
         const errorMessage = document.getElementById('error-message');
         const buttonText = document.getElementById('button-text');
         const spinner = document.getElementById('spinner');
-    
+
         if (!user || !pass) {
             errorMessage.textContent = "Preencha usuário e senha.";
             errorMessage.style.display = 'block';
             return;
         }
-    
+
         if (!isValidEmail(user)) {
             errorMessage.textContent = "Digite um e-mail válido.";
             errorMessage.style.display = 'block';
             return;
         }
-    
+
         buttonText.style.display = 'none';
         spinner.style.display = 'inline-block';
-    
-        /* =====================================================
-           CONSULTA NA TABELA usuarios
-        ===================================================== */
+
         const { data, error } = await client
             .from("usuarios")
             .select("*")
@@ -171,32 +170,31 @@
             .eq("senha", pass)
             .eq("ativo", true)
             .maybeSingle();
-    
+
         console.log("DATA:", data);
         console.log("ERROR:", error);
-    
+
         if (!data) {
             errorMessage.textContent = "Usuário ou senha incorretos.";
             errorMessage.style.display = 'block';
-    
+
             buttonText.style.display = 'inline-block';
             spinner.style.display = 'none';
             return;
         }
-    
-        /* =====================================================
-           LOGIN OK → SALVA SESSÃO E REDIRECIONA
-        ===================================================== */
+
+        // LOGIN OK
         localStorage.setItem("usuario_logado", JSON.stringify(data));
-        localStorage.setItem("token_acesso", "true"); // TOKEN PARA VALIDAÇÃO
+        localStorage.setItem("token_acesso", "TOKEN_VALIDO");
 
         window.location.href = "https://tecxim.github.io/site/painel.html";
     }
-    
+
     document.addEventListener("keypress", e => {
         if (e.key === "Enter") login();
     });
 </script>
+
 
 
 
