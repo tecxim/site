@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acesso Restrito | Sistema</title>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <style>
         * {
             margin: 0;
@@ -29,9 +31,6 @@
             padding: 40px 30px;
             text-align: center;
         }
-        .logo {
-            margin-bottom: 30px;
-        }
         .logo h1 {
             color: #2575fc;
             font-size: 28px;
@@ -41,12 +40,6 @@
             color: #777;
             font-size: 14px;
             margin-top: 5px;
-        }
-        h2 {
-            color: #333;
-            margin-bottom: 30px;
-            font-weight: 500;
-            font-size: 22px;
         }
         .input-group {
             margin-bottom: 20px;
@@ -88,35 +81,15 @@
             justify-content: center;
             align-items: center;
         }
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 7px 14px rgba(37, 117, 252, 0.3);
-        }
-        button:active {
-            transform: translateY(0);
-        }
-        .footer {
-            margin-top: 25px;
-            color: #777;
-            font-size: 13px;
-        }
         .error-message {
             color: #e74c3c;
             margin-top: 15px;
             font-size: 14px;
             display: none;
         }
-        #spinner {
-            margin-left: 8px;
-            display: none;
-        }
-        @media (max-width: 480px) {
-            .login-container {
-                padding: 30px 20px;
-            }
-        }
     </style>
 </head>
+
 <body>
 
     <div class="login-container">
@@ -139,7 +112,7 @@
 
         <button onclick="login()">
             <span id="button-text">Entrar</span>
-            <span id="spinner">⏳</span>
+            <span id="spinner" style="display:none;">⏳</span>
         </button>
 
         <div id="error-message" class="error-message">
@@ -152,10 +125,16 @@
     </div>
 
     <script>
-        const WEBAPP_URL = "<?= ScriptApp.getService().getUrl() ?>";
+        /* ==========================================================
+            CONFIGURAÇÃO DO SUPABASE
+        ========================================================== */
+        const SUPABASE_URL = "https://sgbfinyrriruvkrxgany.supabase.co";
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNnYmZpbnlycmlydXZrcnhnYW55Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzMDA3MTgsImV4cCI6MjA3ODg3NjcxOH0.qIkO9pxqqxJ-s54nT-F-jJKsRpqJPayrk5l-yTFYFaM";
+
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         function isValidEmail(email) {
-            const re = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return re.test(email);
         }
 
@@ -163,8 +142,6 @@
             const user = document.getElementById('user').value.trim();
             const pass = document.getElementById('pass').value.trim();
             const errorMessage = document.getElementById('error-message');
-            const buttonText = document.getElementById('button-text');
-            const spinner = document.getElementById('spinner');
 
             if (!user || !pass) {
                 errorMessage.textContent = "Preencha usuário e senha.";
@@ -178,48 +155,35 @@
                 return;
             }
 
-            buttonText.style.display = 'none';
-            spinner.style.display = 'inline-block';
+            document.getElementById("button-text").style.display = "none";
+            document.getElementById("spinner").style.display = "inline-block";
 
-            try {
-                const res = await fetch(WEBAPP_URL, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ acao: "login", usuario: user, senha: pass })
-                });
+            /* ==========================================================
+                LOGIN NO SUPABASE
+            ========================================================== */
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email: user,
+                password: pass
+            });
 
-                const rawText = await res.text();
-                console.log("Resposta bruta do servidor:", rawText);
-
-                if (!res.ok) throw new Error("Erro: " + res.status);
-
-                if (!rawText.trim().startsWith("{")) {
-                    throw new Error("Resposta do servidor não é JSON válido.");
-                }
-
-                const data = JSON.parse(rawText);
-
-                if (data.status === "ok") {
-                    errorMessage.style.display = 'none';
-                    localStorage.setItem("token_acesso", data.token);
-                    window.location.href = "painel.html";
-                } else {
-                    errorMessage.textContent = data.message || "Usuário ou senha incorretos.";
-                    errorMessage.style.display = 'block';
-                }
-            } catch (err) {
-                errorMessage.textContent = "Erro de conexão. Tente novamente.";
+            if (error) {
+                errorMessage.textContent = "Usuário ou senha incorretos.";
                 errorMessage.style.display = 'block';
-            } finally {
-                buttonText.style.display = 'inline-block';
-                spinner.style.display = 'none';
+
+                document.getElementById("button-text").style.display = "inline-block";
+                document.getElementById("spinner").style.display = "none";
+                return;
             }
+
+            /* ==========================================================
+                SALVAR SESSÃO E REDIRECIONAR
+            ========================================================== */
+            localStorage.setItem("session", JSON.stringify(data.session));
+            window.location.href = "painel.html";
         }
 
-        document.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') login();
+        document.addEventListener("keypress", e => {
+            if (e.key === "Enter") login();
         });
     </script>
 
