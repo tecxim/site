@@ -144,36 +144,17 @@
             // Enviar dados para o Google Apps Script
             fetch(SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors', // Necessário para evitar erros de CORS
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(dados)
             })
-            .then(async () => {
-                // Aguardar 2 segundos para simular o processamento do servidor
-                // (Isso evita que o usuário clique repetidamente)
-                await new Promise(resolve => setTimeout(resolve, 2000));
-            
-                // Verificar manualmente se o e-mail já existe (usando um fetch GET simples)
-                const checkResponse = await fetch(SCRIPT_URL + '?acao=verificar&usuario=' + encodeURIComponent(usuario), {
-                    method: 'GET',
-                });
-                const checkText = await checkResponse.text();
-            
-                try {
-                    const checkData = JSON.parse(checkText);
-                    if (checkData.exists) {
-                        showMessage('Este e-mail já está cadastrado.', 'error');
-                    } else {
-                        showMessage('Usuário cadastrado com sucesso!', 'success');
-                        document.getElementById('cadastroForm').reset();
-                    }
-                } catch (e) {
-                    // Se não conseguir verificar, assume sucesso
-                    showMessage('Usuário cadastrado com sucesso!', 'success');
-                    document.getElementById('cadastroForm').reset();
-                }
+            .then(() => {
+                // Se não houver erro de rede, assume sucesso
+                // (A validação real é feita no backend)
+                showMessage('Usuário cadastrado com sucesso!', 'success');
+                document.getElementById('cadastroForm').reset();
             })
             .catch(error => {
                 console.error('Erro:', error);
@@ -183,6 +164,7 @@
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Cadastrar';
             });
+
 
 
         });
