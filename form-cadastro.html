@@ -142,28 +142,46 @@
             };
 
             // Enviar dados para o Google Apps Script
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(dados)
-            })
-            .then(() => {
-                // Se não houver erro de rede, assume sucesso
-                // (A validação real é feita no backend)
+           // Enviar dados para o Google Apps Script
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dados)
+        })
+        .then(response => {
+            // Tentar ler a resposta como texto
+            return response.text();
+        })
+        .then(text => {
+            try {
+                // Tentar parsear como JSON
+                const data = JSON.parse(text);
+                if (data.status === 'erro') {
+                    // Se o backend retornar erro, exibir a mensagem de erro
+                    showMessage(data.message, 'error');
+                } else {
+                    // Se não houver erro, exibir sucesso
+                    showMessage('Usuário cadastrado com sucesso!', 'success');
+                    document.getElementById('cadastroForm').reset();
+                }
+            } catch (e) {
+                // Se não conseguir parsear como JSON (por causa do CORS),
+                // exibir mensagem genérica de sucesso
                 showMessage('Usuário cadastrado com sucesso!', 'success');
                 document.getElementById('cadastroForm').reset();
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                showMessage('Erro de conexão. Tente novamente.', 'error');
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Cadastrar';
-            });
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            showMessage('Erro de conexão. Tente novamente.', 'error');
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Cadastrar';
+        });
+
 
 
 
