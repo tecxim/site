@@ -142,17 +142,16 @@
             };
 
             // Usando fetch para POST
-            fetch(SCRIPT_URL, {
-                method: 'POST',
+            fetch(SCRIPT_URL + '?usuario=' + encodeURIComponent(usuario) + '&senha=' + encodeURIComponent(senha), {
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(dados)
+                }
             })
-            .then(response => response.text()) // Lê a resposta como texto
+            .then(response => response.text())
             .then(text => {
                 try {
-                    const data = JSON.parse(text); // Tenta parsear como JSON
+                    const data = JSON.parse(text);
                     if (data.status === 'ok') {
                         showMessage('Usuário cadastrado com sucesso!', 'success');
                         document.getElementById('cadastroForm').reset();
@@ -160,9 +159,8 @@
                         showMessage(data.message, 'error');
                     }
                 } catch (e) {
-                    // Se não conseguir parsear como JSON, assume sucesso (porque o Google Apps Script pode não retornar CORS corretamente)
-                    showMessage('Usuário cadastrado com sucesso!', 'success');
-                    document.getElementById('cadastroForm').reset();
+                    // Se não conseguir parsear como JSON, assume erro
+                    showMessage('Erro ao processar a resposta. Tente novamente.', 'error');
                 }
             })
             .catch(error => {
@@ -173,8 +171,6 @@
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Cadastrar';
             });
-
-
         });
 
         function isValidEmail(email) {
