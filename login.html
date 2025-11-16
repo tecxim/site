@@ -152,65 +152,79 @@
         }
 
         async function login() {
-            const user = document.getElementById('user').value.trim();
-            const pass = document.getElementById('pass').value.trim();
-            const errorMessage = document.getElementById('error-message');
-            const buttonText = document.getElementById('button-text');
-            const spinner = document.getElementById('spinner');
+    const user = document.getElementById('user').value.trim();
+    const pass = document.getElementById('pass').value.trim();
+    const errorMessage = document.getElementById('error-message');
+    const buttonText = document.getElementById('button-text');
+    const spinner = document.getElementById('spinner');
 
-            // Validação de campos vazios
-            if (!user || !pass) {
-                errorMessage.textContent = "Preencha usuário e senha.";
-                errorMessage.style.display = 'block';
-                return;
-            }
+    // Validação de campos vazios
+    if (!user || !pass) {
+        errorMessage.textContent = "Preencha usuário e senha.";
+        errorMessage.style.display = 'block';
+        return;
+    }
 
-            // Validação de e-mail
-            if (!isValidEmail(user)) {
-                errorMessage.textContent = "Digite um e-mail válido.";
-                errorMessage.style.display = 'block';
-                return;
-            }
+    // Validação de e-mail
+    if (!isValidEmail(user)) {
+        errorMessage.textContent = "Digite um e-mail válido.";
+        errorMessage.style.display = 'block';
+        return;
+    }
 
-            // Exibe o spinner e esconde o texto do botão
-            buttonText.style.display = 'none';
-            spinner.style.display = 'inline-block';
+    // Exibe o spinner e esconde o texto do botão
+    buttonText.style.display = 'none';
+    spinner.style.display = 'inline-block';
 
-            try {
-                const res = await fetch(WEBAPP_URL, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ acao: "login", usuario: user, senha: pass })
-                });
+    try {
+        const res = await fetch(WEBAPP_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ acao: "login", usuario: user, senha: pass })
+        });
 
-                if (!res.ok) {
-                    throw new Error(`Erro na requisição: ${res.status} ${res.statusText}`);
-                }
+        // Log da resposta bruta (para depuração)
+        const rawText = await res.text();
+        console.log("Resposta bruta do servidor:", rawText);
 
-                const data = await res.json();
-
-                if (data.status === "ok") {
-                    // Login bem-sucedido
-                    errorMessage.style.display = 'none';
-                    localStorage.setItem("token_acesso", data.token);
-                    window.location.href = "painel.html";
-                } else {
-                    // Login falhou
-                    errorMessage.textContent = data.message || "Usuário ou senha incorretos.";
-                    errorMessage.style.display = 'block';
-                }
-            } catch (err) {
-                errorMessage.textContent = "Erro de conexão. Tente novamente.";
-                errorMessage.style.display = 'block';
-                console.error(err);
-            } finally {
-                // Restaura o texto do botão e esconde o spinner
-                buttonText.style.display = 'inline-block';
-                spinner.style.display = 'none';
-            }
+        // Tenta parsear como JSON apenas se a resposta for OK
+        if (!res.ok) {
+            throw new Error(`Erro na requisição: ${res.status} ${res.statusText}`);
         }
+
+        // Se a resposta não for JSON, lança um erro
+        if (!rawText.trim().startsWith("{")) {
+            throw new Error("Resposta do servidor não é um JSON válido.");
+        }
+
+        const data = JSON.parse(rawText);
+
+        if (data.status === "ok") {
+            // Login bem-sucedido
+            errorMessage.style.display = 'none';
+            localStorage.setItem("token_acesso", data.token);
+            window.location.href = "painel.html";
+        } else {
+            // Login falhou
+            errorMessage.textContent = data.message || "Usuário ou senha incorretos.";
+            errorMessage.style.display = 'block';
+        }
+    } catch (err) {
+        // Mensagem de erro mais detalhada
+        errorMessage.textContent = err.message.includes("JSON")
+            ? "Resposta inválida do servidor. Tente novamente."
+            : "Erro de conexão. Verifique sua internet ou tente novamente.";
+        errorMessage.style.display = 'block';
+        console.error("Erro no login:", err);
+    } finally {
+        // Restaura o texto do botão e esconde o spinner
+        buttonText.style.display = 'inline-block';
+        spinner.style.display = 'none';
+    }
+}
+
 
         // Permite login ao pressionar Enter
         document.addEventListener('keypress', function(event) {
