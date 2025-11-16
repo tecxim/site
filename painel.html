@@ -364,47 +364,48 @@
     </div>
 
     <script>
-    // Verifica login corretamente usando o dado que REALMENTE existe
+    /* =====================================================
+        VERIFICAÇÃO DO LOGIN
+    ===================================================== */
     const usuario = localStorage.getItem("usuario_logado");
-    
-    if (!usuario) {
+    const token = localStorage.getItem("token_acesso");
+
+    // Se não tiver usuário OU token → volta pro login
+    if (!usuario || !token) {
         window.location.href = "login.html";
     }
-    
 
- function logout() {
-    localStorage.removeItem("token_acesso");
-    window.location.href = "login.html";
+    /* =====================================================
+        LOGOUT REAL
+    ===================================================== */
+    function logout() {
+        localStorage.removeItem("usuario_logado");
+        localStorage.removeItem("token_acesso");
+        window.location.href = "login.html";
     }
-        // Filtro de categorias
-        document.querySelectorAll('.category-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove a classe active de todos os botões
-                document.querySelectorAll('.category-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                
-                // Adiciona a classe active ao botão clicado
-                button.classList.add('active');
-                
-                // Obtém a categoria selecionada
-                const category = button.getAttribute('data-category');
-                
-                // Filtra os cards
-                document.querySelectorAll('.resource-card').forEach(card => {
-                    if (category === 'all' || card.getAttribute('data-category') === category) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+
+    /* =====================================================
+        FILTRO DE CATEGORIAS (mantido igual)
+    ===================================================== */
+    document.querySelectorAll('.category-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            button.classList.add('active');
+            const category = button.getAttribute('data-category');
+            
+            document.querySelectorAll('.resource-card').forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
             });
         });
+    });
+</script>
 
-        function logout() {
-            localStorage.removeItem("token_acesso");
-            window.location.href = "login.html";
-        }
-    </script>
 </body>
 </html>
