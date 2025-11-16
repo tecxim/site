@@ -152,12 +152,17 @@
             // Usando fetch para POST
             fetch(SCRIPT_URL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(dados)
             })
-            .then(response => response.json())
+            .then(async response => {
+                const text = await response.text();
+                try {
+                    return JSON.parse(text);
+                } catch (e) {
+                    throw new Error("Resposta não é JSON: " + text);
+                }
+            })
             .then(data => {
                 if (data.status === 'ok') {
                     showMessage('Usuário cadastrado com sucesso!', 'success');
@@ -169,7 +174,8 @@
             .catch(error => {
                 console.error('Erro completo:', error);
                 showMessage('Erro de conexão. Tente novamente.', 'error');
-            })
+            });
+
             .finally(() => {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Cadastrar';
