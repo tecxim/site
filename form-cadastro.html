@@ -143,25 +143,37 @@
 
             // Usando fetch para POST
             fetch(SCRIPT_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(dados)
-        })
-        .then(response => {
-            // Mesmo que não consiga ler a resposta, assume sucesso se a requisição não falhar
-            showMessage('Usuário cadastrado com sucesso!', 'success');
-            document.getElementById('cadastroForm').reset();
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            showMessage('Erro de conexão. Tente novamente.', 'error');
-        })
-        .finally(() => {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Cadastrar';
-        });
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dados)
+            })
+            .then(response => response.text()) // Lê a resposta como texto
+            .then(text => {
+                try {
+                    const data = JSON.parse(text); // Tenta parsear como JSON
+                    if (data.status === 'ok') {
+                        showMessage('Usuário cadastrado com sucesso!', 'success');
+                        document.getElementById('cadastroForm').reset();
+                    } else {
+                        showMessage(data.message, 'error');
+                    }
+                } catch (e) {
+                    // Se não conseguir parsear como JSON, assume sucesso (porque o Google Apps Script pode não retornar CORS corretamente)
+                    showMessage('Usuário cadastrado com sucesso!', 'success');
+                    document.getElementById('cadastroForm').reset();
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                showMessage('Erro de conexão. Tente novamente.', 'error');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Cadastrar';
+            });
+
 
         });
 
