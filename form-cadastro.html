@@ -86,26 +86,21 @@
 <body>
     <div class="container">
         <h1>Cadastro de Usuário</h1>
-
         <form id="cadastroForm">
             <div class="form-group">
                 <label for="usuario">E-mail:</label>
                 <input type="email" id="usuario" name="usuario" required>
             </div>
-
             <div class="form-group">
                 <label for="senha">Senha:</label>
                 <input type="password" id="senha" name="senha" required>
             </div>
-
             <div class="form-group">
                 <label for="confirmarSenha">Confirmar Senha:</label>
                 <input type="password" id="confirmarSenha" name="confirmarSenha" required>
             </div>
-
             <button type="submit" class="btn" id="submitBtn">Cadastrar</button>
         </form>
-
         <div id="message" class="message"></div>
     </div>
     <script>
@@ -114,7 +109,6 @@
 
         document.getElementById('cadastroForm').addEventListener('submit', function(e) {
             e.preventDefault();
-
             const usuario = document.getElementById('usuario').value;
             const senha = document.getElementById('senha').value;
             const confirmarSenha = document.getElementById('confirmarSenha').value;
@@ -126,12 +120,10 @@
                 showMessage('Por favor, insira um e-mail válido.', 'error');
                 return;
             }
-
             if (senha.length < 4) {
                 showMessage('Senha deve ter pelo menos 4 caracteres', 'error');
                 return;
             }
-
             if (senha !== confirmarSenha) {
                 showMessage('Senhas não coincidem', 'error');
                 return;
@@ -152,30 +144,30 @@
             // Usando fetch para POST
             fetch(SCRIPT_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify(dados)
             })
-            .then(async response => {
-                const text = await response.text();
-                try {
-                    return JSON.parse(text);
-                } catch (e) {
-                    throw new Error("Resposta não é JSON: " + text);
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro na resposta do servidor');
                 }
+                return response.json();
             })
             .then(data => {
                 if (data.status === 'ok') {
                     showMessage('Usuário cadastrado com sucesso!', 'success');
                     document.getElementById('cadastroForm').reset();
                 } else {
-                    showMessage(data.message, 'error');
+                    showMessage(data.message || 'Erro ao cadastrar usuário.', 'error');
                 }
             })
             .catch(error => {
-                console.error('Erro completo:', error);
+                console.error('Erro:', error);
                 showMessage('Erro de conexão. Tente novamente.', 'error');
-            });
-
+            })
             .finally(() => {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Cadastrar';
@@ -206,7 +198,6 @@
             const senha = document.getElementById('senha').value;
             const confirmarSenha = this.value;
             const messageElement = document.getElementById('message');
-
             if (confirmarSenha && senha !== confirmarSenha) {
                 showMessage('Senhas não coincidem', 'error');
             } else if (confirmarSenha && senha === confirmarSenha) {
