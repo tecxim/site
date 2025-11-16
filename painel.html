@@ -367,20 +367,13 @@
     /* =====================================================
         VERIFICAÇÃO DO LOGIN
     ===================================================== */
-    const usuario = localStorage.getItem("usuario_logado");
-    const token = localStorage.getItem("token_acesso");
-
-    // Se não tiver usuário OU token → volta pro login
-    if (!usuario || !token) {
+    if (localStorage.getItem("token_acesso") !== "TOKEN_VALIDO") {
         window.location.href = "login.html";
     }
 
-    /* =====================================================
-        LOGOUT REAL
-    ===================================================== */
     function logout() {
-        localStorage.removeItem("usuario_logado");
         localStorage.removeItem("token_acesso");
+        localStorage.removeItem("usuario_logado");
         window.location.href = "login.html";
     }
 
