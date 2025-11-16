@@ -1,182 +1,227 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Cadastro de Usuário</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Restrito | Sistema</title>
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
         body {
-            font-family: Arial, sans-serif;
-            max-width: 400px;
-            margin: 50px auto;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             padding: 20px;
-            background-color: #f5f5f5;
         }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
+        .login-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 30px;
             text-align: center;
-            color: #333;
+        }
+        .logo {
             margin-bottom: 30px;
         }
-        .form-group {
+        .logo h1 {
+            color: #2575fc;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .logo p {
+            color: #777;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 500;
+            font-size: 22px;
+        }
+        .input-group {
             margin-bottom: 20px;
+            text-align: left;
         }
         label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
+            margin-bottom: 8px;
             color: #555;
+            font-weight: 500;
+            font-size: 14px;
         }
         input {
             width: 100%;
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            box-sizing: border-box;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.3s;
         }
         input:focus {
-            border-color: #4CAF50;
             outline: none;
+            border-color: #2575fc;
+            box-shadow: 0 0 0 2px rgba(37, 117, 252, 0.2);
         }
-        .btn {
-            background-color: #007bff;
+        button {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
             color: white;
-            padding: 12px 30px;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
+            border-radius: 8px;
+            padding: 14px 20px;
             width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .btn:hover {
-            background-color: #0069d9;
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(37, 117, 252, 0.3);
         }
-        .message {
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 20px;
-            text-align: center;
+        button:active {
+            transform: translateY(0);
+        }
+        .footer {
+            margin-top: 25px;
+            color: #777;
+            font-size: 13px;
+        }
+        .error-message {
+            color: #e74c3c;
+            margin-top: 15px;
+            font-size: 14px;
             display: none;
         }
-        .success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+        #spinner {
+            margin-left: 8px;
+            display: none;
         }
-        .error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        .loading {
-            background-color: #d1ecf1;
-            color: #0c5460;
-            border: 1px solid #bee5eb;
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Cadastro de Usuário</h1>
-        <form id="cadastroForm">
-            <div class="form-group">
-                <label for="usuario">E-mail:</label>
-                <input type="email" id="usuario" name="usuario" required>
-            </div>
-            <div class="form-group">
-                <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" required>
-            </div>
-            <div class="form-group">
-                <label for="confirmarSenha">Confirmar Senha:</label>
-                <input type="password" id="confirmarSenha" name="confirmarSenha" required>
-            </div>
-            <button type="submit" class="btn" id="submitBtn">Cadastrar</button>
-        </form>
-        <div id="message" class="message"></div>
+
+    <div class="login-container">
+        <div class="logo">
+            <h1>Acesso ao Painel</h1>
+            <p>Acesso Restrito</p>
+        </div>
+
+        <h2>Faça seu login</h2>
+
+        <div class="input-group">
+            <label for="user">Usuário (E-mail)</label>
+            <input type="text" id="user" placeholder="Digite seu e-mail">
+        </div>
+
+        <div class="input-group">
+            <label for="pass">Senha</label>
+            <input type="password" id="pass" placeholder="Digite sua senha">
+        </div>
+
+        <button onclick="login()">
+            <span id="button-text">Entrar</span>
+            <span id="spinner">⏳</span>
+        </button>
+
+        <div id="error-message" class="error-message">
+            Usuário ou senha incorretos.
+        </div>
+
+        <div class="footer">
+            &copy; 2025 Wellington A. R. Cardoso. Todos os direitos reservados.
+        </div>
     </div>
 
     <script>
-        // ============================================
-        // CONFIG DO SUPABASE
-        // ============================================
-        const SUPABASE_URL = "https://sgbfinyrriruvkrxgany.supabase.co";
-        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNnYmZpbnlycmlydXZrcnhnYW55Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzMDA3MTgsImV4cCI6MjA3ODg3NjcxOH0.qIkO9pxqqxJ-s54nT-F-jJKsRpqJPayrk5l-yTFYFaM";
-        const TABLE = "usuarios";
+        const WEBAPP_URL = "<?= ScriptApp.getService().getUrl() ?>";
 
-        document.getElementById('cadastroForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
+        function isValidEmail(email) {
+            const re = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+            return re.test(email);
+        }
 
-            const usuario = document.getElementById('usuario').value;
-            const senha = document.getElementById('senha').value;
-            const confirmarSenha = document.getElementById('confirmarSenha').value;
-            const submitBtn = document.getElementById('submitBtn');
+        async function login() {
+            const user = document.getElementById('user').value.trim();
+            const pass = document.getElementById('pass').value.trim();
+            const errorMessage = document.getElementById('error-message');
+            const buttonText = document.getElementById('button-text');
+            const spinner = document.getElementById('spinner');
 
-            if (!isValidEmail(usuario)) {
-                showMessage('Por favor, insira um e-mail válido.', 'error');
-                return;
-            }
-            if (senha.length < 4) {
-                showMessage('Senha deve ter pelo menos 4 caracteres', 'error');
-                return;
-            }
-            if (senha !== confirmarSenha) {
-                showMessage('Senhas não coincidem', 'error');
+            if (!user || !pass) {
+                errorMessage.textContent = "Preencha usuário e senha.";
+                errorMessage.style.display = 'block';
                 return;
             }
 
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Cadastrando...';
-            showMessage('Cadastrando usuário...', 'loading');
+            if (!isValidEmail(user)) {
+                errorMessage.textContent = "Digite um e-mail válido.";
+                errorMessage.style.display = 'block';
+                return;
+            }
 
-            const dados = {
-                usuario: usuario,
-                senha: senha,
-                ativo: true,
-                data_cadastro: new Date().toISOString()
-            };
+            buttonText.style.display = 'none';
+            spinner.style.display = 'inline-block';
 
             try {
-                const response = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}`, {
+                const res = await fetch(WEBAPP_URL, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
-                        "apikey": SUPABASE_KEY,
-                        "Authorization": `Bearer ${SUPABASE_KEY}`,
-                        "Prefer": "return=minimal"
                     },
-                    body: JSON.stringify(dados)
+                    body: JSON.stringify({ acao: "login", usuario: user, senha: pass })
                 });
 
-                if (!response.ok) {
-                    throw new Error("Erro ao cadastrar.");
+                const rawText = await res.text();
+                console.log("Resposta bruta do servidor:", rawText);
+
+                if (!res.ok) throw new Error("Erro: " + res.status);
+
+                if (!rawText.trim().startsWith("{")) {
+                    throw new Error("Resposta do servidor não é JSON válido.");
                 }
 
-                showMessage("Usuário cadastrado com sucesso!", "success");
-                document.getElementById("cadastroForm").reset();
+                const data = JSON.parse(rawText);
 
-            } catch (error) {
-                showMessage("Erro ao conectar ao servidor.", "error");
+                if (data.status === "ok") {
+                    errorMessage.style.display = 'none';
+                    localStorage.setItem("token_acesso", data.token);
+                    window.location.href = "painel.html";
+                } else {
+                    errorMessage.textContent = data.message || "Usuário ou senha incorretos.";
+                    errorMessage.style.display = 'block';
+                }
+            } catch (err) {
+                errorMessage.textContent = "Erro de conexão. Tente novamente.";
+                errorMessage.style.display = 'block';
             } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = "Cadastrar";
+                buttonText.style.display = 'inline-block';
+                spinner.style.display = 'none';
             }
+        }
+
+        document.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') login();
         });
-
-        function isValidEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        }
-
-        function showMessage(text, type) {
-            const msg = document.getElementById('message');
-            msg.textContent = text;
-            msg.className = 'message ' + type;
-            msg.style.display = 'block';
-        }
     </script>
+
 </body>
 </html>
