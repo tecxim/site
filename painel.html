@@ -364,12 +364,15 @@
     </div>
 
     <script>
-        // Proteção do painel - VERIFICAÇÃO CORRIGIDA
-        if (!localStorage.getItem("token_acesso")) {
+    // Verifica login corretamente usando o dado que REALMENTE existe
+    const usuario = localStorage.getItem("usuario_logado");
+    
+    if (!usuario) {
         window.location.href = "login.html";
-      }
+    }
+    
 
-       function logout() {
+ function logout() {
     localStorage.removeItem("token_acesso");
     window.location.href = "login.html";
     }
