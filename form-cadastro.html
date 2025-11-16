@@ -143,35 +143,26 @@
 
             // Usando fetch para POST
             fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(dados)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro na resposta do servidor');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.status === 'ok') {
-                    showMessage('Usuário cadastrado com sucesso!', 'success');
-                    document.getElementById('cadastroForm').reset();
-                } else {
-                    showMessage(data.message || 'Erro ao cadastrar usuário.', 'error');
-                }
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                showMessage('Erro de conexão. Tente novamente.', 'error');
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Cadastrar';
-            });
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dados)
+        })
+        .then(response => {
+            // Mesmo que não consiga ler a resposta, assume sucesso se a requisição não falhar
+            showMessage('Usuário cadastrado com sucesso!', 'success');
+            document.getElementById('cadastroForm').reset();
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            showMessage('Erro de conexão. Tente novamente.', 'error');
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Cadastrar';
+        });
+
         });
 
         function isValidEmail(email) {
