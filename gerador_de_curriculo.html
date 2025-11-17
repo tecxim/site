@@ -463,549 +463,620 @@ if (localStorage.getItem("token_acesso") !== "TOKEN_VALIDO") {
     window.location.href = "login.html";
 }
 </script>
-
-    <div class="container">
-        <header>
-            <h1>Gerador de Currículo Profissional</h1>
-            <p class="description">Preencha seus dados abaixo e escolha um dos modelos para gerar seu currículo em PDF.</p>
-        </header>
-
-        <!-- Seções do formulário (mesmo código anterior) -->
-        <section class="form-section">
-            <h2>Informações Pessoais <button class="close-btn" onclick="toggleSection(this)">−</button></h2>
-            <div class="form-content">
-                <div class="form-group">
-                    <label for="fullName">Nome Completo</label>
-                    <input type="text" id="fullName" placeholder="Seu nome completo">
-                </div>
-                <div class="form-group">
-                    <label for="cityState">Cidade/Estado</label>
-                    <input type="text" id="cityState" placeholder="Ex: São Paulo, SP">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Telefone/WhatsApp</label>
-                    <input type="text" id="phone" placeholder="(11) 99999-9999">
-                </div>
-                <div class="form-group">
-                    <label for="email">E-mail Profissional</label>
-                    <input type="email" id="email" placeholder="nome.sobrenome@gmail.com">
-                </div>
-                <div class="form-group">
-                    <label for="linkedin">LinkedIn ou Portfólio (opcional)</label>
-                    <input type="text" id="linkedin" placeholder="https://linkedin.com/in/seu-perfil">
-                </div>
-                <div class="form-group">
-                    <label for="professionalTitle">Título Profissional</label>
-                    <input type="text" id="professionalTitle" placeholder="Ex: Desenvolvedor Full Stack">
-                </div>
-                <div class="form-group">
-                    <label for="professionalSummary">Resumo Profissional</label>
-                    <textarea id="professionalSummary" placeholder="Descreva brevemente sua experiência, habilidades e objetivos profissionais (3-5 linhas)"></textarea>
-                </div>
-            </div>
-        </section>
-
-        <section class="form-section">
-            <h2>Experiência Profissional <button class="close-btn" onclick="toggleSection(this)">−</button></h2>
-            <div class="form-content" id="experienceContainer">
-                <div class="experience-item">
-                    <div class="form-group">
-                        <label for="jobTitle1">Cargo</label>
-                        <input type="text" id="jobTitle1" placeholder="Ex: Analista de Dados">
-                    </div>
-                    <div class="form-group">
-                        <label for="company1">Empresa</label>
-                        <input type="text" id="company1" placeholder="Nome da empresa">
-                    </div>
-                    <div class="form-group">
-                        <label for="period1">Período</label>
-                        <input type="text" id="period1" placeholder="Ex: Jan 2022 - Atual">
-                    </div>
-                    <div class="form-group">
-                        <label for="description1">Descrição das atividades</label>
-                        <textarea id="description1" placeholder="Descreva suas principais atividades e conquistas (use tópicos)"></textarea>
-                    </div>
-                </div>
-            </div>
-            <button class="btn" id="addExperience">+ Adicionar Experiência</button>
-        </section>
-
-        <section class="form-section">
-            <h2>Formação Acadêmica <button class="close-btn" onclick="toggleSection(this)">−</button></h2>
-            <div class="form-content" id="educationContainer">
-                <div class="education-item">
-                    <div class="form-group">
-                        <label for="course1">Curso</label>
-                        <input type="text" id="course1" placeholder="Ex: Bacharelado em Ciência da Computação">
-                    </div>
-                    <div class="form-group">
-                        <label for="institution1">Instituição</label>
-                        <input type="text" id="institution1" placeholder="Nome da instituição">
-                    </div>
-                    <div class="form-group">
-                        <label for="completion1">Conclusão</label>
-                        <input type="text" id="completion1" placeholder="Ex: 2023">
-                    </div>
-                </div>
-            </div>
-            <button class="btn" id="addEducation">+ Adicionar Formação</button>
-        </section>
-
-        <section class="form-section">
-            <h2>Habilidades Técnicas</h2>
+<div class="container">
+    <header>
+        <h1>Gerador de Currículo Profissional</h1>
+        <p class="description">Preencha seus dados abaixo e escolha um dos modelos para gerar seu currículo em PDF.</p>
+    </header>
+    <section class="form-section">
+        <h2>Informações Pessoais <button class="close-btn" onclick="toggleSection(this)">−</button></h2>
+        <div class="form-content">
             <div class="form-group">
-                <label for="skills">Liste suas habilidades (separadas por vírgula)</label>
-                <textarea id="skills" placeholder="Ex: Python, JavaScript, SQL, Power BI, Excel Avançado"></textarea>
+                <label for="fullName">Nome Completo</label>
+                <input type="text" id="fullName" placeholder="Seu nome completo">
             </div>
-        </section>
-
-        <section class="form-section">
-            <h2>Idiomas</h2>
             <div class="form-group">
-                <label for="languages">Idiomas e níveis (separados por vírgula)</label>
-                <input type="text" id="languages" placeholder="Ex: Inglês Intermediário, Espanhol Básico">
+                <label for="cityState">Cidade/Estado</label>
+                <input type="text" id="cityState" placeholder="Ex: São Paulo, SP">
             </div>
-        </section>
-
-        <section class="form-section">
-            <h2>Cursos e Certificações</h2>
             <div class="form-group">
-                <label for="certifications">Cursos e certificações (separados por ponto e vírgula)</label>
-                <textarea id="certifications" placeholder="Ex: Certificação Google Data Analytics - Coursera - 2024; Curso de Gestão de Projetos - Udemy - 2023"></textarea>
+                <label for="phone">Telefone/WhatsApp</label>
+                <input type="text" id="phone" placeholder="(11) 99999-9999">
             </div>
-        </section>
-
-        <section class="models-section">
-            <div class="model-card">
-                <h3>Modelo Clássico</h3>
-                <p>Layout tradicional e profissional, ideal para a maioria das áreas.</p>
-                <button class="btn" onclick="previewResume('classic')">Visualizar</button>
+            <div class="form-group">
+                <label for="email">E-mail Profissional</label>
+                <input type="email" id="email" placeholder="nome.sobrenome@gmail.com">
             </div>
-            <div class="model-card">
-                <h3>Modelo Moderno</h3>
-                <p>Design contemporâneo com foco em clareza e organização.</p>
-                <button class="btn" onclick="previewResume('modern')">Visualizar</button>
+            <div class="form-group">
+                <label for="linkedin">LinkedIn ou Portfólio (opcional)</label>
+                <input type="text" id="linkedin" placeholder="https://linkedin.com/in/seu-perfil">
             </div>
-            <div class="model-card">
-                <h3>Modelo Minimalista</h3>
-                <p>Estilo limpo e direto, perfeito para quem valoriza simplicidade.</p>
-                <button class="btn" onclick="previewResume('minimal')">Visualizar</button>
+            <div class="form-group">
+                <label for="professionalTitle">Título Profissional</label>
+                <input type="text" id="professionalTitle" placeholder="Ex: Desenvolvedor Full Stack">
             </div>
-        </section>
-
-        <section id="previewSection" class="preview-section">
-            <div class="actions">
-                <button class="btn btn-danger" onclick="closePreview()">Fechar Visualização</button>
-                <button class="btn btn-success" onclick="window.print()">Imprimir/PDF</button>
+            <div class="form-group">
+                <label for="professionalSummary">Resumo Profissional</label>
+                <textarea id="professionalSummary" placeholder="Descreva brevemente sua experiência, habilidades e objetivos profissionais (3-5 linhas)"></textarea>
             </div>
-            <div id="previewContainer" class="preview-container">
-                <!-- O conteúdo do currículo será inserido aqui -->
+        </div>
+    </section>
+    <section class="form-section">
+        <h2>Experiência Profissional <button class="close-btn" onclick="toggleSection(this)">−</button></h2>
+        <div class="form-content" id="experienceContainer">
+            <div class="experience-item">
+                <div class="form-group">
+                    <label for="jobTitle1">Cargo</label>
+                    <input type="text" id="jobTitle1" placeholder="Ex: Analista de Dados">
+                </div>
+                <div class="form-group">
+                    <label for="company1">Empresa</label>
+                    <input type="text" id="company1" placeholder="Nome da empresa">
+                </div>
+                <div class="form-group">
+                    <label for="period1">Período</label>
+                    <input type="text" id="period1" placeholder="Ex: Jan 2022 - Atual">
+                </div>
+                <div class="form-group">
+                    <label for="description1">Descrição das atividades</label>
+                    <textarea id="description1" placeholder="Descreva suas principais atividades e conquistas (use tópicos)"></textarea>
+                </div>
             </div>
-        </section>
-    </div>
-    <script>
-        // Contadores para experiências e formações
-        let experienceCount = 1;
-        let educationCount = 1;
-        let currentModel = '';
-
-        // Adicionar nova experiência
-        document.getElementById('addExperience').addEventListener('click', function() {
-            experienceCount++;
-            const container = document.getElementById('experienceContainer');
-            const newExperience = document.createElement('div');
-            newExperience.className = 'experience-item';
-            newExperience.innerHTML = `
+        </div>
+        <button class="btn" id="addExperience">+ Adicionar Experiência</button>
+    </section>
+    <section class="form-section">
+        <h2>Formação Acadêmica <button class="close-btn" onclick="toggleSection(this)">−</button></h2>
+        <div class="form-content" id="educationContainer">
+            <div class="education-item">
                 <div class="form-group">
-                    <label for="jobTitle${experienceCount}">Cargo</label>
-                    <input type="text" id="jobTitle${experienceCount}" placeholder="Ex: Analista de Dados">
+                    <label for="course1">Curso</label>
+                    <input type="text" id="course1" placeholder="Ex: Bacharelado em Ciência da Computação">
                 </div>
                 <div class="form-group">
-                    <label for="company${experienceCount}">Empresa</label>
-                    <input type="text" id="company${experienceCount}" placeholder="Nome da empresa">
+                    <label for="institution1">Instituição</label>
+                    <input type="text" id="institution1" placeholder="Nome da instituição">
                 </div>
                 <div class="form-group">
-                    <label for="period${experienceCount}">Período</label>
-                    <input type="text" id="period${experienceCount}" placeholder="Ex: Jan 2022 - Atual">
+                    <label for="completion1">Conclusão</label>
+                    <input type="text" id="completion1" placeholder="Ex: 2023">
                 </div>
-                <div class="form-group">
-                    <label for="description${experienceCount}">Descrição das atividades</label>
-                    <textarea id="description${experienceCount}" placeholder="Descreva suas principais atividades e conquistas (use tópicos)"></textarea>
-                </div>
-            `;
-            container.appendChild(newExperience);
-        });
+            </div>
+        </div>
+        <button class="btn" id="addEducation">+ Adicionar Formação</button>
+    </section>
+    <section class="form-section">
+        <h2>Habilidades Técnicas</h2>
+        <div class="form-group">
+            <label for="skills">Liste suas habilidades (separadas por vírgula)</label>
+            <textarea id="skills" placeholder="Ex: Python, JavaScript, SQL, Power BI, Excel Avançado"></textarea>
+        </div>
+    </section>
+    <section class="form-section">
+        <h2>Idiomas</h2>
+        <div class="form-group">
+            <label for="languages">Idiomas e níveis (separados por vírgula)</label>
+            <input type="text" id="languages" placeholder="Ex: Inglês Intermediário, Espanhol Básico">
+        </div>
+    </section>
+    <section class="form-section">
+        <h2>Cursos e Certificações</h2>
+        <div class="form-group">
+            <label for="certifications">Cursos e certificações (separados por ponto e vírgula)</label>
+            <textarea id="certifications" placeholder="Ex: Certificação Google Data Analytics - Coursera - 2024; Curso de Gestão de Projetos - Udemy - 2023"></textarea>
+        </div>
+    </section>
+    <section class="models-section">
+        <div class="model-card">
+            <h3>Modelo Clássico</h3>
+            <p>Layout tradicional e profissional, ideal para a maioria das áreas.</p>
+            <button class="btn" onclick="previewResume('classic')">Visualizar</button>
+        </div>
+        <div class="model-card">
+            <h3>Modelo Moderno</h3>
+            <p>Design contemporâneo com foco em clareza e organização.</p>
+            <button class="btn" onclick="previewResume('modern')">Visualizar</button>
+        </div>
+        <div class="model-card">
+            <h3>Modelo Minimalista</h3>
+            <p>Estilo limpo e direto, perfeito para quem valoriza simplicidade.</p>
+            <button class="btn" onclick="previewResume('minimal')">Visualizar</button>
+        </div>
+    </section>
+    <section id="previewSection" class="preview-section">
+        <div class="actions">
+            <button class="btn btn-danger" onclick="closePreview()">Fechar Visualização</button>
+            <button class="btn btn-success" onclick="window.print()">Imprimir/PDF</button>
+        </div>
+        <div id="previewContainer" class="preview-container">
+            <!-- O conteúdo do currículo será inserido aqui -->
+        </div>
+    </section>
+</div>
+<script>
+// Contadores para experiências e formações
+let experienceCount = 1;
+let educationCount = 1;
+let currentModel = '';
 
-        // Adicionar nova formação
-        document.getElementById('addEducation').addEventListener('click', function() {
-            educationCount++;
-            const container = document.getElementById('educationContainer');
-            const newEducation = document.createElement('div');
-            newEducation.className = 'education-item';
-            newEducation.innerHTML = `
-                <div class="form-group">
-                    <label for="course${educationCount}">Curso</label>
-                    <input type="text" id="course${educationCount}" placeholder="Ex: Bacharelado em Ciência da Computação">
-                </div>
-                <div class="form-group">
-                    <label for="institution${educationCount}">Instituição</label>
-                    <input type="text" id="institution${educationCount}" placeholder="Nome da instituição">
-                </div>
-                <div class="form-group">
-                    <label for="completion${educationCount}">Conclusão</label>
-                    <input type="text" id="completion${educationCount}" placeholder="Ex: 2023">
-                </div>
-            `;
-            container.appendChild(newEducation);
-        });
+// Função para salvar todos os dados do formulário no localStorage
+function saveFormData() {
+    const formData = collectFormData();
+    localStorage.setItem('curriculoFormData', JSON.stringify(formData));
+    localStorage.setItem('experienceCount', experienceCount);
+    localStorage.setItem('educationCount', educationCount);
+}
 
-        // Fechar visualização
-        function closePreview() {
-            document.getElementById('previewSection').classList.remove('active');
-        }
+// Função para carregar os dados do localStorage e preencher o formulário
+function loadFormData() {
+    const savedData = localStorage.getItem('curriculoFormData');
+    const savedExperienceCount = localStorage.getItem('experienceCount');
+    const savedEducationCount = localStorage.getItem('educationCount');
 
-        // Alternar exibição de seções
-        function toggleSection(button) {
-            const section = button.closest('.form-section');
-            const content = section.querySelector('.form-content');
-            if (content.style.display === 'none') {
-                content.style.display = 'block';
-                button.textContent = '−';
-            } else {
-                content.style.display = 'none';
-                button.textContent = '+';
-            }
-        }
+    if (savedData) {
+        const data = JSON.parse(savedData);
+        // Preenche os campos de informações pessoais
+        document.getElementById('fullName').value = data.personal.fullName || '';
+        document.getElementById('cityState').value = data.personal.cityState || '';
+        document.getElementById('phone').value = data.personal.phone || '';
+        document.getElementById('email').value = data.personal.email || '';
+        document.getElementById('linkedin').value = data.personal.linkedin || '';
+        document.getElementById('professionalTitle').value = data.personal.professionalTitle || '';
+        document.getElementById('professionalSummary').value = data.personal.professionalSummary || '';
 
-        // Visualizar currículo
-        function previewResume(model) {
-            const formData = collectFormData();
-            const resumeHTML = generateResumeHTML(model, formData);
-            document.getElementById('previewContainer').innerHTML = resumeHTML;
-            document.getElementById('previewSection').classList.add('active');
-            currentModel = model;
-            document.getElementById('previewSection').scrollIntoView({ behavior: 'smooth' });
-        }
+        // Preenche habilidades, idiomas e certificações
+        document.getElementById('skills').value = data.skills ? data.skills.join(', ') : '';
+        document.getElementById('languages').value = data.languages ? data.languages.join(', ') : '';
+        document.getElementById('certifications').value = data.certifications ? data.certifications.join('; ') : '';
 
-        // Coletar dados do formulário
-        function collectFormData() {
-            const data = {
-                personal: {
-                    fullName: document.getElementById('fullName').value,
-                    cityState: document.getElementById('cityState').value,
-                    phone: document.getElementById('phone').value,
-                    email: document.getElementById('email').value,
-                    linkedin: document.getElementById('linkedin').value,
-                    professionalTitle: document.getElementById('professionalTitle').value,
-                    professionalSummary: document.getElementById('professionalSummary').value
-                },
-                experiences: [],
-                educations: [],
-                skills: document.getElementById('skills').value.split(',').map(skill => skill.trim()),
-                languages: document.getElementById('languages').value.split(',').map(lang => lang.trim()),
-                certifications: document.getElementById('certifications').value.split(';').map(cert => cert.trim())
-            };
-
+        // Preenche experiências
+        if (savedExperienceCount) {
+            experienceCount = parseInt(savedExperienceCount);
             for (let i = 1; i <= experienceCount; i++) {
-                const jobTitle = document.getElementById(`jobTitle${i}`)?.value;
-                const company = document.getElementById(`company${i}`)?.value;
-                const period = document.getElementById(`period${i}`)?.value;
-                const description = document.getElementById(`description${i}`)?.value;
-                if (jobTitle && company) {
-                    data.experiences.push({ jobTitle, company, period, description });
+                if (i > 1) {
+                    document.getElementById('addExperience').click();
+                }
+                const exp = data.experiences[i-1];
+                if (exp) {
+                    document.getElementById(`jobTitle${i}`).value = exp.jobTitle || '';
+                    document.getElementById(`company${i}`).value = exp.company || '';
+                    document.getElementById(`period${i}`).value = exp.period || '';
+                    document.getElementById(`description${i}`).value = exp.description || '';
                 }
             }
+        }
 
+        // Preenche formações
+        if (savedEducationCount) {
+            educationCount = parseInt(savedEducationCount);
             for (let i = 1; i <= educationCount; i++) {
-                const course = document.getElementById(`course${i}`)?.value;
-                const institution = document.getElementById(`institution${i}`)?.value;
-                const completion = document.getElementById(`completion${i}`)?.value;
-                if (course && institution) {
-                    data.educations.push({ course, institution, completion });
+                if (i > 1) {
+                    document.getElementById('addEducation').click();
+                }
+                const edu = data.educations[i-1];
+                if (edu) {
+                    document.getElementById(`course${i}`).value = edu.course || '';
+                    document.getElementById(`institution${i}`).value = edu.institution || '';
+                    document.getElementById(`completion${i}`).value = edu.completion || '';
                 }
             }
-
-            return data;
         }
+    }
+}
 
-        // Gerar HTML do currículo baseado no modelo
-        function generateResumeHTML(model, data) {
-            let html = '';
-            switch(model) {
-                case 'classic':
-                    html = generateClassicResume(data);
-                    break;
-                case 'modern':
-                    html = generateModernResume(data);
-                    break;
-                case 'minimal':
-                    html = generateMinimalResume(data);
-                    break;
+// Função para limpar os dados salvos (opcional)
+function clearFormData() {
+    localStorage.removeItem('curriculoFormData');
+    localStorage.removeItem('experienceCount');
+    localStorage.removeItem('educationCount');
+    window.location.reload();
+}
+
+// Adicionar nova experiência
+document.getElementById('addExperience').addEventListener('click', function() {
+    experienceCount++;
+    const container = document.getElementById('experienceContainer');
+    const newExperience = document.createElement('div');
+    newExperience.className = 'experience-item';
+    newExperience.innerHTML = `
+        <div class="form-group">
+            <label for="jobTitle${experienceCount}">Cargo</label>
+            <input type="text" id="jobTitle${experienceCount}" placeholder="Ex: Analista de Dados">
+        </div>
+        <div class="form-group">
+            <label for="company${experienceCount}">Empresa</label>
+            <input type="text" id="company${experienceCount}" placeholder="Nome da empresa">
+        </div>
+        <div class="form-group">
+            <label for="period${experienceCount}">Período</label>
+            <input type="text" id="period${experienceCount}" placeholder="Ex: Jan 2022 - Atual">
+        </div>
+        <div class="form-group">
+            <label for="description${experienceCount}">Descrição das atividades</label>
+            <textarea id="description${experienceCount}" placeholder="Descreva suas principais atividades e conquistas (use tópicos)"></textarea>
+        </div>
+    `;
+    container.appendChild(newExperience);
+    saveFormData();
+});
+
+// Adicionar nova formação
+document.getElementById('addEducation').addEventListener('click', function() {
+    educationCount++;
+    const container = document.getElementById('educationContainer');
+    const newEducation = document.createElement('div');
+    newEducation.className = 'education-item';
+    newEducation.innerHTML = `
+        <div class="form-group">
+            <label for="course${educationCount}">Curso</label>
+            <input type="text" id="course${educationCount}" placeholder="Ex: Bacharelado em Ciência da Computação">
+        </div>
+        <div class="form-group">
+            <label for="institution${educationCount}">Instituição</label>
+            <input type="text" id="institution${educationCount}" placeholder="Nome da instituição">
+        </div>
+        <div class="form-group">
+            <label for="completion${educationCount}">Conclusão</label>
+            <input type="text" id="completion${educationCount}" placeholder="Ex: 2023">
+        </div>
+    `;
+    container.appendChild(newEducation);
+    saveFormData();
+});
+
+// Salva os dados sempre que um campo for alterado
+document.querySelectorAll('input, textarea').forEach(input => {
+    input.addEventListener('input', saveFormData);
+});
+
+// Salva os dados antes de fechar a página
+window.addEventListener('beforeunload', saveFormData);
+
+// Carrega os dados salvos ao iniciar a página
+window.addEventListener('DOMContentLoaded', loadFormData);
+
+// Fechar visualização
+function closePreview() {
+    document.getElementById('previewSection').classList.remove('active');
+}
+
+// Alternar exibição de seções
+function toggleSection(button) {
+    const section = button.closest('.form-section');
+    const content = section.querySelector('.form-content');
+    if (content.style.display === 'none') {
+        content.style.display = 'block';
+        button.textContent = '−';
+    } else {
+        content.style.display = 'none';
+        button.textContent = '+';
+    }
+}
+
+// Visualizar currículo
+function previewResume(model) {
+    const formData = collectFormData();
+    const resumeHTML = generateResumeHTML(model, formData);
+    document.getElementById('previewContainer').innerHTML = resumeHTML;
+    document.getElementById('previewSection').classList.add('active');
+    currentModel = model;
+    document.getElementById('previewSection').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Coletar dados do formulário
+function collectFormData() {
+    const data = {
+        personal: {
+            fullName: document.getElementById('fullName').value,
+            cityState: document.getElementById('cityState').value,
+            phone: document.getElementById('phone').value,
+            email: document.getElementById('email').value,
+            linkedin: document.getElementById('linkedin').value,
+            professionalTitle: document.getElementById('professionalTitle').value,
+            professionalSummary: document.getElementById('professionalSummary').value
+        },
+        experiences: [],
+        educations: [],
+        skills: document.getElementById('skills').value.split(',').map(skill => skill.trim()),
+        languages: document.getElementById('languages').value.split(',').map(lang => lang.trim()),
+        certifications: document.getElementById('certifications').value.split(';').map(cert => cert.trim())
+    };
+    for (let i = 1; i <= experienceCount; i++) {
+        const jobTitle = document.getElementById(`jobTitle${i}`)?.value;
+        const company = document.getElementById(`company${i}`)?.value;
+        const period = document.getElementById(`period${i}`)?.value;
+        const description = document.getElementById(`description${i}`)?.value;
+        if (jobTitle && company) {
+            data.experiences.push({ jobTitle, company, period, description });
+        }
+    }
+    for (let i = 1; i <= educationCount; i++) {
+        const course = document.getElementById(`course${i}`)?.value;
+        const institution = document.getElementById(`institution${i}`)?.value;
+        const completion = document.getElementById(`completion${i}`)?.value;
+        if (course && institution) {
+            data.educations.push({ course, institution, completion });
+        }
+    }
+    return data;
+}
+
+// Gerar HTML do currículo baseado no modelo
+function generateResumeHTML(model, data) {
+    let html = '';
+    switch(model) {
+        case 'classic':
+            html = generateClassicResume(data);
+            break;
+        case 'modern':
+            html = generateModernResume(data);
+            break;
+        case 'minimal':
+            html = generateMinimalResume(data);
+            break;
+    }
+    return html;
+}
+
+// Gerar currículo no modelo clássico
+function generateClassicResume(data) {
+    return `
+        <div class="resume-classic">
+            <div class="header">
+                <h1>${data.personal.fullName}</h1>
+                <div class="contact-info">
+                    <span>${data.personal.cityState}</span>
+                    <span>${data.personal.phone}</span>
+                    <span>${data.personal.email}</span>
+                    ${data.personal.linkedin ? `<span>${data.personal.linkedin}</span>` : ''}
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-title">Resumo Profissional</div>
+                <p>${data.personal.professionalSummary}</p>
+            </div>
+            ${data.experiences.length > 0 ? `
+            <div class="section">
+                <div class="section-title">Experiência Profissional</div>
+                ${data.experiences.map(exp => `
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <span>${exp.jobTitle} - ${exp.company}</span>
+                            <span>${exp.period}</span>
+                        </div>
+                        <div>${formatDescription(exp.description)}</div>
+                    </div>
+                `).join('')}
+            </div>
+            ` : ''}
+            ${data.educations.length > 0 ? `
+            <div class="section">
+                <div class="section-title">Formação Acadêmica</div>
+                ${data.educations.map(edu => `
+                    <div class="education-item">
+                        <div class="item-header">
+                            <span>${edu.course}</span>
+                            <span>${edu.completion}</span>
+                        </div>
+                        <div>${edu.institution}</div>
+                    </div>
+                `).join('')}
+            </div>
+            ` : ''}
+            ${data.skills.filter(skill => skill).length > 0 ? `
+            <div class="section">
+                <div class="section-title">Habilidades Técnicas</div>
+                <div class="skills-list">
+                    ${data.skills.filter(skill => skill).map(skill => `
+                        <span class="skill-tag">${skill}</span>
+                    `).join('')}
+                </div>
+            </div>
+            ` : ''}
+            ${data.languages.filter(lang => lang).length > 0 ? `
+            <div class="section">
+                <div class="section-title">Idiomas</div>
+                <div>${data.languages.filter(lang => lang).join(', ')}</div>
+            </div>
+            ` : ''}
+            ${data.certifications.filter(cert => cert).length > 0 ? `
+            <div class="section">
+                <div class="section-title">Cursos e Certificações</div>
+                <ul>
+                    ${data.certifications.filter(cert => cert).map(cert => `
+                        <li>${cert}</li>
+                    `).join('')}
+                </ul>
+            </div>
+            ` : ''}
+        </div>
+    `;
+}
+
+// Gerar currículo no modelo moderno
+function generateModernResume(data) {
+    return `
+        <div class="resume-modern">
+            <div class="header">
+                <div class="header-left">
+                    <h1>${data.personal.fullName}</h1>
+                    <div class="title">${data.personal.professionalTitle}</div>
+                </div>
+                <div class="contact-info">
+                    <div>${data.personal.cityState}</div>
+                    <div>${data.personal.phone}</div>
+                    <div>${data.personal.email}</div>
+                    ${data.personal.linkedin ? `<div>${data.personal.linkedin}</div>` : ''}
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-title">Perfil</div>
+                <p>${data.personal.professionalSummary}</p>
+            </div>
+            ${data.experiences.length > 0 ? `
+            <div class="section">
+                <div class="section-title">Experiência</div>
+                ${data.experiences.map(exp => `
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <span>${exp.jobTitle}</span>
+                            <span>${exp.period}</span>
+                        </div>
+                        <div class="item-subtitle">${exp.company}</div>
+                        <div>${formatDescription(exp.description)}</div>
+                    </div>
+                `).join('')}
+            </div>
+            ` : ''}
+            ${data.educations.length > 0 ? `
+            <div class="section">
+                <div class="section-title">Formação</div>
+                ${data.educations.map(edu => `
+                    <div class="education-item">
+                        <div class="item-header">
+                            <span>${edu.course}</span>
+                            <span>${edu.completion}</span>
+                        </div>
+                        <div>${edu.institution}</div>
+                    </div>
+                `).join('')}
+            </div>
+            ` : ''}
+            ${data.skills.filter(skill => skill).length > 0 ? `
+            <div class="section">
+                <div class="section-title">Competências</div>
+                <div class="skills-list">
+                    ${data.skills.filter(skill => skill).map(skill => `
+                        <div class="skill-item">
+                            <span>${skill}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            ` : ''}
+            ${data.languages.filter(lang => lang).length > 0 ? `
+            <div class="section">
+                <div class="section-title">Idiomas</div>
+                <div>${data.languages.filter(lang => lang).join(', ')}</div>
+            </div>
+            ` : ''}
+            ${data.certifications.filter(cert => cert).length > 0 ? `
+            <div class="section">
+                <div class="section-title">Certificações</div>
+                <ul>
+                    ${data.certifications.filter(cert => cert).map(cert => `
+                        <li>${cert}</li>
+                    `).join('')}
+                </ul>
+            </div>
+            ` : ''}
+        </div>
+    `;
+}
+
+// Gerar currículo no modelo minimalista
+function generateMinimalResume(data) {
+    return `
+        <div class="resume-minimal">
+            <div class="header">
+                <h1>${data.personal.fullName}</h1>
+                <div class="title">${data.personal.professionalTitle}</div>
+                <div class="contact-info">
+                    <span>${data.personal.cityState}</span>
+                    <span>${data.personal.phone}</span>
+                    <span>${data.personal.email}</span>
+                    ${data.personal.linkedin ? `<span>${data.personal.linkedin}</span>` : ''}
+                </div>
+            </div>
+            <div class="section">
+                <div class="section-title">Resumo</div>
+                <p>${data.personal.professionalSummary}</p>
+            </div>
+            ${data.experiences.length > 0 ? `
+            <div class="section">
+                <div class="section-title">Experiência</div>
+                ${data.experiences.map(exp => `
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <span>${exp.jobTitle}</span>
+                            <span>${exp.period}</span>
+                        </div>
+                        <div>${exp.company}</div>
+                        <div>${formatDescription(exp.description)}</div>
+                    </div>
+                `).join('')}
+            </div>
+            ` : ''}
+            ${data.educations.length > 0 ? `
+            <div class="section">
+                <div class="section-title">Formação</div>
+                ${data.educations.map(edu => `
+                    <div class="education-item">
+                        <div class="item-header">
+                            <span>${edu.course}</span>
+                            <span>${edu.completion}</span>
+                        </div>
+                        <div>${edu.institution}</div>
+                    </div>
+                `).join('')}
+            </div>
+            ` : ''}
+            ${data.skills.filter(skill => skill).length > 0 ? `
+            <div class="section">
+                <div class="section-title">Habilidades</div>
+                <div class="skills-list">
+                    ${data.skills.filter(skill => skill).map(skill => `
+                        <span class="skill-tag">${skill}</span>
+                    `).join('')}
+                </div>
+            </div>
+            ` : ''}
+            ${data.languages.filter(lang => lang).length > 0 ? `
+            <div class="section">
+                <div class="section-title">Idiomas</div>
+                <div>${data.languages.filter(lang => lang).join(', ')}</div>
+            </div>
+            ` : ''}
+            ${data.certifications.filter(cert => cert).length > 0 ? `
+            <div class="section">
+                <div class="section-title">Certificações</div>
+                <ul>
+                    ${data.certifications.filter(cert => cert).map(cert => `
+                        <li>${cert}</li>
+                    `).join('')}
+                </ul>
+            </div>
+            ` : ''}
+        </div>
+    `;
+}
+
+// Formatar descrição
+function formatDescription(text) {
+    if (!text) return '';
+    if (text.includes('-') || text.includes('•')) {
+        return text.split('\n').map(line => {
+            if (line.trim().startsWith('-') || line.trim().startsWith('•')) {
+                return line.trim();
+            } else if (line.trim()) {
+                return `• ${line.trim()}`;
             }
-            return html;
+            return '';
+        }).filter(line => line).join('<br>');
+    }
+    return text.split('\n').map(line => {
+        if (line.trim()) {
+            return `• ${line.trim()}`;
         }
-
-        // Gerar currículo no modelo clássico
-        function generateClassicResume(data) {
-            return `
-                <div class="resume-classic">
-                    <div class="header">
-                        <h1>${data.personal.fullName}</h1>
-                        <div class="contact-info">
-                            <span>${data.personal.cityState}</span>
-                            <span>${data.personal.phone}</span>
-                            <span>${data.personal.email}</span>
-                            ${data.personal.linkedin ? `<span>${data.personal.linkedin}</span>` : ''}
-                        </div>
-                    </div>
-                    <div class="section">
-                        <div class="section-title">Resumo Profissional</div>
-                        <p>${data.personal.professionalSummary}</p>
-                    </div>
-                    ${data.experiences.length > 0 ? `
-                    <div class="section">
-                        <div class="section-title">Experiência Profissional</div>
-                        ${data.experiences.map(exp => `
-                            <div class="experience-item">
-                                <div class="item-header">
-                                    <span>${exp.jobTitle} - ${exp.company}</span>
-                                    <span>${exp.period}</span>
-                                </div>
-                                <div>${formatDescription(exp.description)}</div>
-                            </div>
-                        `).join('')}
-                    </div>
-                    ` : ''}
-                    ${data.educations.length > 0 ? `
-                    <div class="section">
-                        <div class="section-title">Formação Acadêmica</div>
-                        ${data.educations.map(edu => `
-                            <div class="education-item">
-                                <div class="item-header">
-                                    <span>${edu.course}</span>
-                                    <span>${edu.completion}</span>
-                                </div>
-                                <div>${edu.institution}</div>
-                            </div>
-                        `).join('')}
-                    </div>
-                    ` : ''}
-                    ${data.skills.filter(skill => skill).length > 0 ? `
-                    <div class="section">
-                        <div class="section-title">Habilidades Técnicas</div>
-                        <div class="skills-list">
-                            ${data.skills.filter(skill => skill).map(skill => `
-                                <span class="skill-tag">${skill}</span>
-                            `).join('')}
-                        </div>
-                    </div>
-                    ` : ''}
-                    ${data.languages.filter(lang => lang).length > 0 ? `
-                    <div class="section">
-                        <div class="section-title">Idiomas</div>
-                        <div>${data.languages.filter(lang => lang).join(', ')}</div>
-                    </div>
-                    ` : ''}
-                    ${data.certifications.filter(cert => cert).length > 0 ? `
-                    <div class="section">
-                        <div class="section-title">Cursos e Certificações</div>
-                        <ul>
-                            ${data.certifications.filter(cert => cert).map(cert => `
-                                <li>${cert}</li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                    ` : ''}
-                </div>
-            `;
-        }
-
-        // Gerar currículo no modelo moderno
-        function generateModernResume(data) {
-            return `
-                <div class="resume-modern">
-                    <div class="header">
-                        <div class="header-left">
-                            <h1>${data.personal.fullName}</h1>
-                            <div class="title">${data.personal.professionalTitle}</div>
-                        </div>
-                        <div class="contact-info">
-                            <div>${data.personal.cityState}</div>
-                            <div>${data.personal.phone}</div>
-                            <div>${data.personal.email}</div>
-                            ${data.personal.linkedin ? `<div>${data.personal.linkedin}</div>` : ''}
-                        </div>
-                    </div>
-                    <div class="section">
-                        <div class="section-title">Perfil</div>
-                        <p>${data.personal.professionalSummary}</p>
-                    </div>
-                    ${data.experiences.length > 0 ? `
-                    <div class="section">
-                        <div class="section-title">Experiência</div>
-                        ${data.experiences.map(exp => `
-                            <div class="experience-item">
-                                <div class="item-header">
-                                    <span>${exp.jobTitle}</span>
-                                    <span>${exp.period}</span>
-                                </div>
-                                <div class="item-subtitle">${exp.company}</div>
-                                <div>${formatDescription(exp.description)}</div>
-                            </div>
-                        `).join('')}
-                    </div>
-                    ` : ''}
-                    ${data.educations.length > 0 ? `
-                    <div class="section">
-                        <div class="section-title">Formação</div>
-                        ${data.educations.map(edu => `
-                            <div class="education-item">
-                                <div class="item-header">
-                                    <span>${edu.course}</span>
-                                    <span>${edu.completion}</span>
-                                </div>
-                                <div>${edu.institution}</div>
-                            </div>
-                        `).join('')}
-                    </div>
-                    ` : ''}
-                    ${data.skills.filter(skill => skill).length > 0 ? `
-                    <div class="section">
-                        <div class="section-title">Competências</div>
-                        <div class="skills-list">
-                            ${data.skills.filter(skill => skill).map(skill => `
-                                <div class="skill-item">
-                                    <span>${skill}</span>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                    ` : ''}
-                    ${data.languages.filter(lang => lang).length > 0 ? `
-                    <div class="section">
-                        <div class="section-title">Idiomas</div>
-                        <div>${data.languages.filter(lang => lang).join(', ')}</div>
-                    </div>
-                    ` : ''}
-                    ${data.certifications.filter(cert => cert).length > 0 ? `
-                    <div class="section">
-                        <div class="section-title">Certificações</div>
-                        <ul>
-                            ${data.certifications.filter(cert => cert).map(cert => `
-                                <li>${cert}</li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                    ` : ''}
-                </div>
-            `;
-        }
-
-        // Gerar currículo no modelo minimalista
-        function generateMinimalResume(data) {
-            return `
-                <div class="resume-minimal">
-                    <div class="header">
-                        <h1>${data.personal.fullName}</h1>
-                        <div class="title">${data.personal.professionalTitle}</div>
-                        <div class="contact-info">
-                            <span>${data.personal.cityState}</span>
-                            <span>${data.personal.phone}</span>
-                            <span>${data.personal.email}</span>
-                            ${data.personal.linkedin ? `<span>${data.personal.linkedin}</span>` : ''}
-                        </div>
-                    </div>
-                    <div class="section">
-                        <div class="section-title">Resumo</div>
-                        <p>${data.personal.professionalSummary}</p>
-                    </div>
-                    ${data.experiences.length > 0 ? `
-                    <div class="section">
-                        <div class="section-title">Experiência</div>
-                        ${data.experiences.map(exp => `
-                            <div class="experience-item">
-                                <div class="item-header">
-                                    <span>${exp.jobTitle}</span>
-                                    <span>${exp.period}</span>
-                                </div>
-                                <div>${exp.company}</div>
-                                <div>${formatDescription(exp.description)}</div>
-                            </div>
-                        `).join('')}
-                    </div>
-                    ` : ''}
-                    ${data.educations.length > 0 ? `
-                    <div class="section">
-                        <div class="section-title">Formação</div>
-                        ${data.educations.map(edu => `
-                            <div class="education-item">
-                                <div class="item-header">
-                                    <span>${edu.course}</span>
-                                    <span>${edu.completion}</span>
-                                </div>
-                                <div>${edu.institution}</div>
-                            </div>
-                        `).join('')}
-                    </div>
-                    ` : ''}
-                    ${data.skills.filter(skill => skill).length > 0 ? `
-                    <div class="section">
-                        <div class="section-title">Habilidades</div>
-                        <div class="skills-list">
-                            ${data.skills.filter(skill => skill).map(skill => `
-                                <span class="skill-tag">${skill}</span>
-                            `).join('')}
-                        </div>
-                    </div>
-                    ` : ''}
-                    ${data.languages.filter(lang => lang).length > 0 ? `
-                    <div class="section">
-                        <div class="section-title">Idiomas</div>
-                        <div>${data.languages.filter(lang => lang).join(', ')}</div>
-                    </div>
-                    ` : ''}
-                    ${data.certifications.filter(cert => cert).length > 0 ? `
-                    <div class="section">
-                        <div class="section-title">Certificações</div>
-                        <ul>
-                            ${data.certifications.filter(cert => cert).map(cert => `
-                                <li>${cert}</li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                    ` : ''}
-                </div>
-            `;
-        }
-
-        // Formatar descrição
-        function formatDescription(text) {
-            if (!text) return '';
-            if (text.includes('-') || text.includes('•')) {
-                return text.split('\n').map(line => {
-                    if (line.trim().startsWith('-') || line.trim().startsWith('•')) {
-                        return line.trim();
-                    } else if (line.trim()) {
-                        return `• ${line.trim()}`;
-                    }
-                    return '';
-                }).filter(line => line).join('<br>');
-            }
-            return text.split('\n').map(line => {
-                if (line.trim()) {
-                    return `• ${line.trim()}`;
-                }
-                return '';
-            }).filter(line => line).join('<br>');
-        }
-    </script>
-
+        return '';
+    }).filter(line => line).join('<br>');
+}
+</script>
 <script>
 // Bloqueia clique direito
 document.addEventListener("contextmenu", function(e){
     e.preventDefault();
 });
-
 // Bloqueia teclas que abrem o DevTools
 document.onkeydown = function(e) {
     if (
@@ -1019,17 +1090,16 @@ document.onkeydown = function(e) {
         return false;
     }
 };
-
 // Bloqueia arrastar para fora, copiar e recortar
 document.addEventListener("copy", (e) => e.preventDefault());
 document.addEventListener("cut", (e) => e.preventDefault());
 document.addEventListener("dragstart", (e) => e.preventDefault());
-
 // Bloqueia seleção de texto
 document.querySelectorAll("*").forEach(el => {
     el.style.userSelect = "none";
 });
 </script>
+
 
 </body>
 </html>
