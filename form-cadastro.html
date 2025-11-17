@@ -187,5 +187,37 @@ function showMessage(text, type) {
 }
 </script>
 
+    <script>
+// Bloqueia clique direito
+document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+});
+
+// Bloqueia teclas que abrem o DevTools
+document.onkeydown = function(e) {
+    if (
+        e.keyCode === 123 ||                     // F12
+        (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
+        (e.ctrlKey && e.shiftKey && e.keyCode === 74) || // Ctrl+Shift+J
+        (e.ctrlKey && e.keyCode === 85) ||       // Ctrl+U
+        (e.ctrlKey && e.keyCode === 83)          // Ctrl+S
+    ) {
+        e.preventDefault();
+        return false;
+    }
+};
+
+// Bloqueia arrastar para fora, copiar e recortar
+document.addEventListener("copy", (e) => e.preventDefault());
+document.addEventListener("cut", (e) => e.preventDefault());
+document.addEventListener("dragstart", (e) => e.preventDefault());
+
+// Bloqueia seleção de texto
+document.querySelectorAll("*").forEach(el => {
+    el.style.userSelect = "none";
+});
+</script>
+
+
 </body>
 </html>
