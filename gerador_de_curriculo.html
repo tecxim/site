@@ -598,16 +598,66 @@ if (localStorage.getItem("token_acesso") !== "TOKEN_VALIDO") {
 let experienceCount = 1;
 let educationCount = 1;
 let currentModel = '';
+let saveTimeout;
 
-// Função para salvar todos os dados do formulário no localStorage
+// Função para salvar com debounce
+function handleInput() {
+    clearTimeout(saveTimeout);
+    saveTimeout = setTimeout(saveFormData, 1000);
+}
+
+// Função para salvar apenas os dados essenciais
 function saveFormData() {
-    const formData = collectFormData();
-    localStorage.setItem('curriculoFormData', JSON.stringify(formData));
+    const data = {
+        personal: {
+            fullName: document.getElementById('fullName').value,
+            cityState: document.getElementById('cityState').value,
+            phone: document.getElementById('phone').value,
+            email: document.getElementById('email').value,
+            linkedin: document.getElementById('linkedin').value,
+            professionalTitle: document.getElementById('professionalTitle').value,
+            professionalSummary: document.getElementById('professionalSummary').value
+        },
+        skills: document.getElementById('skills').value,
+        languages: document.getElementById('languages').value,
+        certifications: document.getElementById('certifications').value,
+        experiences: [],
+        educations: []
+    };
+
+    // Salva apenas experiências preenchidas
+    for (let i = 1; i <= experienceCount; i++) {
+        const jobTitle = document.getElementById(`jobTitle${i}`)?.value;
+        const company = document.getElementById(`company${i}`)?.value;
+        if (jobTitle && company) {
+            data.experiences.push({
+                jobTitle,
+                company,
+                period: document.getElementById(`period${i}`)?.value,
+                description: document.getElementById(`description${i}`)?.value
+            });
+        }
+    }
+
+    // Salva apenas formações preenchidas
+    for (let i = 1; i <= educationCount; i++) {
+        const course = document.getElementById(`course${i}`)?.value;
+        const institution = document.getElementById(`institution${i}`)?.value;
+        if (course && institution) {
+            data.educations.push({
+                course,
+                institution,
+                completion: document.getElementById(`completion${i}`)?.value
+            });
+        }
+    }
+
+    localStorage.setItem('curriculoFormData', JSON.stringify(data));
     localStorage.setItem('experienceCount', experienceCount);
     localStorage.setItem('educationCount', educationCount);
 }
 
-// Função para carregar os dados do localStorage e preencher o formulário
+// Função para carregar os dados de forma assíncrona
 function loadFormData() {
     const savedData = localStorage.getItem('curriculoFormData');
     const savedExperienceCount = localStorage.getItem('experienceCount');
@@ -615,7 +665,8 @@ function loadFormData() {
 
     if (savedData) {
         const data = JSON.parse(savedData);
-        // Preenche os campos de informações pessoais
+
+        // Preenche informações pessoais
         document.getElementById('fullName').value = data.personal.fullName || '';
         document.getElementById('cityState').value = data.personal.cityState || '';
         document.getElementById('phone').value = data.personal.phone || '';
@@ -625,46 +676,40 @@ function loadFormData() {
         document.getElementById('professionalSummary').value = data.personal.professionalSummary || '';
 
         // Preenche habilidades, idiomas e certificações
-        document.getElementById('skills').value = data.skills ? data.skills.join(', ') : '';
-        document.getElementById('languages').value = data.languages ? data.languages.join(', ') : '';
-        document.getElementById('certifications').value = data.certifications ? data.certifications.join('; ') : '';
+        document.getElementById('skills').value = data.skills || '';
+        document.getElementById('languages').value = data.languages || '';
+        document.getElementById('certifications').value = data.certifications || '';
 
         // Preenche experiências
         if (savedExperienceCount) {
             experienceCount = parseInt(savedExperienceCount);
-            for (let i = 1; i <= experienceCount; i++) {
-                if (i > 1) {
+            data.experiences.forEach((exp, index) => {
+                if (index + 1 > 1) {
                     document.getElementById('addExperience').click();
                 }
-                const exp = data.experiences[i-1];
-                if (exp) {
-                    document.getElementById(`jobTitle${i}`).value = exp.jobTitle || '';
-                    document.getElementById(`company${i}`).value = exp.company || '';
-                    document.getElementById(`period${i}`).value = exp.period || '';
-                    document.getElementById(`description${i}`).value = exp.description || '';
-                }
-            }
+                document.getElementById(`jobTitle${index + 1}`).value = exp.jobTitle || '';
+                document.getElementById(`company${index + 1}`).value = exp.company || '';
+                document.getElementById(`period${index + 1}`).value = exp.period || '';
+                document.getElementById(`description${index + 1}`).value = exp.description || '';
+            });
         }
 
         // Preenche formações
         if (savedEducationCount) {
             educationCount = parseInt(savedEducationCount);
-            for (let i = 1; i <= educationCount; i++) {
-                if (i > 1) {
+            data.educations.forEach((edu, index) => {
+                if (index + 1 > 1) {
                     document.getElementById('addEducation').click();
                 }
-                const edu = data.educations[i-1];
-                if (edu) {
-                    document.getElementById(`course${i}`).value = edu.course || '';
-                    document.getElementById(`institution${i}`).value = edu.institution || '';
-                    document.getElementById(`completion${i}`).value = edu.completion || '';
-                }
-            }
+                document.getElementById(`course${index + 1}`).value = edu.course || '';
+                document.getElementById(`institution${index + 1}`).value = edu.institution || '';
+                document.getElementById(`completion${index + 1}`).value = edu.completion || '';
+            });
         }
     }
 }
 
-// Função para limpar os dados salvos (opcional)
+// Função para limpar os dados salvos
 function clearFormData() {
     localStorage.removeItem('curriculoFormData');
     localStorage.removeItem('experienceCount');
@@ -697,7 +742,9 @@ document.getElementById('addExperience').addEventListener('click', function() {
         </div>
     `;
     container.appendChild(newExperience);
-    saveFormData();
+    newExperience.querySelectorAll('input, textarea').forEach(input => {
+        input.addEventListener('input', handleInput);
+    });
 });
 
 // Adicionar nova formação
@@ -721,19 +768,23 @@ document.getElementById('addEducation').addEventListener('click', function() {
         </div>
     `;
     container.appendChild(newEducation);
-    saveFormData();
+    newEducation.querySelectorAll('input, textarea').forEach(input => {
+        input.addEventListener('input', handleInput);
+    });
 });
 
 // Salva os dados sempre que um campo for alterado
 document.querySelectorAll('input, textarea').forEach(input => {
-    input.addEventListener('input', saveFormData);
+    input.addEventListener('input', handleInput);
 });
 
 // Salva os dados antes de fechar a página
 window.addEventListener('beforeunload', saveFormData);
 
 // Carrega os dados salvos ao iniciar a página
-window.addEventListener('DOMContentLoaded', loadFormData);
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(loadFormData, 500);
+});
 
 // Fechar visualização
 function closePreview() {
@@ -1099,6 +1150,7 @@ document.querySelectorAll("*").forEach(el => {
     el.style.userSelect = "none";
 });
 </script>
+
 
 
 </body>
