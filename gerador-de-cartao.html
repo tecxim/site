@@ -1108,12 +1108,15 @@ function getContrastColor(hexColor) {
             }
 
             // Função para atualizar cores do cartão
-            function updateCardColors() {
-    const color1 = document.getElementById('color1').value;
-    const color2 = document.getElementById('color2').value;
-    console.log("Cor 1:", color1, "Cor 2:", color2);
-    cardPreview.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
-}
+        function updateCardColors() {
+            const color1 = document.getElementById('color1').value;
+            const color2 = document.getElementById('color2').value;
+            cardPreview.style.setProperty('--card-color-1', color1);
+            cardPreview.style.setProperty('--card-color-2', color2);
+            const textColor = getContrastColor(color2);
+            cardPreview.style.color = textColor;
+            cardPreview.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
+        }
 
 
             // Função para atualizar o logo no preview
