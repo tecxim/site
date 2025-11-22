@@ -816,28 +816,27 @@
             return new Promise((resolve) => {
                 const color1 = document.getElementById('color1').value;
                 const color2 = document.getElementById('color2').value;
-                // Força o fundo do cartão a ser um gradiente sólido (sem transparência)
                 cardPreview.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
         
-              html2canvas(cardPreview, {
-                scale: 3,
-                logging: false,
-                useCORS: true,
-                allowTaint: true,
-                backgroundColor: null, // Captura o fundo do elemento
-                ignoreElements: function(element) {
-                    return element.classList.contains('card-qr') || 
-                           element.classList.contains('card-social');
-                }
-            }) // ← aqui fecha corretamente o objeto de config
-            .then(canvas => {
-                resolve(canvas);
-            })
-            .catch(err => {
-                console.error('Erro ao gerar imagem:', err);
-                alert('Erro ao gerar imagem. Tente novamente.');
+                html2canvas(cardPreview, {
+                    scale: 3,
+                    logging: false,
+                    useCORS: true,
+                    allowTaint: true,
+                    backgroundColor: null,
+                    ignoreElements: function(element) {
+                        return element.classList.contains('card-qr') ||
+                               element.classList.contains('card-social');
+                    }
+                }).then(canvas => {
+                    resolve(canvas);
+                }).catch(err => {
+                    console.error('Erro ao gerar imagem:', err);
+                    alert('Erro ao gerar imagem. Tente novamente.');
+                });
             });
-
+        }
+        
         // Event Listeners para tipo de cartão
         cardTypeButtons.forEach(button => {
             button.addEventListener('click', function() {
@@ -847,7 +846,7 @@
                 updateCardPreview();
             });
         });
-
+        
         // Event Listeners para opções de animação
         animationOptions.forEach(option => {
             option.addEventListener('click', function() {
@@ -857,6 +856,7 @@
                 applyAnimation();
             });
         });
+
 
         // Event Listeners para inputs
         companyNameInput.addEventListener('input', updatePreview);
