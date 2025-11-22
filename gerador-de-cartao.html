@@ -88,9 +88,10 @@
         color: white;
         transform: scale(1.05);
         border-color: var(--primary-color);
-    }
-
-    .card-preview {
+    }           
+        
+        
+   .card-preview {
         width: 100%;
         max-width: 400px;
         height: 250px;
@@ -103,7 +104,8 @@
         position: relative;
         overflow: hidden;
         transition: all 0.5s ease;
-        background: linear-gradient(135deg, var(--card-color-1, #2c3e50) 0%, var(--card-color-2, #3498db) 100%);
+       background: linear-gradient(135deg, var(--card-color-1, #2c3e50) 0%, var(--card-color-2, #3498db) 100%) !important;
+       color: var(--card-text-color, white) !important;
         color: var(--card-text-color, white);
         font-size: 0.85rem;
         margin: 0 auto;
@@ -777,12 +779,18 @@
 
         // Função para calcular a cor do texto com base no contraste
         function getContrastColor(hexColor) {
-            const r = parseInt(hexColor.substr(1, 2), 16);
-            const g = parseInt(hexColor.substr(3, 2), 16);
-            const b = parseInt(hexColor.substr(5, 2), 16);
+            // Remove o "#" do início da cor
+            hexColor = hexColor.replace('#', '');
+            // Converte para RGB
+            const r = parseInt(hexColor.substr(0, 2), 16);
+            const g = parseInt(hexColor.substr(2, 2), 16);
+            const b = parseInt(hexColor.substr(4, 2), 16);
+            // Calcula o brilho (luminosidade)
             const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+            // Retorna preto ou branco com base no brilho
             return brightness > 128 ? '#000000' : '#FFFFFF';
         }
+
 
         // Função para atualizar as cores do cartão
         function updateCardColors() {
@@ -790,34 +798,43 @@
             const color2 = document.getElementById('color2').value;
             cardPreview.style.setProperty('--card-color-1', color1);
             cardPreview.style.setProperty('--card-color-2', color2);
+            // Aplica a cor do texto com base no contraste da cor principal
             const textColor = getContrastColor(color2);
+            cardPreview.style.color = textColor;
             cardPreview.style.setProperty('--card-text-color', textColor);
+            // Força o fundo do cartão a ser o gradiente
+            cardPreview.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
         }
+
 
         // Função para gerar a imagem do cartão
         function generateCardImage() {
-    return new Promise((resolve) => {
+            return new Promise((resolve) => {
+                const color1 = document.getElementById('color1').value;
+                const color2 = document.getElementById('color2').value;
+                // Força o fundo do cartão a ser um gradiente sólido (sem transparência)
+                cardPreview.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
+        
+                html2canvas(cardPreview, {
+                scale: 3,
+                logging: false,
+                useCORS: true,
+                allowTaint: true,
+                backgroundColor: null, // Captura o fundo do elemento
+                ignoreElements: function(element) {
+                    return element.classList.contains('card-qr') || element.classList.contains('card-social');
+                }
+            });
 
-        const color1 = document.getElementById('color1').value;
-        const color2 = document.getElementById('color2').value;
+                }).then(canvas => {
+                    resolve(canvas);
+                }).catch(err => {
+                    console.error('Erro ao gerar imagem:', err);
+                    alert('Erro ao gerar imagem. Tente novamente.');
+                });
+            });
+        }
 
-        // Força o gradiente a ser uma cor real
-        cardPreview.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
-
-        html2canvas(cardPreview, {
-            scale: 3,
-            logging: false,
-            useCORS: true,
-            allowTaint: true,
-            backgroundColor: window.getComputedStyle(cardPreview).backgroundColor
-        }).then(canvas => {
-            resolve(canvas);
-        }).catch(err => {
-            console.error('Erro ao gerar imagem:', err);
-            alert('Erro ao gerar imagem. Tente novamente.');
-        });
-    });
-}
 
 
         // Event Listeners para tipo de cartão
