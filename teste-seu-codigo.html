@@ -3,392 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste de Conhecimentos em HTML</title>
+    <title>Testador de Código HTML/CSS/JS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #4e73df;
+            --secondary: #858796;
             --success: #1cc88a;
-            --danger: #e74a3b;
-            --warning: #f6c23e;
             --light: #f8f9fc;
             --dark: #5a5c69;
+            --border: #e3e6f0;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
             color: var(--dark);
-            line-height: 1.6;
         }
 
         .header {
             background: linear-gradient(135deg, var(--primary), #6ea8fe);
             color: white;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
+            padding: 1.5rem 0;
+            margin-bottom: 1.5rem;
             border-radius: 0 0 10px 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .card-test {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-bottom: 1.5rem;
-        }
-
-        .card-test:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .question {
-            padding: 1.5rem;
-            border-left: 4px solid var(--primary);
-            background-color: white;
-        }
-
-        .options {
-            margin-top: 1rem;
-        }
-
-        .option {
-            padding: 0.75rem;
-            margin-bottom: 0.5rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.2s;
-            border: 1px solid #e3e6f0;
-        }
-
-        .option:hover {
-            background-color: #f8f9fa;
-        }
-
-        .option.selected {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .option.correct {
-            background-color: var(--success);
-            color: white;
-            border-color: var(--success);
-        }
-
-        .option.incorrect {
-            background-color: var(--danger);
-            color: white;
-            border-color: var(--danger);
-        }
-
-        .code-block {
-            background-color: #f8f9fa;
-            border: 1px solid #e3e6f0;
-            border-radius: 5px;
-            padding: 1rem;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.9rem;
-            margin: 1rem 0;
-            white-space: pre-wrap;
-        }
-
-        .feedback {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 5px;
-            display: none;
-        }
-
-        .feedback.correct {
-            background-color: rgba(28, 200, 138, 0.1);
-            border: 1px solid var(--success);
-            color: var(--success);
-            display: block;
-        }
-
-        .feedback.incorrect {
-            background-color: rgba(231, 74, 59, 0.1);
-            border: 1px solid var(--danger);
-            color: var(--danger);
-            display: block;
-        }
-
-        .result-summary {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            margin-top: 2rem;
-            display: none;
-        }
-
-        .progress {
-            height: 10px;
+        .editor-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
             margin-bottom: 1rem;
         }
 
-        #submitBtn {
-            display: none;
+        .editor {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            overflow: hidden;
         }
 
-        .btn-custom {
-            padding: 0.5rem 1.5rem;
+        .editor-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-weight: 600;
+        }
+
+        .editor-content {
+            height: 400px;
+            overflow: auto;
+            padding: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            tab-size: 2;
+            white-space: pre-wrap;
+        }
+
+        #htmlEditor, #cssEditor, #jsEditor {
+            width: 100%;
+            height: 100%;
+            border: none;
+            outline: none;
+            resize: none;
+            background: transparent;
+        }
+
+        .preview-container {
+            width: 100%;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .preview-header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+        }
+
+        #previewFrame {
+            width: 100%;
+            height: 400px;
+            border: none;
+            background-color: white;
+        }
+
+        .run-btn {
+            background-color: var(--success);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .run-btn:hover {
+            background-color: #17a673;
+            transform: translateY(-2px);
+        }
+
+        .btn-clear {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-left: 0.5rem;
+        }
+
+        .btn-clear:hover {
+            background-color: #6b6d7d;
+        }
+
+        @media (max-width: 992px) {
+            .editor-container {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header text-center">
-            <h1>Teste de Conhecimentos em HTML</h1>
-            <p class="lead">Responda as perguntas e teste seus conhecimentos em HTML</p>
+            <h1>Testador de Código HTML/CSS/JS</h1>
+            <p class="lead">Digite ou cole seu código e veja o resultado em tempo real</p>
         </div>
 
-        <div class="card card-test">
-            <div class="card-body">
-                <div class="progress mb-3">
-                    <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%"></div>
+        <div class="editor-container">
+            <div class="editor">
+                <div class="editor-header">
+                    <span>HTML</span>
+                    <button class="btn-clear" id="clearHtml">Limpar</button>
                 </div>
+                <div class="editor-content">
+                    <textarea id="htmlEditor" spellcheck="false">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
+</head>
+<body>
+    <h1>Olá, mundo!</h1>
+    <p>Este é um teste de código HTML.</p>
+    <button id="myButton">Clique em mim</button>
+</body>
+</html>
+                    </textarea>
+                </div>
+            </div>
 
-                <form id="testForm">
-                    <!-- Questão 1 -->
-                    <div class="question">
-                        <h5>1. Qual tag HTML é usada para definir um hiperlink?</h5>
-                        <div class="options">
-                            <div class="option" data-correct="false" data-question="1">A) &lt;link&gt;</div>
-                            <div class="option" data-correct="true" data-question="1">B) &lt;a&gt;</div>
-                            <div class="option" data-correct="false" data-question="1">C) &lt;href&gt;</div>
-                            <div class="option" data-correct="false" data-question="1">D) &lt;nav&gt;</div>
-                        </div>
-                        <div id="feedback1" class="feedback"></div>
-                    </div>
+            <div class="editor">
+                <div class="editor-header">
+                    <span>CSS</span>
+                    <button class="btn-clear" id="clearCss">Limpar</button>
+                </div>
+                <div class="editor-content">
+                    <textarea id="cssEditor" spellcheck="false">
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 20px;
+}
 
-                    <!-- Questão 2 -->
-                    <div class="question">
-                        <h5>2. Qual atributo é usado para especificar o endereço de um link?</h5>
-                        <div class="options">
-                            <div class="option" data-correct="false" data-question="2">A) src</div>
-                            <div class="option" data-correct="true" data-question="2">B) href</div>
-                            <div class="option" data-correct="false" data-question="2">C) link</div>
-                            <div class="option" data-correct="false" data-question="2">D) url</div>
-                        </div>
-                        <div id="feedback2" class="feedback"></div>
-                    </div>
+h1 {
+    color: #4e73df;
+}
 
-                    <!-- Questão 3 -->
-                    <div class="question">
-                        <h5>3. Qual tag é usada para criar uma lista não ordenada?</h5>
-                        <div class="options">
-                            <div class="option" data-correct="false" data-question="3">A) &lt;ol&gt;</div>
-                            <div class="option" data-correct="true" data-question="3">B) &lt;ul&gt;</div>
-                            <div class="option" data-correct="false" data-question="3">C) &lt;list&gt;</div>
-                            <div class="option" data-correct="false" data-question="3">D) &lt;dl&gt;</div>
-                        </div>
-                        <div id="feedback3" class="feedback"></div>
-                    </div>
+#myButton {
+    background-color: #1cc88a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-                    <!-- Questão 4 -->
-                    <div class="question">
-                        <h5>4. Verdadeiro ou Falso: A tag &lt;br&gt; é usada para criar um parágrafo.</h5>
-                        <div class="options">
-                            <div class="option" data-correct="false" data-question="4">Verdadeiro</div>
-                            <div class="option" data-correct="true" data-question="4">Falso</div>
-                        </div>
-                        <div id="feedback4" class="feedback"></div>
-                    </div>
+#myButton:hover {
+    background-color: #17a673;
+}
+                    </textarea>
+                </div>
+            </div>
 
-                    <!-- Questão 5 -->
-                    <div class="question">
-                        <h5>5. Qual é a estrutura correta de um documento HTML5?</h5>
-                        <div class="code-block">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Título&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;!-- conteúdo --&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-                        </div>
-                        <div class="options">
-                            <div class="option" data-correct="true" data-question="5">A) Correta</div>
-                            <div class="option" data-correct="false" data-question="5">B) Incorreta</div>
-                        </div>
-                        <div id="feedback5" class="feedback"></div>
-                    </div>
-
-                    <!-- Questão 6 -->
-                    <div class="question">
-                        <h5>6. Qual tag é usada para inserir uma imagem?</h5>
-                        <div class="options">
-                            <div class="option" data-correct="false" data-question="6">A) &lt;img src="imagem.jpg" /&gt;</div>
-                            <div class="option" data-correct="true" data-question="6">B) &lt;img src="imagem.jpg"&gt;</div>
-                            <div class="option" data-correct="false" data-question="6">C) &lt;image href="imagem.jpg" /&gt;</div>
-                            <div class="option" data-correct="false" data-question="6">D) &lt;picture&gt;imagem.jpg&lt;/picture&gt;</div>
-                        </div>
-                        <div id="feedback6" class="feedback"></div>
-                    </div>
-
-                    <!-- Questão 7 -->
-                    <div class="question">
-                        <h5>7. Qual atributo é usado para definir o texto alternativo de uma imagem?</h5>
-                        <div class="options">
-                            <div class="option" data-correct="false" data-question="7">A) title</div>
-                            <div class="option" data-correct="true" data-question="7">B) alt</div>
-                            <div class="option" data-correct="false" data-question="7">C) description</div>
-                            <div class="option" data-correct="false" data-question="7">D) text</div>
-                        </div>
-                        <div id="feedback7" class="feedback"></div>
-                    </div>
-
-                    <!-- Questão 8 -->
-                    <div class="question">
-                        <h5>8. Qual tag é usada para criar um formulário?</h5>
-                        <div class="options">
-                            <div class="option" data-correct="false" data-question="8">A) &lt;input&gt;</div>
-                            <div class="option" data-correct="true" data-question="8">B) &lt;form&gt;</div>
-                            <div class="option" data-correct="false" data-question="8">C) &lt;submit&gt;</div>
-                            <div class="option" data-correct="false" data-question="8">D) &lt;field&gt;</div>
-                        </div>
-                        <div id="feedback8" class="feedback"></div>
-                    </div>
-
-                    <!-- Questão 9 -->
-                    <div class="question">
-                        <h5>9. Qual tag é usada para criar uma tabela?</h5>
-                        <div class="options">
-                            <div class="option" data-correct="false" data-question="9">A) &lt;table&gt;&lt;row&gt;&lt;cell&gt;</div>
-                            <div class="option" data-correct="true" data-question="9">B) &lt;table&gt;&lt;tr&gt;&lt;td&gt;</div>
-                            <div class="option" data-correct="false" data-question="9">C) &lt;grid&gt;&lt;line&gt;&lt;column&gt;</div>
-                            <div class="option" data-correct="false" data-question="9">D) &lt;tab&gt;&lt;line&gt;&lt;col&gt;</div>
-                        </div>
-                        <div id="feedback9" class="feedback"></div>
-                    </div>
-
-                    <!-- Questão 10 -->
-                    <div class="question">
-                        <h5>10. Qual tag é usada para definir um cabeçalho de nível 1?</h5>
-                        <div class="options">
-                            <div class="option" data-correct="false" data-question="10">A) &lt;header&gt;</div>
-                            <div class="option" data-correct="true" data-question="10">B) &lt;h1&gt;</div>
-                            <div class="option" data-correct="false" data-question="10">C) &lt;head&gt;</div>
-                            <div class="option" data-correct="false" data-question="10">D) &lt;title&gt;</div>
-                        </div>
-                        <div id="feedback10" class="feedback"></div>
-                    </div>
-
-                    <button id="submitBtn" type="button" class="btn btn-primary btn-custom w-100 mt-4">Finalizar Teste</button>
-                </form>
-
-                <div id="resultSummary" class="result-summary">
-                    <h3 class="text-center mb-4">Resultado do Teste</h3>
-                    <div class="row">
-                        <div class="col-md-6 text-center">
-                            <div class="display-4" id="score">0</div>
-                            <p class="lead">pontos</p>
-                        </div>
-                        <div class="col-md-6 text-center">
-                            <div class="display-4" id="percentage">0%</div>
-                            <p class="lead">acertos</p>
-                        </div>
-                    </div>
-                    <div class="text-center mt-4">
-                        <h4 id="resultMessage"></h4>
-                        <button id="restartBtn" class="btn btn-success btn-custom mt-3">Refazer Teste</button>
-                    </div>
+            <div class="editor">
+                <div class="editor-header">
+                    <span>JavaScript</span>
+                    <button class="btn-clear" id="clearJs">Limpar</button>
+                </div>
+                <div class="editor-content">
+                    <textarea id="jsEditor" spellcheck="false">
+document.getElementById('myButton').addEventListener('click', function() {
+    alert('Botão clicado!');
+});
+                    </textarea>
                 </div>
             </div>
         </div>
+
+        <button class="run-btn" id="runBtn">
+            <i class="fas fa-play"></i> Executar Código
+        </button>
+
+        <div class="preview-container">
+            <div class="preview-header">
+                Resultado
+            </div>
+            <iframe id="previewFrame"></iframe>
+        </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const questions = document.querySelectorAll('.question');
-            const options = document.querySelectorAll('.option');
-            const submitBtn = document.getElementById('submitBtn');
-            const resultSummary = document.getElementById('resultSummary');
-            const scoreElement = document.getElementById('score');
-            const percentageElement = document.getElementById('percentage');
-            const resultMessage = document.getElementById('resultMessage');
-            const restartBtn = document.getElementById('restartBtn');
-            const progressBar = document.getElementById('progressBar');
+            const htmlEditor = document.getElementById('htmlEditor');
+            const cssEditor = document.getElementById('cssEditor');
+            const jsEditor = document.getElementById('jsEditor');
+            const runBtn = document.getElementById('runBtn');
+            const previewFrame = document.getElementById('previewFrame');
+            const clearHtml = document.getElementById('clearHtml');
+            const clearCss = document.getElementById('clearCss');
+            const clearJs = document.getElementById('clearJs');
 
-            let score = 0;
-            let answeredQuestions = 0;
+            // Função para executar o código
+            function runCode() {
+                const htmlCode = htmlEditor.value;
+                const cssCode = cssEditor.value;
+                const jsCode = jsEditor.value;
 
-            // Seleção de opção
-            options.forEach(option => {
-                option.addEventListener('click', function() {
-                    const questionId = this.getAttribute('data-question');
-                    const isCorrect = this.getAttribute('data-correct') === 'true';
-                    const question = document.querySelector(`.question h5`).textContent.replace(/\d+\.\s/, '');
+                const frameDoc = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                frameDoc.open();
+                frameDoc.write(`
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview</title>
+    <style>${cssCode}</style>
+</head>
+<body>
+    ${htmlCode}
+    <script>${jsCode}</script>
+</body>
+</html>
+                `);
+                frameDoc.close();
+            }
 
-                    // Remove seleção anterior
-                    document.querySelectorAll(`.option[data-question="${questionId}"]`).forEach(opt => {
-                        opt.classList.remove('selected', 'correct', 'incorrect');
-                    });
+            // Eventos
+            runBtn.addEventListener('click', runCode);
 
-                    // Marca a opção selecionada
-                    this.classList.add('selected');
-
-                    // Feedback imediato
-                    const feedback = document.getElementById(`feedback${questionId}`);
-                    if (isCorrect) {
-                        this.classList.add('correct');
-                        feedback.textContent = 'Resposta correta!';
-                        feedback.className = 'feedback correct';
-                        score++;
-                    } else {
-                        this.classList.add('incorrect');
-                        feedback.textContent = 'Resposta incorreta. Tente novamente!';
-                        feedback.className = 'feedback incorrect';
-                    }
-
-                    // Atualiza progresso
-                    answeredQuestions = document.querySelectorAll('.option.selected').length / 10 * 10;
-                    progressBar.style.width = `${answeredQuestions * 10}%`;
-
-                    // Mostra botão de submit se todas responderam
-                    if (document.querySelectorAll('.option.selected').length === 10) {
-                        submitBtn.style.display = 'block';
-                    }
-                });
+            // Limpar editores
+            clearHtml.addEventListener('click', () => {
+                htmlEditor.value = '';
+                runCode();
             });
 
-            // Finalizar teste
-            submitBtn.addEventListener('click', function() {
-                const total = 10;
-                const percentage = (score / total) * 100;
-
-                scoreElement.textContent = score;
-                percentageElement.textContent = `${Math.round(percentage)}%`;
-
-                if (percentage >= 80) {
-                    resultMessage.textContent = 'Parabéns! Você tem ótimos conhecimentos em HTML.';
-                    resultMessage.style.color = 'var(--success)';
-                } else if (percentage >= 50) {
-                    resultMessage.textContent = 'Bom trabalho! Mas ainda há espaço para melhorar.';
-                    resultMessage.style.color = 'var(--warning)';
-                } else {
-                    resultMessage.textContent = 'Você precisa estudar mais HTML. Tente novamente!';
-                    resultMessage.style.color = 'var(--danger)';
-                }
-
-                resultSummary.style.display = 'block';
-                window.scrollTo(0, document.body.scrollHeight);
+            clearCss.addEventListener('click', () => {
+                cssEditor.value = '';
+                runCode();
             });
 
-            // Refazer teste
-            restartBtn.addEventListener('click', function() {
-                window.location.reload();
+            clearJs.addEventListener('click', () => {
+                jsEditor.value = '';
+                runCode();
             });
+
+            // Executar ao carregar
+            runCode();
         });
     </script>
 </body>
