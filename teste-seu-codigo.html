@@ -249,26 +249,12 @@ document.getElementById('myButton').addEventListener('click', function() {
             // Função para executar o código
             function runCode() {
                 const htmlCode = htmlEditor.value;
-                const cssCode = cssEditor.value;
-                const jsCode = jsEditor.value;
+                const cssCode = `<style>${cssEditor.value}</style>`;
+                const jsCode = `<script>${jsEditor.value}</script>`;
 
                 const frameDoc = previewFrame.contentDocument || previewFrame.contentWindow.document;
                 frameDoc.open();
-                frameDoc.write(`
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preview</title>
-    <style>${cssCode}</style>
-</head>
-<body>
-    ${htmlCode}
-    <script>${jsCode}</script>
-</body>
-</html>
-                `);
+                frameDoc.write(htmlCode + cssCode + jsCode);
                 frameDoc.close();
             }
 
