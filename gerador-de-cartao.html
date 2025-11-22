@@ -998,15 +998,17 @@
                 Instagram: ${instagramInput.value || ''}
                 LinkedIn: ${linkedinInput.value || ''}
             `;
-            new QRCode(cardQR, {
+        
+            const qrcode = new QRCode(cardQR, {
                 text: qrText,
-                width: 46,
-                height: 46,
-                colorDark: '#000000',
-                colorLight: '#ffffff',
+                width: 50,
+                height: 50,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
                 correctLevel: QRCode.CorrectLevel.H
             });
         }
+
 
         // Função para atualizar o tipo de cartão
         function updateCardPreview() {
