@@ -91,7 +91,7 @@
     }           
         
         
-   .card-preview {
+  .card-preview {
         width: 100%;
         max-width: 400px;
         height: 250px;
@@ -104,12 +104,16 @@
         position: relative;
         overflow: hidden;
         transition: all 0.5s ease;
-       background: linear-gradient(135deg, var(--card-color-1, #2c3e50) 0%, var(--card-color-2, #3498db) 100%) !important;
-       color: var(--card-text-color, white) !important;
-        color: var(--card-text-color, white);
+        background: linear-gradient(
+            135deg,
+            var(--card-color-1, #2c3e50) 0%,
+            var(--card-color-2, #3498db) 100%
+        ) !important;
+        color: var(--card-text-color, white) !important;
         font-size: 0.85rem;
         margin: 0 auto;
     }
+
 
     .card-preview::before {
         content: '';
