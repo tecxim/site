@@ -815,27 +815,24 @@
                 // Força o fundo do cartão a ser um gradiente sólido (sem transparência)
                 cardPreview.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
         
-                html2canvas(cardPreview, {
+              html2canvas(cardPreview, {
                 scale: 3,
                 logging: false,
                 useCORS: true,
                 allowTaint: true,
                 backgroundColor: null, // Captura o fundo do elemento
                 ignoreElements: function(element) {
-                    return element.classList.contains('card-qr') || element.classList.contains('card-social');
+                    return element.classList.contains('card-qr') || 
+                           element.classList.contains('card-social');
                 }
+            }) // ← aqui fecha corretamente o objeto de config
+            .then(canvas => {
+                resolve(canvas);
+            })
+            .catch(err => {
+                console.error('Erro ao gerar imagem:', err);
+                alert('Erro ao gerar imagem. Tente novamente.');
             });
-
-                }).then(canvas => {
-                    resolve(canvas);
-                }).catch(err => {
-                    console.error('Erro ao gerar imagem:', err);
-                    alert('Erro ao gerar imagem. Tente novamente.');
-                });
-            });
-        }
-
-
 
         // Event Listeners para tipo de cartão
         cardTypeButtons.forEach(button => {
