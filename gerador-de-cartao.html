@@ -267,26 +267,36 @@
         margin: 6px 0;
     }
 
+    .card-social {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-size: 0.7rem; /* Letras pequenas */
+    }
+    
     .card-social a {
         color: var(--card-text-color, white);
-        font-size: 12px;
-        transition: transform 0.3s;
+        text-decoration: none;
         display: flex;
         align-items: center;
-        text-decoration: none;
         background-color: rgba(255, 255, 255, 0.2);
         padding: 2px 6px;
         border-radius: 12px;
+        transition: all 0.3s ease;
     }
-
+    
     .card-social a:hover {
-        transform: scale(1.05);
         background-color: rgba(255, 255, 255, 0.3);
     }
-
-    .card-social a i {
+    
+    .card-social i {
         margin-right: 4px;
+        font-size: 0.7rem; /* Ícones pequenos */
     }
+
 
     .card-info {
         margin: 4px 0;
@@ -559,17 +569,18 @@
                 <div class="card-preview-container fade-in">
                     <h4 class="mb-3 text-center">Pré-visualização do Cartão</h4>
                     <div class="card-preview card-business" id="cardPreview">
-                        <div class="card-header">
-                            <div class="card-logo" id="cardLogoPreview">
-                                <i class="fas fa-building"></i>
-                            </div>
-                            <h5 class="card-title" id="previewName">Nome da Empresa</h5>
-                            <p class="card-subtitle" id="previewTitle">Seu Cargo Aqui</p>
-                            <p class="card-slogan" id="previewSlogan">Slogan da Empresa</p>
-                            <div class="card-social" id="previewSocial">
-                                <!-- Links das redes sociais serão inseridos aqui -->
-                            </div>
+                       <div class="card-header">
+                        <div class="card-logo" id="cardLogoPreview">
+                            <i class="fas fa-building"></i>
                         </div>
+                        <h5 class="card-title" id="previewName">Nome da Empresa</h5>
+                        <p class="card-subtitle" id="previewTitle">Seu Cargo Aqui</p>
+                        <p class="card-slogan" id="previewSlogan">Slogan da Empresa</p>
+                        <div class="card-social" id="previewSocial">
+                            <!-- Links das redes sociais serão inseridos aqui -->
+                        </div>
+                    </div>
+
                         <div class="card-body">
                             <p class="card-contact" id="previewPhone"><i class="fas fa-phone me-1"></i>(11) 99999-9999</p>
                             <p class="card-contact" id="previewWhatsApp"><i class="fab fa-whatsapp me-1"></i>(11) 99999-9999</p>
@@ -775,6 +786,10 @@
         const previewEmail = document.getElementById('previewEmail');
         const previewSocial = document.getElementById('previewSocial');
         const cardQR = document.getElementById('cardQR');
+
+        facebookInput.addEventListener('input', updateSocialLinks);
+        instagramInput.addEventListener('input', updateSocialLinks);
+        linkedinInput.addEventListener('input', updateSocialLinks);
 
         // Variáveis de estado
         let currentCardType = 'business';
@@ -983,13 +998,12 @@
         }
 
         // Função para atualizar os links das redes sociais
-        function updateSocialLinks() {
+       function updateSocialLinks() {
             previewSocial.innerHTML = '';
             const socialLinks = [
                 { icon: 'fab fa-facebook-f', url: facebookInput.value, placeholder: 'facebook.com/suaempresa' },
                 { icon: 'fab fa-instagram', url: instagramInput.value, placeholder: 'instagram.com/suaempresa' },
-                { icon: 'fab fa-linkedin-in', url: linkedinInput.value, placeholder: 'linkedin.com/suaempresa' },
-                { icon: 'fab fa-whatsapp', url: whatsappLinkInput.value, placeholder: 'wa.me/5511999999999' }
+                { icon: 'fab fa-linkedin-in', url: linkedinInput.value, placeholder: 'linkedin.com/suaempresa' }
             ];
             socialLinks.forEach(link => {
                 if (link.url) {
@@ -1002,6 +1016,7 @@
                 }
             });
         }
+
 
         // Função para gerar QR Code
         function generateQRCode() {
@@ -1107,6 +1122,7 @@
   document.addEventListener("contextmenu", function(e){
       e.preventDefault();
   });
+    
   // Bloqueia teclas que abrem o DevTools
   document.onkeydown = function(e) {
       if (
