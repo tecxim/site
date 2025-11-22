@@ -65,7 +65,6 @@
             font-family: 'Courier New', Courier, monospace;
             font-size: 0.9rem;
             line-height: 1.5;
-            tab-size: 2;
             white-space: pre-wrap;
         }
 
@@ -156,7 +155,7 @@
                     <button class="btn-clear" id="clearHtml">Limpar</button>
                 </div>
                 <div class="editor-content">
-                    <textarea id="htmlEditor" spellcheck="false">
+<textarea id="htmlEditor" spellcheck="false">
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -166,11 +165,10 @@
 </head>
 <body>
     <h1>Olá, mundo!</h1>
-    <p>Este é um teste de código HTML.</p>
     <button id="myButton">Clique em mim</button>
 </body>
 </html>
-                    </textarea>
+</textarea>
                 </div>
             </div>
 
@@ -180,11 +178,10 @@
                     <button class="btn-clear" id="clearCss">Limpar</button>
                 </div>
                 <div class="editor-content">
-                    <textarea id="cssEditor" spellcheck="false">
+<textarea id="cssEditor" spellcheck="false">
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
-    color: #333;
     padding: 20px;
 }
 
@@ -200,11 +197,7 @@ h1 {
     border-radius: 5px;
     cursor: pointer;
 }
-
-#myButton:hover {
-    background-color: #17a673;
-}
-                    </textarea>
+</textarea>
                 </div>
             </div>
 
@@ -214,11 +207,11 @@ h1 {
                     <button class="btn-clear" id="clearJs">Limpar</button>
                 </div>
                 <div class="editor-content">
-                    <textarea id="jsEditor" spellcheck="false">
+<textarea id="jsEditor" spellcheck="false">
 document.getElementById('myButton').addEventListener('click', function() {
     alert('Botão clicado!');
 });
-                    </textarea>
+</textarea>
                 </div>
             </div>
         </div>
@@ -228,9 +221,7 @@ document.getElementById('myButton').addEventListener('click', function() {
         </button>
 
         <div class="preview-container">
-            <div class="preview-header">
-                Resultado
-            </div>
+            <div class="preview-header">Resultado</div>
             <iframe id="previewFrame"></iframe>
         </div>
     </div>
@@ -246,22 +237,22 @@ document.getElementById('myButton').addEventListener('click', function() {
             const clearCss = document.getElementById('clearCss');
             const clearJs = document.getElementById('clearJs');
 
-            // Função para executar o código
             function runCode() {
                 const htmlCode = htmlEditor.value;
                 const cssCode = `<style>${cssEditor.value}</style>`;
-                const jsCode = `<script>${jsEditor.value}</script>`;
+                const jsCode =
+                    `<script>${jsEditor.value.replace(/<\/script>/gi, "<\\/script>")}</script>`;
 
-                const frameDoc = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                const frameDoc =
+                    previewFrame.contentDocument || previewFrame.contentWindow.document;
+
                 frameDoc.open();
                 frameDoc.write(htmlCode + cssCode + jsCode);
                 frameDoc.close();
             }
 
-            // Eventos
             runBtn.addEventListener('click', runCode);
 
-            // Limpar editores
             clearHtml.addEventListener('click', () => {
                 htmlEditor.value = '';
                 runCode();
@@ -277,7 +268,6 @@ document.getElementById('myButton').addEventListener('click', function() {
                 runCode();
             });
 
-            // Executar ao carregar
             runCode();
         });
     </script>
