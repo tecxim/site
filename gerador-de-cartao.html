@@ -14,538 +14,514 @@
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <!-- jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
     <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-        }
+    :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --accent-color: #e74c3c;
+        --light-color: #ecf0f1;
+        --dark-color: #2c3e50;
+    }
 
-        body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            padding-bottom: 50px;
-        }
+    body {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+        padding-bottom: 50px;
+        margin: 0;
+    }
 
-        .navbar {
-            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+    .navbar {
+        background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.5rem;
-        }
+    .navbar-brand {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: white;
+    }
 
-        .card-preview-container {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-        }
+    .card-preview-container {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 25px;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+    }
 
-        .card-preview-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
+    .card-preview-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
 
-        .form-container {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            transition: all 0.3s ease;
-            max-height: 85vh;
-            overflow-y: auto;
-        }
+    .form-container {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 25px;
+        transition: all 0.3s ease;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
 
-        .form-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
+    .form-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
 
-        .card-type-btn {
-            border-radius: 50px;
-            padding: 8px 16px;
-            margin: 5px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            font-size: 0.85rem;
-        }
+    .card-type-btn {
+        border-radius: 50px;
+        padding: 8px 16px;
+        margin: 5px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 0.85rem;
+        border: 1px solid #ddd;
+        background-color: white;
+    }
 
-        .card-type-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-            transform: scale(1.05);
-        }
+    .card-type-btn.active {
+        background-color: var(--primary-color);
+        color: white;
+        transform: scale(1.05);
+        border-color: var(--primary-color);
+    }
 
+    .card-preview {
+        width: 100%;
+        max-width: 400px;
+        height: 250px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 12px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s ease;
+        background: linear-gradient(135deg, var(--card-color-1, #2c3e50) 0%, var(--card-color-2, #3498db) 100%);
+        color: var(--card-text-color, white);
+        font-size: 0.85rem;
+        margin: 0 auto;
+    }
+
+    .card-preview::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    }
+
+    /* Classes específicas para cada tipo de cartão */
+    .card-business {
+        --card-color-1: #2c3e50;
+        --card-color-2: #3498db;
+    }
+
+    .card-promo {
+        --card-color-1: #e74c3c;
+        --card-color-2: #f39c12;
+    }
+
+    .card-banner {
+        --card-color-1: #9b59b6;
+        --card-color-2: #3498db;
+    }
+
+    .card-event {
+        --card-color-1: #1abc9c;
+        --card-color-2: #16a085;
+    }
+
+    .card-membership {
+        --card-color-1: #8e44ad;
+        --card-color-2: #3498db;
+    }
+
+    .card-loyalty {
+        --card-color-1: #d35400;
+        --card-color-2: #e67e22;
+    }
+
+    .card-vip {
+        --card-color-1: #000000;
+        --card-color-2: #424242;
+    }
+
+    .card-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .card-logo {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        margin-bottom: 6px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .card-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .card-title {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 2px;
+        text-align: center;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-subtitle {
+        font-size: 0.8rem;
+        opacity: 0.9;
+        margin-bottom: 4px;
+        text-align: center;
+    }
+
+    .card-slogan {
+        font-size: 0.75rem;
+        font-style: italic;
+        margin-bottom: 6px;
+        opacity: 0.9;
+        text-align: center;
+    }
+
+    .card-body {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 0 8px;
+        margin-bottom: 6px;
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+
+    .card-contact {
+        font-size: 0.8rem;
+        margin-bottom: 3px;
+        display: flex;
+        align-items: center;
+    }
+
+    .card-promo-code {
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 4px 8px;
+        border-radius: 20px;
+        font-weight: 700;
+        display: inline-block;
+        margin-top: 6px;
+        text-align: center;
+        font-size: 0.8rem;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .card-qr {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2px;
+        border: 1px solid #eee;
+    }
+
+    .card-qr canvas {
+        width: 100%;
+        height: 100%;
+    }
+
+    .card-social {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+        margin: 6px 0;
+    }
+
+    .card-social a {
+        color: var(--card-text-color, white);
+        font-size: 12px;
+        transition: transform 0.3s;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 2px 6px;
+        border-radius: 12px;
+    }
+
+    .card-social a:hover {
+        transform: scale(1.05);
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .card-social a i {
+        margin-right: 4px;
+    }
+
+    .card-info {
+        margin: 4px 0;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .card-info i {
+        margin-right: 6px;
+        margin-top: 2px;
+    }
+
+    .btn-generate {
+        background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+        border: none;
+        border-radius: 50px;
+        padding: 10px 24px;
+        font-weight: 600;
+        color: white;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 8px rgba(52, 152, 219, 0.4);
+        font-size: 0.9rem;
+        cursor: pointer;
+    }
+
+    .btn-generate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 12px rgba(52, 152, 219, 0.6);
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: var(--dark-color);
+        margin-bottom: 6px;
+        font-size: 0.85rem;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+        font-size: 0.85rem;
+    }
+
+    .form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.15rem rgba(52, 152, 219, 0.25);
+    }
+
+    .color-picker {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        margin: 3px;
+        transition: transform 0.3s ease;
+    }
+
+    .color-picker:hover {
+        transform: scale(1.1);
+    }
+
+    .color-option {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .download-btn {
+        background: linear-gradient(to right, #27ae60, #2ecc71);
+        border: none;
+        border-radius: 50px;
+        padding: 10px 24px;
+        font-weight: 600;
+        color: white;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 8px rgba(39, 174, 96, 0.4);
+        margin-top: 12px;
+        font-size: 0.9rem;
+        cursor: pointer;
+    }
+
+    .download-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 12px rgba(39, 174, 96, 0.6);
+    }
+
+    .animation-option {
+        display: flex;
+        align-items: center;
+        margin-bottom: 6px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.8rem;
+    }
+
+    .animation-option:hover {
+        background-color: #e9ecef;
+    }
+
+    .animation-option.active {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.03); }
+        100% { transform: scale(1); }
+    }
+
+    @keyframes slideIn {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(0); }
+    }
+
+    .fade-in {
+        animation: fadeIn 0.6s ease;
+    }
+
+    .pulse {
+        animation: pulse 1.5s infinite;
+    }
+
+    .slide-in {
+        animation: slideIn 0.6s ease;
+    }
+
+    .floating {
+        animation: floating 2s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+        100% { transform: translateY(0px); }
+    }
+
+    .card-business.floating .card-logo {
+        animation: pulse 1.5s infinite 0.3s;
+    }
+
+    .card-promo.pulse .card-promo-code {
+        animation: pulse 1s infinite;
+    }
+
+    footer {
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 16px 0;
+        margin-top: 30px;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+
+    .logo-upload {
+        margin-bottom: 16px;
+    }
+
+    .logo-preview {
+        width: 50px;
+        height: 50px;
+        border: 1px dashed #ccc;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin: 0 auto 8px;
+        background-color: #f8f9fa;
+    }
+
+    .logo-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .download-options {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .download-options button {
+        flex: 1;
+    }
+
+    /* Responsividade aprimorada */
+    @media (max-width: 768px) {
         .card-preview {
-            width: 100%;
-            max-width: 400px;
-            height: 250px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 12px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            background: white;
-            font-size: 0.85rem;
-            margin: 0 auto;
+            height: 220px;
+            font-size: 0.75rem;
         }
-
-        .card-preview::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+        .card-title {
+            font-size: 0.9rem;
         }
-
-        .card-business {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-            color: white;
+        .card-subtitle, .card-slogan {
+            font-size: 0.7rem;
         }
-
-        .card-business::before {
-            background: linear-gradient(to right, #e74c3c, #f39c12);
+        .card-contact, .card-info {
+            font-size: 0.7rem;
         }
-
-        .card-promo {
-            background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);
-            color: white;
-        }
-
-        .card-promo::before {
-            background: linear-gradient(to right, #2c3e50, #3498db);
-        }
-
-        .card-banner {
-            background: linear-gradient(135deg, #9b59b6 0%, #3498db 100%);
-            color: white;
-        }
-
-        .card-banner::before {
-            background: linear-gradient(to right, #e74c3c, #f1c40f);
-        }
-
-        .card-event {
-            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
-            color: white;
-        }
-
-        .card-event::before {
-            background: linear-gradient(to right, #f39c12, #e74c3c);
-        }
-
-        .card-membership {
-            background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
-            color: white;
-        }
-
-        .card-membership::before {
-            background: linear-gradient(to right, #f1c40f, #e67e22);
-        }
-
-        .card-loyalty {
-            background: linear-gradient(135deg, #d35400 0%, #e67e22 100%);
-            color: white;
-        }
-
-        .card-loyalty::before {
-            background: linear-gradient(to right, #f1c40f, #e91e63);
-        }
-
-        .card-vip {
-            background: linear-gradient(135deg, #000000 0%, #424242 100%);
-            color: white;
-        }
-
-        .card-vip::before {
-            background: linear-gradient(to right, #ffd700, #ff8c00);
-        }
-
-        .card-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-
-        .card-logo {
+        .card-qr {
             width: 40px;
             height: 40px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            margin-bottom: 6px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-
-        .card-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+        .form-container {
+            max-height: none;
+            overflow-y: visible;
         }
+    }
 
-        .card-title {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 2px;
-            text-align: center;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    /* Melhorias para impressão */
+    @media print {
+        .navbar, .form-container, footer, .btn-generate, .download-options {
+            display: none !important;
         }
-
-        .card-subtitle {
-            font-size: 0.8rem;
-            opacity: 0.9;
-            margin-bottom: 4px;
-            text-align: center;
+        .card-preview-container {
+            box-shadow: none;
+            margin: 0;
+            padding: 0;
         }
-
-        .card-slogan {
-            font-size: 0.75rem;
-            font-style: italic;
-            margin-bottom: 6px;
-            opacity: 0.9;
-            text-align: center;
+        .card-preview {
+            box-shadow: none;
+            margin: 0;
         }
+    }
+</style>
 
-        .card-body {
-            flex-grow: 1;
-            overflow-y: auto;
-            padding: 0 8px;
-            margin-bottom: 6px;
-            font-size: 0.8rem;
-            line-height: 1.3;
-        }
-
-        .card-contact {
-            font-size: 0.8rem;
-            margin-bottom: 3px;
-            display: flex;
-            align-items: center;
-        }
-
-        .card-promo-code {
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 4px 8px;
-            border-radius: 20px;
-            font-weight: 700;
-            display: inline-block;
-            margin-top: 6px;
-            text-align: center;
-            font-size: 0.8rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .card-qr {
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            width: 50px;
-            height: 50px;
-            background-color: white;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2px;
-            border: 1px solid #eee;
-        }
-
-        .card-qr canvas {
-            width: 100%;
-            height: 100%;
-        }
-
-        .card-social {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 6px;
-            margin: 6px 0;
-        }
-
-        .card-social a {
-            color: white;
-            font-size: 12px;
-            transition: transform 0.3s;
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 2px 6px;
-            border-radius: 12px;
-        }
-
-        .card-social a:hover {
-            transform: scale(1.05);
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .card-social a i {
-            margin-right: 4px;
-        }
-
-        .card-info {
-            margin: 4px 0;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .card-info i {
-            margin-right: 6px;
-            margin-top: 2px;
-        }
-
-        .btn-generate {
-            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
-            border: none;
-            border-radius: 50px;
-            padding: 10px 24px;
-            font-weight: 600;
-            color: white;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 8px rgba(52, 152, 219, 0.4);
-            font-size: 0.9rem;
-        }
-
-        .btn-generate:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 12px rgba(52, 152, 219, 0.6);
-        }
-
-        .form-label {
-            font-weight: 600;
-            color: var(--dark-color);
-            margin-bottom: 6px;
-            font-size: 0.85rem;
-        }
-
-        .form-control {
-            border-radius: 8px;
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            transition: all 0.3s ease;
-            font-size: 0.85rem;
-        }
-
-        .form-control:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.15rem rgba(52, 152, 219, 0.25);
-        }
-
-        .color-picker {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            margin: 3px;
-            transition: transform 0.3s ease;
-        }
-
-        .color-picker:hover {
-            transform: scale(1.1);
-        }
-
-        .color-option {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-
-        .download-btn {
-            background: linear-gradient(to right, #27ae60, #2ecc71);
-            border: none;
-            border-radius: 50px;
-            padding: 10px 24px;
-            font-weight: 600;
-            color: white;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 8px rgba(39, 174, 96, 0.4);
-            margin-top: 12px;
-            font-size: 0.9rem;
-        }
-
-        .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 12px rgba(39, 174, 96, 0.6);
-        }
-
-        .animation-option {
-            display: flex;
-            align-items: center;
-            margin-bottom: 6px;
-            padding: 8px 12px;
-            border-radius: 8px;
-            background-color: #f8f9fa;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.8rem;
-        }
-
-        .animation-option:hover {
-            background-color: #e9ecef;
-        }
-
-        .animation-option.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease;
-        }
-
-        .pulse {
-            animation: pulse 1.5s infinite;
-        }
-
-        .slide-in {
-            animation: slideIn 0.6s ease;
-        }
-
-        .floating {
-            animation: floating 2s ease-in-out infinite;
-        }
-
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .card-business.floating .card-logo {
-            animation: pulse 1.5s infinite 0.3s;
-        }
-
-        .card-promo.pulse .card-promo-code {
-            animation: pulse 1s infinite;
-        }
-
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 16px 0;
-            margin-top: 30px;
-            text-align: center;
-            font-size: 0.8rem;
-        }
-
-        .logo-upload {
-            margin-bottom: 16px;
-        }
-
-        .logo-preview {
-            width: 50px;
-            height: 50px;
-            border: 1px dashed #ccc;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin: 0 auto 8px;
-            background-color: #f8f9fa;
-        }
-
-        .logo-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .download-options {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .download-options button {
-            flex: 1;
-        }
-
-        /* Responsividade aprimorada */
-        @media (max-width: 768px) {
-            .card-preview {
-                height: 220px;
-                font-size: 0.75rem;
-            }
-
-            .card-title {
-                font-size: 0.9rem;
-            }
-
-            .card-subtitle, .card-slogan {
-                font-size: 0.7rem;
-            }
-
-            .card-contact, .card-info {
-                font-size: 0.7rem;
-            }
-
-            .card-qr {
-                width: 40px;
-                height: 40px;
-            }
-
-            .form-container {
-                max-height: none;
-                overflow-y: visible;
-            }
-        }
-
-        /* Melhorias para impressão */
-        @media print {
-            .navbar, .form-container, footer, .btn-generate, .download-options {
-                display: none !important;
-            }
-
-            .card-preview-container {
-                box-shadow: none;
-                margin: 0;
-                padding: 0;
-            }
-
-            .card-preview {
-                box-shadow: none;
-                margin: 0;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -755,391 +731,359 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Elementos DOM
-            const cardPreview = document.getElementById('cardPreview');
-            const cardLogoPreview = document.getElementById('cardLogoPreview');
-            const cardTypeButtons = document.querySelectorAll('.card-type-btn');
-            const animationOptions = document.querySelectorAll('.animation-option');
-            const colorPickers = document.querySelectorAll('.color-picker');
-            const generateBtn = document.getElementById('generateBtn');
-            const downloadPngBtn = document.getElementById('downloadPngBtn');
-            const downloadPdfBtn = document.getElementById('downloadPdfBtn');
-            const logoUpload = document.getElementById('logoUpload');
-            const uploadLogoBtn = document.getElementById('uploadLogoBtn');
-            const logoPreview = document.getElementById('logoPreview');
+    document.addEventListener('DOMContentLoaded', function() {
+        // Elementos DOM
+        const cardPreview = document.getElementById('cardPreview');
+        const cardLogoPreview = document.getElementById('cardLogoPreview');
+        const cardTypeButtons = document.querySelectorAll('.card-type-btn');
+        const animationOptions = document.querySelectorAll('.animation-option');
+        const colorPickers = document.querySelectorAll('.color-picker');
+        const generateBtn = document.getElementById('generateBtn');
+        const downloadPngBtn = document.getElementById('downloadPngBtn');
+        const downloadPdfBtn = document.getElementById('downloadPdfBtn');
+        const logoUpload = document.getElementById('logoUpload');
+        const uploadLogoBtn = document.getElementById('uploadLogoBtn');
+        const logoPreview = document.getElementById('logoPreview');
 
-            // Inputs
-            const companyNameInput = document.getElementById('companyName');
-            const personNameInput = document.getElementById('personName');
-            const titleInput = document.getElementById('title');
-            const sloganInput = document.getElementById('slogan');
-            const specialtiesInput = document.getElementById('specialties');
-            const phoneInput = document.getElementById('phone');
-            const whatsappInput = document.getElementById('whatsapp');
-            const emailInput = document.getElementById('email');
-            const facebookInput = document.getElementById('facebook');
-            const instagramInput = document.getElementById('instagram');
-            const linkedinInput = document.getElementById('linkedin');
-            const whatsappLinkInput = document.getElementById('whatsappLink');
+        // Inputs
+        const companyNameInput = document.getElementById('companyName');
+        const personNameInput = document.getElementById('personName');
+        const titleInput = document.getElementById('title');
+        const sloganInput = document.getElementById('slogan');
+        const specialtiesInput = document.getElementById('specialties');
+        const phoneInput = document.getElementById('phone');
+        const whatsappInput = document.getElementById('whatsapp');
+        const emailInput = document.getElementById('email');
+        const facebookInput = document.getElementById('facebook');
+        const instagramInput = document.getElementById('instagram');
+        const linkedinInput = document.getElementById('linkedin');
+        const whatsappLinkInput = document.getElementById('whatsappLink');
 
-            // Preview elements
-            const previewName = document.getElementById('previewName');
-            const previewTitle = document.getElementById('previewTitle');
-            const previewSlogan = document.getElementById('previewSlogan');
-            const previewSpecialties = document.getElementById('previewSpecialties');
-            const previewPhone = document.getElementById('previewPhone');
-            const previewWhatsApp = document.getElementById('previewWhatsApp');
-            const previewEmail = document.getElementById('previewEmail');
-            const previewSocial = document.getElementById('previewSocial');
+        // Preview elements
+        const previewName = document.getElementById('previewName');
+        const previewTitle = document.getElementById('previewTitle');
+        const previewSlogan = document.getElementById('previewSlogan');
+        const previewSpecialties = document.getElementById('previewSpecialties');
+        const previewPhone = document.getElementById('previewPhone');
+        const previewWhatsApp = document.getElementById('previewWhatsApp');
+        const previewEmail = document.getElementById('previewEmail');
+        const previewSocial = document.getElementById('previewSocial');
+        const cardQR = document.getElementById('cardQR');
 
-            // QR Code
-            const cardQR = document.getElementById('cardQR');
+        // Variáveis de estado
+        let currentCardType = 'business';
+        let currentAnimation = 'fade-in';
+        let logoImage = null;
 
-            // Variáveis de estado
-            let currentCardType = 'business';
-            let currentAnimation = 'fade-in';
-            let logoImage = null;
-            let generatedCards = [];
+        // Função para calcular a cor do texto com base no contraste
+        function getContrastColor(hexColor) {
+            const r = parseInt(hexColor.substr(1, 2), 16);
+            const g = parseInt(hexColor.substr(3, 2), 16);
+            const b = parseInt(hexColor.substr(5, 2), 16);
+            const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+            return brightness > 128 ? '#000000' : '#FFFFFF';
+        }
 
-            // Event Listeners para tipo de cartão
-            cardTypeButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    cardTypeButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    currentCardType = this.getAttribute('data-type');
-                    updateCardPreview();
-                });
-            });
-
-            // Event Listeners para opções de animação
-            animationOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    animationOptions.forEach(opt => opt.classList.remove('active'));
-                    this.classList.add('active');
-                    currentAnimation = this.getAttribute('data-animation');
-                    applyAnimation();
-                });
-            });
-
-            // Event Listeners para inputs
-            companyNameInput.addEventListener('input', updatePreview);
-            personNameInput.addEventListener('input', updatePreview);
-            titleInput.addEventListener('input', updatePreview);
-            sloganInput.addEventListener('input', updatePreview);
-            specialtiesInput.addEventListener('input', updatePreview);
-            phoneInput.addEventListener('input', updatePreview);
-            whatsappInput.addEventListener('input', updatePreview);
-            emailInput.addEventListener('input', updatePreview);
-            facebookInput.addEventListener('input', updatePreview);
-            instagramInput.addEventListener('input', updatePreview);
-            linkedinInput.addEventListener('input', updatePreview);
-            whatsappLinkInput.addEventListener('input', updatePreview);
-
-            // Event Listeners para seletores de cor
-            colorPickers.forEach(picker => {
-                picker.addEventListener('input', updateCardColors);
-            });
-
-            // Event Listener para upload de logo
-            uploadLogoBtn.addEventListener('click', function() {
-                logoUpload.click();
-            });
-
-            logoUpload.addEventListener('change', function(e) {
-                const file = e.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(event) {
-                        const img = new Image();
-                        img.onload = function() {
-                            logoImage = img;
-                            logoPreview.innerHTML = '';
-                            const previewImg = document.createElement('img');
-                            previewImg.src = event.target.result;
-                            logoPreview.appendChild(previewImg);
-                            updateLogoPreview();
-                        };
-                        img.src = event.target.result;
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
-
-            // Event Listener para o botão Gerar
-            generateBtn.addEventListener('click', function() {
-                this.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Gerando...';
-                setTimeout(() => {
-                    this.innerHTML = '<i class="fas fa-check me-1"></i> Cartão Gerado!';
-                    setTimeout(() => {
-                        this.innerHTML = '<i class="fas fa-magic me-1"></i> Gerar Cartão';
-                    }, 2000);
-                }, 1000);
-                applyAnimation();
-                generateQRCode();
-                saveCurrentCard();
-            });
-
-            // Event Listener para o botão Baixar PNG
-            downloadPngBtn.addEventListener('click', function() {
-                this.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Preparando...';
-
-                // Criar um clone do cartão para renderização
-                const cardClone = cardPreview.cloneNode(true);
-                document.body.appendChild(cardClone);
-                cardClone.style.position = 'absolute';
-                cardClone.style.left = '-9999px';
-                cardClone.style.transform = 'scale(2)';
-
-                html2canvas(cardClone, {
-                    scale: 3,
-                    logging: false,
-                    useCORS: true,
-                    allowTaint: false,
-                    backgroundColor: null
-                }).then(canvas => {
-                    document.body.removeChild(cardClone);
-
-                    const link = document.createElement('a');
-                    link.download = 'cartao-profissional.png';
-                    link.href = canvas.toDataURL('image/png');
-                    link.click();
-
-                    this.innerHTML = '<i class="fas fa-check me-1"></i> Baixado!';
-                    setTimeout(() => {
-                        this.innerHTML = '<i class="fas fa-download me-1"></i> Baixar PNG';
-                    }, 2000);
-                }).catch(err => {
-                    console.error('Erro ao gerar imagem:', err);
-                    if (cardClone.parentNode) {
-                        document.body.removeChild(cardClone);
-                    }
-                    this.innerHTML = '<i class="fas fa-download me-1"></i> Baixar PNG';
-                    alert('Erro ao gerar imagem. Tente novamente.');
-                });
-            });
-
-            // Event Listener para o botão Baixar PDF
-            downloadPdfBtn.addEventListener('click', function() {
-                this.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Preparando...';
-
-                // Criar um clone do cartão para renderização
-                const cardClone = cardPreview.cloneNode(true);
-                document.body.appendChild(cardClone);
-                cardClone.style.position = 'absolute';
-                cardClone.style.left = '-9999px';
-                cardClone.style.transform = 'scale(2)';
-
-                html2canvas(cardClone, {
-                    scale: 3,
-                    logging: false,
-                    useCORS: true,
-                    allowTaint: false,
-                    backgroundColor: null
-                }).then(canvas => {
-                    document.body.removeChild(cardClone);
-
-                    const { jsPDF } = window.jspdf;
-                    const pdf = new jsPDF({
-                        orientation: 'portrait',
-                        unit: 'mm',
-                        format: 'a4'
-                    });
-
-                    const imgData = canvas.toDataURL('image/png');
-                    const imgWidth = 100;
-                    const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-                    // Centralizar na página
-                    const x = (pdf.internal.pageSize.getWidth() - imgWidth) / 2;
-                    const y = (pdf.internal.pageSize.getHeight() - imgHeight) / 2;
-
-                    pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
-                    pdf.save('cartao-profissional.pdf');
-
-                    this.innerHTML = '<i class="fas fa-check me-1"></i> Baixado!';
-                    setTimeout(() => {
-                        this.innerHTML = '<i class="fas fa-download me-1"></i> Baixar PDF';
-                    }, 2000);
-                }).catch(err => {
-                    console.error('Erro ao gerar PDF:', err);
-                    if (cardClone.parentNode) {
-                        document.body.removeChild(cardClone);
-                    }
-                    this.innerHTML = '<i class="fas fa-download me-1"></i> Baixar PDF';
-                    alert('Erro ao gerar PDF. Tente novamente.');
-                });
-            });
-
-            // Função para salvar o cartão atual
-            function saveCurrentCard() {
-                const cardClone = cardPreview.cloneNode(true);
-                generatedCards.push(cardClone);
-            }
-
-            // Função para atualizar o preview
-            function updatePreview() {
-                previewName.textContent = companyNameInput.value || 'Nome da Empresa';
-                previewTitle.textContent = titleInput.value || 'Seu Cargo Aqui';
-                previewSlogan.textContent = sloganInput.value || 'Slogan da Empresa';
-                previewSpecialties.querySelector('span').textContent = specialtiesInput.value || 'Especialidade 1';
-                previewPhone.innerHTML = `<i class="fas fa-phone me-1"></i>${phoneInput.value || '(11) 99999-9999'}`;
-                previewWhatsApp.innerHTML = `<i class="fab fa-whatsapp me-1"></i>${whatsappInput.value || '(11) 99999-9999'}`;
-                previewEmail.innerHTML = `<i class="fas fa-envelope me-1"></i>${emailInput.value || 'seuemail@empresa.com'}`;
-                updateSocialLinks();
-            }
-
-            // Função para atualizar os links das redes sociais
-            function updateSocialLinks() {
-                previewSocial.innerHTML = '';
-                const socialLinks = [
-                    { icon: 'fab fa-facebook-f', url: facebookInput.value, placeholder: 'facebook.com/suaempresa' },
-                    { icon: 'fab fa-instagram', url: instagramInput.value, placeholder: 'instagram.com/suaempresa' },
-                    { icon: 'fab fa-linkedin-in', url: linkedinInput.value, placeholder: 'linkedin.com/suaempresa' },
-                    { icon: 'fab fa-whatsapp', url: whatsappLinkInput.value, placeholder: 'wa.me/5511999999999' }
-                ];
-
-                socialLinks.forEach(link => {
-                    if (link.url) {
-                        const linkElement = document.createElement('a');
-                        link.url = link.url.startsWith('http') ? link.url : `https://${link.url}`;
-                        linkElement.href = link.url;
-                        linkElement.target = '_blank';
-                        linkElement.innerHTML = `<i class="${link.icon} me-1"></i>${link.url.replace('https://', '')}`;
-                        previewSocial.appendChild(linkElement);
-                    }
-                });
-            }
-
-// Função para calcular a cor do texto com base no contraste
-function getContrastColor(hexColor) {
-    // Converte hex para RGB
-    const r = parseInt(hexColor.substr(1, 2), 16);
-    const g = parseInt(hexColor.substr(3, 2), 16);
-    const b = parseInt(hexColor.substr(5, 2), 16);
-    // Calcula o brilho
-    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-    // Retorna preto ou branco com base no brilho
-    return brightness > 128 ? '#000000' : '#FFFFFF';
-}
-
-
-            // Função para gerar QR Code
-            function generateQRCode() {
-                cardQR.innerHTML = '';
-
-                // Criar texto para o QR Code
-                const qrText = `
-                    Nome: ${companyNameInput.value || 'Nome da Empresa'}
-                    Cargo: ${titleInput.value || 'Seu Cargo Aqui'}
-                    Telefone: ${phoneInput.value || '(11) 99999-9999'}
-                    WhatsApp: ${whatsappInput.value || '(11) 99999-9999'}
-                    E-mail: ${emailInput.value || 'seuemail@empresa.com'}
-                    Facebook: ${facebookInput.value || ''}
-                    Instagram: ${instagramInput.value || ''}
-                    LinkedIn: ${linkedinInput.value || ''}
-                `;
-
-                // Gerar QR Code com tamanho maior para melhor legibilidade
-                new QRCode(cardQR, {
-                    text: qrText,
-                    width: 46,
-                    height: 46,
-                    colorDark: '#000000',
-                    colorLight: '#ffffff',
-                    correctLevel: QRCode.CorrectLevel.H
-                });
-            }
-
-            // Função para atualizar o tipo de cartão
-            function updateCardPreview() {
-                cardPreview.classList.remove('card-business', 'card-promo', 'card-banner', 'card-event', 'card-membership', 'card-loyalty', 'card-vip');
-                cardPreview.classList.add(`card-${currentCardType}`);
-                updateLogoPreview();
-
-                // Remove promo code se existir
-                const existingPromoCode = cardPreview.querySelector('.card-promo-code');
-                if (existingPromoCode) {
-                    existingPromoCode.remove();
-                }
-
-                switch(currentCardType) {
-                    case 'business':
-                        previewName.textContent = companyNameInput.value || 'Nome da Empresa';
-                        previewTitle.textContent = titleInput.value || 'Seu Cargo Aqui';
-                        break;
-                    case 'promo':
-                        previewName.textContent = companyNameInput.value || 'Promoção Especial';
-                        previewTitle.textContent = titleInput.value || 'Desconto Exclusivo';
-                        const promoCode = document.createElement('div');
-                        promoCode.className = 'card-promo-code';
-                        promoCode.textContent = 'PROMO2025';
-                        cardPreview.querySelector('.card-header').appendChild(promoCode);
-                        break;
-                    case 'banner':
-                        previewName.textContent = companyNameInput.value || 'Título do Banner';
-                        previewTitle.textContent = titleInput.value || 'Mensagem do Banner';
-                        break;
-                    case 'event':
-                        previewName.textContent = companyNameInput.value || 'Nome do Evento';
-                        previewTitle.textContent = titleInput.value || 'Data e Local';
-                        break;
-                    case 'membership':
-                        previewName.textContent = companyNameInput.value || 'Associação';
-                        previewTitle.textContent = titleInput.value || 'Membro desde 2025';
-                        break;
-                    case 'loyalty':
-                        previewName.textContent = companyNameInput.value || 'Programa de Fidelidade';
-                        previewTitle.textContent = titleInput.value || 'Pontos Acumulados';
-                        break;
-                    case 'vip':
-                        previewName.textContent = companyNameInput.value || 'Membro VIP';
-                        previewTitle.textContent = titleInput.value || 'Acesso Exclusivo';
-                        break;
-                }
-            }
-
-            // Função para aplicar animação
-            function applyAnimation() {
-                cardPreview.classList.remove('fade-in', 'pulse', 'floating', 'slide-in');
-                if (currentAnimation !== 'none') {
-                    cardPreview.classList.add(currentAnimation);
-                }
-            }
-
-            // Função para atualizar cores do cartão
+        // Função para atualizar as cores do cartão
         function updateCardColors() {
             const color1 = document.getElementById('color1').value;
             const color2 = document.getElementById('color2').value;
             cardPreview.style.setProperty('--card-color-1', color1);
             cardPreview.style.setProperty('--card-color-2', color2);
             const textColor = getContrastColor(color2);
-            cardPreview.style.color = textColor;
-            cardPreview.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
+            cardPreview.style.setProperty('--card-text-color', textColor);
         }
 
+        // Função para gerar a imagem do cartão
+        function generateCardImage() {
+    return new Promise((resolve) => {
 
-            // Função para atualizar o logo no preview
-            function updateLogoPreview() {
-                cardLogoPreview.innerHTML = '';
-                if (logoImage) {
-                    const img = document.createElement('img');
-                    img.src = logoImage.src;
-                    cardLogoPreview.appendChild(img);
-                } else {
-                    cardLogoPreview.innerHTML = '<i class="fas fa-building"></i>';
-                }
-            }
+        const color1 = document.getElementById('color1').value;
+        const color2 = document.getElementById('color2').value;
 
-            // Inicialização
-            updatePreview();
-            updateCardPreview();
-            applyAnimation();
-            generateQRCode(); // Gerar QR Code inicial
+        // Força o gradiente a ser uma cor real
+        cardPreview.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
+
+        html2canvas(cardPreview, {
+            scale: 3,
+            logging: false,
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: window.getComputedStyle(cardPreview).backgroundColor
+        }).then(canvas => {
+            resolve(canvas);
+        }).catch(err => {
+            console.error('Erro ao gerar imagem:', err);
+            alert('Erro ao gerar imagem. Tente novamente.');
         });
-    </script>
+    });
+}
+
+
+        // Event Listeners para tipo de cartão
+        cardTypeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                cardTypeButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                currentCardType = this.getAttribute('data-type');
+                updateCardPreview();
+            });
+        });
+
+        // Event Listeners para opções de animação
+        animationOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                animationOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                currentAnimation = this.getAttribute('data-animation');
+                applyAnimation();
+            });
+        });
+
+        // Event Listeners para inputs
+        companyNameInput.addEventListener('input', updatePreview);
+        personNameInput.addEventListener('input', updatePreview);
+        titleInput.addEventListener('input', updatePreview);
+        sloganInput.addEventListener('input', updatePreview);
+        specialtiesInput.addEventListener('input', updatePreview);
+        phoneInput.addEventListener('input', updatePreview);
+        whatsappInput.addEventListener('input', updatePreview);
+        emailInput.addEventListener('input', updatePreview);
+        facebookInput.addEventListener('input', updatePreview);
+        instagramInput.addEventListener('input', updatePreview);
+        linkedinInput.addEventListener('input', updatePreview);
+        whatsappLinkInput.addEventListener('input', updatePreview);
+
+        // Event Listeners para seletores de cor
+        colorPickers.forEach(picker => {
+            picker.addEventListener('input', updateCardColors);
+        });
+
+        // Event Listener para upload de logo
+        uploadLogoBtn.addEventListener('click', function() {
+            logoUpload.click();
+        });
+
+        logoUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = new Image();
+                    img.onload = function() {
+                        logoImage = img;
+                        logoPreview.innerHTML = '';
+                        const previewImg = document.createElement('img');
+                        previewImg.src = event.target.result;
+                        logoPreview.appendChild(previewImg);
+                        updateLogoPreview();
+                    };
+                    img.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Event Listener para o botão Gerar
+        generateBtn.addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Gerando...';
+            setTimeout(() => {
+                this.innerHTML = '<i class="fas fa-check me-1"></i> Cartão Gerado!';
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-magic me-1"></i> Gerar Cartão';
+                }, 2000);
+            }, 1000);
+            applyAnimation();
+            generateQRCode();
+        });
+
+        // Event Listener para o botão Baixar PNG
+        downloadPngBtn.addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Preparando...';
+            generateCardImage().then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'cartao-profissional.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                this.innerHTML = '<i class="fas fa-check me-1"></i> Baixado!';
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-download me-1"></i> Baixar PNG';
+                }, 2000);
+            });
+        });
+
+        // Event Listener para o botão Baixar PDF
+        downloadPdfBtn.addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Preparando...';
+            generateCardImage().then(canvas => {
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: 'a4'
+                });
+                const imgData = canvas.toDataURL('image/png');
+                const imgWidth = 100;
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                const x = (pdf.internal.pageSize.getWidth() - imgWidth) / 2;
+                const y = (pdf.internal.pageSize.getHeight() - imgHeight) / 2;
+                pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
+
+                // Adiciona links clicáveis no PDF
+                const socialLinks = [
+                    { url: facebookInput.value, text: facebookInput.value.replace('https://', '') },
+                    { url: instagramInput.value, text: instagramInput.value.replace('https://', '') },
+                    { url: linkedinInput.value, text: linkedinInput.value.replace('https://', '') },
+                    { url: whatsappLinkInput.value, text: whatsappLinkInput.value.replace('https://', '') }
+                ];
+
+                socialLinks.forEach((link, index) => {
+                    if (link.url) {
+                        pdf.setFontSize(10);
+                        pdf.textWithLink(link.text, x + 10, y + imgHeight + 10 + (index * 5), { url: link.url });
+                    }
+                });
+
+                pdf.save('cartao-profissional.pdf');
+                this.innerHTML = '<i class="fas fa-check me-1"></i> Baixado!';
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-download me-1"></i> Baixar PDF';
+                }, 2000);
+            });
+        });
+
+        // Função para atualizar o preview
+        function updatePreview() {
+            previewName.textContent = companyNameInput.value || 'Nome da Empresa';
+            previewTitle.textContent = titleInput.value || 'Seu Cargo Aqui';
+            previewSlogan.textContent = sloganInput.value || 'Slogan da Empresa';
+            previewSpecialties.querySelector('span').textContent = specialtiesInput.value || 'Especialidade 1';
+            previewPhone.innerHTML = `<i class="fas fa-phone me-1"></i>${phoneInput.value || '(11) 99999-9999'}`;
+            previewWhatsApp.innerHTML = `<i class="fab fa-whatsapp me-1"></i>${whatsappInput.value || '(11) 99999-9999'}`;
+            previewEmail.innerHTML = `<i class="fas fa-envelope me-1"></i>${emailInput.value || 'seuemail@empresa.com'}`;
+            updateSocialLinks();
+        }
+
+        // Função para atualizar os links das redes sociais
+        function updateSocialLinks() {
+            previewSocial.innerHTML = '';
+            const socialLinks = [
+                { icon: 'fab fa-facebook-f', url: facebookInput.value, placeholder: 'facebook.com/suaempresa' },
+                { icon: 'fab fa-instagram', url: instagramInput.value, placeholder: 'instagram.com/suaempresa' },
+                { icon: 'fab fa-linkedin-in', url: linkedinInput.value, placeholder: 'linkedin.com/suaempresa' },
+                { icon: 'fab fa-whatsapp', url: whatsappLinkInput.value, placeholder: 'wa.me/5511999999999' }
+            ];
+            socialLinks.forEach(link => {
+                if (link.url) {
+                    const linkElement = document.createElement('a');
+                    link.url = link.url.startsWith('http') ? link.url : `https://${link.url}`;
+                    linkElement.href = link.url;
+                    linkElement.target = '_blank';
+                    linkElement.innerHTML = `<i class="${link.icon} me-1"></i>${link.url.replace('https://', '')}`;
+                    previewSocial.appendChild(linkElement);
+                }
+            });
+        }
+
+        // Função para gerar QR Code
+        function generateQRCode() {
+            cardQR.innerHTML = '';
+            const qrText = `
+                Nome: ${companyNameInput.value || 'Nome da Empresa'}
+                Cargo: ${titleInput.value || 'Seu Cargo Aqui'}
+                Telefone: ${phoneInput.value || '(11) 99999-9999'}
+                WhatsApp: ${whatsappInput.value || '(11) 99999-9999'}
+                E-mail: ${emailInput.value || 'seuemail@empresa.com'}
+                Facebook: ${facebookInput.value || ''}
+                Instagram: ${instagramInput.value || ''}
+                LinkedIn: ${linkedinInput.value || ''}
+            `;
+            new QRCode(cardQR, {
+                text: qrText,
+                width: 46,
+                height: 46,
+                colorDark: '#000000',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        // Função para atualizar o tipo de cartão
+        function updateCardPreview() {
+            cardPreview.classList.remove('card-business', 'card-promo', 'card-banner', 'card-event', 'card-membership', 'card-loyalty', 'card-vip');
+            cardPreview.classList.add(`card-${currentCardType}`);
+            updateLogoPreview();
+            const existingPromoCode = cardPreview.querySelector('.card-promo-code');
+            if (existingPromoCode) {
+                existingPromoCode.remove();
+            }
+            switch(currentCardType) {
+                case 'business':
+                    previewName.textContent = companyNameInput.value || 'Nome da Empresa';
+                    previewTitle.textContent = titleInput.value || 'Seu Cargo Aqui';
+                    break;
+                case 'promo':
+                    previewName.textContent = companyNameInput.value || 'Promoção Especial';
+                    previewTitle.textContent = titleInput.value || 'Desconto Exclusivo';
+                    const promoCode = document.createElement('div');
+                    promoCode.className = 'card-promo-code';
+                    promoCode.textContent = 'PROMO2025';
+                    cardPreview.querySelector('.card-header').appendChild(promoCode);
+                    break;
+                case 'banner':
+                    previewName.textContent = companyNameInput.value || 'Título do Banner';
+                    previewTitle.textContent = titleInput.value || 'Mensagem do Banner';
+                    break;
+                case 'event':
+                    previewName.textContent = companyNameInput.value || 'Nome do Evento';
+                    previewTitle.textContent = titleInput.value || 'Data e Local';
+                    break;
+                case 'membership':
+                    previewName.textContent = companyNameInput.value || 'Associação';
+                    previewTitle.textContent = titleInput.value || 'Membro desde 2025';
+                    break;
+                case 'loyalty':
+                    previewName.textContent = companyNameInput.value || 'Programa de Fidelidade';
+                    previewTitle.textContent = titleInput.value || 'Pontos Acumulados';
+                    break;
+                case 'vip':
+                    previewName.textContent = companyNameInput.value || 'Membro VIP';
+                    previewTitle.textContent = titleInput.value || 'Acesso Exclusivo';
+                    break;
+            }
+        }
+
+        // Função para aplicar animação
+        function applyAnimation() {
+            cardPreview.classList.remove('fade-in', 'pulse', 'floating', 'slide-in');
+            if (currentAnimation !== 'none') {
+                cardPreview.classList.add(currentAnimation);
+            }
+        }
+
+        // Função para atualizar o logo no preview
+        function updateLogoPreview() {
+            cardLogoPreview.innerHTML = '';
+            if (logoImage) {
+                const img = document.createElement('img');
+                img.src = logoImage.src;
+                cardLogoPreview.appendChild(img);
+            } else {
+                cardLogoPreview.innerHTML = '<i class="fas fa-building"></i>';
+            }
+        }
+
+        // Inicialização
+        updatePreview();
+        updateCardPreview();
+        applyAnimation();
+        generateQRCode();
+    });
+</script>
+
 <script>
-  // Bloqueia clique direito
+
+     // Bloqueia clique direito
   document.addEventListener("contextmenu", function(e){
       e.preventDefault();
   });
@@ -1165,5 +1109,6 @@ function getContrastColor(hexColor) {
       el.style.userSelect = "none";
   });
 </script>
+
 </body>
 </html>
