@@ -426,6 +426,14 @@
     </style>
 </head>
 <body>
+
+    <script>
+    // Protege esta página
+    if (localStorage.getItem("token_acesso") !== "TOKEN_VALIDO") {
+        window.location.href = "login.html";
+    }
+    </script>
+    
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
