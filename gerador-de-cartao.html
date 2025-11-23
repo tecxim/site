@@ -931,23 +931,9 @@
         });
 
         // Event Listener para o botão Baixar PNG
-        downloadPngBtn.addEventListener('click', function() {
-            this.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Preparando...';
-            generateCardImage().then(canvas => {
-                const link = document.createElement('a');
-                link.download = 'cartao-profissional.png';
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-                this.innerHTML = '<i class="fas fa-check me-1"></i> Baixado!';
-                setTimeout(() => {
-                    this.innerHTML = '<i class="fas fa-download me-1"></i> Baixar PNG';
-                }, 2000);
-            });
-        });
-
-        // Event Listener para o botão Baixar PDF
         downloadPdfBtn.addEventListener('click', function() {
             this.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Preparando...';
+        
             generateCardImage().then(canvas => {
                 const { jsPDF } = window.jspdf;
                 const pdf = new jsPDF({
@@ -965,17 +951,22 @@
         
                 pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
         
-                // Adiciona os links das redes sociais (sem exibir código)
+                // Adiciona os links das redes sociais (formatados)
                 pdf.setFontSize(10);
                 pdf.text("Redes Sociais:", x, y + imgHeight + 10);
         
                 const socialIcons = document.querySelectorAll('#previewSocial a');
+                const socialLabels = ["Facebook: ", "Instagram: ", "LinkedIn: "]; // Rótulos para cada rede
+        
                 socialIcons.forEach((icon, index) => {
                     const url = icon.getAttribute('data-url');
                     if (url) {
                         const cleanUrl = url.replace(/^https?:\/\/(www\.)?/, ''); // Remove "https://" e "www."
+                        const label = socialLabels[index] || ""; // Pega o rótulo correspondente
+                        const text = label + cleanUrl; // Formata como "Facebook: teste.com"
+        
                         pdf.textWithLink(
-                            cleanUrl,
+                            text,
                             x + 5,
                             y + imgHeight + 20 + (index * 7),
                             { url: url }
@@ -988,8 +979,13 @@
                 setTimeout(() => {
                     this.innerHTML = '<i class="fas fa-download me-1"></i> Baixar PDF';
                 }, 2000);
+            }).catch(err => {
+                console.error('Erro ao gerar PDF:', err);
+                alert('Erro ao gerar PDF. Tente novamente.');
+                this.innerHTML = '<i class="fas fa-download me-1"></i> Baixar PDF';
             });
         });
+
 
         
 
@@ -1006,7 +1002,7 @@
         }
 
         // Função para atualizar os links das redes sociais
-      function updateSocialLinks() {
+           function updateSocialLinks() {
             previewSocial.innerHTML = '';
             const socialLinks = [
                 { icon: 'fab fa-facebook-f', url: facebookInput.value },
@@ -1014,17 +1010,19 @@
                 { icon: 'fab fa-linkedin-in', url: linkedinInput.value }
             ];
         
-            socialLinks.forEach(link => {
+            socialLinks.forEach((link, index) => {
                 if (link.url) {
                     const linkElement = document.createElement('a');
-                    linkElement.href = link.url.startsWith('http') ? link.url : `https://${link.url}`;
+                    const fullUrl = link.url.startsWith('http') ? link.url : `https://${link.url}`;
+                    linkElement.href = fullUrl;
                     linkElement.target = '_blank';
                     linkElement.innerHTML = `<i class="${link.icon}"></i>`;
-                    linkElement.setAttribute('data-url', linkElement.href);
+                    linkElement.setAttribute('data-url', fullUrl);
                     previewSocial.appendChild(linkElement);
                 }
             });
         }
+
 
         // Função para gerar QR Code
         function generateQRCode() {
