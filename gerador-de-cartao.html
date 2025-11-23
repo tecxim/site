@@ -287,6 +287,7 @@
     display: none; /* Esconde o texto no cartão */
 }
 
+
 .card-social i {
     margin-right: 0; /* Remove espaçamento */
     font-size: 0.7rem; /* Tamanho do ícone */
@@ -836,8 +837,7 @@
                     allowTaint: true,
                     backgroundColor: null,
                     ignoreElements: function(element) {
-                        return element.classList.contains('card-qr') ||
-                               element.classList.contains('card-social');
+                        return element.classList.contains('card-social');
                     }
                 }).then(canvas => {
                     resolve(canvas);
@@ -847,6 +847,7 @@
                 });
             });
         }
+
         
         // Event Listeners para tipo de cartão
         cardTypeButtons.forEach(button => {
@@ -952,21 +953,29 @@
                     format: 'a4'
                 });
         
+                // Adiciona a imagem do cartão
                 const imgData = canvas.toDataURL('image/png');
                 const imgWidth = 100;
                 const imgHeight = (canvas.height * imgWidth) / canvas.width;
                 const x = (pdf.internal.pageSize.getWidth() - imgWidth) / 2;
-                const y = (pdf.internal.pageSize.getHeight() - imgHeight) / 2;
+                const y = 20; // Posiciona o cartão no topo
         
                 pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
         
-                // Adiciona links clicáveis no PDF
+                // Adiciona uma seção para os links clicáveis (abaixo do cartão)
+                pdf.setFontSize(10);
+                pdf.text("Redes Sociais:", x, y + imgHeight + 10);
+        
                 const socialIcons = document.querySelectorAll('#previewSocial a');
                 socialIcons.forEach((icon, index) => {
                     const url = icon.getAttribute('data-url');
                     if (url) {
-                        pdf.setFontSize(8);
-                        pdf.textWithLink(url, x + 10, y + imgHeight + 10 + (index * 5), { url: url });
+                        pdf.textWithLink(
+                            url.replace('https://', ''),
+                            x + 5,
+                            y + imgHeight + 20 + (index * 7),
+                            { url: url }
+                        );
                     }
                 });
         
@@ -977,6 +986,7 @@
                 }, 2000);
             });
         });
+
         
 
         // Função para atualizar o preview
