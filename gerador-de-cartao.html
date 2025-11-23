@@ -75,7 +75,6 @@
             transform: scale(1.05);
             border-color: var(--primary-color);
         }
-
         .card-preview {
             width: 100%;
             max-width: 400px;
@@ -318,10 +317,6 @@
             background-color: var(--primary-color);
             color: white;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.03); }
@@ -330,9 +325,6 @@
         @keyframes slideIn {
             from { transform: translateX(-100%); }
             to { transform: translateX(0); }
-        }
-        .fade-in {
-            animation: fadeIn 0.6s ease;
         }
         .pulse {
             animation: pulse 1.5s infinite;
@@ -458,7 +450,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <!-- Card Preview -->
-                <div class="card-preview-container fade-in">
+                <div class="card-preview-container">
                     <h4 class="mb-3 text-center">Pré-visualização do Cartão</h4>
                     <div class="card-preview card-business" id="cardPreview">
                        <div class="card-header">
@@ -499,7 +491,7 @@
             </div>
             <div class="col-lg-4">
                 <!-- Form -->
-                <div class="form-container slide-in">
+                <div class="form-container">
                     <h4 class="mb-3 text-center">Personalizar Cartão</h4>
                     <!-- Logo Upload -->
                     <div class="logo-upload mb-3">
@@ -543,10 +535,6 @@
                         <input type="text" class="form-control" id="slogan" placeholder="Digite o slogan da empresa">
                     </div>
                     <div class="mb-2">
-                        <label for="specialties" class="form-label">Especialidades</label>
-                        <input type="text" class="form-control" id="specialties" placeholder="Especialidade 1, Especialidade 2">
-                    </div>
-                    <div class="mb-2">
                         <label for="phone" class="form-label">Telefone</label>
                         <input type="text" class="form-control" id="phone" placeholder="(11) 99999-9999">
                     </div>
@@ -562,6 +550,10 @@
                         <label for="email" class="form-label">E-mail</label>
                         <input type="email" class="form-control" id="email" placeholder="seuemail@empresa.com">
                     </div>
+                    <div class="mb-2">
+                        <label for="specialties" class="form-label">Especialidades</label>
+                        <input type="text" class="form-control" id="specialties" placeholder="Especialidade 1, Especialidade 2">
+                    </div>
                     <!-- Color Options -->
                     <div class="mb-3">
                         <h6 class="mb-2">Cores do Cartão</h6>
@@ -576,17 +568,14 @@
                     <!-- Animation Options -->
                     <div class="mb-3">
                         <h6 class="mb-2">Efeitos de Animação</h6>
-                        <div class="animation-option active" data-animation="fade-in">
-                            <i class="fas fa-star me-2"></i> Fade In
+                        <div class="animation-option" data-animation="none">
+                            <i class="fas fa-times me-2"></i> Sem Animação
                         </div>
                         <div class="animation-option" data-animation="pulse">
                             <i class="fas fa-heartbeat me-2"></i> Pulsar
                         </div>
                         <div class="animation-option" data-animation="floating">
                             <i class="fas fa-feather-alt me-2"></i> Flutuar
-                        </div>
-                        <div class="animation-option" data-animation="none">
-                            <i class="fas fa-times me-2"></i> Sem Animação
                         </div>
                     </div>
                 </div>
@@ -638,9 +627,8 @@
             const cardQR = document.getElementById('cardQR');
             // Variáveis de estado
             let currentCardType = 'business';
-            let currentAnimation = 'fade-in';
+            let currentAnimation = 'none';
             let logoImage = null;
-
             // Função para calcular a cor do texto com base no contraste
             function getContrastColor(hexColor) {
                 hexColor = hexColor.replace('#', '');
@@ -650,7 +638,6 @@
                 const brightness = (r * 299 + g * 587 + b * 114) / 1000;
                 return brightness > 128 ? '#000000' : '#FFFFFF';
             }
-
             // Função para atualizar as cores do cartão
             function updateCardColors() {
                 const color1 = document.getElementById('color1').value;
@@ -662,14 +649,12 @@
                 cardPreview.style.setProperty('--card-text-color', textColor);
                 cardPreview.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
             }
-
             // Função para gerar a imagem do cartão
             function generateCardImage() {
                 return new Promise((resolve, reject) => {
                     const color1 = document.getElementById('color1').value;
                     const color2 = document.getElementById('color2').value;
                     cardPreview.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
-
                     html2canvas(cardPreview, {
                         scale: 3,
                         logging: false,
@@ -684,7 +669,6 @@
                     });
                 });
             }
-
             // Event Listeners para tipo de cartão
             cardTypeButtons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -694,7 +678,6 @@
                     updateCardPreview();
                 });
             });
-
             // Event Listeners para opções de animação
             animationOptions.forEach(option => {
                 option.addEventListener('click', function() {
@@ -704,7 +687,6 @@
                     applyAnimation();
                 });
             });
-
             // Event Listeners para inputs
             companyNameInput.addEventListener('input', updatePreview);
             personNameInput.addEventListener('input', updatePreview);
@@ -715,17 +697,14 @@
             whatsappInput.addEventListener('input', updatePreview);
             instagramInput.addEventListener('input', updatePreview);
             emailInput.addEventListener('input', updatePreview);
-
             // Event Listeners para seletores de cor
             colorPickers.forEach(picker => {
                 picker.addEventListener('input', updateCardColors);
             });
-
             // Event Listener para upload de logo
             uploadLogoBtn.addEventListener('click', function() {
                 logoUpload.click();
             });
-
             logoUpload.addEventListener('change', function(e) {
                 const file = e.target.files[0];
                 if (file) {
@@ -745,7 +724,6 @@
                     reader.readAsDataURL(file);
                 }
             });
-
             // Event Listener para o botão Gerar
             generateBtn.addEventListener('click', function() {
                 this.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Gerando...';
@@ -758,11 +736,9 @@
                 applyAnimation();
                 generateQRCode();
             });
-
             // Event Listener para o botão Baixar PNG
             downloadPngBtn.addEventListener('click', function() {
                 this.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Preparando...';
-
                 generateCardImage().then(canvas => {
                     const link = document.createElement('a');
                     link.download = 'cartao-profissional.png';
@@ -778,11 +754,9 @@
                     this.innerHTML = '<i class="fas fa-download me-1"></i> Baixar PNG';
                 });
             });
-
             // Event Listener para o botão Baixar JPEG
             downloadJpegBtn.addEventListener('click', function() {
                 this.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Preparando...';
-
                 generateCardImage().then(canvas => {
                     const link = document.createElement('a');
                     link.download = 'cartao-profissional.jpg';
@@ -798,7 +772,6 @@
                     this.innerHTML = '<i class="fas fa-download me-1"></i> Baixar JPEG';
                 });
             });
-
             // Função para atualizar o preview
             function updatePreview() {
                 previewName.textContent = companyNameInput.value || 'Nome da Empresa';
@@ -810,7 +783,6 @@
                 previewInstagram.innerHTML = `<i class="fab fa-instagram me-1"></i>${instagramInput.value || '@seuinstagram'}`;
                 previewEmail.innerHTML = `<i class="fas fa-envelope me-1"></i>${emailInput.value || 'seuemail@empresa.com'}`;
             }
-
             // Função para gerar QR Code
             function generateQRCode() {
                 cardQR.innerHTML = '';
@@ -822,7 +794,6 @@
                     Instagram: ${instagramInput.value || '@seuinstagram'}
                     E-mail: ${emailInput.value || 'seuemail@empresa.com'}
                 `;
-
                 const qrcode = new QRCode(cardQR, {
                     text: qrText,
                     width: 50,
@@ -832,7 +803,6 @@
                     correctLevel: QRCode.CorrectLevel.H
                 });
             }
-
             // Função para atualizar o tipo de cartão
             function updateCardPreview() {
                 cardPreview.classList.remove('card-business', 'card-promo', 'card-banner', 'card-event', 'card-membership', 'card-loyalty', 'card-vip');
@@ -877,7 +847,6 @@
                         break;
                 }
             }
-
             // Função para aplicar animação
             function applyAnimation() {
                 cardPreview.classList.remove('fade-in', 'pulse', 'floating', 'slide-in');
@@ -885,7 +854,6 @@
                     cardPreview.classList.add(currentAnimation);
                 }
             }
-
             // Função para atualizar o logo no preview
             function updateLogoPreview() {
                 cardLogoPreview.innerHTML = '';
@@ -897,7 +865,6 @@
                     cardLogoPreview.innerHTML = '<i class="fas fa-building"></i>';
                 }
             }
-
             // Inicialização
             updatePreview();
             updateCardPreview();
@@ -905,6 +872,33 @@
             generateQRCode();
         });
     </script>
+   <script>
+  // Bloqueia clique direito
+  document.addEventListener("contextmenu", function(e){
+      e.preventDefault();
+  });
+  // Bloqueia teclas que abrem o DevTools
+  document.onkeydown = function(e) {
+      if (
+          e.keyCode === 123 ||                     // F12
+          (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
+          (e.ctrlKey && e.shiftKey && e.keyCode === 74) || // Ctrl+Shift+J
+          (e.ctrlKey && e.keyCode === 85) ||       // Ctrl+U
+          (e.ctrlKey && e.keyCode === 83)          // Ctrl+S
+      ) {
+          e.preventDefault();
+          return false;
+      }
+  };
+  // Bloqueia arrastar para fora, copiar e recortar
+  document.addEventListener("copy", (e) => e.preventDefault());
+  document.addEventListener("cut", (e) => e.preventDefault());
+  document.addEventListener("dragstart", (e) => e.preventDefault());
+  // Bloqueia seleção de texto
+  document.querySelectorAll("*").forEach(el => {
+      el.style.userSelect = "none";
+  });
+</script>
 
    <script>
   // Bloqueia clique direito
