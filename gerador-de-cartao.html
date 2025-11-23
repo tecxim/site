@@ -472,6 +472,7 @@
                         <div class="card-body">
                             <p class="card-contact" id="previewPhone"><i class="fas fa-phone me-1"></i>(11) 99999-9999</p>
                             <p class="card-contact" id="previewWhatsApp"><i class="fab fa-whatsapp me-1"></i>(11) 99999-9999</p>
+                            <p class="card-contact" id="previewInstagram"><i class="fab fa-instagram me-1"></i>@seuinstagram</p>
                             <p class="card-contact" id="previewEmail"><i class="fas fa-envelope me-1"></i>seuemail@empresa.com</p>
                             <p class="card-info" id="previewSpecialties"><i class="fas fa-star me-1"></i><strong>Especialidades:</strong> <span> Especialidade 1</span></p>
                         </div>
@@ -554,6 +555,10 @@
                         <input type="text" class="form-control" id="whatsapp" placeholder="(11) 99999-9999">
                     </div>
                     <div class="mb-2">
+                        <label for="instagram" class="form-label">Instagram</label>
+                        <input type="text" class="form-control" id="instagram" placeholder="@seuinstagram">
+                    </div>
+                    <div class="mb-2">
                         <label for="email" class="form-label">E-mail</label>
                         <input type="email" class="form-control" id="email" placeholder="seuemail@empresa.com">
                     </div>
@@ -619,6 +624,7 @@
             const specialtiesInput = document.getElementById('specialties');
             const phoneInput = document.getElementById('phone');
             const whatsappInput = document.getElementById('whatsapp');
+            const instagramInput = document.getElementById('instagram');
             const emailInput = document.getElementById('email');
             // Preview elements
             const previewName = document.getElementById('previewName');
@@ -627,6 +633,7 @@
             const previewSpecialties = document.getElementById('previewSpecialties');
             const previewPhone = document.getElementById('previewPhone');
             const previewWhatsApp = document.getElementById('previewWhatsApp');
+            const previewInstagram = document.getElementById('previewInstagram');
             const previewEmail = document.getElementById('previewEmail');
             const cardQR = document.getElementById('cardQR');
             // Variáveis de estado
@@ -706,6 +713,7 @@
             specialtiesInput.addEventListener('input', updatePreview);
             phoneInput.addEventListener('input', updatePreview);
             whatsappInput.addEventListener('input', updatePreview);
+            instagramInput.addEventListener('input', updatePreview);
             emailInput.addEventListener('input', updatePreview);
 
             // Event Listeners para seletores de cor
@@ -799,6 +807,7 @@
                 previewSpecialties.querySelector('span').textContent = specialtiesInput.value || 'Especialidade 1';
                 previewPhone.innerHTML = `<i class="fas fa-phone me-1"></i>${phoneInput.value || '(11) 99999-9999'}`;
                 previewWhatsApp.innerHTML = `<i class="fab fa-whatsapp me-1"></i>${whatsappInput.value || '(11) 99999-9999'}`;
+                previewInstagram.innerHTML = `<i class="fab fa-instagram me-1"></i>${instagramInput.value || '@seuinstagram'}`;
                 previewEmail.innerHTML = `<i class="fas fa-envelope me-1"></i>${emailInput.value || 'seuemail@empresa.com'}`;
             }
 
@@ -810,6 +819,7 @@
                     Cargo: ${titleInput.value || 'Seu Cargo Aqui'}
                     Telefone: ${phoneInput.value || '(11) 99999-9999'}
                     WhatsApp: ${whatsappInput.value || '(11) 99999-9999'}
+                    Instagram: ${instagramInput.value || '@seuinstagram'}
                     E-mail: ${emailInput.value || 'seuemail@empresa.com'}
                 `;
 
@@ -895,13 +905,11 @@
             generateQRCode();
         });
     </script>
-
-    <script>
-     // Bloqueia clique direito
+   <script>
+  // Bloqueia clique direito
   document.addEventListener("contextmenu", function(e){
       e.preventDefault();
   });
-    
   // Bloqueia teclas que abrem o DevTools
   document.onkeydown = function(e) {
       if (
