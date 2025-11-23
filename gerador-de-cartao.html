@@ -266,32 +266,34 @@
         display: flex;
         flex-direction: column;
         gap: 4px;
-        font-size: 0.7rem;
     }
 
-.card-social a {
-    color: var(--card-text-color, white);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centraliza o ícone */
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 2px;
-    border-radius: 12px;
-    width: 20px; /* Largura fixa para ícones */
-    height: 20px; /* Altura fixa para ícones */
-    transition: all 0.3s ease;
-}
+    .card-social a {
+        color: var(--card-text-color, white);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.2);
+        width: 20px;
+        height: 20px;
+        border-radius: 12px;
+        padding: 2px;
+    }
 
-.card-social a span {
-    display: none; /* Esconde o texto no cartão */
-}
+    .card-social a span {
+        display: none; /* Esconde o texto no cartão */
+    }
+    
+     .card-social a::after {
+        content: none; /* Garante que nenhum texto residual apareça */
+    }
 
 
-.card-social i {
-    margin-right: 0; /* Remove espaçamento */
-    font-size: 0.7rem; /* Tamanho do ícone */
-}
+    .card-social i {
+        font-size: 0.7rem;
+        margin: 0;
+    }
 
 
 
@@ -831,16 +833,18 @@
                 cardPreview.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
         
                 html2canvas(cardPreview, {
-                    scale: 3,
-                    logging: false,
-                    useCORS: true,
-                    allowTaint: true,
-                    backgroundColor: null,
-                    ignoreElements: function(element) {
-                        return element.classList.contains('card-social');
-                    }
-                }).then(canvas => {
-                    resolve(canvas);
+                        scale: 3,
+                        logging: false,
+                        useCORS: true,
+                        allowTaint: true,
+                        ignoreElements: (element) => {
+                            return element.classList.contains('card-social');
+                        }
+                    }).then(canvas => {
+                        resolve(canvas);
+                    });
+                });
+            }
                 }).catch(err => {
                     console.error('Erro ao gerar imagem:', err);
                     alert('Erro ao gerar imagem. Tente novamente.');
@@ -958,11 +962,11 @@
                 const imgWidth = 100;
                 const imgHeight = (canvas.height * imgWidth) / canvas.width;
                 const x = (pdf.internal.pageSize.getWidth() - imgWidth) / 2;
-                const y = 20; // Posiciona o cartão no topo
+                const y = 20;
         
                 pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
         
-                // Adiciona uma seção para os links clicáveis (abaixo do cartão)
+                // Adiciona os links das redes sociais (sem exibir código)
                 pdf.setFontSize(10);
                 pdf.text("Redes Sociais:", x, y + imgHeight + 10);
         
@@ -970,8 +974,9 @@
                 socialIcons.forEach((icon, index) => {
                     const url = icon.getAttribute('data-url');
                     if (url) {
+                        const cleanUrl = url.replace(/^https?:\/\/(www\.)?/, ''); // Remove "https://" e "www."
                         pdf.textWithLink(
-                            url.replace('https://', ''),
+                            cleanUrl,
                             x + 5,
                             y + imgHeight + 20 + (index * 7),
                             { url: url }
@@ -1013,17 +1018,14 @@
             socialLinks.forEach(link => {
                 if (link.url) {
                     const linkElement = document.createElement('a');
-                    link.url = link.url.startsWith('http') ? link.url : `https://${link.url}`;
-                    linkElement.href = link.url;
+                    linkElement.href = link.url.startsWith('http') ? link.url : `https://${link.url}`;
                     linkElement.target = '_blank';
                     linkElement.innerHTML = `<i class="${link.icon}"></i>`;
-                    linkElement.setAttribute('data-url', link.url); // Armazena o link para o PDF
+                    linkElement.setAttribute('data-url', linkElement.href);
                     previewSocial.appendChild(linkElement);
                 }
             });
         }
-
-
 
         // Função para gerar QR Code
         function generateQRCode() {
