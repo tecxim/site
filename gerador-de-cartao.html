@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- html2canvas -->
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gifshot@0.3.2/dist/gifshot.min.js"></script>
+
     <style>
         :root {
             --primary-color: #3498db;
@@ -482,8 +484,13 @@
                             <button class="btn download-btn" id="downloadPngBtn">
                                 <i class="fas fa-download me-1"></i> Baixar PNG
                             </button>
+                            
                             <button class="btn download-btn" id="downloadJpegBtn">
                                 <i class="fas fa-download me-1"></i> Baixar JPEG
+                            </button>
+
+                            <button class="btn download-btn" id="downloadGifBtn">
+                                <i class="fas fa-download me-1"></i> Baixar GIF
                             </button>
                         </div>
                     </div>
@@ -625,6 +632,12 @@
             const previewInstagram = document.getElementById('previewInstagram');
             const previewEmail = document.getElementById('previewEmail');
             const cardQR = document.getElementById('cardQR');
+
+            // Adicione o event listener para o botão de GIF
+            document.getElementById('downloadGifBtn').addEventListener('click', function () {
+                this.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Preparando...';
+                generateGif();
+            });
             // Variáveis de estado
             let currentCardType = 'business';
             let currentAnimation = 'none';
@@ -649,6 +662,54 @@
                 cardPreview.style.setProperty('--card-text-color', textColor);
                 cardPreview.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
             }
+
+            // Adicione esta função ao seu script
+            function generateGif() {
+                const cardPreview = document.getElementById('cardPreview');
+                const gifOptions = {
+                    gifWidth: cardPreview.offsetWidth,
+                    gifHeight: cardPreview.offsetHeight,
+                    interval: 0.1,
+                    numFrames: 20,
+                    frameDuration: 1,
+                    images: []
+                };
+            
+                // Aplique a animação antes de capturar os frames
+                applyAnimation();
+            
+                gifshot.createGIF(
+                    {
+                        images: [cardPreview],
+                        gifWidth: cardPreview.offsetWidth,
+                        gifHeight: cardPreview.offsetHeight,
+                        interval: 0.1,
+                        numFrames: 20,
+                        frameDuration: 1,
+                    },
+                    function (obj) {
+                        if (!obj.error) {
+                            const gifImage = obj.image;
+                            const link = document.createElement('a');
+                            link.download = 'cartao-profissional.gif';
+                            link.href = gifImage;
+                            link.click();
+                            document.getElementById('downloadGifBtn').innerHTML =
+                                '<i class="fas fa-check me-1"></i> Baixado!';
+                            setTimeout(() => {
+                                document.getElementById('downloadGifBtn').innerHTML =
+                                    '<i class="fas fa-download me-1"></i> Baixar GIF';
+                            }, 2000);
+                        } else {
+                            console.error('Erro ao gerar GIF:', obj.error);
+                            alert('Erro ao gerar GIF. Tente novamente.');
+                            document.getElementById('downloadGifBtn').innerHTML =
+                                '<i class="fas fa-download me-1"></i> Baixar GIF';
+                        }
+                    }
+                );
+            }
+
             // Função para gerar a imagem do cartão
             function generateCardImage() {
                 return new Promise((resolve, reject) => {
