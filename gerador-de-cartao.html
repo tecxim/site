@@ -260,42 +260,38 @@
     }
 
     .card-social {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px;
-        margin: 6px 0;
-    }
-
-    .card-social {
         position: absolute;
         right: 12px;
         top: 12px;
         display: flex;
         flex-direction: column;
         gap: 4px;
-        font-size: 0.7rem; /* Letras pequenas */
+        font-size: 0.7rem;
     }
-    
-    .card-social a {
-        color: var(--card-text-color, white);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        background-color: rgba(255, 255, 255, 0.2);
-        padding: 2px 6px;
-        border-radius: 12px;
-        transition: all 0.3s ease;
-    }
-    
-    .card-social a:hover {
-        background-color: rgba(255, 255, 255, 0.3);
-    }
-    
-    .card-social i {
-        margin-right: 4px;
-        font-size: 0.3rem; /* Ícones pequenos */
-    }
+
+.card-social a {
+    color: var(--card-text-color, white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o ícone */
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 2px;
+    border-radius: 12px;
+    width: 20px; /* Largura fixa para ícones */
+    height: 20px; /* Altura fixa para ícones */
+    transition: all 0.3s ease;
+}
+
+.card-social a span {
+    display: none; /* Esconde o texto no cartão */
+}
+
+.card-social i {
+    margin-right: 0; /* Remove espaçamento */
+    font-size: 0.7rem; /* Tamanho do ícone */
+}
+
 
 
     .card-info {
@@ -955,28 +951,25 @@
                     unit: 'mm',
                     format: 'a4'
                 });
+        
                 const imgData = canvas.toDataURL('image/png');
                 const imgWidth = 100;
                 const imgHeight = (canvas.height * imgWidth) / canvas.width;
                 const x = (pdf.internal.pageSize.getWidth() - imgWidth) / 2;
                 const y = (pdf.internal.pageSize.getHeight() - imgHeight) / 2;
+        
                 pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
-
+        
                 // Adiciona links clicáveis no PDF
-                const socialLinks = [
-                    { url: facebookInput.value, text: facebookInput.value.replace('https://', '') },
-                    { url: instagramInput.value, text: instagramInput.value.replace('https://', '') },
-                    { url: linkedinInput.value, text: linkedinInput.value.replace('https://', '') },
-                    { url: whatsappLinkInput.value, text: whatsappLinkInput.value.replace('https://', '') }
-                ];
-
-                socialLinks.forEach((link, index) => {
-                    if (link.url) {
-                        pdf.setFontSize(10);
-                        pdf.textWithLink(link.text, x + 10, y + imgHeight + 10 + (index * 5), { url: link.url });
+                const socialIcons = document.querySelectorAll('#previewSocial a');
+                socialIcons.forEach((icon, index) => {
+                    const url = icon.getAttribute('data-url');
+                    if (url) {
+                        pdf.setFontSize(8);
+                        pdf.textWithLink(url, x + 10, y + imgHeight + 10 + (index * 5), { url: url });
                     }
                 });
-
+        
                 pdf.save('cartao-profissional.pdf');
                 this.innerHTML = '<i class="fas fa-check me-1"></i> Baixado!';
                 setTimeout(() => {
@@ -984,6 +977,7 @@
                 }, 2000);
             });
         });
+        
 
         // Função para atualizar o preview
         function updatePreview() {
@@ -998,24 +992,27 @@
         }
 
         // Função para atualizar os links das redes sociais
-       function updateSocialLinks() {
+      function updateSocialLinks() {
             previewSocial.innerHTML = '';
             const socialLinks = [
-                { icon: 'fab fa-facebook-f', url: facebookInput.value, placeholder: 'facebook.com/suaempresa' },
-                { icon: 'fab fa-instagram', url: instagramInput.value, placeholder: 'instagram.com/suaempresa' },
-                { icon: 'fab fa-linkedin-in', url: linkedinInput.value, placeholder: 'linkedin.com/suaempresa' }
+                { icon: 'fab fa-facebook-f', url: facebookInput.value },
+                { icon: 'fab fa-instagram', url: instagramInput.value },
+                { icon: 'fab fa-linkedin-in', url: linkedinInput.value }
             ];
+        
             socialLinks.forEach(link => {
                 if (link.url) {
                     const linkElement = document.createElement('a');
                     link.url = link.url.startsWith('http') ? link.url : `https://${link.url}`;
                     linkElement.href = link.url;
                     linkElement.target = '_blank';
-                    linkElement.innerHTML = `<i class="${link.icon} me-1"></i>${link.url.replace('https://', '')}`;
+                    linkElement.innerHTML = `<i class="${link.icon}"></i>`;
+                    linkElement.setAttribute('data-url', link.url); // Armazena o link para o PDF
                     previewSocial.appendChild(linkElement);
                 }
             });
         }
+
 
 
         // Função para gerar QR Code
