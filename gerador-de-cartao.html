@@ -956,21 +956,18 @@
                 pdf.text("Redes Sociais:", x, y + imgHeight + 10);
         
                 const socialIcons = document.querySelectorAll('#previewSocial a');
-                const socialLabels = ["Facebook: ", "Instagram: ", "LinkedIn: "]; // Rótulos para cada rede
+                const socialLabels = ["Facebook: ", "Instagram: ", "LinkedIn: "];
         
                 socialIcons.forEach((icon, index) => {
                     const url = icon.getAttribute('data-url');
                     if (url) {
-                        const cleanUrl = url.replace(/^https?:\/\/(www\.)?/, ''); // Remove "https://" e "www."
-                        const label = socialLabels[index] || ""; // Pega o rótulo correspondente
-                        const text = label + cleanUrl; // Formata como "Facebook: teste.com"
+                        const cleanUrl = url.replace(/^https?:\/\/(www\.)?/, '');
+                        const label = socialLabels[index] || "";
+                        const text = label + cleanUrl;
         
-                        pdf.textWithLink(
-                            text,
-                            x + 5,
-                            y + imgHeight + 20 + (index * 7),
-                            { url: url }
-                        );
+                        // Adiciona o texto e o link clicável
+                        pdf.text(text, x + 5, y + imgHeight + 20 + (index * 7));
+                        pdf.link(x + 5, y + imgHeight + 18 + (index * 7), 100, 5, { url: url });
                     }
                 });
         
@@ -985,9 +982,7 @@
                 this.innerHTML = '<i class="fas fa-download me-1"></i> Baixar PDF';
             });
         });
-
-
-        
+       
 
         // Função para atualizar o preview
         function updatePreview() {
@@ -1003,25 +998,34 @@
 
         // Função para atualizar os links das redes sociais
            function updateSocialLinks() {
-            previewSocial.innerHTML = '';
-            const socialLinks = [
-                { icon: 'fab fa-facebook-f', url: facebookInput.value },
-                { icon: 'fab fa-instagram', url: instagramInput.value },
-                { icon: 'fab fa-linkedin-in', url: linkedinInput.value }
-            ];
-        
-            socialLinks.forEach((link, index) => {
-                if (link.url) {
-                    const linkElement = document.createElement('a');
-                    const fullUrl = link.url.startsWith('http') ? link.url : `https://${link.url}`;
-                    linkElement.href = fullUrl;
-                    linkElement.target = '_blank';
-                    linkElement.innerHTML = `<i class="${link.icon}"></i>`;
-                    linkElement.setAttribute('data-url', fullUrl);
-                    previewSocial.appendChild(linkElement);
-                }
-            });
-        }
+                previewSocial.innerHTML = '';
+                const socialLinks = [
+                    { icon: 'fab fa-facebook-f', url: facebookInput.value },
+                    { icon: 'fab fa-instagram', url: instagramInput.value },
+                    { icon: 'fab fa-linkedin-in', url: linkedinInput.value }
+                ];
+            
+                socialLinks.forEach((link) => {
+                    if (link.url) {
+                        const linkElement = document.createElement('a');
+                        const fullUrl = link.url.startsWith('http') ? link.url : `https://${link.url}`;
+                        linkElement.href = fullUrl;
+                        linkElement.target = '_blank';
+                        linkElement.setAttribute('data-url', fullUrl);
+            
+                        // Cria o elemento <i> para o ícone
+                        const iconElement = document.createElement('i');
+                        iconElement.className = link.icon;
+            
+                        // Adiciona o ícone ao link
+                        linkElement.appendChild(iconElement);
+            
+                        // Adiciona o link ao container de redes sociais
+                        previewSocial.appendChild(linkElement);
+                    }
+                });
+            }
+
 
 
         // Função para gerar QR Code
