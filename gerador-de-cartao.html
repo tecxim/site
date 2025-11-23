@@ -827,30 +827,29 @@
 
         // Função para gerar a imagem do cartão
         function generateCardImage() {
-            return new Promise((resolve) => {
+            return new Promise((resolve, reject) => { // Adicionei 'reject' para tratar erros
                 const color1 = document.getElementById('color1').value;
                 const color2 = document.getElementById('color2').value;
                 cardPreview.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 100%)`;
         
                 html2canvas(cardPreview, {
-                        scale: 3,
-                        logging: false,
-                        useCORS: true,
-                        allowTaint: true,
-                        ignoreElements: (element) => {
-                            return element.classList.contains('card-social');
-                        }
-                    }).then(canvas => {
-                        resolve(canvas);
-                    });
-                });
-            }
+                    scale: 3,
+                    logging: false,
+                    useCORS: true,
+                    allowTaint: true,
+                    ignoreElements: (element) => {
+                        return element.classList.contains('card-social');
+                    }
+                }).then(canvas => {
+                    resolve(canvas);
                 }).catch(err => {
                     console.error('Erro ao gerar imagem:', err);
                     alert('Erro ao gerar imagem. Tente novamente.');
+                    reject(err); // Rejeita a Promise em caso de erro
                 });
             });
         }
+
 
         
         // Event Listeners para tipo de cartão
