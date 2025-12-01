@@ -120,11 +120,36 @@
 <button onclick="comprar()" style="display: block; margin: 0 auto; background: #27ae60; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: 600;">Quero Adquirir Agora</button>
 <br>
    
-<footer>
-    © 2025 - Wellington A. R. Cardoso / Wellington T.I — Todos os direitos reservados.
+<!-- Link para a Política de Privacidade -->
+<div style="text-align: center; margin: 20px 0;">
+    <a
+        href="https://tecxim.github.io/site/politica-de-privacidade.html"
+        target="_blank"
+        style="color: #3498db; text-decoration: none;"
+    >
+        Política de Privacidade
+    </a>
+</div>
+
+<!-- Rodapé -->
+<footer style="text-align: center; margin-top: 30px; font-size: 0.9em; color: #7f8c8d;">
+    <p>© 2025 - Wellington A. R. Cardoso / Wellington T.I — Todos os direitos reservados.</p>
 </footer>
-<!-- PROTEÇÕES -->
+
+<!-- Proteções com JavaScript -->
 <script>
+    // Bloqueio do clique direito (menu de contexto)
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        alert("O conteúdo deste site está protegido por direitos autorais. Para usar este material, entre em contato com o autor.");
+    });
+
+    // Bloqueio de arrastar imagens
+    document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+    });
+</script>
+
    
 // Bloqueia clique direito
 document.addEventListener("contextmenu", function(e){
