@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pacote de Sites e Jogos Leves - Black Friday!</title>
+<title>Pacote de Sites e Jogos Leves - PROMOÇÃO!</title>
 
 <style>
     * {
@@ -99,10 +99,9 @@
 <body>
 <header>
     <h1>Pacote de Sites e Jogos Leves - Black Friday!</h1>
-    <p class="urgent">Aproveite o espírito da Black Friday e garanta seu pacote com desconto exclusivo!</p>
+    <p class="urgent">Aproveite a promoção e garanta seu pacote com desconto exclusivo!</p>
     <p class="price">De <span class="strikethrough">R$ 79,90/span> por Apenas R$ 12,99</p>
     <div class="tag">Acesso Vitalício</div>
-    <div class="tag">Direito de Revenda Incluso</div>
     <div class="tag">Pagamento único!</div>
     <div class="countdown" id="countdown">Carregando contagem regressiva...</div>
 </header>
@@ -148,17 +147,30 @@ function comprar() {
 function updateCountdown() {
     const now = new Date();
     const blackFriday = new Date(now.getFullYear(), 10, 30); // 30 de novembro
+
+    // Se a data já passou, pula para o próximo ano
     if (now > blackFriday) {
         blackFriday.setFullYear(now.getFullYear() + 1);
     }
+
     const diff = blackFriday - now;
+
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    document.getElementById('countdown').textContent =
-        `Oferta termina em: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+    // Mensagem mais persuasiva
+    document.getElementById('countdown').innerHTML = `
+        <span style="color:#e60000; font-weight:bold;">
+            ⚡ Oferta de Black Friday termina em:
+        </span><br>
+        <span style="font-size:1.2em; font-weight:bold;">
+            ${days}d ${hours}h ${minutes}m ${seconds}s
+        </span>
+    `;
 }
+
 
 
 setInterval(updateCountdown, 1000);
