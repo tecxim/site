@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testador de Código HTML Online</title>
+    <meta name="author" content="Fábio Borges de Oliveira">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            margin-top: 1rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #eaeaea;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .code-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            color: #34495e;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .editor-container {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .editor-header {
+            background: #2c3e50;
+            color: white;
+            padding: 0.8rem 1.2rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .code-icon {
+            font-size: 1.1rem;
+            margin-right: 0.5rem;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 1.5rem;
+            border: none;
+            resize: vertical;
+            min-height: 300px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 15px;
+            line-height: 1.5;
+            background: #f8f9fa;
+            color: #2c3e50;
+            tab-size: 4;
+            outline: none;
+            transition: background 0.3s;
+        }
+
+        textarea:focus {
+            background: #fff;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .run-button {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .run-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+        }
+
+        .run-button:active {
+            transform: translateY(0);
+        }
+
+        .run-button i {
+            margin-right: 0.7rem;
+        }
+
+        .instructions {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1.2rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .instructions h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .instructions ul {
+            padding-left: 1.2rem;
+        }
+
+        .instructions li {
+            margin-bottom: 0.4rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            textarea {
+                min-height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛠️ Testador de Código HTML/JavaScript</h1>
+            <p class="subtitle">Escreva, teste e visualize seu código em tempo real</p>
+        </header>
+
+        <main>
+            <section class="code-section">
+                <h2 class="section-title">Editor de Código</h2>
+                <div class="editor-container">
+                    <div class="editor-header">
+                        <span><span class="code-icon">📝</span> index.html</span>
+                        <span>HTML + JavaScript</span>
+                    </div>
+                    <textarea id="codeEditor" cols="70" rows="20" spellcheck="false">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Página</title>
+</head>
+<body>
+    <h1>Minha Página HTML</h1>
+    <p>Edite este código para testar suas ideias!</p>
+    
+    <script type="text/javascript">
+        // Escreva seu código JavaScript aqui
+        
+        // Exemplo: Saudação dinâmica
+        const horaAtual = new Date().getHours();
+        let saudacao;
+        
+        if (horaAtual < 12) {
+            saudacao = "Bom dia!";
+        } else if (horaAtual < 18) {
+            saudacao = "Boa tarde!";
+        } else {
+            saudacao = "Boa noite!";
+        }
+        
+        document.write(`<p><strong>${saudacao}</strong> Agora são ${horaAtual}h.</p>`);
+        
+        // Adicione mais código abaixo
+        document.write('<p>Experimente modificar este código!</p>');
+    </script>
+</body>
+</html>
+                    </textarea>
+                </div>
+            </section>
+
+            <div class="instructions">
+                <h3>📋 Como usar:</h3>
+                <ul>
+                    <li>Modifique o código HTML/JavaScript no editor acima</li>
+                    <li>Clique no botão "Executar Código" para visualizar o resultado</li>
+                    <li>Use <strong>F5</strong> no navegador para voltar ao editor</li>
+                    <li>Seu código é executado localmente, sem envio para servidores</li>
+                </ul>
+            </div>
+
+            <div class="button-container">
+                <button class="run-button" onclick="executeCode()">
+                    ▶️ Executar Código
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>Desenvolvido por Fábio Borges de Oliveira • Testador Local de Código Web</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #95a5a6;">
+            Esta ferramenta executa código apenas no seu navegador
+        </p>
+    </footer>
+
+    <script>
+        function executeCode() {
+            const codeEditor = document.getElementById('codeEditor');
+            if (codeEditor && codeEditor.value.trim()) {
+                try {
+                    document.open();
+                    document.write(codeEditor.value);
+                    document.close();
+                } catch (error) {
+                    alert('Ocorreu um erro ao executar o código: ' + error.message);
+                }
+            } else {
+                alert('Por favor, insira algum código para testar.');
+            }
+        }
+        
+        // Foco automático no editor ao carregar a página
+        window.addEventListener('DOMContentLoaded', () => {
+            const editor = document.getElementById('codeEditor');
+            if (editor) {
+                editor.focus();
+            }
+        });
+    </script>
+</body>
+</html>
