@@ -689,8 +689,8 @@
                     <p>© 2023 CursoWebPro - Todos os direitos reservados</p>
                     <p class="mt-4">
                         <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-youtube fa-lg"></i></a>
+                        <a href="https://www.instagram.com/wellingtonoti" class="text-white me-3" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://www.youtube.com/@WellingtonCardoso1306" class="text-white me-3" target="_blank"><i class="fab fa-youtube fa-lg"></i></a>
                         <a href="#" class="text-white"><i class="fab fa-linkedin fa-lg"></i></a>
                     </p>
                 </div>
@@ -779,35 +779,6 @@
             } else {
                 navbar.classList.remove('navbar-scrolled');
             }
-        });
-    </script>
-
-    <script>
-        
-        // Bloqueia clique direito
-        document.addEventListener("contextmenu", function(e) {
-            e.preventDefault();
-        });
-        // Bloqueia teclas que abrem o DevTools
-        document.onkeydown = function(e) {
-            if (
-                e.keyCode === 123 ||                     // F12
-                (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
-                (e.ctrlKey && e.shiftKey && e.keyCode === 74) || // Ctrl+Shift+J
-                (e.ctrlKey && e.keyCode === 85) ||       // Ctrl+U
-                (e.ctrlKey && e.keyCode === 83)          // Ctrl+S
-            ) {
-                e.preventDefault();
-                return false;
-            }
-        };
-        // Bloqueia arrastar para fora, copiar e recortar
-        document.addEventListener("copy", (e) => e.preventDefault());
-        document.addEventListener("cut", (e) => e.preventDefault());
-        document.addEventListener("dragstart", (e) => e.preventDefault());
-        // Bloqueia seleção de texto
-        document.querySelectorAll("*").forEach(el => {
-            el.style.userSelect = "none";
         });
     </script>
 </body>
