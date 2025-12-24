@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de CPF, PIS e RG</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        input, button, select {
+            padding: 8px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #resultado {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            background: #e9ecef;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Validador de Documentos</h1>
+        <p>Selecione o tipo de documento e digite o número:</p>
+
+        <select id="tipoDocumento">
+            <option value="cpf">CPF</option>
+            <option value="pis">PIS/PASEP</option>
+            <option value="rg">RG</option>
+        </select>
+
+        <input type="text" id="numeroDocumento" placeholder="Digite o número do documento" maxlength="20">
+        <button onclick="validarDocumento()">Validar</button>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function validarDocumento() {
+            const tipo = document.getElementById('tipoDocumento').value;
+            const numero = document.getElementById('numeroDocumento').value.trim();
+            const resultado = document.getElementById('resultado');
+
+            // Remove caracteres não numéricos
+            const numeroLimpo = numero.replace(/\D/g, '');
+
+            if (tipo === 'cpf') {
+                if (numeroLimpo.length !== 11) {
+                    resultado.innerHTML = '<p style="color:orange;">CPF deve ter 11 dígitos.</p>';
+                    return;
+                }
+                resultado.innerHTML = validarCPF(numeroLimpo) ?
+                    '<p style="color:green;">CPF VÁLIDO</p>' :
+                    '<p style="color:red;">CPF INVÁLIDO</p>';
+            }
+            else if (tipo === 'pis') {
+                if (numeroLimpo.length !== 10 && numeroLimpo.length !== 11) {
+                    resultado.innerHTML = '<p style="color:orange;">PIS/PASEP deve ter 10 ou 11 dígitos.</p>';
+                    return;
+                }
+                resultado.innerHTML = validarPIS(numeroLimpo) ?
+                    '<p style="color:green;">PIS/PASEP VÁLIDO</p>' :
+                    '<p style="color:red;">PIS/PASEP INVÁLIDO</p>';
+            }
+            else if (tipo === 'rg') {
+                if (numeroLimpo.length !== 9) {
+                    resultado.innerHTML = '<p style="color:orange;">RG deve ter 9 dígitos.</p>';
+                    return;
+                }
+                resultado.innerHTML = validarRG(numeroLimpo) ?
+                    '<p style="color:green;">RG VÁLIDO (apenas dígito verificador)</p>' :
+                    '<p style="color:red;">RG INVÁLIDO (apenas dígito verificador)</p>';
+            }
+        }
+
+        // Função para validar CPF
+        function validarCPF(cpf) {
+            if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+
+            let soma = 0;
+            for (let i = 0; i < 9; i++) soma += parseInt(cpf.charAt(i)) * (10 - i);
+            let resto = (soma * 10) % 11;
+            if (resto === 10) resto = 0;
+            if (resto !== parseInt(cpf.charAt(9))) return false;
+
+            soma = 0;
+            for (let i = 0; i < 10; i++) soma += parseInt(cpf.charAt(i)) * (11 - i);
+            resto = (soma * 10) % 11;
+            if (resto === 10) resto = 0;
+            return resto === parseInt(cpf.charAt(10));
+        }
+
+        // Função para validar PIS/PASEP
+        function validarPIS(pis) {
+            let peso = pis.length === 10 ? [3, 2, 9, 8, 7, 6, 5, 4, 3] : [3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+            let soma = 0;
+            for (let i = 0; i < peso.length; i++) soma += parseInt(pis.charAt(i)) * peso[i];
+            let resto = (soma * 10) % 11;
+            if (resto === 10) resto = 0;
+            return resto === parseInt(pis.charAt(pis.length - 1));
+        }
+
+        // Função para validar RG (apenas dígito verificador)
+        function validarRG(rg) {
+            let soma = 0;
+            for (let i = 0; i < 8; i++) soma += parseInt(rg.charAt(i)) * (2 + i);
+            let resto = soma % 11;
+            let dv = resto === 0 ? 0 : 11 - resto;
+            return dv === parseInt(rg.charAt(8));
+        }
+    </script>
+</body>
+</html>
