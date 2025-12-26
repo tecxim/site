@@ -160,7 +160,7 @@
         spinner.style.display = 'inline-block';
 
         const { data, error } = await client
-            .from("usuarios_users")
+            .from("usuarios")
             .select("*")
             .eq("usuario", user)
             .eq("senha", pass)
