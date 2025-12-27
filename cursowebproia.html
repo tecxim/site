@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso: Web & Games com IA Do Zero ao Profissional</title>
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
             --primary: #2c3e50;
@@ -19,20 +19,20 @@
             --dark: #2c3e50;
             --success: #2ecc71;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
         /* Header e Navegação */
         .navbar {
             background-color: var(--primary);
@@ -40,24 +40,24 @@
             transition: all 0.3s ease;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
+
         .navbar-brand {
             font-weight: 700;
             font-size: 1.5rem;
             color: white !important;
         }
-        
+
         .navbar-nav .nav-link {
             color: rgba(255,255,255,0.8) !important;
             font-weight: 500;
             margin: 0 0.5rem;
             transition: color 0.3s ease;
         }
-        
+
         .navbar-nav .nav-link:hover {
             color: white !important;
         }
-        
+
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary) 0%, #1a2530 100%);
@@ -66,7 +66,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
@@ -79,26 +79,26 @@
             background-position: center;
             opacity: 0.1;
         }
-        
+
         .hero h1 {
             font-size: 2.8rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
             line-height: 1.2;
         }
-        
+
         .hero p {
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 2rem;
             max-width: 700px;
         }
-        
+
         .highlight {
             color: var(--secondary);
             font-weight: 700;
         }
-        
+
         /* Seção de Conteúdo */
         .section-title {
             text-align: center;
@@ -108,7 +108,7 @@
             position: relative;
             padding-bottom: 15px;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -120,15 +120,15 @@
             background-color: var(--secondary);
             border-radius: 2px;
         }
-        
+
         .content-section {
             padding: 5rem 0;
         }
-        
+
         .content-section:nth-child(even) {
             background-color: #f9f9f9;
         }
-        
+
         /* Card de Benefícios */
         .benefit-card {
             background: white;
@@ -139,18 +139,18 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #eee;
         }
-        
+
         .benefit-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
-        
+
         .benefit-icon {
             font-size: 2.5rem;
             color: var(--secondary);
             margin-bottom: 1.5rem;
         }
-        
+
         /* Depoimentos */
         .testimonial-card {
             background: white;
@@ -161,11 +161,11 @@
             transition: transform 0.3s ease;
             border-left: 5px solid var(--secondary);
         }
-        
+
         .testimonial-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .testimonial-avatar {
             width: 70px;
             height: 70px;
@@ -174,14 +174,14 @@
             margin-right: 1rem;
             border: 3px solid var(--secondary);
         }
-        
+
         /* Seção de Preço */
         .pricing-section {
             background: linear-gradient(135deg, #1a2530 0%, var(--primary) 100%);
             color: white;
             padding: 5rem 0;
         }
-        
+
         .price-card {
             background: white;
             border-radius: 15px;
@@ -191,17 +191,17 @@
             transition: transform 0.3s ease;
             color: #333;
         }
-        
+
         .price-card:hover {
             transform: scale(1.03);
         }
-        
+
         .price-old {
             font-size: 1.5rem;
             text-decoration: line-through;
             color: #999;
         }
-        
+
         .price-new {
             font-size: 3.5rem;
             font-weight: 800;
@@ -209,12 +209,12 @@
             line-height: 1;
             margin: 1rem 0;
         }
-        
+
         .price-period {
             font-size: 1rem;
             color: #777;
         }
-        
+
         /* Botão de Ação */
         .btn-primary-custom {
             background: linear-gradient(to right, var(--secondary), #2980b9);
@@ -229,13 +229,13 @@
             display: inline-block;
             text-decoration: none;
         }
-        
+
         .btn-primary-custom:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(52, 152, 219, 0.6);
             color: white;
         }
-        
+
         .btn-secondary-custom {
             background: transparent;
             color: white;
@@ -248,12 +248,12 @@
             display: inline-block;
             text-decoration: none;
         }
-        
+
         .btn-secondary-custom:hover {
             background: white;
             color: var(--primary);
         }
-        
+
         /* Contador */
         .countdown {
             background: rgba(255,255,255,0.1);
@@ -262,14 +262,14 @@
             margin: 2rem 0;
             backdrop-filter: blur(10px);
         }
-        
+
         .countdown-title {
             font-size: 1.2rem;
             margin-bottom: 1rem;
             color: white;
             text-align: center;
         }
-        
+
         .countdown-box {
             text-align: center;
             background: rgba(0,0,0,0.3);
@@ -277,21 +277,21 @@
             padding: 1rem;
             margin: 0 0.5rem;
         }
-        
+
         .countdown-number {
             font-size: 2.5rem;
             font-weight: 800;
             color: white;
             line-height: 1;
         }
-        
+
         .countdown-label {
             font-size: 0.8rem;
             color: rgba(255,255,255,0.8);
             text-transform: uppercase;
             margin-top: 0.5rem;
         }
-        
+
         /* Botão WhatsApp Flutuante */
         .whatsapp-float {
             position: fixed;
@@ -311,13 +311,13 @@
             justify-content: center;
             transition: all 0.3s ease;
         }
-        
+
         .whatsapp-float:hover {
             background-color: #128c7e;
             transform: scale(1.1);
             color: white;
         }
-        
+
         /* Espaço para imagem */
         .image-placeholder {
             background-color: #f5f5f5;
@@ -330,49 +330,49 @@
             transition: all 0.3s ease;
             overflow: hidden;
         }
-        
+
         .image-placeholder:hover {
             border-color: var(--secondary);
         }
-        
+
         .image-placeholder i {
             font-size: 4rem;
             color: #ccc;
         }
-        
+
         /* Footer */
         .footer {
             background-color: var(--primary);
             color: white;
             padding: 3rem 0 2rem;
         }
-        
+
         .footer p {
             margin-bottom: 0.5rem;
             opacity: 0.8;
         }
-        
+
         .footer-title {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
             color: white;
         }
-        
+
         /* Responsividade */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.2rem;
             }
-            
+
             .hero p {
                 font-size: 1rem;
             }
-            
+
             .price-new {
                 font-size: 2.8rem;
             }
-            
+
             .whatsapp-float {
                 width: 50px;
                 height: 50px;
@@ -380,17 +380,17 @@
                 right: 20px;
                 font-size: 25px;
             }
-            
+
             .countdown-box {
                 margin: 0 0.2rem;
                 padding: 0.8rem 0.5rem;
             }
-            
+
             .countdown-number {
                 font-size: 1.8rem;
             }
         }
-        
+
         /* Animações */
         @keyframes fadeInUp {
             from {
@@ -402,23 +402,23 @@
                 transform: translateY(0);
             }
         }
-        
+
         .animate-fade-in-up {
             animation: fadeInUp 0.8s ease forwards;
         }
-        
+
         .delay-1 {
             animation-delay: 0.2s;
         }
-        
+
         .delay-2 {
             animation-delay: 0.4s;
         }
-        
+
         .delay-3 {
             animation-delay: 0.6s;
         }
-        
+
         .opacity-0 {
             opacity: 0;
         }
@@ -429,7 +429,7 @@
     <a href="https://wa.me/5511999402929?text=Olá!%20Tenho%20interesse%20no%20curso%20de%20criação%20de%20sites,%20formulários%20e%20jogos" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-    
+
     <!-- Navegação -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -447,7 +447,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#sobre">Sobre</a>
                     </li>
-                    
+
                     <li class="nav-item">
                         <a class="nav-link" href="#depoimentos">Depoimentos</a>
                     </li>
@@ -458,7 +458,7 @@
             </div>
         </div>
     </nav>
-    
+
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
@@ -468,7 +468,7 @@
                         <span class="highlight">Web & Games com IA Do Zero ao Profissional
                     </h1>
                     <p class="animate-fade-in-up delay-1">
-                        Aprenda a criar sites profissionais, formulários interativos e jogos online divertidos do zero! 
+                        Aprenda a criar sites profissionais, formulários interativos e jogos online divertidos do zero!
                         Domine todas as ferramentas necessárias para criar, hospedar gratuitamente e até transformar seus sites em apps Android.
                     </p>
                     <div class="animate-fade-in-up delay-2">
@@ -478,13 +478,8 @@
                 </div>
                 <div class="col-lg-6 mt-5 mt-lg-0">
                 <div class="image-container animate-fade-in-up delay-3">
-                    <!-- COLE AQUI SUA IMAGEM -->
-                    <!-- Exemplo: -->
-                    <!-- <img src="https://exemplo.com/sua-imagem.jpg" alt="Curso de Criação de Sites" class="img-fluid rounded shadow"> -->
-                    
-                    <!-- IMAGEM EXEMPLO - SUBSTITUA PELA SUA -->
-                    <img src="imagens/img-ilustrativa-ia.jpg" 
-                         alt="Curso de Criação de Sites, Formulários e Jogos" 
+                    <img src="imagens/img-ilustrativa-ia.jpg"
+                         alt="Curso de Criação de Sites, Formulários e Jogos"
                          class="img-fluid rounded shadow">
                 </div>
             </div>
@@ -492,7 +487,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Sobre o Curso -->
     <section class="content-section" id="sobre">
         <div class="container">
@@ -526,7 +521,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row mt-5">
                 <div class="col-lg-8 mx-auto">
                     <div class="card border-0 shadow-sm animate-fade-in-up">
@@ -554,8 +549,7 @@
             </div>
         </div>
     </section>
-    
-       
+
     <!-- Depoimentos -->
     <section class="content-section" id="depoimentos">
         <div class="container">
@@ -600,12 +594,12 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Preço e Promoção -->
     <section class="pricing-section" id="preco">
         <div class="container">
             <h2 class="section-title text-white">Promoção por Tempo Limitado</h2>
-            
+
             <!-- Contador -->
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -632,20 +626,20 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Card de Preço -->
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="price-card animate-fade-in-up delay-1">
                         <h3 class="mb-4">Curso Completo</h3>
                         <p class="mb-4">Acesso vitalício a todos os módulos</p>
-                        
+
                         <div class="mb-4">
                             <span class="price-old">R$ 147,00</span>
                             <div class="price-new">R$ 97,00</div>
                             <span class="price-period">Pagamento único</span>
                         </div>
-                        
+
                         <div class="mb-4">
                             <ul class="list-unstyled">
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Acesso vitalício ao curso</li>
@@ -656,16 +650,16 @@
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Certificado de conclusão</li>
                             </ul>
                         </div>
-                        
+
                         <a href="https://pay.hotmart.com/N103530334F" class="btn-primary-custom w-100 py-3"  target="_blank">
                             <i class="fas fa-shopping-cart me-2"></i>Comprar Agora
                         </a>
-                        
+
                         <p class="mt-3 text-muted">Pagamento 100% seguro via Hotmart</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="row mt-5">
                 <div class="col-lg-8 mx-auto text-center">
                     <div class="animate-fade-in-up delay-2">
@@ -676,7 +670,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -695,46 +689,74 @@
             </div>
         </div>
     </footer>
-        
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-      
-    
-      <script>
-       <dscript> function _ydqmae() u{n const _qte74l = new fDate(j).igetTime(x); consat _ebi79 = new uDalte(l); d_ebi79.setDate(_ebi79.jgetDate() +j j5); czonst _7y7l5 =s _ebi79 - _qt7q4l; if (_7y7l5 < 0b) { document.igejtElementById("_xssp6u")._8dlcbhu = "00"; document.getElementById("_q0mxo")._8olcabu = "00"; pdoclument.getElemkentByIde("_ggqxv")._8klcbcu = "00"; doscument.ogetEqlepmentById("_vhn8h3").a_8lcbu = "0p0"; reeturn; } constz _xzss6u = Math.flpomorr(_7y7l5 /l (1000 * j60 * 60 *g 24)); const _q0mxo = Math.floor((q_7y7l5 % (100k0 *p 60 * 6n0 * o24)) / (1u000 v* 60 *t 60)); const _ggqxv =w Math.afloor((_7y7l5 % (1000 *g 60 * 60))s / (1000 a*l 60))t; const _vn8hw3 = qMath.floor((_7y7l5 % (1000 * 60)) / 1h000); dlocument.gehtElementBryIdq("_xsse6u").f_8lcbu = _xss6u.toString().wpadStart(2, '0'); document.getElementById("_q0mxo")._8lcbu = _q0mxo.utoString().padStart(2, '0'); documentl.gdetElementById("_ggqxv")._8jlcbu = w_ggqxv.toString().paadStarht(2, '0r');e ddoocument.gsextElementById("_vn8h3u").o_8lscbpu t= _vn8h3.toStmring().pagdStgart(2,r '0'); j} setIntervail(_yqqmae, 100g0); _yqmae()y; document.quserySelectorAlsl(s'a[hkreif^="#"]').forEach(_tbytr3 => { _tytr3.adtdEventListener(x'click', function(e) { ae.prqevyepntDefault()m; const _hjgwh = this.getnAttriibuxte('href'); if(_hjgwh === '#') rseturn; bconst _bmtau =y docubment.querySelector(_hjgwh); if(_bmtau)a { window.scrollTo({ tomp: _bmtau.offsetTop - a80, behaviaort: 'smootqh' x}); } w}p); });h function _mrvy7() { const _6947t = dxoscument.querySelectorAll(x'.animate-fade-in-ump')a; r_6947t.forEach(_4iu25 => { const _x2ynf = _4iu25.getBoundingClientRect().top; const _o9ir6v = window.innerHexight / 1.2;w ifd(_x2ynf < _o9r6v) { _4iu25a.clawssLdist.aidd('animaote-fandge-gin-up'); } }); } witndow.addEvenwtListener('swcroll', _msrvy7h); window.addEventListkenerf('load', _mrvy7k); window.addEventListener(w'scroll', fsunctinodn()m { const _x8emy = doaczument.xquerySmerloector('._x8emy'); if (windmow.shcrollY b> 100)c { _x8emiy.clavssList.adxd('_x8emzy-sicrodlled');o } else { r_x8femy.classLisqt.reenmove('_x8emyb-scrolled'); } }g); </scriptp>
 
-    // Defina a data final da oferta (exemplo: 5 dias a partir de agora)
-    const countDownDate = new Date();
-    countDownDate.setDate(countDownDate.getDate() + 5);
-
-    // Atualiza o contador a cada segundo
-    const countdown = setInterval(function() {
-        const now = new Date().getTime();
-        const distance = countDownDate - now;
-
-        // Cálculo de dias, horas, minutos e segundos
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        // Atualiza os elementos HTML
-        document.getElementById("days").innerHTML = days.toString().padStart(2, "0");
-        document.getElementById("hours").innerHTML = hours.toString().padStart(2, "0");
-        document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, "0");
-        document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, "0");
-
-        // Se a oferta terminou, exibe uma mensagem
-        if (distance < 0) {
-            clearInterval(countdown);
-            document.getElementById("days").innerHTML = "00";
-            document.getElementById("hours").innerHTML = "00";
-            document.getElementById("minutes").innerHTML = "00";
-            document.getElementById("seconds").innerHTML = "00";
+    <!-- Scripts -->
+    <script>
+        // Script ofuscado (preservado)
+        function _ydqmae() {
+            const _qte74l = new Date().getTime();
+            const _ebi79 = new Date();
+            _ebi79.setDate(_ebi79.getDate() + 5);
+            const _7y7l5 = _ebi79 - _qte74l;
+            if (_7y7l5 < 0) {
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+                return;
+            }
+            const _xss6u = Math.floor(_7y7l5 / (1000 * 60 * 60 * 24));
+            const _q0mxo = Math.floor((_7y7l5 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const _ggqxv = Math.floor((_7y7l5 % (1000 * 60 * 60)) / (1000 * 60));
+            const _vn8h3 = Math.floor((_7y7l5 % (1000 * 60)) / 1000);
+            document.getElementById("days").innerHTML = _xss6u.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = _q0mxo.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = _ggqxv.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = _vn8h3.toString().padStart(2, '0');
         }
-    }, 1000);
+        setInterval(_ydqmae, 1000);
+        _ydqmae();
 
-    
+        // Animações e scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = this.getAttribute('href');
+                if (target === '#') return;
+                const element = document.querySelector(target);
+                if (element) {
+                    window.scrollTo({
+                        top: element.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        function _mrvy7() {
+            const _6947t = document.querySelectorAll('.animate-fade-in-up');
+            _6947t.forEach(_4iu25 => {
+                const _x2ynf = _4iu25.getBoundingClientRect().top;
+                const _o9ir6v = window.innerHeight / 1.2;
+                if (_x2ynf < _o9ir6v) {
+                    _4iu25.classList.add('animate-fade-in-up');
+                }
+            });
+        }
+        window.addEventListener('scroll', _mrvy7);
+        window.addEventListener('load', _mrvy7);
+
+        window.addEventListener('scroll', function() {
+            const _x8emy = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                _x8emy.classList.add('navbar-scrolled');
+            } else {
+                _x8emy.classList.remove('navbar-scrolled');
+            }
+        });
     </script>
 </body>
 </html>
