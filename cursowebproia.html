@@ -645,8 +645,8 @@
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Acesso vitalício ao curso</li>
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Hospedagem gratuita e ilimitada</li>
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Transformar sites em apps Android</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Direito de revender códigos</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Suporte</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Códigos prontos como bônus</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Suporte no horário comercial</li>                                
                                 <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Certificado de conclusão</li>
                             </ul>
                         </div>
@@ -693,70 +693,79 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Scripts -->
     <script>
-        // Script ofuscado (preservado)
-        function _ydqmae() {
-            const _qte74l = new Date().getTime();
-            const _ebi79 = new Date();
-            _ebi79.setDate(_ebi79.getDate() + 5);
-            const _7y7l5 = _ebi79 - _qte74l;
-            if (_7y7l5 < 0) {
-                document.getElementById("days").innerHTML = "00";
-                document.getElementById("hours").innerHTML = "00";
-                document.getElementById("minutes").innerHTML = "00";
-                document.getElementById("seconds").innerHTML = "00";
-                return;
-            }
-            const _xss6u = Math.floor(_7y7l5 / (1000 * 60 * 60 * 24));
-            const _q0mxo = Math.floor((_7y7l5 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const _ggqxv = Math.floor((_7y7l5 % (1000 * 60 * 60)) / (1000 * 60));
-            const _vn8h3 = Math.floor((_7y7l5 % (1000 * 60)) / 1000);
-            document.getElementById("days").innerHTML = _xss6u.toString().padStart(2, '0');
-            document.getElementById("hours").innerHTML = _q0mxo.toString().padStart(2, '0');
-            document.getElementById("minutes").innerHTML = _ggqxv.toString().padStart(2, '0');
-            document.getElementById("seconds").innerHTML = _vn8h3.toString().padStart(2, '0');
+    // Função para atualizar o cronômetro
+    function updateCountdown() {
+        // Data final: 5 dias a partir de agora
+        const endDate = new Date();
+        endDate.setDate(endDate.getDate() + 5);
+
+        const now = new Date();
+        const diff = endDate - now;
+
+        if (diff <= 0) {
+            document.getElementById("days").innerHTML = "00";
+            document.getElementById("hours").innerHTML = "00";
+            document.getElementById("minutes").innerHTML = "00";
+            document.getElementById("seconds").innerHTML = "00";
+            return;
         }
-        setInterval(_ydqmae, 1000);
-        _ydqmae();
 
-        // Animações e scroll suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = this.getAttribute('href');
-                if (target === '#') return;
-                const element = document.querySelector(target);
-                if (element) {
-                    window.scrollTo({
-                        top: element.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-        function _mrvy7() {
-            const _6947t = document.querySelectorAll('.animate-fade-in-up');
-            _6947t.forEach(_4iu25 => {
-                const _x2ynf = _4iu25.getBoundingClientRect().top;
-                const _o9ir6v = window.innerHeight / 1.2;
-                if (_x2ynf < _o9ir6v) {
-                    _4iu25.classList.add('animate-fade-in-up');
-                }
-            });
-        }
-        window.addEventListener('scroll', _mrvy7);
-        window.addEventListener('load', _mrvy7);
+        document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+        document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+    }
 
-        window.addEventListener('scroll', function() {
-            const _x8emy = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                _x8emy.classList.add('navbar-scrolled');
-            } else {
-                _x8emy.classList.remove('navbar-scrolled');
+    // Atualiza o cronômetro a cada segundo
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Animações e scroll suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = this.getAttribute('href');
+            if (target === '#') return;
+            const element = document.querySelector(target);
+            if (element) {
+                window.scrollTo({
+                    top: element.offsetTop - 80,
+                    behavior: 'smooth'
+                });
             }
         });
-    </script>
+    });
+
+    // Animações ao rolar a página
+    function checkAnimations() {
+        const elements = document.querySelectorAll('.animate-fade-in-up');
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight / 1.2;
+            if (elementTop < windowHeight) {
+                element.classList.add('animate-fade-in-up');
+            }
+        });
+    }
+    window.addEventListener('scroll', checkAnimations);
+    window.addEventListener('load', checkAnimations);
+
+    // Efeito no navbar ao rolar
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 100) {
+            navbar.classList.add('navbar-scrolled');
+        } else {
+            navbar.classList.remove('navbar-scrolled');
+        }
+    });
+</script>
+
 </body>
 </html>
