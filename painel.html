@@ -558,27 +558,29 @@
             }
 
             // Define o source corretamente para a aba Dados_Painel_Apps
-                const source = "biblia_quiz"; // ⚠️ TEM que bater com o backend
-                
-                const dados = {
-                    source: source,
-                    page: window.location.href,
-                    referrer: document.referrer || "Direto",
-                    userAgent: navigator.userAgent,
-                    ip: ip || "",
-                    latitude: location ? location.latitude : "",
-                    longitude: location ? location.longitude : "",
-                    city: city || "",
-                    state: state || "",
-                    country: country || ""
-                };
-                
-                fetch(WEB_APP_URL, {
-                    method: "POST",
-                    body: JSON.stringify(dados)
-                });
-                
-                console.log("Dados enviados com sucesso!");
+            const source = "biblia_quiz";
+            
+            const dados = {
+                source: source,
+                page: window.location.href,
+                referrer: document.referrer || "Direto",
+                userAgent: navigator.userAgent,
+                ip: ip || "",
+                latitude: location ? location.latitude : "",
+                longitude: location ? location.longitude : "",
+                city: city || "",
+                state: state || "",
+                country: country || ""
+            };
+            
+            fetch(WEB_APP_URL, {
+                method: "POST",
+                body: JSON.stringify(dados)
+            });
+            
+            console.log("Dados enviados com sucesso!");
+
+
 
 </script>
 
