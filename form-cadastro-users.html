@@ -109,7 +109,6 @@
 ----------------------------------------------------- */
 const SUPABASE_URL = "https://sgbfinyrriruvkrxgany.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNnYmZpbnlycmlydXZrcnhnYW55Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzMDA3MTgsImV4cCI6MjA3ODg3NjcxOH0.qIkO9pxqqxJ-s54nT-F-jJKsRpqJPayrk5l-yTFYFaM";
-
 const SUPABASE_TABLE = "usuarios"; // mesma tabela que criamos no SQL
 
 /* ----------------------------------------------------- */
@@ -163,6 +162,10 @@ document.getElementById('cadastroForm').addEventListener('submit', async functio
         if (res.status === 201) {
             showMessage("Usuário cadastrado com sucesso!", "success");
             document.getElementById("cadastroForm").reset();
+            // Redireciona para o painel após 1 segundo
+            setTimeout(() => {
+                window.location.href = "https://tecxim.github.io/site/painel.html";
+            }, 1000);
         } else {
             const err = await res.json();
             showMessage("Erro: " + (err.message ?? "Falha ao cadastrar"), "error");
@@ -187,7 +190,7 @@ function showMessage(text, type) {
 }
 </script>
 
-    <script>
+<script>
 // Bloqueia clique direito
 document.addEventListener("contextmenu", function(e){
     e.preventDefault();
@@ -217,6 +220,7 @@ document.querySelectorAll("*").forEach(el => {
     el.style.userSelect = "none";
 });
 </script>
+
 
 
 </body>
