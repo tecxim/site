@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Básico -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título (até ~60 caracteres) -->
+    <title>Central de Apps e Jogos Grátis | Aplicativos e Games Online</title>
+
+    <!-- Descrição (até ~160 caracteres) -->
+    <meta name="description" content="Descubra apps e jogos grátis para usar online. Acesse aplicativos gratuitos, jogos leves e conteúdos sem precisar instalar.">
+
+    <!-- Palavras-chave (não essenciais hoje, mas não prejudica) -->
+    <meta name="keywords" content="apps grátis, jogos grátis, aplicativos gratuitos, jogos online, apps online, jogos leves">
+
+    <!-- Autor -->
+    <meta name="author" content="Wellington A R Cardoso">
+
+    <!-- Indexação -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Central de Apps e Jogos Grátis">
+    <meta property="og:description" content="Acesse apps e jogos grátis diretamente no navegador, sem instalação.">
+    <!-- Quando tiver domínio fixo, descomente -->
+    <meta property="og:url" content="https://tecxim.github.io/site/painel.html">
+    <!-- <meta property="og:image" content="https://www.seusite.com/imagem-compartilhamento.jpg"> -->
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Central de Apps e Jogos Grátis">
+    <meta name="twitter:description" content="Apps e jogos gratuitos para usar online, de forma rápida e simples.">
+
+    <!-- Performance e compatibilidade -->
+    <meta name="theme-color" content="#0d6efd">
+    <link rel="canonical" href="">
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: var(--dark-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 12px 24px;
+            background-color: white;
+            border: 2px solid var(--secondary-color);
+            border-radius: 30px;
+            color: var(--secondary-color);
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .resource-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .card-description {
+            color: #666;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .card-link {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .card-link:hover {
+            background-color: var(--primary-color);
+        }
+
+        .logout-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .logout-btn {
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+            <div class="container">
+            <header>
+                <h1>Central de Apps e Jogos Grátis | Aplicativos e Games Online</h1>
+                <p class="subtitle">
+                    💚 Apoie este projeto com uma doação — 
+                    <a href="https://link.mercadopago.com.br/doecamor" target="_blank" rel="noopener">
+                        Clique aqui para doar
+                    </a>
+                </p>
+            </header>
+        </div>
+
+        </header>
+
+        <div class="categories">
+            <button class="category-btn active" data-category="all">Todos</button>
+            <button class="category-btn" data-category="sites">Sites</button>
+            <button class="category-btn" data-category="biblia">Apps da Bíblia</button>
+            <button class="category-btn" data-category="jogos">Jogos</button>
+        </div>
+
+        <div class="resources-grid">
+                        
+            <!-- Sites -->
+            <div class="resource-card" data-category="sites">
+                <div class="card-header">
+                    <span class="card-icon">📧</span>
+                    <h3>Gerador de Assinatura</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Gerador de Assinatura</h4>
+                    <p class="card-description">Crie assinaturas profissionais para e-mails de forma rápida e personalizada.</p>
+                    <a href="https://tecxim.github.io/site/gerador-de-signature.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+
+            <div class="resource-card" data-category="sites">
+                <div class="card-header">
+                    <span class="card-icon">📄</span>
+                    <h3>Bíblia Quiz</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Bíblia Quiz</h4>
+                    <p class="card-description">Conclua o Bíblia Quiz e gere seu certificado na hora.</p>
+                    <a href="https://tecxim.github.io/site/biblia-quiz-modulos.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+
+            
+
+            <div class="resource-card" data-category="sites">
+                <div class="card-header">
+                    <span class="card-icon">📄</span>
+                    <h3>Gerador de Currículo</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Gerador de Currículo</h4>
+                    <p class="card-description">Crie currículos profissionais e atraentes para suas oportunidades de emprego.</p>
+                    <a href="https://tecxim.github.io/site/gerador_de_curriculo.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="sites">
+                <div class="card-header">
+                    <span class="card-icon">📄📄</span>
+                    <h3>UniPDF</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">UniPDF</h4>
+                    <p class="card-description">Una, organize e simplifique seus documentos PDF com praticidade e rapidez.</p>
+                    <a href="https://tecxim.github.io/site/unir_pdfs.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="sites">
+                <div class="card-header">
+                    <span class="card-icon">🧠</span>
+                    <h3>Guia de Autoconhecimento</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Guia de Autoconhecimento</h4>
+                    <p class="card-description">Explore técnicas e exercícios para desenvolver seu autoconhecimento e crescimento pessoal.</p>
+                    <a href="https://tecxim.github.io/site/guia-autoconhecimento.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="sites">
+                <div class="card-header">
+                    <span class="card-icon">📊</span>
+                    <h3>Teste Comportamental</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Teste Comportamental</h4>
+                    <p class="card-description">Descubra mais sobre seu perfil comportamental e como ele influencia suas decisões.</p>
+                    <a href="https://tecxim.github.io/site/teste-comportamental.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="sites">
+                <div class="card-header">
+                    <span class="card-icon">⚡</span>
+                    <h3>Teste de Impulsividade</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Teste de Impulsividade</h4>
+                    <p class="card-description">Avalie seu nível de impulsividade e obtenha insights para melhorar seu autocontrole.</p>
+                    <a href="https://tecxim.github.io/site/teste-impulsividade.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+            <!-- Jogos -->
+            <div class="resource-card" data-category="jogos">
+                <div class="card-header">
+                    <span class="card-icon">🛩️ </span>
+                    <h3>Batalha de Aviões</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Batalha dos Aviões</h4>
+                    <h4 class="card-title"></h4>
+                    <p class="card-description">O clássico jogo de estratégia onde você deve desviar dos ataques inimigos e destruir as aeronaves adversárias no campo de batalha aéreo</p>
+                    <a href="https://tecxim.github.io/teste_game/avioes-de-guerra.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+             <div class="resource-card" data-category="jogos">
+                <div class="card-header">
+                    <span class="card-icon">🚢</span>
+                    <h3>Batalha de Navios</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Batalha dos Navios</h4>
+                    <h4 class="card-title"></h4>
+                    <p class="card-description">O clássico jogo de estratégia onde você deve desviar dos ataques inimigos e destruir os navios adversários no mar</p>
+                    <a href="https://tecxim.github.io/teste_game/navios-de-guerra.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="jogos">
+                <div class="card-header">
+                    <span class="card-icon">🌠</span>
+                    <h3>Fuja dos Meteoros</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Fuja dos Meteoros</h4>
+                    <p class="card-description">Desvie dos meteoros caindo do céu neste emocionante jogo de agilidade e reflexos.</p>
+                    <a href="https://tecxim.github.io/teste_game/fuja-dos-meteoros.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="jogos">
+                <div class="card-header">
+                    <span class="card-icon">⭕</span>
+                    <h3>Jogo da Velha</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Jogo da Velha</h4>
+                    <p class="card-description">O tradicional jogo da velha para desafiar seus amigos ou testar suas habilidades contra a máquina.</p>
+                    <a href="https://tecxim.github.io/teste_game/jogo-da-velha.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="jogos">
+                <div class="card-header">
+                    <span class="card-icon">🧩</span>
+                    <h3>Memória Mix</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Memória Mix</h4>
+                    <p class="card-description">Exercite sua memória neste jogo de combinação de cartas com diferentes níveis de dificuldade.</p>
+                    <a href="https://tecxim.github.io/teste_game/memoria_mix.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+            <div class="resource-card" data-category="jogos">
+                <div class="card-header">
+                    <span class="card-icon">💃</span>
+                    <h3>Pula Bailarina</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Pula Bailarina</h4>
+                    <p class="card-description">Ajude a bailarina a pular obstáculos neste jogo divertido e desafiador.</p>
+                    <a href="https://tecxim.github.io/teste_game/pula-bailarina.html" target="_blank" class="card-link">Acessar</a>
+                </div>
+            </div>
+
+            <!-- CARD – Tubo Lógico -->
+<div class="resource-card" data-category="jogos">
+    <div class="card-header">
+        <span class="card-icon">🧪</span>
+        <h3>Tubo Lógico</h3>
+    </div>
+
+    <div class="card-body">
+        <h4 class="card-title">Tubo Lógico</h4>
+        <p class="card-description">Desafie seu raciocínio lógico neste jogo de conexões e padrões.</p>
+        <a href="https://tecxim.github.io/teste_game/tubo-logico.html" target="_blank" class="card-link">Acessar</a>
+    </div>
+</div>
+
+<!-- CARD – Desafio do Namoro -->
+<div class="resource-card" data-category="jogos">
+    <div class="card-header">
+        <span class="card-icon">❤️</span>
+        <h3>Desafio do Namoro</h3>
+    </div>
+
+    <div class="card-body">
+        <h4 class="card-title">Desafio do Namoro</h4>
+        <p class="card-description">Teste suas escolhas e raciocínio neste desafio divertido de namoro.</p>
+        <a href="https://tecxim.github.io/teste_game/desafio-do-namoro.html" 
+           target="_blank" 
+           class="card-link">Acessar</a>
+    </div>
+</div>
+
+
+        <div class="logout-section">
+            <button class="logout-btn" onclick="logout()">Sair</button>
+        </div>
+    </div>
+
+    <!--
+<script>
+    /* =====================================================
+       VERIFICAÇÃO DE LOGIN
+    ===================================================== */
+    if (localStorage.getItem("token_acesso") !== "TOKEN_VALIDO") {
+        window.location.href = "login.html";
+    }
+
+    function logout() {
+        localStorage.removeItem("token_acesso");
+        localStorage.removeItem("usuario_logado");
+        window.location.href = "login.html";
+    }
+</script>
+-->
+
+<script>
+    
+    /* =====================================================
+        FILTRO DE CATEGORIAS (mantido igual)
+    ===================================================== */
+    document.querySelectorAll('.category-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            button.classList.add('active');
+            const category = button.getAttribute('data-category');
+            
+            document.querySelectorAll('.resource-card').forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+
+// Bloqueia clique direito
+document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+});
+
+// Bloqueia teclas que abrem o DevTools
+document.onkeydown = function(e) {
+    if (
+        e.keyCode === 123 ||                     // F12
+        (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
+        (e.ctrlKey && e.shiftKey && e.keyCode === 74) || // Ctrl+Shift+J
+        (e.ctrlKey && e.keyCode === 85) ||       // Ctrl+U
+        (e.ctrlKey && e.keyCode === 83)          // Ctrl+S
+    ) {
+        e.preventDefault();
+        return false;
+    }
+};
+
+// Bloqueia arrastar para fora, copiar e recortar
+document.addEventListener("copy", (e) => e.preventDefault());
+document.addEventListener("cut", (e) => e.preventDefault());
+document.addEventListener("dragstart", (e) => e.preventDefault());
+
+// Bloqueia seleção de texto
+document.querySelectorAll("*").forEach(el => {
+    el.style.userSelect = "none";
+});
+</script>
+
+<footer style="text-align:center; padding:12px 0; font-size:14px; color:#555;">
+    © 2025 – Todos os direitos reservados | De: <strong>Wellington A. R. Cardoso</strong> |
+    Contato: <a href="mailto:warc1206@gmail.com">Enviar um e-mail</a>
+</footer>
+<script>
+
+</body>
+</html>
