@@ -375,82 +375,79 @@
         <audio id="wrongSound" src="https://actions.google.com/sounds/v1/cartoon/boing.ogg"></audio>
         <audio id="levelUpSound" src="https://actions.google.com/sounds/v1/alarms/bugle_tune.ogg"></audio>
 
-        <!-- Scripts -->
         <script>
-            function closePopup() {
-                document.getElementById('welcomePopup').style.display = 'none';
-            }
+  function closePopup() {
+    document.getElementById('welcomePopup').style.display = 'none';
+  }
 
-            // Animação suave de entrada
-            const style = document.createElement('style');
-            style.innerHTML = `
-                @keyframes fadeInPopup {
-                    from { opacity: 0; transform: scale(0.9); }
-                    to { opacity: 1; transform: scale(1); }
-                }
-            `;
-            document.head.appendChild(style);
-        </script>
+  // Animação suave de entrada
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes fadeInPopup {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
 
-        <script>
-            // Service Worker
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('sw.js')
-                    .then(() => console.log('Service Worker registrado com sucesso.'))
-                    .catch(err => console.log('Erro ao registrar o Service Worker:', err));
-            }
-        </script>
+<script>
+  // Service Worker
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then(() => console.log('Service Worker registrado com sucesso.'))
+      .catch(err => console.log('Erro ao registrar o Service Worker:', err));
+  }
+</script>
 
-        <script>
-            let deferredPrompt;
-            // Escuta o evento que indica que o PWA pode ser instalado
-            window.addEventListener('beforeinstallprompt', (e) => {
-                e.preventDefault(); // Impede que o Chrome mostre o banner automático
-                deferredPrompt = e; // Armazena o evento para usar depois
+<script>
+  let deferredPrompt;
+  // Escuta o evento que indica que o PWA pode ser instalado
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault(); // Impede que o Chrome mostre o banner automático
+    deferredPrompt = e; // Armazena o evento para usar depois
 
-                // Cria um botão de instalação
-                const installButton = document.createElement('button');
-                installButton.textContent = 'Instalar este App';
-                installButton.style.position = 'fixed';
-                installButton.style.top = '10px';
-                installButton.style.right = '10px';
-                installButton.style.padding = '10px 15px';
-                installButton.style.backgroundColor = '#1a237e';
-                installButton.style.color = 'white';
-                installButton.style.border = 'none';
-                installButton.style.borderRadius = '5px';
-                installButton.style.cursor = 'pointer';
-                installButton.style.zIndex = '1000';
+    // Cria um botão de instalação
+    const installButton = document.createElement('button');
+    installButton.textContent = 'Instalar este App';
+    installButton.style.position = 'fixed';
+    installButton.style.top = '10px';
+    installButton.style.right = '10px';
+    installButton.style.padding = '10px 15px';
+    installButton.style.backgroundColor = '#1a237e';
+    installButton.style.color = 'white';
+    installButton.style.border = 'none';
+    installButton.style.borderRadius = '5px';
+    installButton.style.cursor = 'pointer';
+    installButton.style.zIndex = '1000';
 
-                // Adiciona o botão ao corpo da página
-                document.body.appendChild(installButton);
+    // Adiciona o botão ao corpo da página
+    document.body.appendChild(installButton);
 
-                // Função para instalar o PWA quando o botão for clicado
-              installButton.addEventListener('click', () => {
-				  
-			  alert("Instalando... Mantenha o navegador aberto até a conclusão.");
-				  
-			  // Chama o prompt de instalação
-			  deferredPrompt.prompt();
-			
-			  // Aguarda a escolha do usuário
-			  deferredPrompt.userChoice.then((choiceResult) => {
-			    if (choiceResult.outcome === 'accepted') {
-			      console.log('Usuário aceitou a instalação');
-			    } else {
-			      console.log('Usuário recusou a instalação');
-			    }
-			    deferredPrompt = null;
-			  });
-			});
+    // Função para instalar o PWA quando o botão for clicado
+    installButton.addEventListener('click', () => {
 
-            });
-        </script>
+      alert("Instalando... Mantenha o navegador aberto até a conclusão.");
 
-    <script src="quiz.js" defer></script>
+      // Chama o prompt de instalação
+      deferredPrompt.prompt();
 
+      // Aguarda a escolha do usuário
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('Usuário aceitou a instalação');
+        } else {
+          console.log('Usuário recusou a instalação');
+        }
+        deferredPrompt = null;
+      });
+    });
+  });
+</script>
 
-  <script>
+<script src="quiz.js" defer></script>
+
+<script>
   (function() {
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzqwy44OE7peeKb0-_EgJ_F1FV03qB6g3hg0DxkU5IaAxvRfHINrZdCZTOFuB7DmdeD2g/exec";
 
@@ -578,20 +575,20 @@
 <script>
   // Bloqueia clique direito
   document.addEventListener("contextmenu", function(e){
-      e.preventDefault();
+    e.preventDefault();
   });
   // Bloqueia teclas que abrem o DevTools
   document.onkeydown = function(e) {
-      if (
-          e.keyCode === 123 ||                     // F12
-          (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
-          (e.ctrlKey && e.shiftKey && e.keyCode === 74) || // Ctrl+Shift+J
-          (e.ctrlKey && e.keyCode === 85) ||       // Ctrl+U
-          (e.ctrlKey && e.keyCode === 83)          // Ctrl+S
-      ) {
-          e.preventDefault();
-          return false;
-      }
+    if (
+      e.keyCode === 123 ||                     // F12
+      (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
+      (e.ctrlKey && e.shiftKey && e.keyCode === 74) || // Ctrl+Shift+J
+      (e.ctrlKey && e.keyCode === 85) ||       // Ctrl+U
+      (e.ctrlKey && e.keyCode === 83)          // Ctrl+S
+    ) {
+      e.preventDefault();
+      return false;
+    }
   };
   // Bloqueia arrastar para fora, copiar e recortar
   document.addEventListener("copy", (e) => e.preventDefault());
@@ -599,9 +596,10 @@
   document.addEventListener("dragstart", (e) => e.preventDefault());
   // Bloqueia seleção de texto
   document.querySelectorAll("*").forEach(el => {
-      el.style.userSelect = "none";
+    el.style.userSelect = "none";
   });
 </script>
+
 
 
 	
