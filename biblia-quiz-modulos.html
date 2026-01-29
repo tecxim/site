@@ -542,13 +542,31 @@
       .catch(error => console.error("Erro ao enviar dados:", error));
     }
 
-    // Chama a função para enviar os dados
-    sendData();
+    // Função para enviar a contagem de acesso (somente para Bíblia Quiz)
+    async function sendAccessCount() {
+      const dados = {
+        source: "biblia_quiz" // Identifica o app
+      };
+      fetch(WEB_APP_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(dados)
+      })
+      .then(() => console.log("Acesso registrado com sucesso!"))
+      .catch(error => console.error("Erro ao registrar acesso:", error));
+    }
+
+    // Chama as funções ao carregar a página
+    window.addEventListener('load', () => {
+      sendData(); // Envia os dados detalhados
+      sendAccessCount(); // Registra o acesso na célula A2
+    });
   })();
 </script>
 
 <script>
-  // --- NOVO: Funções para salvar e recuperar sessão do Bíblia Quiz ---
+  // --- Funções para salvar e recuperar sessão do Bíblia Quiz ---
   function salvarModuloAtual(modulo) {
     localStorage.setItem('bibliaQuiz_moduloAtual', modulo.toString());
   }
@@ -574,31 +592,35 @@
 
 <script>
   // Bloqueia clique direito
-  document.addEventListener("contextmenu", function(e){
+  document.addEventListener("contextmenu", function(e) {
     e.preventDefault();
   });
+
   // Bloqueia teclas que abrem o DevTools
   document.onkeydown = function(e) {
     if (
-      e.keyCode === 123 ||                     // F12
+      e.keyCode === 123 || // F12
       (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
       (e.ctrlKey && e.shiftKey && e.keyCode === 74) || // Ctrl+Shift+J
-      (e.ctrlKey && e.keyCode === 85) ||       // Ctrl+U
-      (e.ctrlKey && e.keyCode === 83)          // Ctrl+S
+      (e.ctrlKey && e.keyCode === 85) || // Ctrl+U
+      (e.ctrlKey && e.keyCode === 83) // Ctrl+S
     ) {
       e.preventDefault();
       return false;
     }
   };
+
   // Bloqueia arrastar para fora, copiar e recortar
   document.addEventListener("copy", (e) => e.preventDefault());
   document.addEventListener("cut", (e) => e.preventDefault());
   document.addEventListener("dragstart", (e) => e.preventDefault());
+
   // Bloqueia seleção de texto
   document.querySelectorAll("*").forEach(el => {
     el.style.userSelect = "none";
   });
 </script>
+
 
 
 
