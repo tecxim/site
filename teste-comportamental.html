@@ -361,5 +361,23 @@ if (localStorage.getItem("token_acesso") !== "TOKEN_VALIDO") {
     }
 </script>
 
+<script>
+(function() {
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzqwy44OE7peeKb0-_EgJ_F1FV03qB6g3hg0DxkU5IaAxvRfHINrZdCZTOFuB7DmdeD2g/exec";
+
+  function sendAccessCount() {
+    fetch(WEB_APP_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ source: "teste_comportamental" })
+    });
+  }
+
+  window.addEventListener("load", sendAccessCount);
+})();
+</script>
+
+
 </body>
 </html>
