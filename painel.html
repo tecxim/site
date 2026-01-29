@@ -447,20 +447,7 @@
         </div>
     </div>
 
-    <script>
-    /* =====================================================
-        VERIFICAÇÃO DO LOGIN
-    ===================================================== */
-    if (localStorage.getItem("token_acesso") !== "TOKEN_VALIDO") {
-        window.location.href = "login.html";
-    }
-
-    function logout() {
-        localStorage.removeItem("token_acesso");
-        localStorage.removeItem("usuario_logado");
-        window.location.href = "login.html";
-    }
-
+    
     /* =====================================================
         FILTRO DE CATEGORIAS (mantido igual)
     ===================================================== */
