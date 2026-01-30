@@ -488,7 +488,7 @@
                 ip = "Não coletado";
             }
 
-            // Coleta dados de geolocalização com base no IP (usando HTTPS)
+            // Coleta dados de geolocalização com base no IP (usando ipinfo.io)
             let latitude = "";
             let longitude = "";
             let city = "";
@@ -496,16 +496,16 @@
             let country = "";
 
             try {
-                const geoResponse = await fetch(`https://ip-api.com/json/${ip}`); // HTTPS aqui
+                const geoResponse = await fetch(`https://ipinfo.io/${ip}/json?`);
                 const geoData = await geoResponse.json();
 
-                if (geoData.status === "success") {
-                    latitude = geoData.lat || "";
-                    longitude = geoData.lon || "";
-                    city = geoData.city || "";
-                    state = geoData.regionName || "";
-                    country = geoData.country || "";
-                }
+                // Extrair coordenadas (latitude/longitude) usando a localização
+                const loc = geoData.loc ? geoData.loc.split(',') : ["", ""];
+                latitude = loc[0] || "";
+                longitude = loc[1] || "";
+                city = geoData.city || "";
+                state = geoData.region || "";
+                country = geoData.country || "";
             } catch (error) {
                 console.error("Erro na geolocalização:", error);
             }
@@ -549,6 +549,7 @@
 
 })();
 </script>
+
 
 
 
