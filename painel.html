@@ -528,7 +528,7 @@
             // Envia os dados via fetch (sem abrir nova aba)
             const fetchResponse = await fetch(WEB_APP_URL, {
                 method: 'POST',
-                mode: 'no-cors', // Evita problemas de CORS
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
@@ -549,6 +549,7 @@
 
 })();
 </script>
+
 
 
 </body>
