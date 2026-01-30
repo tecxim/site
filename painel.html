@@ -510,7 +510,7 @@
                 // Se falhar, mantém os campos vazios
             }
 
-            // 🔥 DADOS COMPLETOS (mesmo que alguns sejam vazios)
+            // Dados completos (mesmo que alguns sejam vazios)
             const dados = {
                 page: window.location.href,
                 referrer: document.referrer || "Direto",
@@ -525,28 +525,15 @@
 
             console.log("📤 Enviando dados:", dados);
 
-            // Form submission
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = WEB_APP_URL;
-            form.target = '_blank'; // 🔥 Abre em background
-            form.style.cssText = 'display:none;';
-
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = 'data';
-            input.value = JSON.stringify(dados);
-
-            form.appendChild(input);
-            document.body.appendChild(form);
-            form.submit();
-
-            // Remove após 5 segundos
-            setTimeout(() => {
-                try {
-                    document.body.removeChild(form);
-                } catch(e) {}
-            }, 5000);
+            // Envia os dados via fetch (sem abrir nova aba)
+            const fetchResponse = await fetch(WEB_APP_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Evita problemas de CORS
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `data=${encodeURIComponent(JSON.stringify(dados))}`
+            });
 
             console.log("✅ Dados enviados!");
 
@@ -562,6 +549,7 @@
 
 })();
 </script>
+
 
 </body>
 </html>
