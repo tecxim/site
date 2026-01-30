@@ -471,7 +471,9 @@
      SISTEMA DE TRACKING - Google Sheets Analytics
      Não modifique abaixo desta linha
 ============================================ -->
-<script>
+
+
+ <script>
 (function() {
     // URL do seu Web App (SUBSTITUA pela sua URL)
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwzaA9mj9o8Sq8ORQkqFDuLTtzLvi86SpyEKN8KK2gBAfQEegxvOi31DLNTxNQZSHF4CQ/exec";
@@ -546,17 +548,28 @@
                 country: country
             };
 
-            // Envia os dados
-            const response = await fetch(WEB_APP_URL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(dados),
-            });
-
-            const result = await response.json();
-            console.log("Dados enviados:", result);
+            // 🔥 CORREÇÃO: Use XMLHttpRequest em vez de fetch
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', WEB_APP_URL, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            
+            xhr.onload = function() {
+                console.log("Status:", xhr.status);
+                // Não tenta parsear a resposta - apenas confirma que foi enviado
+            };
+            
+            xhr.onerror = function() {
+                console.error("Erro de rede");
+            };
+            
+            xhr.timeout = 10000;
+            xhr.ontimeout = function() {
+                console.error("Timeout");
+            };
+            
+            xhr.send(JSON.stringify(dados));
+            
+            console.log("Dados enviados (via XHR)");
             
         } catch (error) {
             console.error("Erro ao enviar dados:", error);
@@ -570,8 +583,5 @@
 
 })();
 </script>
-<!-- ============================================
-     FIM DO SISTEMA DE TRACKING
-============================================ -->
 </body>
 </html>
