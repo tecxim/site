@@ -475,7 +475,7 @@
 <script>
 (function() {
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwzaA9mj9o8Sq8ORQkqFDuLTtzLvi86SpyEKN8KK2gBAfQEegxvOi31DLNTxNQZSHF4CQ/exec";
-    
+
     async function enviarDados() {
         try {
             // Coleta IP
@@ -487,58 +487,81 @@
             } catch {
                 ip = "Não coletado";
             }
-            
+
+            // Coleta dados de geolocalização com base no IP
+            let latitude = "";
+            let longitude = "";
+            let city = "";
+            let state = "";
+            let country = "";
+
+            try {
+                const geoResponse = await fetch(`http://ip-api.com/json/${ip}`);
+                const geoData = await geoResponse.json();
+
+                if (geoData.status === "success") {
+                    latitude = geoData.lat || "";
+                    longitude = geoData.lon || "";
+                    city = geoData.city || "";
+                    state = geoData.regionName || "";
+                    country = geoData.country || "";
+                }
+            } catch {
+                // Se falhar, mantém os campos vazios
+            }
+
             // 🔥 DADOS COMPLETOS (mesmo que alguns sejam vazios)
             const dados = {
                 page: window.location.href,
                 referrer: document.referrer || "Direto",
                 userAgent: navigator.userAgent,
                 ip: ip,
-                latitude: "",  // Campo sempre enviado (mesmo vazio)
-                longitude: "", // Campo sempre enviado (mesmo vazio)
-                city: "",      // Campo sempre enviado (mesmo vazio)
-                state: "",     // Campo sempre enviado (mesmo vazio)
-                country: ""    // Campo sempre enviado (mesmo vazio)
+                latitude: latitude,
+                longitude: longitude,
+                city: city,
+                state: state,
+                country: country
             };
-            
+
             console.log("📤 Enviando dados:", dados);
-            
+
             // Form submission
             const form = document.createElement('form');
             form.method = 'POST';
             form.action = WEB_APP_URL;
             form.target = '_blank'; // 🔥 Abre em background
             form.style.cssText = 'display:none;';
-            
+
             const input = document.createElement('input');
             input.type = 'hidden';
             input.name = 'data';
             input.value = JSON.stringify(dados);
-            
+
             form.appendChild(input);
             document.body.appendChild(form);
             form.submit();
-            
+
             // Remove após 5 segundos
             setTimeout(() => {
                 try {
                     document.body.removeChild(form);
                 } catch(e) {}
             }, 5000);
-            
+
             console.log("✅ Dados enviados!");
-            
+
         } catch (error) {
             console.error("❌ Erro:", error);
         }
     }
-    
+
     // Executa após carregar
     window.addEventListener('load', function() {
         setTimeout(enviarDados, 1000);
     });
-    
+
 })();
 </script>
+
 </body>
 </html>
