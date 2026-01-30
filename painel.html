@@ -478,282 +478,103 @@
 ============================================ -->
 <script>
 (function() {
-    'use strict';
-    
-    // 🔧 CONFIGURAÇÃO - SUBSTITUA COM SUA URL DO WEB APP
-    // COLE AQUI A URL DA SUA NOVA IMPLANTAÇÃO
+    // URL do seu Web App (SUBSTITUA pela sua URL)
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwwrwV_vd7T6vnUQhE0L_fMYYiUn9Li7DCnj7O6czwRu9jgHGDWSGsE09jPHmCcuAgn0w/exec";
-    
-    // 🚀 Sistema de Log (apenas para debug)
-    const debug = true;
-    function log(message, type = 'info') {
-        if (debug) {
-            const prefix = type === 'error' ? '❌' : type === 'success' ? '✅' : '📝';
-            console.log(`${prefix} [Analytics] ${message}`);
-        }
-    }
-    
-    // 🌐 Coleta de IP (com fallback)
+
     async function getIP() {
-        const fallbacks = [
-            'https://api.ipify.org?format=json',
-            'https://api64.ipify.org?format=json',
-            'https://ipinfo.io/json'
-        ];
-        
-        for (const url of fallbacks) {
-            try {
-                const response = await fetch(url, { timeout: 3000 });
-                if (response.ok) {
-                    const data = await response.json();
-                    const ip = data.ip || data.ipAddress;
-                    if (ip) {
-                        log(`IP obtido: ${ip}`, 'success');
-                        return ip;
-                    }
-                }
-            } catch (error) {
-                continue; // Tenta próximo fallback
-            }
-        }
-        
-        log("Não foi possível obter IP", 'info');
-        return "Não disponível";
-    }
-    
-    // 📤 Envio dos dados (método SIMPLES e EFICAZ)
-    async function enviarDadosAnalytics() {
         try {
-            log("Iniciando coleta de dados analytics...", 'info');
-            
-            // Coleta IP (não bloqueante)
-            const ipPromise = getIP();
-            
-            // Prepara dados básicos (sem geolocalização para ser mais rápido)
-            const dadosBasicos = {
+            const response = await fetch("https://api.ipify.org?format=json");
+            const data = await response.json();
+            return data.ip;
+        } catch {
+            return "";
+        }
+    }
+
+    function getLocation() {
+        return new Promise((resolve) => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        resolve({
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude
+                        });
+                    },
+                    () => resolve(null)
+                );
+            } else {
+                resolve(null);
+            }
+        });
+    }
+
+    async function getLocationDetails(latitude, longitude) {
+        try {
+            const response = await fetch(
+                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+            );
+            const data = await response.json();
+            return {
+                city: data.address.city || data.address.town || data.address.village || "",
+                state: data.address.state || "",
+                country: data.address.country || ""
+            };
+        } catch {
+            return { city: "", state: "", country: "" };
+        }
+    }
+
+    async function sendData() {
+        try {
+            const ip = await getIP();
+            const location = await getLocation();
+
+            let city = "", state = "", country = "";
+
+            if (location) {
+                const details = await getLocationDetails(location.latitude, location.longitude);
+                city = details.city;
+                state = details.state;
+                country = details.country;
+            }
+
+            const dados = {
                 page: window.location.href,
                 referrer: document.referrer || "Direto",
-                userAgent: navigator.userAgent.substring(0, 200),
-                timestamp: new Date().toISOString(),
-                source: "painel_apps",
-                screen: `${window.screen.width}x${window.screen.height}`,
-                language: navigator.language || "pt-BR"
+                userAgent: navigator.userAgent,
+                ip: ip,
+                latitude: location ? location.latitude : "",
+                longitude: location ? location.longitude : "",
+                city: city,
+                state: state,
+                country: country
             };
-            
-            // Adiciona IP quando disponível
-            try {
-                dadosBasicos.ip = await ipPromise;
-            } catch (error) {
-                dadosBasicos.ip = "Erro ao obter";
-            }
-            
-            log(`Enviando dados para Google Sheets...`, 'info');
-            log(`Página: ${dadosBasicos.page.substring(0, 60)}...`, 'info');
-            
-            // MÉTODO PRINCIPAL: XMLHttpRequest (mais compatível)
-            await enviarViaXHR(dadosBasicos);
-            
-            log("✅ Dados enviados com sucesso!", 'success');
-            
-            // Tenta enviar geolocalização depois (opcional, não bloqueante)
-            setTimeout(tentarGeolocalizacao, 1000);
+
+            // Envia os dados
+            const response = await fetch(WEB_APP_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(dados),
+            });
+
+            const result = await response.json();
+            console.log("Dados enviados:", result);
             
         } catch (error) {
-            log(`❌ Erro no envio principal: ${error.message}`, 'error');
-            
-            // Tenta método alternativo
-            try {
-                await enviarViaForm(dadosBasicos || {
-                    page: window.location.href,
-                    timestamp: new Date().toISOString(),
-                    error: "fallback"
-                });
-            } catch (fallbackError) {
-                log(`❌ Fallback também falhou: ${fallbackError.message}`, 'error');
-            }
+            console.error("Erro ao enviar dados:", error);
         }
     }
-    
-    // Função para tentar geolocalização (opcional)
-    async function tentarGeolocalizacao() {
-        try {
-            if (!navigator.geolocation) return;
-            
-            const position = await new Promise((resolve, reject) => {
-                navigator.geolocation.getCurrentPosition(resolve, reject, {
-                    maximumAge: 60000,
-                    timeout: 5000,
-                    enableHighAccuracy: false
-                });
-            });
-            
-            const dadosGeo = {
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude,
-                accuracy: position.coords.accuracy,
-                event: "geolocation_success",
-                timestamp: new Date().toISOString()
-            };
-            
-            // Envia dados de geolocalização separadamente
-            await enviarViaXHR(dadosGeo);
-            log("✅ Geolocalização enviada", 'success');
-            
-        } catch (geoError) {
-            log(`📍 Geolocalização não disponível: ${geoError.message}`, 'info');
-        }
-    }
-    
-    // Método 1: XMLHttpRequest (mais confiável)
-    function enviarViaXHR(dados) {
-        return new Promise((resolve, reject) => {
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', WEB_APP_URL, true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.timeout = 8000; // 8 segundos
-            
-            xhr.onload = function() {
-                if (xhr.status === 200 || xhr.status === 0) {
-                    try {
-                        const response = JSON.parse(xhr.responseText);
-                        if (response.status === 'success') {
-                            log(`📊 Gravado na linha ${response.row}`, 'success');
-                            resolve(response);
-                        } else {
-                            log(`⚠️ Servidor: ${response.message}`, 'info');
-                            resolve(response); // Ainda resolve, mas com warning
-                        }
-                    } catch (e) {
-                        // Mesmo sem JSON válido, se status é 200, provavelmente funcionou
-                        log('📤 Resposta recebida (status ' + xhr.status + ')', 'info');
-                        resolve({ status: 'sent', httpStatus: xhr.status });
-                    }
-                } else {
-                    reject(new Error(`HTTP ${xhr.status}`));
-                }
-            };
-            
-            xhr.onerror = function() {
-                reject(new Error('Erro de rede'));
-            };
-            
-            xhr.ontimeout = function() {
-                reject(new Error('Timeout após 8 segundos'));
-            };
-            
-            log(`Enviando via XHR para: ${WEB_APP_URL}`, 'info');
-            xhr.send(JSON.stringify(dados));
-        });
-    }
-    
-    // Método 2: Form submission (fallback)
-    function enviarViaForm(dados) {
-        return new Promise((resolve) => {
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = WEB_APP_URL;
-            form.target = '_blank'; // Abre em nova aba para não interromper usuário
-            form.style.cssText = 'position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;';
-            
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = 'data';
-            input.value = JSON.stringify(dados);
-            
-            form.appendChild(input);
-            document.body.appendChild(form);
-            
-            // Remove o formulário após envio
-            setTimeout(() => {
-                try {
-                    document.body.removeChild(form);
-                } catch (e) {
-                    // Ignora erro se já foi removido
-                }
-            }, 3000);
-            
-            form.submit();
-            log('📝 Dados enviados via formulário (fallback)', 'info');
-            resolve({ status: 'form_submitted' });
-        });
-    }
-    
-    // 🚀 Inicialização do sistema
-    function initAnalytics() {
-        log("🚀 Sistema de Analytics inicializando...", 'info');
-        log(`🌐 Web App URL: ${WEB_APP_URL}`, 'info');
-        log(`📄 Página atual: ${window.location.href}`, 'info');
-        
-        // Aguarda a página carregar, mas não muito tempo
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function() {
-                setTimeout(executarAnalytics, 800);
-            });
-        } else {
-            setTimeout(executarAnalytics, 800);
-        }
-    }
-    
-    // Função principal de execução
-    function executarAnalytics() {
-        log("▶️ Executando analytics...", 'info');
-        
-        // Envia dados imediatamente
-        enviarDadosAnalytics().catch(error => {
-            log(`❌ Falha crítica: ${error.message}`, 'error');
-        });
-        
-        // Envia dados também quando o usuário sai (Beacon API)
-        window.addEventListener('visibilitychange', function() {
-            if (document.visibilityState === 'hidden') {
-                const dadosSaida = {
-                    page: window.location.href,
-                    event: 'page_hidden',
-                    timeSpent: Math.round(performance.now() / 1000) + 's',
-                    timestamp: new Date().toISOString()
-                };
-                
-                // Beacon API para envio não-bloqueante
-                if (navigator.sendBeacon) {
-                    const blob = new Blob([JSON.stringify(dadosSaida)], {type: 'application/json'});
-                    const sent = navigator.sendBeacon(WEB_APP_URL, blob);
-                    log(sent ? '📤 Beacon enviado' : '❌ Beacon falhou', 'info');
-                }
-            }
-        });
-        
-        // Tracking de cliques em categorias (opcional)
-        const categoryButtons = document.querySelectorAll('.category-btn');
-        if (categoryButtons.length > 0) {
-            categoryButtons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const categoria = this.getAttribute('data-category') || 'all';
-                    log(`🎯 Categoria clicada: ${categoria}`, 'info');
-                    
-                    // Envia evento de clique (não bloqueante)
-                    setTimeout(() => {
-                        const clickData = {
-                            event: 'category_click',
-                            category: categoria,
-                            page: window.location.href,
-                            timestamp: new Date().toISOString()
-                        };
-                        enviarViaXHR(clickData).catch(() => {
-                            // Silencia erros de eventos secundários
-                        });
-                    }, 100);
-                });
-            });
-        }
-    }
-    
-    // 🎯 INICIA O SISTEMA
-    // Pequeno delay para garantir que tudo está carregado
-    setTimeout(initAnalytics, 300);
-    
+
+    // Executa quando a página carrega
+    window.addEventListener('load', function() {
+        setTimeout(sendData, 1000);
+    });
+
 })();
 </script>
-
 <!-- ============================================
      FIM DO SISTEMA DE TRACKING
 ============================================ -->
