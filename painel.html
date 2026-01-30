@@ -496,7 +496,7 @@
             let country = "";
 
             try {
-                const geoResponse = await fetch(`https://ipinfo.io/${ip}/json?token=SEU_TOKEN_AQUI`);
+                const geoResponse = await fetch(`https://ipinfo.io/${ip}/json?`);
                 const geoData = await geoResponse.json();
 
                 // Extrair coordenadas (latitude/longitude) usando a localização
