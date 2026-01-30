@@ -464,274 +464,89 @@
 </script>
 -->
 
-<script>
-  (function () {
-    // URL do seu Web App - VERIFIQUE SE ESTÁ CORRETA
+
+    <script>
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwwrwV_vd7T6vnUQhE0L_fMYYiUn9Li7DCnj7O6czwRu9jgHGDWSGsE09jPHmCcuAgn0w/exec";
 
-    async function getIP() {
-      try {
-        const response = await fetch("https://api.ipify.org?format=json");
-        const data = await response.json();
-        return data.ip;
-      } catch (error) {
-        console.error("Erro ao pegar IP:", error);
-        return "N/A";
-      }
-    }
-
-    function getLocation() {
-      return new Promise((resolve) => {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              resolve({
-                latitude: position.coords.latitude,
-                longitude: position.coords.longitude
-              });
-            },
-            (error) => {
-              console.log("Erro geolocalização:", error.message);
-              resolve(null);
-            },
-            {
-              enableHighAccuracy: false,
-              timeout: 5000,
-              maximumAge: 60000
-            }
-          );
-        } else {
-          console.log("Geolocalização não suportada");
-          resolve(null);
-        }
-      });
-    }
-
-    async function getLocationDetails(latitude, longitude) {
-      if (!latitude || !longitude) {
-        return { city: "N/A", state: "N/A", country: "N/A" };
-      }
-      
-      try {
-        const response = await fetch(
-          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&accept-language=pt-BR`
-        );
-        const data = await response.json();
-        return {
-          city: data.address?.city || data.address?.town || data.address?.village || "Desconhecido",
-          state: data.address?.state || "Desconhecido",
-          country: data.address?.country || "Desconhecido"
-        };
-      } catch {
-        return { city: "N/A", state: "N/A", country: "N/A" };
-      }
-    }
-
-    // Função para enviar dados usando XMLHttpRequest (evita problemas CORS)
-    function sendDataXHR(dados) {
-      return new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        const url = WEB_APP_URL;
-        
-        xhr.open('POST', url, true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        
-        xhr.onload = function() {
-          if (xhr.status === 200) {
-            try {
-              const response = JSON.parse(xhr.responseText);
-              resolve(response);
-            } catch (e) {
-              console.log("Resposta (não JSON):", xhr.responseText);
-              resolve({ status: 'ok', message: 'Dados enviados' });
-            }
-          } else {
-            reject(new Error(`Erro ${xhr.status}: ${xhr.statusText}`));
-          }
-        };
-        
-        xhr.onerror = function() {
-          reject(new Error('Erro de rede ao enviar dados'));
-        };
-        
-        xhr.ontimeout = function() {
-          reject(new Error('Timeout ao enviar dados'));
-        };
-        
-        xhr.timeout = 10000; // 10 segundos
-        
-        const jsonData = JSON.stringify(dados);
-        console.log("Enviando via XHR:", dados);
-        xhr.send(jsonData);
-      });
-    }
-
-    // Função alternativa usando fetch com tratamento de erro
-    async function sendDataFetch(dados) {
-      try {
-        console.log("Tentando enviar via fetch...");
-        
-        // Usando o modo 'cors' e tratando a resposta
-        const response = await fetch(WEB_APP_URL, {
-          method: 'POST',
-          mode: 'cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(dados),
-          redirect: 'follow' // Importante para Google Apps Script
-        });
-
-        console.log("Status da resposta:", response.status);
-        
-        // Tenta ler como texto primeiro
-        const text = await response.text();
-        console.log("Resposta bruta:", text.substring(0, 200));
-        
-        try {
-          return JSON.parse(text);
-        } catch {
-          // Se não for JSON, verifica se contém sucesso
-          if (text.includes('ok') || response.status === 200) {
-            return { status: 'ok', message: 'Dados processados' };
-          }
-          throw new Error(`Resposta não JSON: ${text.substring(0, 100)}`);
-        }
-      } catch (error) {
-        console.error("Erro no fetch:", error);
-        throw error;
-      }
-    }
-
-    async function sendData() {
-      try {
-        console.log("=== INICIANDO COLETA DE DADOS ===");
-        
-        // Coleta básica de dados primeiro (sem geolocalização para ser mais rápido)
-        const dadosBase = {
-          page: window.location.href,
-          referrer: document.referrer || "Direto",
-          userAgent: navigator.userAgent,
-          ip: "Coletando...",
-          latitude: "",
-          longitude: "",
-          city: "",
-          state: "",
-          country: ""
-        };
-
-        // Tenta enviar os dados básicos primeiro
-        console.log("Enviando dados básicos...");
-        const resultado = await sendDataXHR(dadosBase);
-        console.log("Resposta básica:", resultado);
-        
-        // Agora coleta dados adicionais (IP e localização)
-        console.log("Coletando dados adicionais...");
-        
-        try {
-          const ip = await getIP();
-          dadosBase.ip = ip;
-          console.log("IP obtido:", ip);
-          
-          const location = await getLocation();
-          if (location) {
-            dadosBase.latitude = location.latitude;
-            dadosBase.longitude = location.longitude;
-            console.log("Localização obtida:", location);
+        async function testarEnvio() {
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = "Enviando dados...";
             
-            if (location.latitude && location.longitude) {
-              const details = await getLocationDetails(location.latitude, location.longitude);
-              dadosBase.city = details.city;
-              dadosBase.state = details.state;
-              dadosBase.country = details.country;
-              console.log("Detalhes da localização:", details);
+            try {
+                // Dados de teste
+                const dados = {
+                    page: window.location.href,
+                    referrer: document.referrer || "Direto",
+                    userAgent: navigator.userAgent,
+                    ip: "127.0.0.1", // IP de teste
+                    latitude: "-23.5505",
+                    longitude: "-46.6333",
+                    city: "São Paulo",
+                    state: "SP",
+                    country: "Brasil"
+                };
+                
+                console.log("Enviando dados:", dados);
+                
+                // Usando fetch simples
+                const resposta = await fetch(WEB_APP_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // IMPORTANTE: use no-cors para Google Apps Script
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dados)
+                });
+                
+                // Como usamos no-cors, não podemos ler a resposta
+                // Mas podemos verificar se foi enviado
+                console.log("Requisição enviada");
+                resultadoDiv.innerHTML = "Dados enviados! Verifique a planilha.";
+                
+                // Método alternativo: usar um iframe
+                enviarViaIframe(dados);
+                
+            } catch (erro) {
+                console.error("Erro:", erro);
+                resultadoDiv.innerHTML = "Erro: " + erro.message;
             }
-          }
-          
-          // Atualiza os dados com as informações coletadas
-          console.log("Dados completos:", dadosBase);
-          
-          // Envia novamente com todos os dados (opcional)
-          // await sendDataXHR(dadosBase);
-          
-        } catch (error) {
-          console.warn("Não foi possível coletar todos os dados:", error);
         }
-        
-        console.log("=== PROCESSO CONCLUÍDO ===");
-        
-      } catch (error) {
-        console.error("Erro no processo principal:", error);
-        
-        // Tenta método de fallback usando form submission
-        try {
-          console.log("Tentando método de fallback...");
-          await sendDataFallback();
-        } catch (fallbackError) {
-          console.error("Fallback também falhou:", fallbackError);
+
+        // Método alternativo usando iframe (evita CORS)
+        function enviarViaIframe(dados) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = WEB_APP_URL;
+            form.target = 'iframeResposta';
+            form.style.display = 'none';
+            
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'dados';
+            input.value = JSON.stringify(dados);
+            
+            form.appendChild(input);
+            document.body.appendChild(form);
+            
+            // Cria iframe para receber resposta
+            const iframe = document.createElement('iframe');
+            iframe.name = 'iframeResposta';
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+            
+            form.submit();
+            
+            // Limpa após 5 segundos
+            setTimeout(() => {
+                document.body.removeChild(form);
+                document.body.removeChild(iframe);
+            }, 5000);
         }
-      }
-    }
 
-    // Método de fallback usando formulário
-    function sendDataFallback() {
-      return new Promise((resolve) => {
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = WEB_APP_URL;
-        form.target = '_blank'; // Abre em nova aba/janela
-        
-        const dados = {
-          page: window.location.href,
-          referrer: document.referrer || "Direto",
-          userAgent: navigator.userAgent,
-          timestamp: new Date().toISOString()
-        };
-        
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = 'data';
-        input.value = JSON.stringify(dados);
-        form.appendChild(input);
-        
-        document.body.appendChild(form);
-        form.submit();
-        document.body.removeChild(form);
-        
-        console.log("Dados enviados via formulário fallback");
-        resolve();
-      });
-    }
-
-    // Inicia o processo quando a página carrega
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(sendData, 1500);
-      });
-    } else {
-      setTimeout(sendData, 1500);
-    }
-    
-    // Também tenta enviar quando o usuário sai da página
-    window.addEventListener('beforeunload', function() {
-      // Envia dados básicos rapidamente
-      const dadosRapidos = {
-        page: window.location.href,
-        referrer: document.referrer || "Direto",
-        userAgent: navigator.userAgent,
-        event: 'page_unload',
-        timestamp: new Date().toISOString()
-      };
-      
-      // Usa sendBeacon se disponível (não bloqueia a navegação)
-      if (navigator.sendBeacon) {
-        const blob = new Blob([JSON.stringify(dadosRapidos)], {type: 'application/json'});
-        navigator.sendBeacon(WEB_APP_URL, blob);
-      }
-    });
-
-  })();
-</script>
-
+        // Envia automaticamente ao carregar
+        window.addEventListener('load', function() {
+            setTimeout(testarEnvio, 1000);
+        });
+    </script>
 </body>
 </html>
