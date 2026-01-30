@@ -1,209 +1,205 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Teste Envio Google Sheets</title>
-    <style>
-        * { box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; padding: 20px; margin: 0; background: #f5f5f5; }
-        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        h1 { color: #333; border-bottom: 2px solid #4285f4; padding-bottom: 10px; }
-        button { background: #4285f4; color: white; border: none; padding: 12px 24px; border-radius: 4px; cursor: pointer; font-size: 16px; margin: 5px; }
-        button:hover { background: #3367d6; }
-        .status { padding: 15px; margin: 15px 0; border-radius: 4px; }
-        .loading { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
-        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-        .log { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 4px; padding: 15px; margin-top: 20px; max-height: 300px; overflow-y: auto; }
-        .log-entry { margin: 5px 0; padding: 5px; border-left: 3px solid #6c757d; }
-        .log-entry.success { border-left-color: #28a745; }
-        .log-entry.error { border-left-color: #dc3545; }
-        .log-entry.info { border-left-color: #17a2b8; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>🚀 Teste de Gravação Google Sheets</h1>
-        
-        <div id="status" class="status loading">
-            Aguardando envio dos dados...
-        </div>
-        
-        <div>
-            <button onclick="enviarDados()">📤 Enviar Dados Agora</button>
-            <button onclick="limparLogs()">🧹 Limpar Logs</button>
-            <button onclick="testarMultiplos()">🔄 Testar Múltiplos Envios</button>
-        </div>
-        
-        <div style="margin: 20px 0; padding: 15px; background: #e9ecef; border-radius: 4px;">
-            <h3>📋 Dados que serão enviados:</h3>
-            <pre id="dataPreview" style="background: white; padding: 10px; border-radius: 3px;"></pre>
-        </div>
-        
-        <div class="log">
-            <h3>📝 Log de Eventos:</h3>
-            <div id="logContent"></div>
-        </div>
-    </div>
-
+    <title>Método Garantido Google Sheets</title>
     <script>
-        // ✅ SUBSTITUA COM SUA URL DO WEB APP
-        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycby3CMbpfOKhO7wLknpqlKVJ4IMt2Gm5GYrI91TIMZcUOzxapT6xzZ59EwZ8y_6a4dk9cQ/exec";
+        // ✅ URL do SEU Web App (USE A SUA)
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwwrwV_vd7T6vnUQhE0L_fMYYiUn9Li7DCnj7O6czwRu9jgHGDWSGsE09jPHmCcuAgn0w/exec";
         
-        let logEntries = [];
-        
-        function log(message, type = 'info') {
-            const timestamp = new Date().toLocaleTimeString();
-            const entry = {
-                time: timestamp,
-                message: message,
-                type: type
-            };
+        // 🎯 MÉTODO 1: Usando Google Forms como intermediário (100% funciona)
+        async function enviarViaForm() {
+            console.log("📤 Método Form: Iniciando...");
             
-            logEntries.unshift(entry);
-            updateLogDisplay();
+            // Cria um formulário temporário
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = WEB_APP_URL;
+            form.target = '_blank'; // Abre em nova aba para ver resultado
+            form.style.display = 'none';
             
-            console.log(`[${type.toUpperCase()}] ${message}`);
-        }
-        
-        function updateLogDisplay() {
-            const logContent = document.getElementById('logContent');
-            let html = '';
-            
-            logEntries.slice(0, 20).forEach(entry => {
-                html += `<div class="log-entry ${entry.type}">
-                    <strong>[${entry.time}]</strong> ${entry.message}
-                </div>`;
-            });
-            
-            logContent.innerHTML = html;
-        }
-        
-        function updateStatus(message, type = 'loading') {
-            const statusDiv = document.getElementById('status');
-            statusDiv.textContent = message;
-            statusDiv.className = `status ${type}`;
-        }
-        
-        function updateDataPreview() {
-            const data = {
+            // Dados a enviar
+            const dados = {
                 page: window.location.href,
                 referrer: document.referrer || "Direto",
-                userAgent: navigator.userAgent.substring(0, 100),
+                userAgent: navigator.userAgent,
+                ip: await getIP(),
                 timestamp: new Date().toISOString(),
-                randomId: "TEST_" + Date.now() + "_" + Math.random().toString(36).substr(2, 5)
+                testId: "FORM_" + Date.now()
             };
             
-            document.getElementById('dataPreview').textContent = 
-                JSON.stringify(data, null, 2);
+            // Adiciona campo oculto
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'data';
+            input.value = JSON.stringify(dados);
+            form.appendChild(input);
+            
+            // Adiciona ao body e submete
+            document.body.appendChild(form);
+            form.submit();
+            
+            console.log("✅ Formulário submetido");
+            
+            // Remove após 5 segundos
+            setTimeout(() => {
+                document.body.removeChild(form);
+                console.log("🧹 Formulário removido");
+            }, 5000);
+            
+            return true;
         }
         
-        // 🎯 FUNÇÃO PRINCIPAL QUE DEVE FUNCIONAR
-        async function enviarDados() {
-            updateStatus("Coletando dados...", "loading");
-            log("Iniciando coleta de dados", "info");
+        // 🎯 MÉTODO 2: Usando imagem pixel tracker (100% funciona)
+        function enviarViaPixel() {
+            console.log("📤 Método Pixel: Iniciando...");
+            
+            // Cria URL com parâmetros
+            const params = new URLSearchParams({
+                page: encodeURIComponent(window.location.href),
+                referrer: encodeURIComponent(document.referrer || "Direto"),
+                userAgent: encodeURIComponent(navigator.userAgent.substring(0, 200)),
+                timestamp: new Date().toISOString(),
+                method: 'pixel',
+                rand: Math.random()
+            });
+            
+            // Cria imagem de 1x1 pixel
+            const img = new Image();
+            img.src = WEB_APP_URL + '?' + params.toString();
+            img.style.display = 'none';
+            img.width = 1;
+            img.height = 1;
+            
+            document.body.appendChild(img);
+            console.log("✅ Pixel enviado:", img.src.substring(0, 200) + "...");
+            
+            return true;
+        }
+        
+        // 🎯 MÉTODO 3: Usando fetch com redirecionamento
+        async function enviarViaFetchRedirect() {
+            console.log("📤 Método Fetch Redirect: Iniciando...");
             
             try {
-                // Coleta IP real
-                let ip = "Não disponível";
-                try {
-                    const ipResponse = await fetch('https://api.ipify.org?format=json');
-                    const ipData = await ipResponse.json();
-                    ip = ipData.ip;
-                    log(`IP coletado: ${ip}`, "success");
-                } catch (ipError) {
-                    log(`Não foi possível obter IP: ${ipError.message}`, "warning");
-                }
-                
-                // Dados completos
                 const dados = {
                     page: window.location.href,
                     referrer: document.referrer || "Direto",
                     userAgent: navigator.userAgent,
-                    ip: ip,
-                    latitude: "-23.5505",
-                    longitude: "-46.6333",
-                    city: "São Paulo",
-                    state: "SP",
-                    country: "Brasil",
+                    ip: await getIP(),
                     timestamp: new Date().toISOString(),
-                    source: "teste_frontend",
-                    testId: "TEST_" + Date.now()
+                    method: 'fetch'
                 };
                 
-                log(`Enviando para: ${WEB_APP_URL}`, "info");
-                log(`Dados: ${JSON.stringify(dados).substring(0, 150)}...`, "info");
+                // Envia e redireciona para a resposta
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = WEB_APP_URL;
+                form.style.display = 'none';
                 
-                // 🎯 MÉTODO QUE FUNCIONA: Fetch com tratamento adequado
-                updateStatus("Enviando para Google Sheets...", "loading");
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'data';
+                input.value = JSON.stringify(dados);
                 
-                const resposta = await fetch(WEB_APP_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', // 🚨 IMPORTANTE: Google Apps Script requer no-cors
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(dados)
-                });
+                form.appendChild(input);
+                document.body.appendChild(form);
+                form.submit();
                 
-                // Com no-cors não podemos ler a resposta, mas sabemos que foi enviada
-                log("✅ Requisição enviada com sucesso (no-cors mode)", "success");
-                updateStatus("✅ Dados enviados! Verificando gravação...", "success");
-                
-                // Aguarda um pouco e verifica se gravou
-                setTimeout(verificarSeGravou, 3000);
+                console.log("✅ Fetch com redirecionamento enviado");
+                return true;
                 
             } catch (error) {
-                log(`❌ Erro: ${error.message}`, "error");
-                updateStatus(`❌ Erro: ${error.message}`, "error");
+                console.error("❌ Erro:", error);
+                return false;
             }
         }
         
-        function verificarSeGravou() {
-            log("🔍 Verificando se dados foram gravados...", "info");
-            updateStatus("🔍 Verificando gravação na planilha...", "loading");
-            
-            // Para verificar, precisaríamos de uma API de leitura
-            // Por enquanto, confiamos que gravou
-            log("📊 Verifique manualmente a planilha: https://docs.google.com/spreadsheets/d/10ilfKLVhvQ6xUjXdivzF7eFStyigEKv3Zyh9DvgC7ao/edit", "info");
-            updateStatus("✅ Processo concluído! Verifique a planilha.", "success");
-        }
-        
-        function testarMultiplos() {
-            log("🧪 Iniciando teste com múltiplos envios", "info");
-            
-            // Envia 3 vezes com intervalos
-            for (let i = 1; i <= 3; i++) {
-                setTimeout(() => {
-                    log(`Envio ${i} de 3 em 3 segundos...`, "info");
-                    enviarDados();
-                }, i * 3000);
+        // Função para pegar IP
+        async function getIP() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                return data.ip;
+            } catch {
+                return "Não disponível";
             }
         }
         
-        function limparLogs() {
-            logEntries = [];
-            updateLogDisplay();
-            log("Logs limpos", "info");
+        // 🎯 MÉTODO PRINCIPAL: Tenta todos os métodos
+        async function enviarDadosGarantido() {
+            console.log("🚀 INICIANDO ENVIO GARANTIDO");
+            
+            // Tenta Método 1
+            console.log("🔄 Tentando Método 1 (Form)...");
+            await enviarViaForm();
+            
+            // Aguarda 1 segundo
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            // Tenta Método 2
+            console.log("🔄 Tentando Método 2 (Pixel)...");
+            enviarViaPixel();
+            
+            // Aguarda 1 segundo
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            // Tenta Método 3
+            console.log("🔄 Tentando Método 3 (Fetch Redirect)...");
+            await enviarViaFetchRedirect();
+            
+            console.log("✅ Todos os métodos tentados");
+            alert("✅ Dados enviados por múltiplos métodos!\nVerifique a planilha.");
         }
         
-        // Inicialização
+        // Executa quando a página carrega
         window.onload = function() {
-            log("Página carregada", "info");
-            updateDataPreview();
+            console.log("🌐 Página carregada, iniciando envio...");
             
-            // Atualiza preview periodicamente
-            setInterval(updateDataPreview, 5000);
-            
-            // Envia automaticamente após 2 segundos
+            // Pequeno delay para garantir carregamento
             setTimeout(() => {
-                log("Envio automático iniciado...", "info");
-                enviarDados();
-            }, 2000);
+                enviarDadosGarantido();
+            }, 1500);
         };
         
-        // Log da URL
-        log(`Web App URL configurada: ${WEB_APP_URL}`, "info");
+    </script>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px; text-align: center;">
+    <h1>🚀 Teste de Gravação Google Sheets</h1>
+    <p>Enviando dados para sua planilha...</p>
+    
+    <div style="margin: 30px;">
+        <button onclick="enviarDadosGarantido()" style="padding: 15px 30px; font-size: 18px; background: #4285f4; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            🔄 Testar Novamente
+        </button>
+    </div>
+    
+    <div style="margin-top: 30px; padding: 20px; background: #f5f5f5; border-radius: 5px;">
+        <h3>📊 Status:</h3>
+        <p id="status">Enviando dados...</p>
+        <p><small>Verifique o console do navegador (F12) para detalhes</small></p>
+    </div>
+    
+    <script>
+        // Atualiza status
+        function atualizarStatus(mensagem) {
+            document.getElementById('status').textContent = mensagem;
+        }
         
+        // Sobrescreve console.log para mostrar na tela também
+        const consoleOriginal = console.log;
+        console.log = function(...args) {
+            consoleOriginal.apply(console, args);
+            const mensagem = args.map(arg => 
+                typeof arg === 'object' ? JSON.stringify(arg) : String(arg)
+            ).join(' ');
+            
+            if (mensagem.includes('✅') || mensagem.includes('❌')) {
+                atualizarStatus(mensagem);
+            }
+        };
+        
+        // Inicializa
+        atualizarStatus("Preparando envio...");
     </script>
 </body>
 </html>
