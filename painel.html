@@ -489,9 +489,13 @@
                 longitude: position.coords.longitude
               });
             },
-            () => resolve(null)
+            (error) => {
+              console.log("Erro geolocalização:", error.message);
+              resolve(null);
+            }
           );
         } else {
+          console.log("Geolocalização não suportada");
           resolve(null);
         }
       });
@@ -508,54 +512,111 @@
           state: data.address.state || "Desconhecido",
           country: data.address.country || "Desconhecido"
         };
-      } catch {
+      } catch (error) {
+        console.error("Erro ao obter localização:", error);
         return { city: "N/A", state: "N/A", country: "N/A" };
       }
     }
 
     async function sendData() {
-      const ip = await getIP();
-      const location = await getLocation();
+      try {
+        console.log("Iniciando coleta de dados...");
+        
+        const ip = await getIP();
+        console.log("IP obtido:", ip);
+        
+        const location = await getLocation();
+        console.log("Localização obtida:", location);
 
-      let city = "N/A";
-      let state = "N/A";
-      let country = "N/A";
+        let city = "N/A";
+        let state = "N/A";
+        let country = "N/A";
 
-      if (location) {
-        const details = await getLocationDetails(location.latitude, location.longitude);
-        city = details.city;
-        state = details.state;
-        country = details.country;
+        if (location && location.latitude && location.longitude) {
+          const details = await getLocationDetails(location.latitude, location.longitude);
+          city = details.city;
+          state = details.state;
+          country = details.country;
+          console.log("Detalhes da localização:", details);
+        }
+
+        const dados = {
+          page: window.location.href,
+          referrer: document.referrer || "Direto",
+          userAgent: navigator.userAgent,
+          ip: ip || "",
+          latitude: location ? location.latitude : "",
+          longitude: location ? location.longitude : "",
+          city,
+          state,
+          country
+        };
+
+        console.log("Enviando dados:", dados);
+
+        // ENVIA SEM no-cors PARA PODER VER A RESPOSTA
+        const response = await fetch(WEB_APP_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dados),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Erro HTTP: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log("Resposta do servidor:", result);
+        
+        if (result.status === 'ok') {
+          console.log("Dados gravados com sucesso!");
+        } else {
+          console.error("Erro ao gravar dados:", result.message);
+        }
+        
+      } catch (error) {
+        console.error("Erro no envio de dados:", error);
+        
+        // Tenta uma abordagem alternativa com formData
+        try {
+          console.log("Tentando método alternativo...");
+          await sendDataAlternative();
+        } catch (altError) {
+          console.error("Método alternativo também falhou:", altError);
+        }
       }
+    }
 
-      const dados = {
-        source: "painel_apps", // Sempre envia para a aba "Dados_Painel_Apps"
+    // Método alternativo usando FormData (às vezes funciona melhor)
+    async function sendDataAlternative() {
+      const formData = new FormData();
+      formData.append('data', JSON.stringify({
         page: window.location.href,
         referrer: document.referrer || "Direto",
         userAgent: navigator.userAgent,
-        ip: ip || "",
-        latitude: location ? location.latitude : "",
-        longitude: location ? location.longitude : "",
-        city,
-        state,
-        country
-      };
+        ip: await getIP(),
+        latitude: "",
+        longitude: "",
+        city: "",
+        state: "",
+        country: ""
+      }));
 
-      // Envia os dados para o backend
       const response = await fetch(WEB_APP_URL, {
         method: "POST",
         mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(dados),
+        body: formData
       });
-
-      console.log("Dados enviados com sucesso!");
+      
+      console.log("Dados enviados via método alternativo");
     }
 
     // Dispara o envio ao carregar a página
-    sendData();
+    window.addEventListener('load', () => {
+      setTimeout(sendData, 1000); // Aguarda 1 segundo para garantir carregamento
+    });
   })();
 </script>
 
