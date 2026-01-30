@@ -465,20 +465,22 @@
 -->
 
 
-    <script>
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwwrwV_vd7T6vnUQhE0L_fMYYiUn9Li7DCnj7O6czwRu9jgHGDWSGsE09jPHmCcuAgn0w/exec";
 
-        async function testarEnvio() {
-            const resultadoDiv = document.getElementById('resultado');
-            resultadoDiv.innerHTML = "Enviando dados...";
+
+    <script>
+        // URL DO SEU WEB APP (VERIFIQUE SE ESTÁ CORRETA)
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwwrwV_vd7T6vnUQhE0L_fMYYiUn9Li7DCnj7O6czwRu9jgHGDWSGsE09jPHmCcuAgn0w/exec";
+        
+        async function enviarDadosTeste() {
+            console.log("=== INICIANDO TESTE ===");
             
             try {
-                // Dados de teste
+                // Dados de teste SIMPLES
                 const dados = {
-                    page: window.location.href,
-                    referrer: document.referrer || "Direto",
+                    page: "https://teste.com/" + Date.now(), // Único a cada teste
+                    referrer: "https://google.com",
                     userAgent: navigator.userAgent,
-                    ip: "127.0.0.1", // IP de teste
+                    ip: "192.168.1." + Math.floor(Math.random() * 255),
                     latitude: "-23.5505",
                     longitude: "-46.6333",
                     city: "São Paulo",
@@ -486,39 +488,56 @@
                     country: "Brasil"
                 };
                 
-                console.log("Enviando dados:", dados);
+                console.log("📤 Enviando dados:", dados);
                 
-                // Usando fetch simples
-                const resposta = await fetch(WEB_APP_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', // IMPORTANTE: use no-cors para Google Apps Script
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(dados)
-                });
+                // Método 1: Usando XHR (XMLHttpRequest) - Mais compatível
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', WEB_APP_URL, true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
                 
-                // Como usamos no-cors, não podemos ler a resposta
-                // Mas podemos verificar se foi enviado
-                console.log("Requisição enviada");
-                resultadoDiv.innerHTML = "Dados enviados! Verifique a planilha.";
+                xhr.onload = function() {
+                    console.log("✅ Resposta recebida:");
+                    console.log("Status:", xhr.status);
+                    console.log("Resposta:", xhr.responseText);
+                    
+                    if (xhr.status === 200) {
+                        alert("✅ Dados enviados com sucesso!\nVerifique a planilha.");
+                    } else {
+                        alert("⚠️ Resposta não esperada: " + xhr.status);
+                    }
+                };
                 
-                // Método alternativo: usar um iframe
-                enviarViaIframe(dados);
+                xhr.onerror = function() {
+                    console.error("❌ Erro de rede");
+                    alert("❌ Erro de rede ao enviar dados");
+                };
+                
+                xhr.timeout = 10000; // 10 segundos
+                xhr.ontimeout = function() {
+                    console.error("⏰ Timeout");
+                    alert("⏰ Timeout ao enviar dados");
+                };
+                
+                console.log("Enviando requisição para:", WEB_APP_URL);
+                xhr.send(JSON.stringify(dados));
+                
+                // Método alternativo: FormData
+                setTimeout(() => {
+                    console.log("🔄 Tentando método alternativo...");
+                    enviarViaFormData(dados);
+                }, 2000);
                 
             } catch (erro) {
-                console.error("Erro:", erro);
-                resultadoDiv.innerHTML = "Erro: " + erro.message;
+                console.error("❌ Erro:", erro);
+                alert("❌ Erro: " + erro.message);
             }
         }
-
-        // Método alternativo usando iframe (evita CORS)
-        function enviarViaIframe(dados) {
+        
+        function enviarViaFormData(dados) {
             const form = document.createElement('form');
             form.method = 'POST';
             form.action = WEB_APP_URL;
-            form.target = 'iframeResposta';
-            form.style.display = 'none';
+            form.target = '_blank'; // Abre em nova aba
             
             const input = document.createElement('input');
             input.type = 'hidden';
@@ -528,25 +547,92 @@
             form.appendChild(input);
             document.body.appendChild(form);
             
-            // Cria iframe para receber resposta
-            const iframe = document.createElement('iframe');
-            iframe.name = 'iframeResposta';
-            iframe.style.display = 'none';
-            document.body.appendChild(iframe);
-            
+            console.log("📝 Enviando via formulário");
             form.submit();
             
-            // Limpa após 5 segundos
             setTimeout(() => {
                 document.body.removeChild(form);
-                document.body.removeChild(iframe);
-            }, 5000);
+            }, 3000);
         }
-
-        // Envia automaticamente ao carregar
-        window.addEventListener('load', function() {
-            setTimeout(testarEnvio, 1000);
-        });
+        
+        // Executa ao carregar a página
+        window.onload = function() {
+            console.log("Página carregada");
+            console.log("URL do Web App:", WEB_APP_URL);
+            
+            // Pequeno delay antes de enviar
+            setTimeout(() => {
+                console.log("⏳ Iniciando envio em 2 segundos...");
+                setTimeout(enviarDadosTeste, 2000);
+            }, 1000);
+        };
+        
+        // Botão para teste manual
+        function criarBotaoTeste() {
+            const btn = document.createElement('button');
+            btn.textContent = '🔧 TESTAR ENVIO MANUAL';
+            btn.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 25px;
+                background: #4285f4;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                cursor: pointer;
+                z-index: 1000;
+            `;
+            btn.onclick = enviarDadosTeste;
+            document.body.appendChild(btn);
+        }
+        
+        // Cria o botão quando a página carrega
+        document.addEventListener('DOMContentLoaded', criarBotaoTeste);
+        
     </script>
+</head>
+<body style="padding: 20px; font-family: Arial, sans-serif;">
+    <h1>🔧 Teste de Gravação no Google Sheets</h1>
+    <p><strong>URL do Web App:</strong> <span id="urlDisplay"></span></p>
+    <p><strong>Status:</strong> <span id="status">Aguardando envio...</span></p>
+    
+    <div style="background: #f5f5f5; padding: 15px; border-radius: 5px; margin: 20px 0;">
+        <h3>📋 Informações que serão enviadas:</h3>
+        <pre id="dadosPreview" style="background: white; padding: 10px; border-radius: 3px;"></pre>
+    </div>
+    
+    <button onclick="enviarDadosTeste()" style="padding: 10px 20px; font-size: 16px;">
+        🔄 Testar Novamente
+    </button>
+    
+    <script>
+        // Exibe a URL
+        document.getElementById('urlDisplay').textContent = WEB_APP_URL;
+        
+        // Atualiza o preview dos dados
+        function atualizarPreview() {
+            const dadosPreview = {
+                page: window.location.href,
+                referrer: document.referrer || "Direto",
+                userAgent: navigator.userAgent.substring(0, 50) + "...",
+                ip: "Será coletado automaticamente",
+                latitude: "-23.5505 (exemplo)",
+                longitude: "-46.6333 (exemplo)",
+                city: "São Paulo (exemplo)",
+                state: "SP (exemplo)",
+                country: "Brasil (exemplo)",
+                timestamp: new Date().toISOString()
+            };
+            
+            document.getElementById('dadosPreview').textContent = 
+                JSON.stringify(dadosPreview, null, 2);
+        }
+        
+        atualizarPreview();
+        setInterval(atualizarPreview, 5000);
+    </script>
+
 </body>
 </html>
