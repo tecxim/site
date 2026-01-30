@@ -491,21 +491,23 @@
             // Coleta dados de geolocalização com base no IP (usando ipinfo.io)
             let latitude = "";
             let longitude = "";
-            let city = "";
+            let city = "Não disponível"; // Valor padrão
             let state = "";
             let country = "";
 
             try {
-                const geoResponse = await fetch(`https://ipinfo.io/${ip}/json?`);
+                const geoResponse = await fetch(`https://ipinfo.io/${ip}/json?token=SEU_TOKEN_AQUI`);
                 const geoData = await geoResponse.json();
 
                 // Extrair coordenadas (latitude/longitude) usando a localização
                 const loc = geoData.loc ? geoData.loc.split(',') : ["", ""];
                 latitude = loc[0] || "";
                 longitude = loc[1] || "";
-                city = geoData.city || "";
-                state = geoData.region || "";
-                country = geoData.country || "";
+
+                // Verificar se a cidade existe nos dados retornados
+                city = geoData.city ? geoData.city : "Não disponível";
+                state = geoData.region ? geoData.region : "";
+                country = geoData.country ? geoData.country : "";
             } catch (error) {
                 console.error("Erro na geolocalização:", error);
             }
@@ -518,7 +520,7 @@
                 ip: ip,
                 latitude: latitude,
                 longitude: longitude,
-                city: city,
+                city: city, // Agora com valor padrão
                 state: state,
                 country: country
             };
@@ -549,10 +551,6 @@
 
 })();
 </script>
-
-
-
-
 
 </body>
 </html>
