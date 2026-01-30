@@ -474,121 +474,57 @@
 
 <script>
 (function() {
-    // URL do seu Web App
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwzaA9mj9o8Sq8ORQkqFDuLTtzLvi86SpyEKN8KK2gBAfQEegxvOi31DLNTxNQZSHF4CQ/exec";
     
-    // Função para coletar geolocalização
-    function getLocation() {
-        return new Promise((resolve) => {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        resolve({
-                            latitude: position.coords.latitude,
-                            longitude: position.coords.longitude
-                        });
-                    },
-                    () => resolve(null)
-                );
-            } else {
-                resolve(null);
-            }
-        });
-    }
-    
-    // Função para detalhes da localização
-    async function getLocationDetails(latitude, longitude) {
-        try {
-            const response = await fetch(
-                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
-            );
-            const data = await response.json();
-            return {
-                city: data.address.city || data.address.town || data.address.village || "",
-                state: data.address.state || "",
-                country: data.address.country || ""
-            };
-        } catch {
-            return { city: "", state: "", country: "" };
-        }
-    }
-    
-    // Função principal
     async function enviarDados() {
         try {
             // Coleta IP
             let ip = "";
             try {
-                const ipResponse = await fetch("https://api.ipify.org?format=json");
-                const ipData = await ipResponse.json();
-                ip = ipData.ip;
-            } catch {}
-            
-            // Coleta geolocalização
-            const location = await getLocation();
-            
-            // Coleta detalhes da localização
-            let city = "", state = "", country = "";
-            if (location && location.latitude && location.longitude) {
-                try {
-                    const details = await getLocationDetails(location.latitude, location.longitude);
-                    city = details.city;
-                    state = details.state;
-                    country = details.country;
-                } catch {}
+                const response = await fetch("https://api.ipify.org?format=json");
+                const data = await response.json();
+                ip = data.ip;
+            } catch {
+                ip = "Não coletado";
             }
             
-            // Prepara TODOS os dados
+            // 🔥 DADOS COMPLETOS (mesmo que alguns sejam vazios)
             const dados = {
                 page: window.location.href,
                 referrer: document.referrer || "Direto",
                 userAgent: navigator.userAgent,
-                ip: ip || "",
-                latitude: location ? location.latitude : "",
-                longitude: location ? location.longitude : "",
-                city: city,
-                state: state,
-                country: country
+                ip: ip,
+                latitude: "",  // Campo sempre enviado (mesmo vazio)
+                longitude: "", // Campo sempre enviado (mesmo vazio)
+                city: "",      // Campo sempre enviado (mesmo vazio)
+                state: "",     // Campo sempre enviado (mesmo vazio)
+                country: ""    // Campo sempre enviado (mesmo vazio)
             };
             
             console.log("📤 Enviando dados:", dados);
             
-            // 🔥 MÉTODO 1: Pixel tracker (funciona sempre)
-            const img = document.createElement('img');
-            img.width = 1;
-            img.height = 1;
-            img.style.display = 'none';
+            // Form submission
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = WEB_APP_URL;
+            form.target = '_blank'; // 🔥 Abre em background
+            form.style.cssText = 'display:none;';
             
-            // Usa encodeURIComponent para enviar dados via URL
-            const params = new URLSearchParams();
-            params.append('data', JSON.stringify(dados));
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'data';
+            input.value = JSON.stringify(dados);
             
-            img.src = WEB_APP_URL + '?' + params.toString();
-            document.body.appendChild(img);
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
             
-            // 🔥 MÉTODO 2: Form submission como backup
+            // Remove após 5 segundos
             setTimeout(() => {
-                const form = document.createElement('form');
-                form.method = 'POST';
-                form.action = WEB_APP_URL;
-                form.target = '_blank';
-                form.style.cssText = 'position:absolute;left:-9999px;top:-9999px;';
-                
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = 'data';
-                input.value = JSON.stringify(dados);
-                
-                form.appendChild(input);
-                document.body.appendChild(form);
-                form.submit();
-                
-                setTimeout(() => {
-                    try {
-                        document.body.removeChild(form);
-                    } catch(e) {}
-                }, 3000);
-            }, 500);
+                try {
+                    document.body.removeChild(form);
+                } catch(e) {}
+            }, 5000);
             
             console.log("✅ Dados enviados!");
             
