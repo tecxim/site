@@ -238,13 +238,7 @@
 
         </header>
 
-        <div class="categories">
-            <button class="category-btn active" data-category="all">Todos</button>
-            <button class="category-btn" data-category="sites">Sites</button>
-            <button class="category-btn" data-category="biblia">Apps da Bíblia</button>
-            <button class="category-btn" data-category="jogos">Jogos</button>
-        </div>
-
+        
         <div class="resources-grid">
                         
             <!-- Sites -->
@@ -610,28 +604,6 @@
   document.getElementById('currentYear').textContent = new Date().getFullYear();
 </script>
 
-            <script>
-document.querySelectorAll('.category-btn').forEach(button => {
-  button.addEventListener('click', () => {
-    const category = button.dataset.category;
-
-    document.querySelectorAll('.category-btn').forEach(btn =>
-      btn.classList.remove('active')
-    );
-    button.classList.add('active');
-
-    document.querySelectorAll('.item').forEach(item => {
-      if (category === 'all' || item.dataset.category === category) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  });
-});
-</script>
-
-
-
+       
 </body>
 </html>
