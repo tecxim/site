@@ -224,6 +224,12 @@
 </head>
 <body>
 
+    <div class="item" data-category="jogos">Jogo</div>
+    <div class="item" data-category="biblia">Bíblia</div>
+    <div class="item" data-category="sites">Site</div>
+
+
+    
             <div class="container">
             <header>
                 <h1>Central de Apps e Jogos Grátis | Aplicativos e Games Online</h1>
@@ -599,10 +605,48 @@
       </div>
     </footer>
 
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".category-btn").forEach(button => {
+    button.addEventListener("click", () => {
+      const category = button.dataset.category;
+
+      document.querySelectorAll(".category-btn")
+        .forEach(b => b.classList.remove("active"));
+      button.classList.add("active");
+
+      document.querySelectorAll(".item").forEach(item => {
+        item.style.display =
+          category === "all" || item.dataset.category === category
+            ? "block"
+            : "none";
+      });
+    });
+  });
+});
+</script>
+
+
 <!-- Script para atualizar o ano automaticamente -->
 <script>
   document.getElementById('currentYear').textContent = new Date().getFullYear();
 </script>
+
+ <script>
+/* Bloqueios básicos sem afetar interação */
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+document.addEventListener("keydown", e => {
+  const k = e.key.toLowerCase();
+  if (
+    e.key === "F12" ||
+    (e.ctrlKey && ["u", "s"].includes(k))
+  ) {
+    e.preventDefault();
+  }
+});
+</script>
+
 
        
 </body>
