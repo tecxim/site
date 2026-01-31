@@ -590,17 +590,21 @@
       <div style="
         border-top: 1px solid #eee;
         padding-top: 10px;
-        text-align: center; /* Centraliza o conteúdo horizontalmente */
-        font-family: Arial, sans-serif; /* Adiciona uma fonte mais moderna */
-        width: 100%; /* Garante que a div ocupe toda a largura */
+        text-align: center;
+        font-family: Arial, sans-serif;
+        width: 100%;
+        max-width: 1200px; /* Largura máxima para desktop */
+        margin: 0 auto; /* Centraliza horizontalmente */
+        box-sizing: border-box; /* Inclui padding na largura total */
       ">
         <p style="
           margin: 0;
           font-size: 12px;
           color: #666;
-          display: inline-block; /* Permite que o texto fique centralizado corretamente */
+          display: inline-block;
+          padding: 0 15px; /* Adiciona padding lateral para evitar que o texto fique muito próximo das bordas */
         ">
-          Desenvolvido por: <strong>Wellington A. R. Cardoso</strong> &
+          Desenvolvido por: <strong>Wellington A. R. Cardoso</strong>
           © <span id="currentYear"></span> Todos os direitos reservados
         </p>
       </div>
