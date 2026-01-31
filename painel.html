@@ -587,13 +587,30 @@
 
     
   <footer>
-     <div style="border-top: 1px solid #eee; padding-top: 10px;">
-        <p style="margin: 0; font-size: 12px; color: #666;">
-            Desenvolvido por: <strong>Wellington A. R. Cardoso</strong> |
-            © <span id="currentYear"></span> Todos os direitos reservados
+      <div style="
+        border-top: 1px solid #eee;
+        padding-top: 10px;
+        text-align: center; /* Centraliza o conteúdo horizontalmente */
+        font-family: Arial, sans-serif; /* Adiciona uma fonte mais moderna */
+        width: 100%; /* Garante que a div ocupe toda a largura */
+      ">
+        <p style="
+          margin: 0;
+          font-size: 12px;
+          color: #666;
+          display: inline-block; /* Permite que o texto fique centralizado corretamente */
+        ">
+          Desenvolvido por: <strong>Wellington A. R. Cardoso</strong> &
+          © <span id="currentYear"></span> Todos os direitos reservados
         </p>
-    </div>
-  </footer>
+      </div>
+    </footer>
+
+<!-- Script para atualizar o ano automaticamente -->
+<script>
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
+
 
 </body>
 </html>
