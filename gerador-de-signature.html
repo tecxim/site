@@ -181,10 +181,12 @@
             margin-left: auto;
             flex-shrink: 0;
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* Alterado de center para flex-start */
             justify-content: flex-end;
-            padding: 5px;
+            padding: 0; /* Removido padding */
+            margin-top: -5px; /* Ajuste fino para alinhar exatamente ao topo */
         }
+        
         .logo img {
             max-width: 100%;
             max-height: 80px;
@@ -193,7 +195,7 @@
             object-fit: contain;
             display: block;
         }
-        .personal-info {
+                .personal-info {
             flex: 1;
             min-width: 200px;
         }
@@ -376,24 +378,27 @@
             }
         }
         @media (max-width: 480px) {
-            .signature-header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .avatar {
-                width: 80px;
-                height: 80px;
-                margin: 0 auto;
-            }
-            .logo {
-                margin: 10px auto 0;
-                max-width: 150px;
-            }
-            .personal-info {
-                text-align: center;
-                width: 100%;
-            }
+                    .signature-header {
+                        flex-direction: column;
+                        align-items: center;
+                        text-align: center;
+                    }
+                    .avatar {
+                        width: 80px;
+                        height: 80px;
+                        margin: 0 auto;
+                    }
+                    .logo {
+                        margin: 0 auto 10px; /* Ajustado para centralizar no mobile */
+                        max-width: 150px;
+                        align-items: center;
+                        margin-top: 0;
+                    }
+                    .personal-info {
+                        text-align: center;
+                        width: 100%;
+                    }
+                }
             .contact-item {
                 justify-content: flex-start;
                 text-align: left;
