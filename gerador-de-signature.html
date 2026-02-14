@@ -154,15 +154,15 @@
             flex-wrap: wrap;
         }
         .avatar {
-            width: 90px;
-            height: 90px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             background: #3498db;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
             overflow: hidden;
             flex-shrink: 0;
@@ -173,8 +173,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center 30%;
             display: block;
-            object-position: center 40%; 
         }
         .logo {
             max-width: 250px;
@@ -182,12 +182,11 @@
             margin-left: auto;
             flex-shrink: 0;
             display: flex;
-            align-items: flex-start; /* Alterado de center para flex-start */
+            align-items: flex-start;
             justify-content: flex-end;
-            padding: 0; /* Removido padding */
-            margin-top: -5px; /* Ajuste fino para alinhar exatamente ao topo */
+            padding: 0;
+            margin-top: -5px;
         }
-        
         .logo img {
             max-width: 100%;
             max-height: 100px;
@@ -196,7 +195,7 @@
             object-fit: contain;
             display: block;
         }
-                .personal-info {
+        .personal-info {
             flex: 1;
             min-width: 200px;
         }
@@ -236,28 +235,11 @@
         .contact-item span {
             flex: 1;
         }
-        .social-links {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        .social-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: #3498db;
+        .email-icon-group {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            transition: transform 0.2s;
-        }
-        .social-icon:hover {
-            transform: scale(1.1);
+            gap: 5px;
+            flex-wrap: wrap;
         }
         footer {
             grid-column: 1 / -1;
@@ -334,17 +316,6 @@
             font-weight: 600;
             text-decoration: underline;
         }
-        .email-icon-group {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            flex-wrap: wrap;
-        }
-        .email-icon-group span {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
         @media (min-width: 768px) {
             .container {
                 grid-template-columns: 1fr 1fr;
@@ -371,41 +342,38 @@
                 font-size: 1rem;
             }
             .logo {
-                max-width: 200px;
-                max-height: 90px;
+                max-width: 250px;
+                max-height: 100px;
             }
             .logo img {
-                max-height: 90px;
+                max-height: 100px;
             }
         }
         @media (max-width: 480px) {
-                    .signature-header {
-                        flex-direction: column;
-                        align-items: center;
-                        text-align: center;
-                    }
-                    .avatar {
-                        width: 80px;
-                        height: 80px;
-                        margin: 0 auto;
-                    }
-                    .logo {
-                        margin: 0 auto 10px; /* Ajustado para centralizar no mobile */
-                        max-width: 150px;
-                        align-items: center;
-                        margin-top: 0;
-                    }
-                    .personal-info {
-                        text-align: center;
-                        width: 100%;
-                    }
-                }
+            .signature-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .avatar {
+                width: 80px;
+                height: 80px;
+                margin: 0 auto;
+            }
+            .logo {
+                max-width: 200px;
+                max-height: 80px;
+                margin: 0 auto 10px;
+                align-items: center;
+                margin-top: 0;
+            }
+            .personal-info {
+                text-align: center;
+                width: 100%;
+            }
             .contact-item {
                 justify-content: flex-start;
                 text-align: left;
-            }
-            .social-links {
-                justify-content: center;
             }
         }
     </style>
@@ -518,8 +486,9 @@
                         </span>
                     </div>
                 </div>
-                
-                       
+            </div>
+        </div>
+        
         <button class="btn btn-download" id="download-btn">Baixar como Imagem</button>
         
         <div class="instructions">
@@ -665,27 +634,22 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Atualiza avatar
         if (uploadedPhoto) {
-            avatarPreview.innerHTML = `<img src="${uploadedPhoto}" alt="Foto" style="width:100%; height:100%; object-fit:cover;">`;
+            avatarPreview.innerHTML = `<img src="${uploadedPhoto}" alt="Foto" style="width:100%; height:100%; object-fit:cover; object-position:center 30%;">`;
         } else {
             const name = nameInput.value || 'João Silva';
             const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
             avatarPreview.innerHTML = initials;
             avatarPreview.style.background = color;
-            avatarPreview.style.display = 'flex';
         }
         
         // Atualiza logo
         if (uploadedLogo) {
-            logoPreviewContainer.innerHTML = `<img src="${uploadedLogo}" alt="Logo" style="max-width:100%; max-height:80px; width:auto; height:auto; object-fit:contain;">`;
+            logoPreviewContainer.innerHTML = `<img src="${uploadedLogo}" alt="Logo" style="max-width:100%; max-height:100px; width:auto; height:auto; object-fit:contain;">`;
         } else {
             logoPreviewContainer.innerHTML = '';
         }
         
         // Atualiza cores dos elementos
-        document.querySelectorAll('.social-icon').forEach(el => {
-            el.style.backgroundColor = color;
-        });
-        
         document.querySelectorAll('.contact-item i').forEach(icon => {
             icon.style.color = color;
         });
@@ -696,30 +660,24 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSignature();
     });
     
+    // Função original de download - apenas a assinatura
+    function downloadSignature() {
+        html2canvas(signaturePreview, {
+            scale: 2,
+            useCORS: true,
+            logging: false,
+            backgroundColor: '#ffffff'
+        }).then(canvas => {
+            const link = document.createElement('a');
+            link.download = 'assinatura-email.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        });
+    }
+    
     // Download da assinatura
     downloadBtn.addEventListener('click', function() {
-        updateSignature();
-        
-        // Pequeno delay para garantir que tudo foi renderizado
-        setTimeout(() => {
-            html2canvas(signaturePreview, {
-                scale: 2,
-                useCORS: true,
-                allowTaint: false,
-                logging: false,
-                backgroundColor: '#ffffff',
-                windowWidth: signaturePreview.scrollWidth,
-                windowHeight: signaturePreview.scrollHeight
-            }).then(canvas => {
-                const link = document.createElement('a');
-                link.download = 'assinatura-email.png';
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-            }).catch(error => {
-                console.error('Erro ao gerar imagem:', error);
-                alert('Erro ao gerar imagem. Tente novamente.');
-            });
-        }, 100);
+        downloadSignature();
     });
     
     // Atualiza preview inicial
