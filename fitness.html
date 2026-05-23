@@ -1,456 +1,527 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    
-    <!-- Título otimizado SEO -->
-    <title id="page-title">WACShield Fit | IA para Emagrecimento e Saúde Personalizada</title>
-    <meta name="description" id="meta-description" content="Aplicativo de emagrecimento com inteligência artificial. Monitore calorias, receba dicas personalizadas e atinja suas metas.">
-    <meta name="keywords" content="emagrecimento, inteligência artificial, saúde, fitness, calorias, IMC, dieta, nutrição, app saúde">
-    <meta name="author" content="WACShield">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="googlebot" content="index, follow">
-    <meta name="bingbot" content="index, follow">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://seuusuario.github.io/wacshield-fit/">
-    
-    <!-- Alternate language versions -->
-    <link rel="alternate" hreflang="pt-BR" href="https://seuusuario.github.io/wacshield-fit/?lang=pt">
-    <link rel="alternate" hreflang="en" href="https://seuusuario.github.io/wacshield-fit/?lang=en">
-    <link rel="alternate" hreflang="x-default" href="https://seuusuario.github.io/wacshield-fit/">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seuusuario.github.io/wacshield-fit/">
-    <meta property="og:title" content="WACShield Fit - Transforme sua saúde com Inteligência Artificial">
-    <meta property="og:description" content="Aplicativo de emagrecimento com inteligência artificial. Monitore calorias, receba dicas personalizadas e atinja suas metas.">
-    <meta property="og:image" content="https://seuusuario.github.io/wacshield-fit/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="WACShield Fit">
-    <meta property="og:locale" content="pt_BR">
-    <meta property="og:locale:alternate" content="pt_BR">
-    <meta property="og:locale:alternate" content="en_US">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://seuusuario.github.io/wacshield-fit/">
-    <meta name="twitter:title" content="WACShield Fit - Transforme sua saúde com IA">
-    <meta name="twitter:description" content="Aplicativo de emagrecimento com inteligência artificial. Monitore calorias, receba dicas personalizadas e atinja suas metas.">
-    <meta name="twitter:image" content="https://seuusuario.github.io/wacshield-fit/twitter-image.jpg">
-    
-    <!-- Additional SEO meta tags -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="WACShield Fit">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="theme-color" content="#2e7d32">
-    
-    <!-- Favicon e ícones (substitua pelos seus arquivos) -->
-    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💪</text></svg>">
-    
-    <!-- Preconnect para carregamento mais rápido -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    
-    <!-- Fontes e Estilos -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Structured Data / Schema.org -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "WACShield Fit",
-      "alternateName": "App de Emagrecimento com IA",
-      "url": "https://seuusuario.github.io/wacshield-fit/",
-      "description": "Aplicativo de emagrecimento com inteligência artificial. Monitore calorias, receba dicas personalizadas e atinja suas metas.",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Web, iOS, Android",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "1250",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "creator": {
-        "@type": "Organization",
-        "name": "WACShield"
-      },
-      "featureList": [
-        "Dashboard Inteligente",
-        "Registro de Refeições com IA",
-        "Assistente Pessoal de Saúde",
-        "Metas Personalizadas",
-        "Controle de Hidratação",
-        "Histórico Completo de Evolução"
-      ],
-      "inLanguage": "pt-BR"
-    }
-    </script>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>WACShield Fit | Transforme sua rotina diariamente</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Library (animações suaves) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #e8f0e8 100%); color: #1a2b3e; line-height: 1.5; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        
-        /* Header */
-        .header { padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-        .logo { font-size: 28px; font-weight: 800; background: linear-gradient(135deg, #2e7d32, #43a047); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .logo span { color: #2e7d32; -webkit-text-fill-color: initial; }
-        
-        /* Language Switcher */
-        .lang-switcher { display: flex; gap: 10px; }
-        .lang-btn { background: white; border: 2px solid #2e7d32; color: #2e7d32; padding: 8px 20px; border-radius: 40px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.3s; text-decoration: none; display: inline-block; }
-        .lang-btn:hover { background: #2e7d32; color: white; transform: translateY(-2px); }
-        .lang-btn.active { background: #2e7d32; color: white; }
-        
-        /* Hero */
-        .hero { display: flex; align-items: center; justify-content: space-between; gap: 60px; padding: 60px 0; flex-wrap: wrap; }
-        .hero-content { flex: 1; min-width: 280px; }
-        .hero-title { font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 20px; background: linear-gradient(135deg, #1b5e20, #2e7d32, #43a047); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-subtitle { font-size: 18px; color: #555; margin-bottom: 30px; }
-        .btn-primary { display: inline-block; background: linear-gradient(135deg, #2e7d32, #43a047); color: white; padding: 14px 32px; border-radius: 48px; text-decoration: none; font-weight: 700; font-size: 16px; transition: all 0.3s; box-shadow: 0 4px 12px rgba(46,125,50,0.3); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(46,125,50,0.4); }
-        .hero-image { flex: 1; min-width: 280px; background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 40px; padding: 40px; text-align: center; }
-        .hero-image i { font-size: 120px; color: #2e7d32; }
-        
-        /* Features */
-        .features { padding: 80px 0; }
-        .section-title { text-align: center; font-size: 36px; font-weight: 700; margin-bottom: 16px; color: #1b5e20; }
-        .section-subtitle { text-align: center; color: #666; margin-bottom: 50px; font-size: 18px; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
-        .feature-card { background: white; border-radius: 24px; padding: 32px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s; }
-        .feature-card:hover { transform: translateY(-5px); }
-        .feature-icon { width: 70px; height: 70px; background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
-        .feature-icon i { font-size: 32px; color: #2e7d32; }
-        .feature-card h3 { font-size: 20px; margin-bottom: 12px; color: #1b5e20; }
-        .feature-card p { color: #666; font-size: 14px; }
-        
-        /* Stats */
-        .stats { background: linear-gradient(135deg, #1b5e20, #2e7d32); color: white; padding: 60px 0; border-radius: 40px; margin: 40px 0; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; text-align: center; }
-        .stat-number { font-size: 48px; font-weight: 800; }
-        .stat-label { font-size: 16px; opacity: 0.9; margin-top: 8px; }
-        
-        /* CTA */
-        .cta { text-align: center; padding: 60px 0; }
-        .cta h2 { font-size: 32px; margin-bottom: 16px; }
-        .cta p { color: #666; margin-bottom: 30px; }
-        
-        /* Footer */
-        .footer { text-align: center; padding: 30px 0; border-top: 1px solid #e0e0e0; color: #888; font-size: 12px; margin-top: 40px; }
-        
-        @media (max-width: 768px) {
-            .hero-title { font-size: 32px; }
-            .section-title { font-size: 28px; }
-            .stat-number { font-size: 32px; }
-            .header { flex-direction: column; text-align: center; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0C10;
+            color: #EFF3F8;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* scrollbar premium */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #14161C;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #32CD8C;
+            border-radius: 8px;
+        }
+
+        /* container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* tipografia */
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, #B0FFE0 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        @media (min-width: 768px) {
+            h2 {
+                font-size: 2.8rem;
+            }
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(95deg, #32CD8C 0%, #2EBD7D 100%);
+            color: #0A0C10;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 14px 32px;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 20px rgba(50, 205, 140, 0.2);
+            border: none;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(50, 205, 140, 0.35);
+            background: linear-gradient(95deg, #3be09a 0%, #34cc86 100%);
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            border: 1.5px solid rgba(255,255,255,0.3);
+            color: white;
+            border-radius: 60px;
+            padding: 12px 28px;
+            font-weight: 500;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-outline-light:hover {
+            border-color: #32CD8C;
+            background: rgba(50,205,140,0.1);
+        }
+
+        /* seções gerais */
+        section {
+            padding: 80px 0;
+        }
+
+        .bg-dark-card {
+            background: #111317;
+            border-radius: 32px;
+            padding: 32px 24px;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* hero */
+        .hero {
+            padding-top: 100px;
+            padding-bottom: 60px;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        @media (min-width: 900px) {
+            .hero-grid {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .hero-content {
+                flex: 1;
+            }
+            .hero-mockup {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            color: #B0C4DE;
+            margin-bottom: 2rem;
+            line-height: 1.4;
+        }
+
+        /* mockup app com gráficos interativos */
+        .phone-mockup {
+            background: #1A1D25;
+            border-radius: 48px;
+            padding: 16px 12px 20px 12px;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.5);
+            max-width: 320px;
+            margin: 0 auto;
+            border: 1px solid rgba(50,205,140,0.3);
+        }
+        .mockup-screen {
+            background: #0E1015;
+            border-radius: 36px;
+            padding: 20px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .progress-stat {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .bar-container {
+            background: #262A34;
+            border-radius: 20px;
+            height: 10px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            width: 68%;
+            height: 100%;
+            background: linear-gradient(90deg, #32CD8C, #97F7C0);
+            border-radius: 20px;
+        }
+        .cal-circle {
+            background: #1C1F28;
+            border-radius: 28px;
+            padding: 12px;
+            text-align: center;
+        }
+        .graph-bars {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        .graph-bar-item {
+            width: 28px;
+            background: #32CD8C;
+            border-radius: 12px;
+            height: 40px;
+            transition: 0.3s;
+        }
+
+        /* cards dor/solução/benefícios */
+        .card-dor {
+            background: rgba(30, 33, 42, 0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 28px;
+            padding: 28px 20px;
+            transition: all 0.2s;
+            border-left: 4px solid #FF5A5F;
+        }
+        .grid-2col, .grid-3col {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        @media (min-width: 640px) {
+            .grid-2col {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .grid-3col {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1000px) {
+            .grid-3col {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .icon-circle {
+            background: rgba(50,205,140,0.15);
+            width: 52px;
+            height: 52px;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #32CD8C;
+            font-size: 1.8rem;
+        }
+        /* depoimentos */
+        .testimonial-card {
+            background: #111419;
+            border-radius: 28px;
+            padding: 28px;
+            border: 1px solid #2A2E38;
+        }
+        .stars {
+            color: #FFB83B;
+            margin-bottom: 16px;
+        }
+        /* mockup seção visual do app */
+        .dashboard-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 28px;
+            margin-top: 32px;
+        }
+        .mini-card {
+            background: #11151E;
+            border-radius: 28px;
+            padding: 20px;
+            width: 220px;
+            text-align: center;
+        }
+        /* rodapé */
+        footer {
+            background: #05070A;
+            padding: 48px 0 32px;
+            border-top: 1px solid rgba(50,205,140,0.2);
+        }
+        .social-icons a {
+            color: #EFF3F8;
+            margin: 0 12px;
+            font-size: 1.5rem;
+            transition: 0.2s;
+        }
+        .social-icons a:hover {
+            color: #32CD8C;
+        }
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(20px);}
+            100% { opacity: 1; transform: translateY(0);}
+        }
+        .animate-fade {
+            animation: fadeUp 0.6s ease forwards;
+        }
+        .badge-premium {
+            background: rgba(50,205,140,0.2);
+            border-radius: 40px;
+            padding: 4px 14px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 16px;
+            color: #32CD8C;
+        }
+        .micro-interaction {
+            transition: all 0.2s;
+        }
+        .micro-interaction:hover {
+            transform: scale(1.02);
+        }
+        button, a {
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="logo">WAC<span>Shield</span> Fit</div>
-            <div class="lang-switcher">
-                <button class="lang-btn" data-lang="pt">🇧🇷 Português</button>
-                <button class="lang-btn" data-lang="en">🇺🇸 English</button>
-            </div>
-        </div>
-        
-        <div class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title" data-key="heroTitle">Sua jornada de saúde com inteligência artificial</h1>
-                <p class="hero-subtitle" data-key="heroSubtitle">Monitore calorias, acompanhe seu IMC, receba dicas personalizadas e atinja suas metas com o poder da IA.</p>
-                <a href="https://fit.wacshield.com" class="btn-primary" data-key="btnStart">Começar agora →</a>
-            </div>
-            <div class="hero-image">
-                <i class="fas fa-heartbeat"></i>
-                <i class="fas fa-apple-alt" style="margin-left: 20px;"></i>
-                <i class="fas fa-dumbbell" style="margin-left: 20px;"></i>
-            </div>
-        </div>
-        
-        <div class="features">
-            <h2 class="section-title" data-key="featuresTitle">Tudo que você precisa</h2>
-            <p class="section-subtitle" data-key="featuresSubtitle">Tecnologia a favor da sua saúde</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3 data-key="feature1Title">Dashboard Inteligente</h3>
-                    <p data-key="feature1Desc">Acompanhe calorias, peso, IMC e progresso em tempo real.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-utensils"></i></div>
-                    <h3 data-key="feature2Title">Registro de Refeições</h3>
-                    <p data-key="feature2Desc">Busque alimentos, calcule calorias e receba feedback da IA.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-robot"></i></div>
-                    <h3 data-key="feature3Title">Assistente IA</h3>
-                    <p data-key="feature3Desc">Dicas personalizadas baseadas nos seus hábitos e metas.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
-                    <h3 data-key="feature4Title">Metas Personalizadas</h3>
-                    <p data-key="feature4Desc">Defina objetivos de peso e calorias. Acompanhe sua evolução.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-tint"></i></div>
-                    <h3 data-key="feature5Title">Controle de Hidratação</h3>
-                    <p data-key="feature5Desc">Registre sua ingestão de água e mantenha-se hidratado.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-chart-simple"></i></div>
-                    <h3 data-key="feature6Title">Histórico Completo</h3>
-                    <p data-key="feature6Desc">Veja sua evolução ao longo do tempo com gráficos detalhados.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="stats">
-            <div class="stats-grid">
-                <div>
-                    <div class="stat-number" data-key="stat1Number">500+</div>
-                    <div class="stat-label" data-key="stat1Label">Alimentos na base</div>
-                </div>
-                <div>
-                    <div class="stat-number" data-key="stat2Number">24/7</div>
-                    <div class="stat-label" data-key="stat2Label">Assistente IA</div>
-                </div>
-                <div>
-                    <div class="stat-number" data-key="stat3Number">100%</div>
-                    <div class="stat-label" data-key="stat3Label">Personalizado</div>
-                </div>
-                <div>
-                    <div class="stat-number" data-key="stat4Number">Grátis</div>
-                    <div class="stat-label" data-key="stat4Label">30 dias teste</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="cta">
-            <h2 data-key="ctaTitle">Pronto para transformar sua saúde?</h2>
-            <p data-key="ctaSubtitle">Junte-se a milhares de pessoas que já estão mudando seus hábitos.</p>
-            <a href="https://fit.wacshield.com" class="btn-primary" data-key="ctaBtn">Comece agora gratuitamente →</a>
-        </div>
-        
-        <div class="footer">
-            <p>© 2026 WACShield Fit - <span data-key="footerText">Aplicativo de apoio ao bem-estar e hábitos saudáveis</span></p>
-            <p style="margin-top: 8px;">
-                <a href="https://fit.wacshield.com" style="color: #2e7d32; text-decoration: none;" data-key="footerLink">fit.wacshield.com</a>
-            </p>
-        </div>
-    </div>
 
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
+                    <div class="badge-premium"><i class="fas fa-bolt"></i> IA + Hábitos inteligentes</div>
+                    <h1 class="hero-title">Transforme sua rotina<br>diariamente.</h1>
+                    <p class="hero-sub">Controle calorias, crie hábitos saudáveis e acompanhe seu progresso todos os dias.</p>
+                    <a href="https://fit.wacshield.com" target="_blank" class="btn-primary"><i class="fas fa-calendar-check"></i> Teste grátis por 30 dias</a>
+                    <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.7;"><i class="fas fa-download"></i> Disponível em iOS e Android</p>
+                </div>
+                <div class="hero-mockup" data-aos="fade-up" data-aos-duration="900" data-aos-delay="150">
+                    <div class="phone-mockup">
+                        <div class="mockup-screen">
+                            <div class="progress-stat"><span>Meta diária</span><span>1.860 / 2.200 kcal</span></div>
+                            <div class="bar-container"><div class="bar-fill"></div></div>
+                            <div class="progress-stat"><span>Hidratação</span><span>1.8L / 2.5L</span></div>
+                            <div class="bar-container"><div style="width: 72%; height: 100%; background: #32CD8C; border-radius: 20px;"></div></div>
+                            <div class="cal-circle">
+                                <i class="fas fa-chart-line" style="color:#32CD8C; margin-right: 8px;"></i> Evolução semanal
+                                <div class="graph-bars" style="margin-top: 12px;">
+                                    <div class="graph-bar-item" style="height: 34px;"></div>
+                                    <div class="graph-bar-item" style="height: 52px;"></div>
+                                    <div class="graph-bar-item" style="height: 48px;"></div>
+                                    <div class="graph-bar-item" style="height: 70px;"></div>
+                                    <div class="graph-bar-item" style="height: 62px;"></div>
+                                </div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 6px;">
+                                <span><i class="fas fa-check-circle" style="color:#32CD8C;"></i> 5/7 dias ativo</span>
+                                <span><i class="fas fa-fire"></i> 384 kcal queimadas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DOR (FRUSTRAÇÕES) -->
+    <section style="background: linear-gradient(145deg, #0B0D12 0%, #0A0C10 100%);">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h2 style="text-align: center;">Você se identifica?</h2>
+                <p style="text-align: center; max-width: 600px; margin: 0 auto 48px auto; color: #A5B3CD;">Muitas pessoas lutam contra a constância e o foco. A boa notícia: podemos mudar isso.</p>
+            </div>
+            <div class="grid-2col" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-dor"><i class="fas fa-chart-line" style="font-size: 2rem; color:#FF5A5F; margin-bottom: 16px; display: block;"></i><h3>Falta de constância</h3><p style="color: #BFCAD9;">Começar motivado e perder o ritmo depois de duas semanas é mais comum do que parece.</p></div>
+                <div class="card-dor"><i class="fas fa-weight-scale" style="font-size: 2rem; color:#FF5A5F; margin-bottom: 16px; display: block;"></i><h3>Dificuldade em emagrecer</h3><p style="color: #BFCAD9;">Metas vagas e ausência de feedback fazem o processo parecer impossível.</p></div>
+                <div class="card-dor"><i class="fas fa-brain" style="font-size: 2rem; color:#FF5A5F; margin-bottom: 16px; display: block;"></i><h3>Perda de foco</h3><p style="color: #BFCAD9;">Entre trabalho e rotina, manter o propósito saudável vira desafio diário.</p></div>
+                <div class="card-dor"><i class="fas fa-battery-quarter" style="font-size: 2rem; color:#FF5A5F; margin-bottom: 16px; display: block;"></i><h3>Falta de motivação</h3><p style="color: #BFCAD9;">Sem progresso claro, a vontade de continuar simplesmente desaparece.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO SOLUÇÃO (cards modernos) -->
+    <section>
+        <div class="container">
+            <div data-aos="fade-up">
+                <h2 style="text-align: center;">A solução inteligente</h2>
+                <p style="text-align: center; max-width: 640px; margin: 0 auto 48px auto;">O WACShield Fit transforma dados em ação para você nunca mais parar.</p>
+            </div>
+            <div class="grid-3col">
+                <div class="bg-dark-card micro-interaction" data-aos="zoom-in" data-aos-duration="500"><div class="icon-circle"><i class="fas fa-utensils"></i></div><h3>Controle de calorias</h3><p style="color:#BDC7DB">Registre refeições em segundos e entenda seu balanço energético.</p></div>
+                <div class="bg-dark-card micro-interaction" data-aos="zoom-in" data-aos-duration="550"><div class="icon-circle"><i class="fas fa-flag-checkered"></i></div><h3>Metas diárias</h3><p style="color:#BDC7DB">Metas personalizadas que se adaptam ao seu nível e evolução.</p></div>
+                <div class="bg-dark-card micro-interaction" data-aos="zoom-in" data-aos-duration="600"><div class="icon-circle"><i class="fas fa-heartbeat"></i></div><h3>Hábitos saudáveis</h3><p style="color:#BDC7DB">Desafios e lembretes constroem disciplina gradualmente.</p></div>
+                <div class="bg-dark-card micro-interaction" data-aos="zoom-in" data-aos-duration="500"><div class="icon-circle"><i class="fas fa-chart-simple"></i></div><h3>Progresso visual</h3><p style="color:#BDC7DB">Gráficos e barras mostram exatamente onde você melhorou.</p></div>
+                <div class="bg-dark-card micro-interaction" data-aos="zoom-in" data-aos-duration="550"><div class="icon-circle"><i class="fas fa-tint"></i></div><h3>Hidratação inteligente</h3><p style="color:#BDC7DB">Monitore água e evite fadiga, mantenha performance alta.</p></div>
+                <div class="bg-dark-card micro-interaction" data-aos="zoom-in" data-aos-duration="600"><div class="icon-circle"><i class="fas fa-chart-line"></i></div><h3>Evolução diária</h3><p style="color:#BDC7DB">Cada pequeno avanço registrado gera motivação em tempo real.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO BENEFÍCIOS (emocionais) -->
+    <section style="background: #0D0F14;">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h2 style="text-align: center;">O que você conquista</h2>
+                <div class="grid-2col" style="margin-top: 32px;">
+                    <div><i class="fas fa-gem" style="color:#32CD8C; font-size: 2rem; margin-bottom: 12px; display: inline-block;"></i><h3>+ Disciplina</h3><p>Pequenas decisões diárias viram um sistema inabalável.</p></div>
+                    <div><i class="fas fa-bullseye" style="color:#32CD8C; font-size: 2rem; margin-bottom: 12px; display: inline-block;"></i><h3>+ Foco</h3><p>Metas claras eliminam ruídos e direcionam sua energia.</p></div>
+                    <div><i class="fas fa-sliders-h" style="color:#32CD8C; font-size: 2rem; margin-bottom: 12px; display: inline-block;"></i><h3>+ Controle</h3><p>Você no comando da sua alimentação, hidratação e rotina.</p></div>
+                    <div><i class="fas fa-rocket" style="color:#32CD8C; font-size: 2rem; margin-bottom: 12px; display: inline-block;"></i><h3>+ Motivação</h3><p>Feedback visual diário e badges de conquista.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROVA SOCIAL (depoimentos) -->
+    <section>
+        <div class="container">
+            <div data-aos="fade-up">
+                <h2 style="text-align: center;">Resultados reais</h2>
+                <p style="text-align: center; margin-bottom: 48px;">Mais de 5.000 usuários já transformaram sua saúde com WACShield Fit</p>
+            </div>
+            <div class="grid-3col">
+                <div class="testimonial-card" data-aos="flip-left"><div class="stars">★★★★★</div><p style="font-style: italic;">“Perdi 8kg em 3 meses e pela primeira vez consegui manter o foco. Os gráficos de progresso me viciam!”</p><h4 style="margin-top: 20px;">— Camila M.</h4></div>
+                <div class="testimonial-card" data-aos="flip-left" data-aos-delay="100"><div class="stars">★★★★★</div><p style="font-style: italic;">“Sofria com falta de constância. O app me ajudou a criar rotina com pequenas metas diárias. Recomendo demais.”</p><h4 style="margin-top: 20px;">— Rafael T.</h4></div>
+                <div class="testimonial-card" data-aos="flip-left" data-aos-delay="200"><div class="stars">★★★★★</div><p style="font-style: italic;">“Interface linda, fácil de usar, as barras de progresso me motivam todos os dias. Nunca bebi tanta água!”</p><h4 style="margin-top: 20px;">— Larissa O.</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO VISUAL DO APP - Interface moderna com dashboards e gráficos -->
+    <section style="background: #06080C;">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h2 style="text-align: center;">Tecnologia que traduz evolução</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto;">Dashboards inteligentes, evolução semanal, calorias e muito mais.</p>
+            </div>
+            <div class="dashboard-showcase" data-aos="fade-up" data-aos-delay="100">
+                <div class="mini-card"><i class="fas fa-chart-pie" style="font-size: 2.5rem; color:#32CD8C;"></i><h3>Macros</h3><div class="bar-container mt-2"><div style="width: 45%; background:#32CD8C; height: 8px; border-radius: 20px;"></div></div><span>Proteínas 45%</span></div>
+                <div class="mini-card"><i class="fas fa-walking" style="font-size: 2.5rem; color:#32CD8C;"></i><h3>Passos diários</h3><div class="bar-container mt-2"><div style="width: 82%; background:#32CD8C; height: 8px;"></div></div><span>8.240 / 10k</span></div>
+                <div class="mini-card"><i class="fas fa-calendar-week" style="font-size: 2.5rem; color:#32CD8C;"></i><h3>Sequência de hábitos</h3><div class="badge-premium" style="margin:8px 0;">🔥 12 dias em chamas</div></div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 36px;">
+                <div style="background: #10131C; border-radius: 28px; padding: 20px; text-align: center; width: 200px;"><i class="fas fa-chart-line fa-2x" style="color:#32CD8C;"></i><p style="margin-top: 12px;">Perda de peso<br><strong>-4,2kg</strong> último mês</p></div>
+                <div style="background: #10131C; border-radius: 28px; padding: 20px; text-align: center; width: 200px;"><i class="fas fa-clock fa-2x" style="color:#32CD8C;"></i><p>Horário ativo<br><strong>87%</strong> consistência</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO FINAL CTA -->
+    <section style="padding: 60px 0 80px;">
+        <div class="container" data-aos="zoom-in-up">
+            <div style="background: linear-gradient(125deg, #10141F, #05080E); border-radius: 56px; padding: 60px 28px; text-align: center; border: 1px solid rgba(50,205,140,0.3);">
+                <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Seu resultado começa nas pequenas decisões diárias.</h2>
+                <p style="margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">Baixe agora, teste 30 dias grátis e sinta a diferença de um método que acompanha cada passo seu.</p>
+                <a href="https://fit.wacshield.com" target="_blank" class="btn-primary" style="padding: 16px 42px; font-size: 1.2rem;"><i class="fas fa-arrow-right"></i> Começar agora</a>
+                <p style="margin-top: 24px; font-size: 0.8rem;">Sem compromisso, cancele quando quiser.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px;">
+                <div>
+                    <h3 style="font-weight: 800; font-size: 1.6rem; letter-spacing: -0.02em;">WACShield<span style="color:#32CD8C;"> Fit</span></h3>
+                    <p style="color: #8696A8; margin-top: 8px;">Tecnologia para evolução humana.</p>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <hr style="border-color: #1E232C; margin: 32px 0 24px;">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; font-size: 0.8rem; color: #5F6C84;">
+                <span>© 2025 WACShield Solutions · Todos os direitos reservados</span>
+                <span><a href="#" style="color:#8E9DB5; text-decoration: none;">Política de privacidade</a> | <a href="#" style="color:#8E9DB5;">Termos de uso</a></span>
+            </div>
+            <div style="text-align: center; margin-top: 24px;">
+                <span style="background: #0F1118; padding: 6px 14px; border-radius: 60px; font-size: 0.7rem;"><i class="fas fa-microchip"></i> WACShield AI engine · segurança e performance</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- scripts AOS + microinterações smooth -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Objeto de traduções completo
-        const translations = {
-            pt: {
-                // Meta
-                title: "WACShield Fit | IA para Emagrecimento e Saúde Personalizada",
-                description: "Aplicativo de emagrecimento com inteligência artificial. Monitore calorias, receba dicas personalizadas e atinja suas metas.",
-                
-                // Hero
-                heroTitle: "Sua jornada de saúde com inteligência artificial",
-                heroSubtitle: "Monitore calorias, acompanhe seu IMC, receba dicas personalizadas e atinja suas metas com o poder da IA.",
-                btnStart: "Começar agora →",
-                
-                // Features section
-                featuresTitle: "Tudo que você precisa",
-                featuresSubtitle: "Tecnologia a favor da sua saúde",
-                
-                feature1Title: "Dashboard Inteligente",
-                feature1Desc: "Acompanhe calorias, peso, IMC e progresso em tempo real.",
-                feature2Title: "Registro de Refeições",
-                feature2Desc: "Busque alimentos, calcule calorias e receba feedback da IA.",
-                feature3Title: "Assistente IA",
-                feature3Desc: "Dicas personalizadas baseadas nos seus hábitos e metas.",
-                feature4Title: "Metas Personalizadas",
-                feature4Desc: "Defina objetivos de peso e calorias. Acompanhe sua evolução.",
-                feature5Title: "Controle de Hidratação",
-                feature5Desc: "Registre sua ingestão de água e mantenha-se hidratado.",
-                feature6Title: "Histórico Completo",
-                feature6Desc: "Veja sua evolução ao longo do tempo com gráficos detalhados.",
-                
-                // Stats
-                stat1Number: "500+",
-                stat1Label: "Alimentos na base",
-                stat2Number: "24/7",
-                stat2Label: "Assistente IA",
-                stat3Number: "100%",
-                stat3Label: "Personalizado",
-                stat4Number: "Grátis",
-                stat4Label: "30 dias teste",
-                
-                // CTA
-                ctaTitle: "Pronto para transformar sua saúde?",
-                ctaSubtitle: "Junte-se a milhares de pessoas que já estão mudando seus hábitos.",
-                ctaBtn: "Comece agora gratuitamente →",
-                
-                // Footer
-                footerText: "Aplicativo de apoio ao bem-estar e hábitos saudáveis",
-                footerLink: "fit.wacshield.com"
-            },
-            en: {
-                // Meta
-                title: "WACShield Fit | AI for Weight Loss and Personalized Health",
-                description: "Weight loss app with artificial intelligence. Monitor calories, receive personalized tips and achieve your goals.",
-                
-                // Hero
-                heroTitle: "Your health journey with artificial intelligence",
-                heroSubtitle: "Monitor calories, track your BMI, receive personalized tips and achieve your goals with the power of AI.",
-                btnStart: "Start now →",
-                
-                // Features section
-                featuresTitle: "Everything you need",
-                featuresSubtitle: "Technology for your health",
-                
-                feature1Title: "Smart Dashboard",
-                feature1Desc: "Track calories, weight, BMI and progress in real-time.",
-                feature2Title: "Meal Logger",
-                feature2Desc: "Search foods, calculate calories and receive AI feedback.",
-                feature3Title: "AI Assistant",
-                feature3Desc: "Personalized tips based on your habits and goals.",
-                feature4Title: "Custom Goals",
-                feature4Desc: "Set weight and calorie goals. Track your evolution.",
-                feature5Title: "Hydration Control",
-                feature5Desc: "Log your water intake and stay hydrated.",
-                feature6Title: "Full History",
-                feature6Desc: "See your evolution over time with detailed charts.",
-                
-                // Stats
-                stat1Number: "500+",
-                stat1Label: "Foods in database",
-                stat2Number: "24/7",
-                stat2Label: "AI Assistant",
-                stat3Number: "100%",
-                stat3Label: "Personalized",
-                stat4Number: "Free",
-                stat4Label: "30-day trial",
-                
-                // CTA
-                ctaTitle: "Ready to transform your health?",
-                ctaSubtitle: "Join thousands of people who are already changing their habits.",
-                ctaBtn: "Start for free now →",
-                
-                // Footer
-                footerText: "Wellness and healthy habits support app",
-                footerLink: "fit.wacshield.com"
-            }
-        };
-
-        // Função para detectar idioma do navegador
-        function detectBrowserLanguage() {
-            const browserLang = navigator.language || navigator.userLanguage;
-            if (browserLang.startsWith('pt')) return 'pt';
-            return 'en';
-        }
-
-        // Função para aplicar tradução
-        function applyTranslation(lang) {
-            const t = translations[lang];
-            
-            // Atualizar meta tags
-            document.title = t.title;
-            document.querySelector('meta[name="description"]').setAttribute('content', t.description);
-            
-            // Atualizar Open Graph
-            document.querySelector('meta[property="og:title"]').setAttribute('content', t.title);
-            document.querySelector('meta[property="og:description"]').setAttribute('content', t.description);
-            
-            // Atualizar Twitter Card
-            document.querySelector('meta[name="twitter:title"]').setAttribute('content', t.title);
-            document.querySelector('meta[name="twitter:description"]').setAttribute('content', t.description);
-            
-            // Atualizar elementos com data-key
-            document.querySelectorAll('[data-key]').forEach(element => {
-                const key = element.getAttribute('data-key');
-                if (t[key]) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.value = t[key];
-                    } else if (element.tagName === 'IMG') {
-                        element.alt = t[key];
-                    } else {
-                        element.textContent = t[key];
-                    }
-                }
-            });
-            
-            // Atualizar classe ativa dos botões
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                if (btn.getAttribute('data-lang') === lang) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-            
-            // Atualizar idioma do HTML
-            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-            document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
-            
-            // Salvar no localStorage
-            localStorage.setItem('preferredLanguage', lang);
-        }
-
-        // Função para obter idioma inicial
-        function getInitialLanguage() {
-            // Verificar URL parameter
-            const urlParams = new URLSearchParams(window.location.search);
-            const urlLang = urlParams.get('lang');
-            if (urlLang && (urlLang === 'pt' || urlLang === 'en')) {
-                return urlLang;
-            }
-            
-            // Verificar localStorage
-            const savedLang = localStorage.getItem('preferredLanguage');
-            if (savedLang && (savedLang === 'pt' || savedLang === 'en')) {
-                return savedLang;
-            }
-            
-            // Detectar idioma do navegador
-            return detectBrowserLanguage();
-        }
-
-        // Configurar evento dos botões de idioma
-        function setupLanguageButtons() {
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const lang = btn.getAttribute('data-lang');
-                    applyTranslation(lang);
-                    
-                    // Atualizar URL sem recarregar a página
-                    const url = new URL(window.location.href);
-                    url.searchParams.set('lang', lang);
-                    window.history.pushState({}, '', url);
-                });
-            });
-        }
-
-        // Inicializar
-        const initialLang = getInitialLanguage();
-        applyTranslation(initialLang);
-        setupLanguageButtons();
-        
-        // Lidar com navegação pelo histórico
-        window.addEventListener('popstate', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const lang = urlParams.get('lang') || detectBrowserLanguage();
-            applyTranslation(lang);
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 30,
+            easing: 'ease-out-quad'
         });
+
+        // animação extra nas barras do mockup (sensação de progresso)
+        const fillers = document.querySelectorAll('.bar-fill, .bar-container div');
+        if(fillers.length) {
+            setTimeout(() => {
+                fillers.forEach(el => {
+                    if(el.style.width) return;
+                    const newWidth = el.getAttribute('style')?.match(/width:\s*(\d+)%/) ? null : '68%';
+                    if(el.classList && !el.style.width) el.style.transition = 'width 1s ease';
+                    if(el.classList && !el.style.width && newWidth) el.style.width = newWidth;
+                });
+            }, 300);
+        }
+        // gráfico animado nas barrinhas
+        const graphBars = document.querySelectorAll('.graph-bar-item');
+        if(graphBars.length) {
+            setTimeout(() => {
+                graphBars.forEach(bar => {
+                    const finalHeight = bar.style.height;
+                    bar.style.height = '0px';
+                    setTimeout(() => { bar.style.transition = 'height 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1)'; bar.style.height = finalHeight; }, 50);
+                });
+            }, 200);
+        }
     </script>
 </body>
 </html>
