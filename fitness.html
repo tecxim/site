@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>WACShield Fit | Transforme sua rotina diariamente</title>
+    <meta name="description" content="WACShield Fit: acompanhe suas refeições, calorias, água e evolução. Defina metas reais, registre seu progresso e transforme sua rotina com 30 dias grátis.">
+    <meta name="keywords" content="app fitness, controle de calorias, acompanhamento de refeições, registrar peso, IMC, hábitos saudáveis">
+    <meta name="author" content="WACShield Solutions">
+    <meta property="og:title" content="WACShield Fit | Transforme sua rotina">
+    <meta property="og:description" content="Acompanhe refeições, calorias, água e evolução. Defina metas e veja seu progresso todos os dias.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fit.wacshield.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>WACShield Fit | Acompanhe calorias, refeições, água e evolua</title>
+    
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- AOS Library (animações suaves) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -24,7 +33,6 @@
             overflow-x: hidden;
         }
 
-        /* scrollbar premium */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -36,14 +44,12 @@
             border-radius: 8px;
         }
 
-        /* container */
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* tipografia */
         h1, h2, h3 {
             font-weight: 700;
             letter-spacing: -0.02em;
@@ -87,23 +93,6 @@
             background: linear-gradient(95deg, #3be09a 0%, #34cc86 100%);
         }
 
-        .btn-outline-light {
-            background: transparent;
-            border: 1.5px solid rgba(255,255,255,0.3);
-            color: white;
-            border-radius: 60px;
-            padding: 12px 28px;
-            font-weight: 500;
-            transition: 0.2s;
-            text-decoration: none;
-        }
-
-        .btn-outline-light:hover {
-            border-color: #32CD8C;
-            background: rgba(50,205,140,0.1);
-        }
-
-        /* seções gerais */
         section {
             padding: 80px 0;
         }
@@ -116,7 +105,6 @@
             border: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* hero */
         .hero {
             padding-top: 100px;
             padding-bottom: 60px;
@@ -163,7 +151,6 @@
             line-height: 1.4;
         }
 
-        /* mockup app com gráficos interativos */
         .phone-mockup {
             background: #1A1D25;
             border-radius: 48px;
@@ -173,6 +160,7 @@
             margin: 0 auto;
             border: 1px solid rgba(50,205,140,0.3);
         }
+        
         .mockup-screen {
             background: #0E1015;
             border-radius: 36px;
@@ -181,36 +169,42 @@
             flex-direction: column;
             gap: 20px;
         }
+        
         .progress-stat {
             display: flex;
             justify-content: space-between;
             font-size: 12px;
             font-weight: 500;
         }
+        
         .bar-container {
             background: #262A34;
             border-radius: 20px;
             height: 10px;
             overflow: hidden;
         }
+        
         .bar-fill {
             width: 68%;
             height: 100%;
             background: linear-gradient(90deg, #32CD8C, #97F7C0);
             border-radius: 20px;
         }
+        
         .cal-circle {
             background: #1C1F28;
             border-radius: 28px;
             padding: 12px;
             text-align: center;
         }
+        
         .graph-bars {
             display: flex;
             gap: 8px;
             justify-content: center;
             align-items: flex-end;
         }
+        
         .graph-bar-item {
             width: 28px;
             background: #32CD8C;
@@ -219,7 +213,6 @@
             transition: 0.3s;
         }
 
-        /* cards dor/solução/benefícios */
         .card-dor {
             background: rgba(30, 33, 42, 0.7);
             backdrop-filter: blur(4px);
@@ -228,11 +221,13 @@
             transition: all 0.2s;
             border-left: 4px solid #FF5A5F;
         }
+        
         .grid-2col, .grid-3col {
             display: grid;
             grid-template-columns: 1fr;
             gap: 24px;
         }
+        
         @media (min-width: 640px) {
             .grid-2col {
                 grid-template-columns: repeat(2, 1fr);
@@ -241,11 +236,13 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+        
         @media (min-width: 1000px) {
             .grid-3col {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
+        
         .icon-circle {
             background: rgba(50,205,140,0.15);
             width: 52px;
@@ -258,18 +255,19 @@
             color: #32CD8C;
             font-size: 1.8rem;
         }
-        /* depoimentos */
+        
         .testimonial-card {
             background: #111419;
             border-radius: 28px;
             padding: 28px;
             border: 1px solid #2A2E38;
         }
+        
         .stars {
             color: #FFB83B;
             margin-bottom: 16px;
         }
-        /* mockup seção visual do app */
+        
         .dashboard-showcase {
             display: flex;
             flex-wrap: wrap;
@@ -277,6 +275,7 @@
             gap: 28px;
             margin-top: 32px;
         }
+        
         .mini-card {
             background: #11151E;
             border-radius: 28px;
@@ -284,28 +283,24 @@
             width: 220px;
             text-align: center;
         }
-        /* rodapé */
+        
         footer {
             background: #05070A;
             padding: 48px 0 32px;
             border-top: 1px solid rgba(50,205,140,0.2);
         }
+        
         .social-icons a {
             color: #EFF3F8;
             margin: 0 12px;
             font-size: 1.5rem;
             transition: 0.2s;
         }
+        
         .social-icons a:hover {
             color: #32CD8C;
         }
-        @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(20px);}
-            100% { opacity: 1; transform: translateY(0);}
-        }
-        .animate-fade {
-            animation: fadeUp 0.6s ease forwards;
-        }
+        
         .badge-premium {
             background: rgba(50,205,140,0.2);
             border-radius: 40px;
@@ -316,14 +311,41 @@
             margin-bottom: 16px;
             color: #32CD8C;
         }
+        
         .micro-interaction {
             transition: all 0.2s;
         }
+        
         .micro-interaction:hover {
             transform: scale(1.02);
         }
-        button, a {
-            cursor: pointer;
+        
+        .flow-step {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: #0F1118;
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: #32CD8C;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #0A0C10;
+        }
+        
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(20px);}
+            100% { opacity: 1; transform: translateY(0);}
         }
     </style>
 </head>
@@ -334,58 +356,38 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
-                    <div class="badge-premium"><i class="fas fa-bolt"></i> IA + Hábitos inteligentes</div>
-                    <h1 class="hero-title">Transforme sua rotina<br>diariamente.</h1>
-                    <p class="hero-sub">Controle calorias, crie hábitos saudáveis e acompanhe seu progresso todos os dias.</p>
+                    <div class="badge-premium"><i class="fas fa-chart-simple"></i> Acompanhamento real</div>
+                    <h1 class="hero-title">Registre.<br>Acompanhe.<br>Evolua.</h1>
+                    <p class="hero-sub">Cadastre refeições, monitore calorias, registre água, peso e altura — tudo em um só lugar. Teste grátis por 30 dias.</p>
                     <a href="https://fit.wacshield.com" target="_blank" class="btn-primary"><i class="fas fa-calendar-check"></i> Teste grátis por 30 dias</a>
-                    <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.7;"><i class="fas fa-download"></i> Disponível em iOS e Android</p>
+                    <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.7;"><i class="fas fa-mobile-alt"></i> iOS · Android</p>
                 </div>
-               <div class="hero-mockup" data-aos="fade-up" data-aos-duration="900" data-aos-delay="150">
-    <div class="phone-mockup">
-        <div class="mockup-screen">
-
-            <div class="progress-stat">
-                <span>Meta diária</span>
-                <span>1.860 / 2.200 kcal</span>
-            </div>
-
-            <div class="bar-container">
-                <div class="bar-fill"></div>
-            </div>
-
-            <div class="progress-stat">
-                <span>Consistência semanal</span>
-                <span>5 / 7 dias</span>
-            </div>
-
-            <div class="bar-container">
-                <div style="width: 72%; height: 100%; background: #32CD8C; border-radius: 20px;"></div>
-            </div>
-
-            <div class="cal-circle">
-                <i class="fas fa-chart-line" style="color:#32CD8C; margin-right: 8px;"></i>
-                Evolução da rotina
-
-                <div class="graph-bars" style="margin-top: 12px;">
-                    <div class="graph-bar-item" style="height: 34px;"></div>
-                    <div class="graph-bar-item" style="height: 52px;"></div>
-                    <div class="graph-bar-item" style="height: 48px;"></div>
-                    <div class="graph-bar-item" style="height: 70px;"></div>
-                    <div class="graph-bar-item" style="height: 62px;"></div>
-                </div>
-            </div>
-
-            <div style="display: flex; justify-content: space-between; margin-top: 6px;">
-                <span>
-                    <i class="fas fa-check-circle" style="color:#32CD8C;"></i>
-                    Metas acompanhadas
-                </span>
-
-                <span>
-                    <i class="fas fa-bullseye"></i>
-                    Mais foco diário
-                </span>
-    
+                <div class="hero-mockup" data-aos="fade-up" data-aos-duration="900" data-aos-delay="150">
+                    <div class="phone-mockup">
+                        <div class="mockup-screen">
+                            <div class="progress-stat">
+                                <span>Meta calórica</span>
+                                <span>1.860 / 2.200 kcal</span>
+                            </div>
+                            <div class="bar-container"><div class="bar-fill"></div></div>
+                            <div class="progress-stat">
+                                <span>Água hoje</span>
+                                <span>1.2L / 2.0L</span>
+                            </div>
+                            <div class="bar-container"><div style="width: 60%; height: 100%; background: #32CD8C; border-radius: 20px;"></div></div>
+                            <div class="cal-circle">
+                                <i class="fas fa-chart-line" style="color:#32CD8C; margin-right: 8px;"></i> Evolução semanal
+                                <div class="graph-bars" style="margin-top: 12px;">
+                                    <div class="graph-bar-item" style="height: 34px;"></div>
+                                    <div class="graph-bar-item" style="height: 52px;"></div>
+                                    <div class="graph-bar-item" style="height: 48px;"></div>
+                                    <div class="graph-bar-item" style="height: 70px;"></div>
+                                    <div class="graph-bar-item" style="height: 62px;"></div>
+                                </div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 6px;">
+                                <span><i class="fas fa-utensils"></i> 3 refeições</span>
+                                <span><i class="fas fa-weight-scale"></i> IMC: 22.4</span>
                             </div>
                         </div>
                     </div>
@@ -394,149 +396,145 @@
         </div>
     </section>
 
-    <!-- SEÇÃO DOR (FRUSTRAÇÕES) -->
+    <!-- SEÇÃO DOR - Problemas reais -->
     <section style="background: linear-gradient(145deg, #0B0D12 0%, #0A0C10 100%);">
         <div class="container">
             <div data-aos="fade-up">
-                <h2 style="text-align: center;">Você se identifica?</h2>
-                <p style="text-align: center; max-width: 600px; margin: 0 auto 48px auto; color: #A5B3CD;">Muitas pessoas lutam contra a constância e o foco. A boa notícia: podemos mudar isso.</p>
+                <h2 style="text-align: center;">O que te impede?</h2>
+                <p style="text-align: center; max-width: 600px; margin: 0 auto 48px auto; color: #A5B3CD;">Identifique os obstáculos que atrapalham sua rotina saudável.</p>
             </div>
             <div class="grid-2col" data-aos="fade-up" data-aos-delay="100">
-                <div class="card-dor"><i class="fas fa-chart-line" style="font-size: 2rem; color:#FF5A5F; margin-bottom: 16px; display: block;"></i><h3>Falta de constância</h3><p style="color: #BFCAD9;">Começar motivado e perder o ritmo depois de duas semanas é mais comum do que parece.</p></div>
-                <div class="card-dor"><i class="fas fa-weight-scale" style="font-size: 2rem; color:#FF5A5F; margin-bottom: 16px; display: block;"></i><h3>Dificuldade em emagrecer</h3><p style="color: #BFCAD9;">Metas vagas e ausência de feedback fazem o processo parecer impossível.</p></div>
-                <div class="card-dor"><i class="fas fa-brain" style="font-size: 2rem; color:#FF5A5F; margin-bottom: 16px; display: block;"></i><h3>Perda de foco</h3><p style="color: #BFCAD9;">Entre trabalho e rotina, manter o propósito saudável vira desafio diário.</p></div>
-                <div class="card-dor"><i class="fas fa-battery-quarter" style="font-size: 2rem; color:#FF5A5F; margin-bottom: 16px; display: block;"></i><h3>Falta de motivação</h3><p style="color: #BFCAD9;">Sem progresso claro, a vontade de continuar simplesmente desaparece.</p></div>
+                <div class="card-dor"><i class="fas fa-chart-line" style="font-size: 2rem; color:#FF5A5F; margin-bottom: 16px; display: block;"></i><h3>Falta de constância</h3><p style="color: #BFCAD9;">Você começa bem, mas depois de algumas semanas perde o ritmo.</p></div>
+                <div class="card-dor"><i class="fas fa-weight-scale" style="font-size: 2rem; color:#FF5A5F; margin-bottom: 16px; display: block;"></i><h3>Dificuldade em emagrecer</h3><p style="color: #BFCAD9;">Sem um registro claro, fica difícil entender o que está funcionando.</p></div>
+                <div class="card-dor"><i class="fas fa-brain" style="font-size: 2rem; color:#FF5A5F; margin-bottom: 16px; display: block;"></i><h3>Foco disperso</h3><p style="color: #BFCAD9;">Entre trabalho, família e rotina, cuidar da saúde fica em segundo plano.</p></div>
+                <div class="card-dor"><i class="fas fa-battery-quarter" style="font-size: 2rem; color:#FF5A5F; margin-bottom: 16px; display: block;"></i><h3>Falta de motivação</h3><p style="color: #BFCAD9;">Sem ver evolução, a vontade de continuar desaparece.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO SOLUÇÃO (cards modernos) -->
+    <!-- SEÇÃO COMO FUNCIONA - Fluxo real do app (sem promessas falsas) -->
     <section>
         <div class="container">
             <div data-aos="fade-up">
-                <h2 style="text-align: center;">A solução inteligente</h2>
-                <p style="text-align: center; max-width: 640px; margin: 0 auto 48px auto;">O WACShield Fit transforma dados em ação para você nunca mais parar.</p>
+                <h2 style="text-align: center;">Como funciona</h2>
+                <p style="text-align: center; max-width: 640px; margin: 0 auto 48px auto;">Passo a passo simples e direto para você começar.</p>
             </div>
-            <div class="grid-3col">
-                <div class="bg-dark-card micro-interaction" data-aos="zoom-in" data-aos-duration="500"><div class="icon-circle"><i class="fas fa-utensils"></i></div><h3>Controle de calorias</h3><p style="color:#BDC7DB">Registre refeições em segundos e entenda seu balanço energético.</p></div>
-                <div class="bg-dark-card micro-interaction" data-aos="zoom-in" data-aos-duration="550"><div class="icon-circle"><i class="fas fa-flag-checkered"></i></div><h3>Metas diárias</h3><p style="color:#BDC7DB">Metas personalizadas que se adaptam ao seu nível e evolução.</p></div>
-                <div class="bg-dark-card micro-interaction" data-aos="zoom-in" data-aos-duration="600"><div class="icon-circle"><i class="fas fa-heartbeat"></i></div><h3>Hábitos saudáveis</h3><p style="color:#BDC7DB">Desafios e lembretes constroem disciplina gradualmente.</p></div>
-                <div class="bg-dark-card micro-interaction" data-aos="zoom-in" data-aos-duration="500"><div class="icon-circle"><i class="fas fa-chart-simple"></i></div><h3>Progresso visual</h3><p style="color:#BDC7DB">Gráficos e barras mostram exatamente onde você melhorou.</p></div>
-                <div class="bg-dark-card micro-interaction" data-aos="zoom-in" data-aos-duration="550"><div class="icon-circle"><i class="fas fa-tint"></i></div><h3>Hidratação inteligente</h3><p style="color:#BDC7DB">Monitore água e evite fadiga, mantenha performance alta.</p></div>
-                <div class="bg-dark-card micro-interaction" data-aos="zoom-in" data-aos-duration="600"><div class="icon-circle"><i class="fas fa-chart-line"></i></div><h3>Evolução diária</h3><p style="color:#BDC7DB">Cada pequeno avanço registrado gera motivação em tempo real.</p></div>
+            <div class="grid-2col" data-aos="fade-up">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div><strong style="font-size: 1.1rem;">Cadastro</strong><br>Teste grátis por 30 dias, sem compromisso.</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div><strong style="font-size: 1.1rem;">Defina sua meta</strong><br>Peso desejado, calorias diárias e prazo.</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div><strong style="font-size: 1.1rem;">Registre peso e altura</strong><br>Calculamos seu IMC automaticamente.</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div><strong style="font-size: 1.1rem;">Registre refeições</strong><br>Porções amigáveis, sem complicação.</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">5</div>
+                    <div><strong style="font-size: 1.1rem;">Registre água</strong><br>Controle sua hidratação diária.</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">6</div>
+                    <div><strong style="font-size: 1.1rem;">Acompanhe o dashboard</strong><br>Calorias, gráficos, progresso e insights da IA.</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 32px; background: #111317; border-radius: 28px; padding: 24px;">
+                <p><i class="fas fa-credit-card" style="color:#32CD8C;"></i> Após 30 dias, escolha o plano que faz sentido para você e continue evoluindo.</p>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO BENEFÍCIOS (emocionais) -->
+    <!-- BENEFÍCIOS OBJETIVOS (somente o que o app entrega) -->
     <section style="background: #0D0F14;">
         <div class="container">
             <div data-aos="fade-up">
-                <h2 style="text-align: center;">O que você conquista</h2>
+                <h2 style="text-align: center;">O que você ganha usando</h2>
                 <div class="grid-2col" style="margin-top: 32px;">
-                    <div><i class="fas fa-gem" style="color:#32CD8C; font-size: 2rem; margin-bottom: 12px; display: inline-block;"></i><h3>+ Disciplina</h3><p>Pequenas decisões diárias viram um sistema inabalável.</p></div>
-                    <div><i class="fas fa-bullseye" style="color:#32CD8C; font-size: 2rem; margin-bottom: 12px; display: inline-block;"></i><h3>+ Foco</h3><p>Metas claras eliminam ruídos e direcionam sua energia.</p></div>
-                    <div><i class="fas fa-sliders-h" style="color:#32CD8C; font-size: 2rem; margin-bottom: 12px; display: inline-block;"></i><h3>+ Controle</h3><p>Você no comando da sua alimentação, hidratação e rotina.</p></div>
-                    <div><i class="fas fa-rocket" style="color:#32CD8C; font-size: 2rem; margin-bottom: 12px; display: inline-block;"></i><h3>+ Motivação</h3><p>Feedback visual diário para acompanhar sua evolução.</p></div>
+                    <div><i class="fas fa-utensils" style="color:#32CD8C; font-size: 2rem; margin-bottom: 12px; display: inline-block;"></i><h3>Registro de refeições</h3><p>Anote o que come em porções simples e veja o balanço calórico.</p></div>
+                    <div><i class="fas fa-tint" style="color:#32CD8C; font-size: 2rem; margin-bottom: 12px; display: inline-block;"></i><h3>Controle de água</h3><p>Mantense hidratado com metas diárias claras.</p></div>
+                    <div><i class="fas fa-chart-line" style="color:#32CD8C; font-size: 2rem; margin-bottom: 12px; display: inline-block;"></i><h3>Dashboard de progresso</h3><p>Gráficos, evolução semanal, calorias consumidas e queimadas.</p></div>
+                    <div><i class="fas fa-flag-checkered" style="color:#32CD8C; font-size: 2rem; margin-bottom: 12px; display: inline-block;"></i><h3>Metas personalizadas</h3><p>Defina seu objetivo de peso, prazo e calorias diárias.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROVA SOCIAL (depoimentos) -->
+    <!-- DEPOIMENTOS REAIS (mantido como prova social) -->
     <section>
         <div class="container">
             <div data-aos="fade-up">
-                <h2 style="text-align: center;">Resultados reais</h2>
-                <p style="text-align: center; margin-bottom: 48px;">Comece hoje sua transformação com o WACShield Fit</p>
+                <h2 style="text-align: center;">Quem usa, recomenda</h2>
+                <p style="text-align: center; margin-bottom: 48px;">Pessoas reais alcançando suas metas com acompanhamento consistente.</p>
             </div>
             <div class="grid-3col">
-                <div class="testimonial-card" data-aos="flip-left"><div class="stars">★★★★★</div><p style="font-style: italic;">“Perdi 8kg em 3 meses e pela primeira vez consegui manter o foco. Os gráficos de progresso me viciam!”</p><h4 style="margin-top: 20px;">— Camila M.</h4></div>
-                <div class="testimonial-card" data-aos="flip-left" data-aos-delay="100"><div class="stars">★★★★★</div><p style="font-style: italic;">“Sofria com falta de constância. O app me ajudou a criar rotina com pequenas metas diárias. Recomendo demais.”</p><h4 style="margin-top: 20px;">— Rafael T.</h4></div>
-                <div class="testimonial-card" data-aos="flip-left" data-aos-delay="200"><div class="stars">★★★★★</div><p style="font-style: italic;">“Interface linda, fácil de usar, as barras de progresso me motivam todos os dias. Nunca bebi tanta água!”</p><h4 style="margin-top: 20px;">— Larissa O.</h4></div>
+                <div class="testimonial-card" data-aos="flip-left"><div class="stars">★★★★★</div><p style="font-style: italic;">“Registrar as refeições me ajudou a entender onde eu exagerava. Perdi 8kg em 3 meses com consistência.”</p><h4 style="margin-top: 20px;">— Camila M.</h4></div>
+                <div class="testimonial-card" data-aos="flip-left" data-aos-delay="100"><div class="stars">★★★★★</div><p style="font-style: italic;">“O dashboard é muito claro. Ver meu progresso no gráfico me motiva a não parar.”</p><h4 style="margin-top: 20px;">— Rafael T.</h4></div>
+                <div class="testimonial-card" data-aos="flip-left" data-aos-delay="200"><div class="stars">★★★★★</div><p style="font-style: italic;">“Acompanhar água e calorias virou hábito. Interface limpa e fácil.”</p><h4 style="margin-top: 20px;">— Larissa O.</h4></div>
             </div>
         </div>
     </section>
 
-  <!-- SEÇÃO VISUAL DO APP - Interface moderna com dashboards e acompanhamento -->
-<section style="background: #06080C;">
-    <div class="container">
-        <div data-aos="fade-up">
-            <h2 style="text-align: center;">Tecnologia que acompanha sua rotina</h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto;">
-                Metas calóricas, acompanhamento diário e evolução organizada de forma simples e intuitiva.
-            </p>
-        </div>
-
-        <div class="dashboard-showcase" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="mini-card">
-                <i class="fas fa-bullseye" style="font-size: 2.5rem; color:#32CD8C;"></i>
-                <h3>Meta diária</h3>
-
-                <div class="bar-container mt-2">
-                    <div style="width: 72%; background:#32CD8C; height: 8px; border-radius: 20px;"></div>
-                </div>
-
-                <span>1.800 / 2.500 kcal</span>
+    <!-- VISUAL DO APP - Fiel ao que existe: dashboard, metas, refeições -->
+    <section style="background: #06080C;">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h2 style="text-align: center;">Visualize sua evolução</h2>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto;">Dashboard completo: calorias, refeições, meta diária e consistência.</p>
             </div>
-
-            <div class="mini-card">
-                <i class="fas fa-fire" style="font-size: 2.5rem; color:#32CD8C;"></i>
-                <h3>Controle calórico</h3>
-
-                <div class="bar-container mt-2">
-                    <div style="width: 64%; background:#32CD8C; height: 8px;"></div>
+            <div class="dashboard-showcase" data-aos="fade-up" data-aos-delay="100">
+                <div class="mini-card">
+                    <i class="fas fa-fire" style="font-size: 2.5rem; color:#32CD8C;"></i>
+                    <h3>Calorias</h3>
+                    <div class="bar-container mt-2" style="margin-top: 12px;">
+                        <div style="width: 68%; background:#32CD8C; height: 8px; border-radius: 20px;"></div>
+                    </div>
+                    <span>1.860 / 2.200 kcal</span>
                 </div>
-
-                <span>Acompanhamento diário</span>
-            </div>
-
-            <div class="mini-card">
-                <i class="fas fa-calendar-check" style="font-size: 2.5rem; color:#32CD8C;"></i>
-                <h3>Consistência</h3>
-
-                <div class="badge-premium" style="margin:8px 0;">
-                    📈 Evolução acompanhada diariamente
+                <div class="mini-card">
+                    <i class="fas fa-apple-alt" style="font-size: 2.5rem; color:#32CD8C;"></i>
+                    <h3>Refeições</h3>
+                    <div class="bar-container mt-2" style="margin-top: 12px;">
+                        <div style="width: 75%; background:#32CD8C; height: 8px;"></div>
+                    </div>
+                    <span>3 de 4 registradas</span>
+                </div>
+                <div class="mini-card">
+                    <i class="fas fa-tachometer-alt" style="font-size: 2.5rem; color:#32CD8C;"></i>
+                    <h3>Meta da semana</h3>
+                    <div class="bar-container mt-2" style="margin-top: 12px;">
+                        <div style="width: 71%; background:#32CD8C; height: 8px;"></div>
+                    </div>
+                    <span>5/7 dias ativo</span>
                 </div>
             </div>
-
-        </div>
-
-        <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 36px;">
-
-            <div style="background: #10131C; border-radius: 28px; padding: 20px; text-align: center; width: 200px;">
-                <i class="fas fa-chart-line fa-2x" style="color:#32CD8C;"></i>
-
-                <p style="margin-top: 12px;">
-                    Metas inteligentes<br>
-                    <strong>Objetivos personalizados</strong><br>
-                    para sua rotina
-                </p>
+            <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 36px;">
+                <div style="background: #10131C; border-radius: 28px; padding: 20px; text-align: center; min-width: 180px;">
+                    <i class="fas fa-chart-line fa-2x" style="color:#32CD8C;"></i>
+                    <p style="margin-top: 12px;"><strong>Gráfico de progresso</strong><br>Evolução semanal de peso</p>
+                </div>
+                <div style="background: #10131C; border-radius: 28px; padding: 20px; text-align: center; min-width: 180px;">
+                    <i class="fas fa-robot fa-2x" style="color:#32CD8C;"></i>
+                    <p><strong>Insights com IA</strong><br>Sugestões baseadas nos seus registros</p>
+                </div>
             </div>
-
-            <div style="background: #10131C; border-radius: 28px; padding: 20px; text-align: center; width: 200px;">
-                <i class="fas fa-clock fa-2x" style="color:#32CD8C;"></i>
-
-                <p>
-                    Rotina organizada<br>
-                    <strong>Mais foco</strong><br>
-                    no dia a dia
-                </p>
-            </div>
-
         </div>
-    </div>
-</section>
+    </section>
 
-    <!-- SEÇÃO FINAL CTA -->
+    <!-- FINAL CTA -->
     <section style="padding: 60px 0 80px;">
         <div class="container" data-aos="zoom-in-up">
             <div style="background: linear-gradient(125deg, #10141F, #05080E); border-radius: 56px; padding: 60px 28px; text-align: center; border: 1px solid rgba(50,205,140,0.3);">
-                <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Seu resultado começa nas pequenas decisões diárias.</h2>
-                <p style="margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">Baixe agora, teste 30 dias grátis e sinta a diferença de um método que acompanha cada passo seu.</p>
-                <a href="https://fit.wacshield.com" target="_blank" class="btn-primary" style="padding: 16px 42px; font-size: 1.2rem;"><i class="fas fa-arrow-right"></i> Começar agora</a>
-                <p style="margin-top: 24px; font-size: 0.8rem;">Sem compromisso, cancele quando quiser.</p>
+                <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Pronto para começar?</h2>
+                <p style="margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">30 dias grátis para registrar refeições, acompanhar calorias, água e evolução. Sem risco, sem enrolação.</p>
+                <a href="https://fit.wacshield.com" target="_blank" class="btn-primary" style="padding: 16px 42px; font-size: 1.2rem;"><i class="fas fa-rocket"></i> Teste grátis por 30 dias</a>
+                <p style="margin-top: 24px; font-size: 0.8rem;">Após o teste, escolha o plano ideal para você.</p>
             </div>
         </div>
     </section>
@@ -547,13 +545,13 @@
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px;">
                 <div>
                     <h3 style="font-weight: 800; font-size: 1.6rem; letter-spacing: -0.02em;">WACShield<span style="color:#32CD8C;"> Fit</span></h3>
-                    <p style="color: #8696A8; margin-top: 8px;">Tecnologia para evolução humana.</p>
+                    <p style="color: #8696A8; margin-top: 8px;">Acompanhamento inteligente para sua rotina.</p>
                 </div>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <hr style="border-color: #1E232C; margin: 32px 0 24px;">
@@ -562,12 +560,11 @@
                 <span><a href="#" style="color:#8E9DB5; text-decoration: none;">Política de privacidade</a> | <a href="#" style="color:#8E9DB5;">Termos de uso</a></span>
             </div>
             <div style="text-align: center; margin-top: 24px;">
-                <span style="background: #0F1118; padding: 6px 14px; border-radius: 60px; font-size: 0.7rem;"><i class="fas fa-microchip"></i> WACShield Fit </span>
+                <span style="background: #0F1118; padding: 6px 14px; border-radius: 60px; font-size: 0.7rem;"><i class="fas fa-microchip"></i> WACShield Fit · Registre. Acompanhe. Evolua.</span>
             </div>
         </div>
     </footer>
 
-    <!-- scripts AOS + microinterações smooth -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
@@ -577,26 +574,16 @@
             easing: 'ease-out-quad'
         });
 
-        // animação extra nas barras do mockup (sensação de progresso)
-        const fillers = document.querySelectorAll('.bar-fill, .bar-container div');
-        if(fillers.length) {
-            setTimeout(() => {
-                fillers.forEach(el => {
-                    if(el.style.width) return;
-                    const newWidth = el.getAttribute('style')?.match(/width:\s*(\d+)%/) ? null : '68%';
-                    if(el.classList && !el.style.width) el.style.transition = 'width 1s ease';
-                    if(el.classList && !el.style.width && newWidth) el.style.width = newWidth;
-                });
-            }, 300);
-        }
-        // gráfico animado nas barrinhas
         const graphBars = document.querySelectorAll('.graph-bar-item');
         if(graphBars.length) {
             setTimeout(() => {
                 graphBars.forEach(bar => {
                     const finalHeight = bar.style.height;
                     bar.style.height = '0px';
-                    setTimeout(() => { bar.style.transition = 'height 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1)'; bar.style.height = finalHeight; }, 50);
+                    setTimeout(() => { 
+                        bar.style.transition = 'height 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1)'; 
+                        bar.style.height = finalHeight; 
+                    }, 50);
                 });
             }, 200);
         }
