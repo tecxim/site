@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Berseba Tratamentos · Acolhimento e recuperação</title>
+  <meta name="description" content="Instituição de acolhimento e recuperação para pessoas com dependência de álcool e outras substâncias. Atendimento humano, seguro e multiprofissional.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Berseba Tratamentos · Acolhimento e recuperação">
+  <meta property="og:description" content="Um novo caminho começa com acolhimento, cuidado e orientação.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=630&fit=crop">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fontes e estilo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    /* ----- reset & base ----- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #ffffff;
+      color: #1f2a3a;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ----- variáveis ----- */
+    :root {
+      --navy: #0f2b45;
+      --navy-light: #1c3e5e;
+      --blue-soft: #eef3f8;
+      --blue-gray: #e3eaf2;
+      --green-soft: #e1f0e7;
+      --green-accent: #3e7b5c;
+      --green-deep: #1d4d3a;        /* novo verde escuro para o header */
+      --green-hero: #1f4a32;        /* verde profundo para o hero */
+      --text-primary: #1f2a3a;
+      --text-secondary: #3f4d5e;
+      --text-muted: #637588;
+      --white: #ffffff;
+      --border-light: #d9e1ea;
+      --shadow-sm: 0 4px 14px rgba(15, 43, 69, 0.04);
+      --shadow-md: 0 8px 28px rgba(15, 43, 69, 0.06);
+      --shadow-lg: 0 20px 40px -12px rgba(15, 43, 69, 0.12);
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-sm: 8px;
+      --transition: 0.25s cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    /* ----- utilitários ----- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 56px 0;
+      }
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--navy);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--navy-light);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    a:hover {
+      color: var(--green-accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 1rem;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: all var(--transition);
+      background: transparent;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      background: #153a55;
+      color: var(--white);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      border-color: var(--border-light);
+      color: var(--navy);
+      background: var(--white);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--navy);
+      background: var(--blue-soft);
+      transform: translateY(-1px);
+    }
+
+    .btn-lg {
+      padding: 16px 36px;
+      font-size: 1.05rem;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* ===== HEADER MODERNIZADO COM FUNDO VERDE E IMAGEM ===== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--green-deep);
+      background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1200&h=400&fit=crop&q=80');
+      background-blend-mode: overlay;
+      background-size: cover;
+      background-position: center 30%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(15, 43, 69, 0.88) 0%, rgba(27, 77, 58, 0.82) 60%, rgba(15, 43, 69, 0.85) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .header .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .header.scrolled {
+      background-image: none;
+      background: var(--green-deep);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 700;
+      backdrop-filter: blur(4px);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.95rem;
+      font-weight: 500;
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #a7e0c0;
+      transition: width var(--transition);
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    .nav-menu a:hover {
+      color: #ffffff;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-actions .btn {
+      padding: 10px 22px;
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: white;
+      backdrop-filter: blur(4px);
+      border-radius: 60px;
+    }
+
+    .nav-actions .btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    /* menu mobile */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor: pointer;
+      color: white;
+      font-size: 1.2rem;
+      line-height: 1;
+      transition: all var(--transition);
+    }
+
+    .menu-toggle:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    @media (max-width: 900px) {
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--green-deep);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        gap: 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: var(--shadow-md);
+        z-index: 10;
+      }
+
+      .nav-menu a {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 1.05rem;
+        padding: 6px 0;
+        width: 100%;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .nav-actions .btn {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-actions {
+        margin-left: auto;
+      }
+    }
+
+    /* ===== HERO COM FUNDO VERDE E IMAGEM ===== */
+    .hero {
+      padding: 80px 0 100px;
+      background: linear-gradient(135deg, #1a4231 0%, #1f4a32 40%, #183b2b 100%);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=1400&h=900&fit=crop&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.22;
+      mix-blend-mode: overlay;
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 30%, rgba(80, 160, 120, 0.25) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      margin-bottom: 20px;
+      color: #ffffff;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      margin-bottom: 32px;
+      max-width: 520px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions .btn-primary {
+      background: #ffffff;
+      color: var(--green-deep);
+      border-color: transparent;
+    }
+
+    .hero-actions .btn-primary:hover {
+      background: #e8f5ee;
+      color: #0b2e1f;
+    }
+
+    .hero-actions .btn-outline {
+      border-color: rgba(255, 255, 255, 0.4);
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-actions .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: white;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-image {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.4);
+      aspect-ratio: 4/3;
+      background: var(--blue-soft);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        padding: 56px 0 72px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-content p {
+        max-width: 100%;
+      }
+    }
+
+    /* ----- apresentação / missão ----- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about-image {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      aspect-ratio: 4/3;
+      background: var(--blue-gray);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-content .subtitle {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--green-accent);
+      margin-bottom: 12px;
+    }
+
+    .about-content h2 {
+      margin-bottom: 18px;
+    }
+
+    .about-content p {
+      margin-bottom: 16px;
+    }
+
+    .about-values {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .value-tag {
+      background: var(--blue-soft);
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-image {
+        order: -1;
+      }
+    }
+
+    /* ----- tratamentos ----- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+      margin-top: 44px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      border-color: var(--green-accent);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--blue-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: var(--navy);
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .service-link {
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--navy);
+      margin-top: auto;
+    }
+
+    .service-link:hover {
+      color: var(--green-accent);
+      gap: 8px;
+    }
+
+    /* ----- equipe ----- */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 28px;
+      margin-top: 44px;
+    }
+
+    .team-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-light);
+      transition: all var(--transition);
+    }
+
+    .team-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .team-image {
+      aspect-ratio: 1/1;
+      background: var(--blue-gray);
+      overflow: hidden;
+    }
+
+    .team-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .team-info {
+      padding: 20px;
+    }
+
+    .team-info h3 {
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .team-role {
+      font-size: 0.9rem;
+      color: var(--green-accent);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .team-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ----- estrutura / galeria ----- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 44px;
+    }
+
+    .gallery-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      background: var(--blue-gray);
+      transition: all var(--transition);
+      aspect-ratio: 1/1;
+    }
+
+    .gallery-item:nth-child(1) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .gallery-item:nth-child(6) {
+      grid-column: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 43, 69, 0);
+      transition: background var(--transition);
+      pointer-events: none;
+    }
+
+    .gallery-item:hover::after {
+      background: rgba(15, 43, 69, 0.04);
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(6) {
+        grid-column: span 1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-column: span 1;
+      }
+
+      .gallery-item:nth-child(6) {
+        grid-column: span 1;
+      }
+    }
+
+    /* lightbox simples */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+      padding: 24px;
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.8;
+      transition: opacity var(--transition);
+    }
+
+    .lightbox-close:hover {
+      opacity: 1;
+    }
+
+    /* ----- passos ----- */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 48px;
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 15%;
+      right: 15%;
+      height: 2px;
+      background: var(--border-light);
+      z-index: 0;
+    }
+
+    .step {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      background: var(--white);
+      border: 2px solid var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin: 0 auto 20px;
+      transition: all var(--transition);
+    }
+
+    .step:hover .step-number {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .step h3 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      font-size: 0.95rem;
+      max-width: 260px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .steps::before {
+        display: none;
+      }
+
+      .step-number {
+        margin-bottom: 12px;
+      }
+    }
+
+    /* ----- familiares ----- */
+    .family-section {
+      background: var(--blue-soft);
+      border-radius: var(--radius-lg);
+      padding: 64px 48px;
+      margin: 40px 0;
+    }
+
+    .family-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .family-content h2 {
+      margin-bottom: 16px;
+    }
+
+    .family-content p {
+      margin-bottom: 24px;
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 600px) {
+      .family-section {
+        padding: 40px 24px;
+      }
+    }
+
+    /* ----- FAQ ----- */
+    .faq-list {
+      max-width: 800px;
+      margin: 44px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+
+    .faq-item.active {
+      border-color: var(--navy-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 24px;
+      text-align: left;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--navy);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: background var(--transition);
+    }
+
+    .faq-question:hover {
+      background: var(--blue-soft);
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--navy-light);
+      transition: transform var(--transition);
+      flex-shrink: 0;
+    }
+
+    .faq-item.active .faq-question::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 24px 22px;
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    /* ----- contato CTA ----- */
+    .contact-cta {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: 64px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      color: white;
+    }
+
+    .contact-cta h2 {
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .contact-cta p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.05rem;
+      max-width: 540px;
+    }
+
+    .contact-cta .btn {
+      background: white;
+      color: var(--navy);
+      border: none;
+      flex-shrink: 0;
+    }
+
+    .contact-cta .btn:hover {
+      background: var(--blue-soft);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 800px) {
+      .contact-cta {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 24px;
+      }
+
+      .contact-cta p {
+        max-width: 100%;
+      }
+    }
+
+    /* ----- footer ----- */
+    .footer {
+      background: #0a1f32;
+      color: rgba(255, 255, 255, 0.75);
+      padding: 64px 0 32px;
+      margin-top: 80px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-brand .logo {
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand .logo-icon {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .footer-brand p {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.95rem;
+      max-width: 300px;
+      line-height: 1.6;
+    }
+
+    .footer h4 {
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-contact li {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .footer-contact li span:first-child {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-top: 32px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .footer-bottom a {
+      color: rgba(255, 255, 255, 0.65);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .footer-bottom a:hover {
+      color: white;
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* whatsapp flutuante */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 99;
+      background: #25D366;
+      color: white;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+      transition: all var(--transition);
+      font-size: 1.6rem;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.06);
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.4);
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      .whatsapp-float {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+
+    /* animação de revelação */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* placeholder para imagens institucionais */
+    .img-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--blue-gray);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 20px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="container">
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#inicio" class="logo" aria-label="Berseba Tratamentos - página inicial">
+        <span class="logo-icon" aria-hidden="true">R</span>
+        <span>Berseba Tratamentos</span>
+      </a>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#clinica">A Clínica</a></li>
+        <li><a href="#tratamentos">Tratamentos</a></li>
+        <li><a href="#equipe">Equipe</a></li>
+        <li><a href="#estrutura">Estrutura</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#contato" class="btn">Fale com nossa equipe</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ===== HERO ===== -->
+  <section id="inicio" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>Um novo caminho começa com acolhimento, cuidado e orientação.</h1>
+        <p>Oferecemos um ambiente seguro e humano para pessoas que buscam superar a dependência de álcool e outras substâncias, com apoio multiprofissional e respeito à individualidade.</p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn btn-primary btn-lg">Converse com nossa equipe</a>
+          <a href="#clinica" class="btn btn-outline btn-lg">Conheça a instituição</a>
+        </div>
+        <div class="hero-meta">
+          <span>✓ Atendimento humanizado</span>
+          <span>✓ Equipe multiprofissional</span>
+          <span>✓ Sigilo e respeito</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img 
+          src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop&q=80" 
+          alt="Ambiente acolhedor e iluminado da instituição, com espaços de convivência" 
+          width="800" height="600"
+          fetchpriority="high"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APRESENTAÇÃO ===== -->
+  <section id="clinica" class="section">
+    <div class="container about-grid">
+      <div class="about-image">
+        <img 
+          src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&h=600&fit=crop&q=80" 
+          alt="Fachada da instituição com jardim e entrada acolhedora" 
+          width="800" height="600"
+          loading="lazy"
+        >
+      </div>
+      <div class="about-content reveal">
+        <div class="subtitle">Nossa missão</div>
+        <h2>Dignidade, segurança e respeito em cada etapa</h2>
+        <p>A Berseba Tratamentos é uma instituição dedicada ao acolhimento de pessoas com problemas relacionados ao álcool e outras substâncias. Nossa proposta é oferecer um ambiente estável e cuidadoso, onde cada pessoa possa reconstruir sua trajetória com apoio profissional e respeito à sua história.</p>
+        <p>Acreditamos que a recuperação é um processo individual e que o acolhimento humanizado, aliado a uma equipe qualificada, faz toda a diferença. Por isso, valorizamos a transparência, a ética e o compromisso com o bem-estar de todos os atendidos e de suas famílias.</p>
+        <div class="about-values">
+          <span class="value-tag">Acolhimento</span>
+          <span class="value-tag">Respeito</span>
+          <span class="value-tag">Segurança</span>
+          <span class="value-tag">Profissionalismo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRATAMENTOS ===== -->
+  <section id="tratamentos" class="section" style="background: #f9fbfd;">
+    <div class="container">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto;" class="reveal">
+        <div class="subtitle" style="text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem; font-weight: 600; color: var(--green-accent); margin-bottom: 12px;">Tratamentos e acompanhamento</div>
+        <h2>Cuidado integrado para cada necessidade</h2>
+        <p>Nossa equipe oferece suporte em diferentes frentes, sempre com base em avaliação individual e transparência sobre as possibilidades de atendimento.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">🍃</div>
+          <h3>Atendimento relacionado ao alcoolismo</h3>
+          <p>Acolhimento e acompanhamento para pessoas que buscam lidar com o consumo de álcool de forma segura e orientada.</p>
+          <a href="#contato" class="service-link">Saiba mais →</a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">🫂</div>
+          <h3>Dependência de outras substâncias</h3>
+          <p>Suporte especializado para diferentes tipos de dependência química, com avaliação criteriosa e plano individualizado.</p>
+          <a href="#contato" class="service-link">Saiba mais →</a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">🧠</div>
+          <h3>Acompanhamento psicológico</h3>
+          <p>Atendimento psicoterapêutico individual e em grupo, promovendo autoconhecimento e fortalecimento emocional.</p>
+          <a href="#contato" class="service-link">Saiba mais →</a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">⚕️</div>
+          <h3>Avaliação e acompanhamento psiquiátrico</h3>
+          <p>Suporte médico especializado para avaliação clínica e acompanhamento psiquiátrico quando indicado.</p>
+          <a href="#contato" class="service-link">Saiba mais →</a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">👪</div>
+          <h3>Apoio e orientação familiar</h3>
+          <p>Espaço de escuta e orientação para familiares, promovendo compreensão e fortalecimento dos vínculos.</p>
+          <a href="#contato" class="service-link">Saiba mais →</a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">🎨</div>
+          <h3>Atividades terapêuticas</h3>
+          <p>Oficinas e atividades que estimulam a expressão, a convivência saudável e a reconstrução de rotinas.</p>
+          <a href="#contato" class="service-link">Saiba mais →</a>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">🤝</div>
+          <h3>Acompanhamento multiprofissional</h3>
+          <p>Equipe integrada por diferentes especialidades, garantindo um olhar amplo e cuidadoso sobre cada caso.</p>
+          <a href="#contato" class="service-link">Saiba mais →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EQUIPE ===== -->
+  <section id="equipe" class="section">
+    <div class="container">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto;" class="reveal">
+        <div class="subtitle" style="text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem; font-weight: 600; color: var(--green-accent); margin-bottom: 12px;">Equipe profissional</div>
+        <h2>Qualificação e transparência no cuidado</h2>
+        <p>Nossa equipe é formada por profissionais dedicados, com formação sólida e experiência no acolhimento de pessoas em situação de vulnerabilidade.</p>
+      </div>
+
+      <div class="team-grid">
+        <article class="team-card reveal">
+          <div class="team-image img-placeholder">
+            <span>Foto do profissional<br>(a ser inserida)</span>
+          </div>
+          <div class="team-info">
+            <h3>Nome do profissional</h3>
+            <div class="team-role">Psicólogo(a) · CRP 00/00000</div>
+            <p>Especialista em dependência química e acompanhamento individual.</p>
+          </div>
+        </article>
+
+        <article class="team-card reveal">
+          <div class="team-image img-placeholder">
+            <span>Foto do profissional<br>(a ser inserida)</span>
+          </div>
+          <div class="team-info">
+            <h3>Nome do profissional</h3>
+            <div class="team-role">Psiquiatra · CRM 000000</div>
+            <p>Avaliação clínica e acompanhamento psiquiátrico.</p>
+          </div>
+        </article>
+
+        <article class="team-card reveal">
+          <div class="team-image img-placeholder">
+            <span>Foto do profissional<br>(a ser inserida)</span>
+          </div>
+          <div class="team-info">
+            <h3>Nome do profissional</h3>
+            <div class="team-role">Assistente Social · CRESS 00000</div>
+            <p>Orientação familiar e articulação de redes de apoio.</p>
+          </div>
+        </article>
+
+        <article class="team-card reveal">
+          <div class="team-image img-placeholder">
+            <span>Foto do profissional<br>(a ser inserida)</span>
+          </div>
+          <div class="team-info">
+            <h3>Nome do profissional</h3>
+            <div class="team-role">Terapeuta Ocupacional · CREFITO 00000</div>
+            <p>Atividades terapêuticas e reinserção de rotinas.</p>
+          </div>
+        </article>
+      </div>
+      <p style="text-align: center; margin-top: 32px; font-size: 0.9rem; color: var(--text-muted);"><em>Informações dos profissionais pendentes de preenchimento com dados reais e verificados.</em></p>
+    </div>
+  </section>
+
+  <!-- ===== ESTRUTURA ===== -->
+  <section id="estrutura" class="section" style="background: #f9fbfd;">
+    <div class="container">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto;" class="reveal">
+        <div class="subtitle" style="text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem; font-weight: 600; color: var(--green-accent); margin-bottom: 12px;">Estrutura e instalações</div>
+        <h2>Espaços pensados para o acolhimento</h2>
+        <p>Ambientes organizados, iluminados e cuidadosamente preparados para proporcionar conforto, segurança e bem-estar.</p>
+      </div>
+
+      <div class="gallery-grid" id="gallery">
+        <div class="gallery-item" data-img="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&h=800&fit=crop&q=80">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=600&fit=crop&q=80" alt="Fachada e entrada da instituição" loading="lazy" width="600" height="600">
+        </div>
+        <div class="gallery-item" data-img="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&h=800&fit=crop&q=80">
+          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&h=400&fit=crop&q=80" alt="Quarto acolhedor e organizado" loading="lazy" width="400" height="400">
+        </div>
+        <div class="gallery-item" data-img="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=800&fit=crop&q=80">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=400&fit=crop&q=80" alt="Consultório com iluminação natural" loading="lazy" width="400" height="400">
+        </div>
+        <div class="gallery-item" data-img="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=1200&h=800&fit=crop&q=80">
+          <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=400&h=400&fit=crop&q=80" alt="Refeitório amplo e limpo" loading="lazy" width="400" height="400">
+        </div>
+        <div class="gallery-item" data-img="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&h=800&fit=crop&q=80">
+          <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400&h=400&fit=crop&q=80" alt="Área externa com jardim" loading="lazy" width="400" height="400">
+        </div>
+        <div class="gallery-item" data-img="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=800&fit=crop&q=80">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop&q=80" alt="Espaço de convivência acolhedor" loading="lazy" width="600" height="400">
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 24px; font-size: 0.85rem; color: var(--text-muted);"><em>Imagens ilustrativas. As fotografias reais da instituição serão inseridas posteriormente.</em></p>
+    </div>
+  </section>
+
+  <!-- ===== COMO FUNCIONA ===== -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto;" class="reveal">
+        <div class="subtitle" style="text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem; font-weight: 600; color: var(--green-accent); margin-bottom: 12px;">Como funciona o atendimento</div>
+        <h2>Um processo claro e acolhedor</h2>
+        <p>Entenda os primeiros passos para receber orientação e conhecer as possibilidades de atendimento.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-number">1</div>
+          <h3>Primeiro contato</h3>
+          <p>Entre em contato para esclarecer dúvidas e receber orientações iniciais com acolhimento e sigilo.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">2</div>
+          <h3>Avaliação</h3>
+          <p>Nossa equipe avalia a situação e explica as possibilidades de atendimento mais adequadas.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">3</div>
+          <h3>Próximos passos</h3>
+          <p>Orientamos sobre os critérios e procedimentos aplicáveis, respeitando o tempo e a individualidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ORIENTAÇÃO PARA FAMILIARES ===== -->
+  <div class="container">
+    <div class="family-section reveal">
+      <div class="family-content">
+        <h2>Orientação para familiares</h2>
+        <p>Sabemos que esse é um momento delicado para toda a família. Estamos aqui para oferecer escuta, informação e orientação sobre como buscar apoio e compreender as possibilidades de cuidado.</p>
+        <p style="margin-bottom: 28px;">Nossa equipe está disponível para conversar com você, esclarecer dúvidas e apresentar a instituição com transparência e respeito.</p>
+        <a href="#contato" class="btn btn-primary">Converse com nossa equipe</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto;" class="reveal">
+        <div class="subtitle" style="text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem; font-weight: 600; color: var(--green-accent); margin-bottom: 12px;">Perguntas frequentes</div>
+        <h2>Tire suas dúvidas</h2>
+        <p>Respostas objetivas sobre o atendimento e o funcionamento da instituição.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Quais são as modalidades de atendimento?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Oferecemos acolhimento residencial, acompanhamento ambulatorial e orientação familiar, conforme avaliação individual de cada caso. As modalidades disponíveis serão explicadas durante o primeiro contato.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Como funciona o processo de avaliação?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">A avaliação é realizada por nossa equipe multiprofissional, que busca compreender a situação de forma ampla e respeitosa, sem julgamentos. A partir disso, são apresentadas as possibilidades de atendimento.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Quais são os critérios de admissão?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Os critérios envolvem a adequação ao perfil da instituição e a disponibilidade de vagas. Tais critérios são explicados detalhadamente durante o processo de orientação, com transparência.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Quais são os custos e o que está incluído?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Os valores e serviços incluídos são informados de forma clara no momento do contato. Não há cobranças surpresa, e todos os detalhes são apresentados previamente.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Como funcionam as visitas e o contato com familiares?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">As visitas e formas de contato são organizadas de acordo com as normas da instituição e o plano de cuidado individual, sempre preservando o bem-estar de todos os atendidos.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Quem compõe a equipe profissional?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Nossa equipe é formada por profissionais das áreas de psicologia, psiquiatria, serviço social, terapia ocupacional e enfermagem, entre outros, atuando de forma integrada.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Quais documentos são necessários?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Documentos pessoais básicos, como RG e CPF, e informações sobre a situação de saúde. A lista completa é fornecida durante o processo de orientação, de acordo com cada caso.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">Há atendimento em situações de urgência?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Em casos de urgência, orientamos que a pessoa seja encaminhada a um serviço de emergência ou CAPS mais próximo. Nossa equipe pode orientar sobre os procedimentos adequados.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTATO CTA ===== -->
+  <section id="contato" class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="contact-cta reveal">
+        <div>
+          <h2>Estamos prontos para ouvir você.</h2>
+          <p>Entre em contato para esclarecer dúvidas, solicitar informações ou conhecer nossa estrutura. Nossa equipe está disponível para orientar pessoas e familiares com respeito e sigilo.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 24px; font-size: 0.95rem; color: rgba(255,255,255,0.75);">
+            <span>📞 (11) 92120-2110</span>
+            <span>✉️ contato@berseba.teste</span>
+            <span>📍 Endereço a ser informado</span>
+          </div>
+        </div>
+        <a href="#" class="btn btn-lg" onclick="event.preventDefault(); alert('Formulário de contato será implementado com dados reais. Entre em contato pelo telefone ou WhatsApp.');">Solicite informações</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" class="logo">
+          <span class="logo-icon" aria-hidden="true">R</span>
+          <span>Berseba Tratamentos</span>
+        </a>
+        <p>Instituição de acolhimento e recuperação dedicada ao cuidado de pessoas com dependência de álcool e outras substâncias, com respeito, segurança e profissionalismo.</p>
+      </div>
+
+      <div>
+        <h4>Navegação</h4>
+        <ul class="footer-links">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#clinica">A Clínica</a></li>
+          <li><a href="#tratamentos">Tratamentos</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+          <li><a href="#estrutura">Estrutura</a></li>
+          <li><a href="#faq">Perguntas Frequentes</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Institucional</h4>
+        <ul class="footer-links">
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="#">Registros e Certificações</a></li>
+          <li><a href="#">Responsável Técnico</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contato</h4>
+        <ul class="footer-links footer-contact">
+          <li><span>📞</span> (11) 92120-2110</li>
+          <li><span>✉️</span> contato@recantoesperanca.org</li>
+          <li><span>📍</span> Endereço a ser informado</li>
+          <li><span>🕐</span> Seg–Sex, 8h às 18h</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Berseba Tratamentos. Todos os direitos reservados.</span>
+      <span>Este site tem caráter informativo e não substitui avaliação profissional.</span>
+      <a href="#">Política de Privacidade</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flutuante -->
+<a href="https://wa.me/5511921202110" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Conversar pelo WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada da imagem">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Fechar visualização">×</button>
+  <img src="" alt="Imagem ampliada da estrutura" id="lightboxImg">
+</div>
+
+<script>
+  (function() {
+    'use strict';
+
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // Menu mobile toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    menuToggle.addEventListener('click', function() {
+      const isOpen = navMenu.classList.toggle('active');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.textContent = isOpen ? '✕' : '☰';
+    });
+
+    // Fechar menu ao clicar em um link
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+      });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', function() {
+        const item = this.parentElement;
+        const isActive = item.classList.contains('active');
+        // Fecha todos
+        document.querySelectorAll('.faq-item').forEach(faq => {
+          faq.classList.remove('active');
+          faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          faq.querySelector('.faq-answer').style.maxHeight = null;
+        });
+        if (!isActive) {
+          item.classList.add('active');
+          this.setAttribute('aria-expanded', 'true');
+          const answer = item.querySelector('.faq-answer');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Lightbox galeria
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', function() {
+        const imgSrc = this.dataset.img;
+        if (imgSrc) {
+          lightboxImg.src = imgSrc;
+          lightbox.classList.add('open');
+          document.body.style.overflow = 'hidden';
+          lightboxClose.focus();
+        }
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+        closeLightbox();
+      }
+    });
+
+    // Reveal animations
+    const revealElements = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      revealElements.forEach(el => observer.observe(el));
+    } else {
+      revealElements.forEach(el => el.classList.add('visible'));
+    }
+  })();
+</script>
+
+</body>
+</html>
